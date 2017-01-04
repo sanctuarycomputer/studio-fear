@@ -41,11 +41,11 @@
         <img src="{{ item.main_image|imageSize(200, 200) }}" />
       </li>
       <li>
-        <strong>Gallery: </strong>
+        <strong>Project Gallery: </strong>
         {# You can pull out a lot more information from the gallery property. Info here: #}
         {# http://www.webhook.com/docs/widget-template-reference/#image #}
         <ul>
-          {% for image in item.gallery %}
+          {% for image in item.project_gallery %}
             <li>
               {# You can get the raw image url by accessing image.url #}
               <img src="{{ image|imageSize(200, 200) }}">

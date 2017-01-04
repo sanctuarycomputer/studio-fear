@@ -1,9 +1,30 @@
 {# ------------------------------------------------------- #}
 
+{# YOUR HOMEPAGE #}
+
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+
+{# ------------------------------------------------------- #}
+
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
+{% block title %}{% parent %} - Homepage{% endblock %}
 
 {% block content %}
-  {% for image in cms.projects %}
-    <img class= "" src="{{ image.main_image.url }}"/>
-  {% endfor %}
+{% for project in cms.projects %}
+  <img class= "index-image " src="{{ project.main_image.url }}"/>
+  <div class= "panel">
+    {% for image in project.project_gallery %}
+    <img class= "project-images lg-hide" src="{{ image.url }}"/> 
+    {% endfor %}
+  </div>
+{% endfor %}
+
 {% endblock %}
