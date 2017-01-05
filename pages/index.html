@@ -18,13 +18,19 @@
 {% block title %}{% parent %} - Homepage{% endblock %}
 
 {% block content %}
-{% for project in cms.projects %}
-  <img class= "index-image " src="{{ project.main_image.url }}"/>
-  <div class= "panel">
-    {% for image in project.project_gallery %}
-    <img class= "project-images lg-hide" src="{{ image.url }}"/> 
-    {% endfor %}
-  </div>
-{% endfor %}
+<div class="clearfix ">
+  {% for project in cms.projects %}
+    <div class="button p3 col flex flex-wrap relative col-6 index-image " data-panel="{{ project._id }}">
+      <img class= " " src="{{ project.main_image.url }}"/>
+    </div>
+    <div class="panel clearfix col-12" id="panel-{{project._id}}">
+      <p class= "left-0 center col-6 mx2"> {{ project.name }}</p>
+      {% for image in project.project_gallery %}
+      <img class= "project-images col-right col-6 block right-0" src="{{ image.url }}"/>
+      <p class= "left-0 center col-6 mx2"> {{ image.caption }}</p>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

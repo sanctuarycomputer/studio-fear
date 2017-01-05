@@ -1,21 +1,16 @@
 window.onload = function (){
-  var featuredImage = document.querySelectorAll('.index-image');
-  var target, targetPanel;
-  var i;
-  var panel = document.querySelectorAll('.panel');
+  var featuredImages = document.querySelectorAll('.index-image');
+  var panels = document.querySelectorAll('.panel');
 
-  for (var i = 0; i < featuredImage.length; i++) {
-    target =featuredImage[i];
-    targetPanel = panel[i];
-    console.log(panel[i], target);
-    target.addEventListener("click", function featuredClick(){
-      targetPanel.classList.add("active");
-      console.log(targetPanel)
+  featuredImages.forEach(image => {
+    image.addEventListener('click', () => {
+      document.getElementById(`panel-${image.dataset.panel}`).classList.add('active-panel');
+    });
   });
-  targetPanel.addEventListener("click", function removeClick(){
-    targetPanel.classList.remove("active");
-    console.log(targetPanel)
-  });
-  }
 
+  panels.forEach(panel => {
+    panel.addEventListener('click', () => {
+      panel.classList.remove('active-panel');
+    });
+  });
 }
