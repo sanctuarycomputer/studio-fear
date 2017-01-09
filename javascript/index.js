@@ -16,8 +16,7 @@ window.onload = function (){
     });
   });
   menuButton.addEventListener('click', () => {
-      menuLinks.classList.toggle('is-active');
-
-      //console.log(menuLinks);
+    menuLinks.classList.toggle('is-active');
+    //console.log(menuLinks);
   });
 }

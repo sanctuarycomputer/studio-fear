@@ -20,7 +20,6 @@ window.onload = function () {
   });
   menuButton.addEventListener('click', function () {
     menuLinks.classList.toggle('is-active');
-
     //console.log(menuLinks);
   });
 };
