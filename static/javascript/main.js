@@ -2,11 +2,15 @@
 'use strict';
 
 window.onload = function () {
-  var menuButton = document.querySelector('.menu-button');
-  var menuLinks = document.querySelector('.menu-links');
-  menuButton.addEventListener('click', function () {
-    menuLinks.classList.toggle('is-active');
-    //console.log(menuLinks);
+  var menuButtonR = document.getElementById('rbutt');
+  var menuLinksR = document.getElementById('rlinks');
+  menuButtonR.addEventListener('click', function () {
+    menuLinksR.classList.toggle('is-active');
+  });
+  var menuButtonL = document.getElementById('lbutt');
+  var menuLinksL = document.getElementById('llinks');
+  menuButtonL.addEventListener('click', function () {
+    menuLinksL.classList.toggle('is-active');
   });
 };
 
