@@ -12,6 +12,8 @@
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
+
+{% include "templates/partials/menu.html" %}
 <div id="projects">
     <a class="project-title" href="/">
       <p class= "h1 m1"> {{ item.name }}</p>

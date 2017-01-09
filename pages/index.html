@@ -19,16 +19,7 @@
 
 {% block content %}
 <div class="clearfix">
-  <div id="menu">
-    <div class="menu-button" >
-      <p>[]</p>
-    </div>
-      <div class="menu-links">
-        <p class="h1 p0"><a class="text-decoration-none white" href="/contact">contact</a></p>
-        <p class="h1 p0"><a class="text-decoration-none white" href="#">stuff</a></p>
-        <p class="h1 p0"><a class="text-decoration-none white" href="#">stuff</a></p>
-      </div>
-   </div>
+  {% include "templates/partials/menu.html" %}
    <div class="index-image col-12">
     {% for project in cms.projects %}
       <a href="{{ url(project) }}">

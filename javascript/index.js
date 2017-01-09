@@ -1,8 +1,12 @@
 window.onload = function (){
-  var menuButton= document.querySelector('.menu-button');
-  var menuLinks= document.querySelector('.menu-links');
-  menuButton.addEventListener('click', () => {
-    menuLinks.classList.toggle('is-active');
-    //console.log(menuLinks);
+  var menuButtonR= document.getElementById('rbutt');
+  var menuLinksR= document.getElementById('rlinks');
+    menuButtonR.addEventListener('click', () => {
+    menuLinksR.classList.toggle('is-active');
+  });
+  var menuButtonL= document.getElementById('lbutt');
+  var menuLinksL= document.getElementById('llinks');
+    menuButtonL.addEventListener('click', () => {
+    menuLinksL.classList.toggle('is-active');
   });
 }
