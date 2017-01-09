@@ -16,12 +16,12 @@ window.onload = function () {
   projectTitle.forEach(function (title) {
     title.addEventListener('click', function () {
       title.parentNode.classList.remove('active-panel');
-      //    panel.classList.remove('active-panel');
     });
   });
   menuButton.addEventListener('click', function () {
     menuLinks.classList.toggle('is-active');
-    console.log(menuLinks);
+
+    //console.log(menuLinks);
   });
 };
 

@@ -13,11 +13,11 @@ window.onload = function (){
   projectTitle.forEach(title => {
     title.addEventListener('click', () => {
       title.parentNode.classList.remove('active-panel');
-  //    panel.classList.remove('active-panel');
     });
   });
   menuButton.addEventListener('click', () => {
       menuLinks.classList.toggle('is-active');
-      console.log(menuLinks);
+
+      //console.log(menuLinks);
   });
 }

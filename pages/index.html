@@ -31,7 +31,7 @@
    </div>
   {% for project in cms.projects %}
     <div class="index-image col-12" data-panel="{{ project._id }}">
-      <img class= "col-6 fit" src="{{ project.main_image.url }}"/>
+      <img class= " index-image col-6 fit" src="{{ project.main_image.url }}"/>
     </div>
     <div class="panel" id="panel-{{project._id}}">
       <p class= "h1 project-title m1" data-panel="panel-{{project._id}}"> {{ project.name }}</p>
