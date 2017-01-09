@@ -7,4 +7,33 @@ html {
   padding: 0;
 }
 
+#menu .menu-links {
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  position: absolute;
+  transition-duration: 0.3s, 0.3s;
+  overflow-x: hidden;
+  z-index: 0;
+}
+#menu .menu-button {
+  background-color: transparent;
+  cursor: pointer;
+  transition-duration: 0.3s, 0.3s;
+}
+#menu .is-active {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  opacity: 1;
+  z-index: 10;
+  transition-duration: 0.3s, 0.3s;
+}
+
+#projects .index-image {
+  flex-wrap: wrap;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+}
+
 /*# sourceMappingURL=main.css.map */
