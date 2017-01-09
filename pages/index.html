@@ -19,32 +19,23 @@
 
 {% block content %}
 <div class="clearfix">
-  <div class="menu">
-    <div class="menu-button center" >
+  <div id="menu">
+    <div class="menu-button" >
       <p>[]</p>
     </div>
-      <div class="menu-links center">
+      <div class="menu-links">
         <p class="h1 p0"><a class="text-decoration-none white" href="/contact">contact</a></p>
         <p class="h1 p0"><a class="text-decoration-none white" href="#">stuff</a></p>
         <p class="h1 p0"><a class="text-decoration-none white" href="#">stuff</a></p>
       </div>
    </div>
-  {% for project in cms.projects %}
-    <div class="index-image col-12" data-panel="{{ project._id }}">
-      <img class= " index-image col-6 fit" src="{{ project.main_image.url }}"/>
-    </div>
-    <div class="panel" id="panel-{{project._id}}">
-      <p class= "h1 project-title m1" data-panel="panel-{{project._id}}"> {{ project.name }}</p>
-      <div class="col-6 right">
-        {% for image in project.project_gallery %}
-          <img class= "project-images m1 fit mx-auto block" src="{{ image.url }}" />
-        {% endfor %}
-      </div>
-      {% for image in project.project_gallery %}
-      <p class= "col-5 m1"> {{ image.caption }}</p>
-      {% endfor %}
-    </div>
-  {% endfor %}
+   <div class="index-image col-12">
+    {% for project in cms.projects %}
+      <a href="{{ url(project) }}">
+        <img class= "index-image col-6 fit" src="{{ project.main_image.url }}"/>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
