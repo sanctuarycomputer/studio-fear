@@ -16,6 +16,9 @@ html {
   overflow-x: hidden;
   z-index: 0;
 }
+#menu .filters:hover {
+  cursor: pointer;
+}
 #menu .menu-button {
   background-color: transparent;
   cursor: pointer;
