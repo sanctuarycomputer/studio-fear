@@ -1,0 +1,13 @@
+.index-grid{
+  .grid-sizer,
+  .index-grid-item {
+    width: 50%;
+  }
+  .index-grid-item {
+    float: left;
+  }
+  .index-grid-item img {
+    display: block;
+    max-width: 100%;
+  }
+}

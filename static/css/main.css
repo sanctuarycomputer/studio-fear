@@ -31,11 +31,28 @@ html {
   transition-duration: 0.3s, 0.3s;
 }
 
-#projects .index-image {
-  flex-wrap: wrap;
-  z-index: 5;
-  display: flex;
-  align-items: center;
+.index-grid .grid-sizer,
+.index-grid .index-grid-item {
+  width: 50%;
+}
+.index-grid .index-grid-item {
+  float: left;
+}
+.index-grid .index-grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+#projects .grid .grid-sizer,
+#projects .grid .grid-item {
+  width: 50%;
+}
+#projects .grid .grid-item {
+  float: left;
+}
+#projects .grid .grid-item img {
+  display: block;
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */
