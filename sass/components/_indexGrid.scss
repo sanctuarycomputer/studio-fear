@@ -1,7 +1,8 @@
 .index-grid{
   .grid-sizer,
   .index-grid-item {
-    width: 45%;
+    width: 50%;
+    @include aspect-ratio(1, 1);
   }
   .index-grid-item {
     float: left;

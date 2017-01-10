@@ -36,7 +36,23 @@ html {
 
 .index-grid .grid-sizer,
 .index-grid .index-grid-item {
-  width: 45%;
+  width: 50%;
+  position: relative;
+}
+.index-grid .grid-sizer:before,
+.index-grid .index-grid-item:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 100%;
+}
+.index-grid .grid-sizer > .content,
+.index-grid .index-grid-item > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .index-grid .index-grid-item {
   float: left;
