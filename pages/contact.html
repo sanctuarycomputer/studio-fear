@@ -12,59 +12,34 @@
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
-  <h1>{{ cms.contact.name }}</h1>
-  <ul>
-      <li>
-        <strong>Name: </strong>
-        {{ cms.contact.name }}
-      </li>
-      <li>
-        <strong>Create Date: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ cms.contact.create_date|date('F d Y') }}
-      </li>
-      <li>
-        <strong>Last Updated: </strong>
-        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
-        {{ cms.contact.last_updated|date('F d Y') }}
-      </li>
-      <li>
-        <strong>WYSIWYG text: </strong>
-        {{ cms.contact.wysiwyg_text|safe }}
-      </li>
-      <li>
-        <strong>Gallery: </strong>
-        {# You can pull out a lot more information from the gallery property. Info here: #}
-        {# http://www.webhook.com/docs/widget-template-reference/#image #}
-        <ul>
-          {% for image in cms.contact.gallery %}
-            <li>
-              {# You can get the raw image url by accessing image.url #}
-              <img src="{{ image|imageSize(200, 200) }}">
-              <div>{{ image.caption }}</div>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-      <li>
-        <strong>Email: </strong>
-        {{ cms.contact.email }}
-      </li>
-      <li>
-        <strong>Phone number: </strong>
-        {{ cms.contact.phone_number }}
-      </li>
-      <li>
-        <strong>WYSIWYG text 1: </strong>
-        {{ cms.contact.wysiwyg_text_1|safe }}
-      </li>
-      <li>
-        <strong>Preview URL: </strong>
-        {{ cms.contact.preview_url }}
-      </li>
-      <li>
-        <strong>Slug: </strong>
-        {{ cms.contact.slug }}
-      </li>
-  </ul>
+<div class="about-contact">
+  {% include "templates/partials/menu.html" %}
+  <div class="name-text-about col-6 left">
+    <p>{{ cms.contact.name }}</p>
+    <p>{{ cms.contact.markdown_text }}</p>
+  </div>
+  <div class="col-6 right">
+    {% for image in cms.contact.gallery %}
+      <img class="max-width-1" src="{{ image.url }}">
+    {% endfor %}
+    <div class="contact-info">
+      <p>Contact:</p>
+      <p>{{ cms.contact.email }}</p>
+      <p>{{ cms.contact.phone_number }}</p>
+      {% for item in cms.contact.social_media %}
+        <a href="{{ item.link }}" target="_blank">
+          {{ item.social_network }}
+        </a>
+      {% endfor %}
+    </div>
+    <div class="features">
+      <p>Features:</p>
+      {% for item in cms.contact.features %}
+        <a href="{{ item.website }}" target="_blank">
+          {{ item.name_of_publication }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}
