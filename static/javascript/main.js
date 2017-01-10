@@ -2,6 +2,7 @@
 'use strict';
 
 window.onload = function () {
+
   var menuButtonR = document.getElementById('rbutt');
   var menuLinksR = document.getElementById('rlinks');
   menuButtonR.addEventListener('click', function () {

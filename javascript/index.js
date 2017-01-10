@@ -1,4 +1,5 @@
 window.onload = function (){
+
   var menuButtonR= document.getElementById('rbutt');
   var menuLinksR= document.getElementById('rlinks');
     menuButtonR.addEventListener('click', () => {
@@ -9,4 +10,5 @@ window.onload = function (){
     menuButtonL.addEventListener('click', () => {
     menuLinksL.classList.toggle('is-active');
   });
+
 }

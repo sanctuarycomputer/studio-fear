@@ -12,30 +12,31 @@
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
-<div class="about-contact">
-  {% include "templates/partials/menu.html" %}
-  <div class="name-text-about col-6 left">
-    <p>{{ cms.contact.name }}</p>
-    <p>{{ cms.contact.markdown_text }}</p>
+{% include "templates/partials/menu.html" %}
+
+<div class="about-contact h2 pt2">
+  <div class="name-text-about pl2 col-6 left">
+    <p class="bold">{{ cms.contact.name }}</p>
+    <p class="pt2">{{ cms.contact.markdown_text }}</p>
   </div>
-  <div class="col-6 right">
+  <div class="right">
     {% for image in cms.contact.gallery %}
-      <img class="max-width-1" src="{{ image.url }}">
+      <img class="max-width-1 pr2" src="{{ image.url }}">
     {% endfor %}
-    <div class="contact-info">
-      <p>Contact:</p>
+    <div class="contact-info pt2 pr2">
+      <p class="underline bold">Contact:</p>
       <p>{{ cms.contact.email }}</p>
       <p>{{ cms.contact.phone_number }}</p>
       {% for item in cms.contact.social_media %}
-        <a href="{{ item.link }}" target="_blank">
+        <a class="text-decoration-none" href="{{ item.link }}" target="_blank">
           {{ item.social_network }}
         </a>
       {% endfor %}
     </div>
-    <div class="features">
-      <p>Features:</p>
+    <div class="features pt2 pr2">
+      <p class="underline bold">Features:</p>
       {% for item in cms.contact.features %}
-        <a href="{{ item.website }}" target="_blank">
+        <a class="text-decoration-none" href="{{ item.website }}" target="_blank">
           {{ item.name_of_publication }}
         </a>
       {% endfor %}
