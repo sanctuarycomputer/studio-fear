@@ -5,7 +5,8 @@ html {
   margin:0;
   padding:0;
 }
+@import 'mixin';
+
 @import 'components/menu';
 @import 'components/indexGrid';
 @import 'routes/projects';
-@import 'mixins';

@@ -3,9 +3,8 @@
   .index-grid-item {
     width: 50%;
     @include aspect-ratio(1, 1);
-  }
-  .index-grid-item {
     background-repeat:no-repeat;
-    max-width: 100%;
+    background-size: contain;
+    background-position: 50% 50%;
   }
 }
