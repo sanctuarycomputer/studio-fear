@@ -20,10 +20,6 @@ window.onload = function () {
 
   $('.filters').on('click', function () {
     var filterValue = $(this).attr('data-filter');
-    // use filterFn if matches value
-    //filterValue = filterFns[ filterValue ] || filterValue;
-    console.log(filterValue);
-
     $grid.isotope({ filter: filterValue });
   });
 };
