@@ -1,0 +1,16 @@
+.feed{
+  .feed-gallery{
+    position:relative;
+    display: inline-block;
+    float:left;
+    width:100%;
+    @include aspect-ratio(4, 2);
+    .content{
+      .feed-image {
+        background-repeat:no-repeat;
+        background-size: contain;
+        background-position: 50% 50%;
+      }
+    }
+  }
+}

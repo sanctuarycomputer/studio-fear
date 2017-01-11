@@ -13,7 +13,15 @@
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
 {% include "templates/partials/menu.html" %}
+<div class="feed clearfix">
+  <div class="feed-container pt2 col-12">
     {% for row in cms.feed.grid %}
-      <img src="{{ row.image.url }}" />
+    <div class="feed-gallery">
+        <div class="content">
+           <div class="feed-image" style="background-image: url({{ row.image.url }}"></div>
+        </div>
+    </div>
     {% endfor %}
+  </div>
+</div>
 {% endblock %}
