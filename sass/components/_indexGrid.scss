@@ -2,12 +2,9 @@
   .grid-sizer,
   .index-grid-item {
     width: 50%;
-  }
-  .index-grid-item {
-    float: left;
-  }
-  .index-grid-item img {
-    display: block;
-    max-width: 100%;
+    @include aspect-ratio(1, 1);
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
   }
 }

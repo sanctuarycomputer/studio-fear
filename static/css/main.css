@@ -16,6 +16,9 @@ html {
   overflow-x: hidden;
   z-index: 0;
 }
+#menu .filters:hover {
+  cursor: pointer;
+}
 #menu .menu-button {
   background-color: transparent;
   cursor: pointer;
@@ -34,13 +37,17 @@ html {
 .index-grid .grid-sizer,
 .index-grid .index-grid-item {
   width: 50%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
 }
-.index-grid .index-grid-item {
-  float: left;
-}
-.index-grid .index-grid-item img {
+.index-grid .grid-sizer:before,
+.index-grid .index-grid-item:before {
   display: block;
-  max-width: 100%;
+  content: "";
+  width: 100%;
+  padding-top: 100%;
 }
 
 #projects .grid .grid-sizer,
