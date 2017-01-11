@@ -22,11 +22,10 @@
   {% include "templates/partials/menu.html" %}
    <div class="index-grid pt2 index-image col-12" >
     {% for project in cms.projects %}
-    <div class="index-grid-item">
-      <a class="content" href="{{ url(project) }}">
-         <div class= "{% for filter in project.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url("{{ project.main_image.url }}")"/></div
+      <a class="" href="{{ url(project) }}">
+        <div class="index-grid-item content {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ project.main_image.url }})">
+        </div>
       </a>
-    </div>
     {% endfor %}
   </div>
 </div>

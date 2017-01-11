@@ -46,19 +46,8 @@ html {
   width: 100%;
   padding-top: 100%;
 }
-.index-grid .grid-sizer > .content,
-.index-grid .index-grid-item > .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 .index-grid .index-grid-item {
-  float: left;
-}
-.index-grid .index-grid-item img {
-  display: block;
+  background-repeat: no-repeat;
   max-width: 100%;
 }
 
