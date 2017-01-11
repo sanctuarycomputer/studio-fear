@@ -18,15 +18,15 @@
 {% block title %}{% parent %} - Homepage{% endblock %}
 
 {% block content %}
-<div class="clearfix">
-  {% include "templates/partials/menu.html" %}
-   <div class="index-grid pt2 index-image col-12" >
-    {% for project in cms.projects %}
-      <a href="{{ url(project) }}">
-         <img class= "index-grid-item {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" src="{{ project.main_image.url }}"/>
-      </a>
-    {% endfor %}
+  <div class="clearfix">
+    {% include "templates/partials/menu.html" %}
+     <div class="index-grid pt2 index-image col-12" >
+      {% for project in cms.projects %}
+        <a class="" href="{{ url(project) }}">
+          <div class="index-grid-item content {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ project.main_image.url }})">
+          </div>
+        </a>
+      {% endfor %}
+    </div>
   </div>
-</div>
-
 {% endblock %}
