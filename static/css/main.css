@@ -16,6 +16,9 @@ html {
   overflow-x: hidden;
   z-index: 0;
 }
+#menu .filters:hover {
+  cursor: pointer;
+}
 #menu .menu-button {
   background-color: transparent;
   cursor: pointer;
@@ -33,7 +36,7 @@ html {
 
 .index-grid .grid-sizer,
 .index-grid .index-grid-item {
-  width: 50%;
+  width: 45%;
 }
 .index-grid .index-grid-item {
   float: left;

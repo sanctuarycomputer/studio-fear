@@ -20,10 +20,10 @@
 {% block content %}
 <div class="clearfix">
   {% include "templates/partials/menu.html" %}
-   <div class="index-grid index-image col-12">
+   <div class="index-grid pt2 index-image col-12" >
     {% for project in cms.projects %}
       <a href="{{ url(project) }}">
-        <img class= "index-grid-item index-image col-6 fit" src="{{ project.main_image.url }}"/>
+         <img class= "index-grid-item {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" src="{{ project.main_image.url }}"/>
       </a>
     {% endfor %}
   </div>

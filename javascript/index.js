@@ -9,4 +9,19 @@ window.onload = function (){
     menuButtonL.addEventListener('click', () => {
     menuLinksL.classList.toggle('is-active');
   });
+
+  var $grid = $('.index-grid').isotope({
+    itemSelector: '.index-grid-item',
+    layoutMode: 'fitRows',
+  });
+
+  $('.filters').on( 'click', function() {
+    var filterValue = $( this ).attr('data-filter');
+    // use filterFn if matches value
+    //filterValue = filterFns[ filterValue ] || filterValue;
+    console.log(filterValue);
+
+    $grid.isotope({ filter: filterValue });
+  });
+
 }
