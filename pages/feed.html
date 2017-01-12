@@ -16,11 +16,14 @@
 <div class="feed clearfix">
   <div class="feed-container pt2 col-12">
     {% for row in cms.feed.grid %}
-    <div class="feed-gallery">
-        <div class="content">
-           <div class="feed-image" style="background-image: url({{ row.image.url }}"></div>
-        </div>
+    <div class='scene' data-top="visibility: visible;" data-top-bottom="visibility: hidden;" style='z-index:{{loop.revindex}}'>
+      <div class="feed-gallery">
+          <div class="content" style="">
+             <div class="feed-image" style="position:fixed; background-image: url({{ row.image.url }})"></div>
+          </div>
+      </div>
     </div>
+
     {% endfor %}
   </div>
 </div>

@@ -1,3 +1,7 @@
+// import scrollspy from 'scrollspy';
+import skrollr from 'skrollr';
+
+
 window.onload = function (){
   var menuButtonR= document.getElementById('rbutt');
   var menuLinksR= document.getElementById('rlinks');
@@ -20,4 +24,28 @@ window.onload = function (){
     $grid.isotope({ filter: filterValue });
   });
 
+  addSkrollr();
+  // addScrollspy();
+}
+
+// const addScrollspy = () => {
+//   $('.feed-image').each(function() {
+//     var me = this
+//     var $me = $(me)
+//     console.log(me)
+//
+//    scrollspy.add(me, {
+//      scrollIn: function() {
+//        console.log('im here!')
+//        $me.addClass('show')
+//      },
+//      scrollOut: function() {
+//        $me.removeClass('show')
+//      }
+//    })
+//  })
+// }
+
+const addSkrollr = () => {
+  let s = skrollr.init();
 }
