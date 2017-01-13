@@ -34,20 +34,65 @@ html {
   transition-duration: 0.3s, 0.3s;
 }
 
-.index-grid .grid-sizer,
 .index-grid .index-grid-item {
-  width: 50%;
   position: relative;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 50% 50%;
+  width: 50%;
+  display: inline-block;
+  float: left;
 }
-.index-grid .grid-sizer:before,
 .index-grid .index-grid-item:before {
   display: block;
   content: "";
-  width: 100%;
   padding-top: 100%;
+}
+.index-grid .index-grid-item > .content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+.index-grid .index-grid-item:nth-child(8n+1) .content .image {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 25%;
+}
+.index-grid .index-grid-item:nth-child(8n+2) .content .image {
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.index-grid .index-grid-item:nth-child(8n+3) .content .image {
+  width: 100%;
+  height: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+.index-grid .index-grid-item:nth-child(8n+4) .content .image {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 25%;
+}
+.index-grid .index-grid-item:nth-child(8n+5) .content .image {
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.index-grid .index-grid-item:nth-child(8n+6) .content .image {
+  width: 100%;
+  height: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+.index-grid .index-grid-item .grid-sizer .image,
+.index-grid .index-grid-item .content .image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #projects .grid .grid-sizer,
@@ -56,10 +101,35 @@ html {
 }
 #projects .grid .grid-item {
   float: left;
-}
-#projects .grid .grid-item img {
   display: block;
   max-width: 100%;
+}
+
+.feed .feed-gallery {
+  display: inline-block;
+  float: left;
+  width: 100%;
+}
+.feed .feed-gallery .content .feed-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+  top: 0;
+}
+.feed .scene {
+  height: 10vh;
+  width: 100vw;
+  background-color: transparent;
+  position: relative;
+  visibility: hidden;
+  overflow: hidden;
+}
+.feed .scene .skrollable-between {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=main.css.map */

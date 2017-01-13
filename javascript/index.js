@@ -1,3 +1,5 @@
+import skrollr from 'skrollr';
+
 window.onload = function (){
   var menuButtonR= document.getElementById('rbutt');
   var menuLinksR= document.getElementById('rlinks');
@@ -20,4 +22,8 @@ window.onload = function (){
     $grid.isotope({ filter: filterValue });
   });
 
+  addSkrollr();
+}
+const addSkrollr = () => {
+  let s = skrollr.init();
 }
