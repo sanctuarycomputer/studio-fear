@@ -30,28 +30,7 @@ window.onload = function () {
   });
 
   addSkrollr();
-  // addScrollspy();
 };
-
-// const addScrollspy = () => {
-//   $('.feed-image').each(function() {
-//     var me = this
-//     var $me = $(me)
-//     console.log(me)
-//
-//    scrollspy.add(me, {
-//      scrollIn: function() {
-//        console.log('im here!')
-//        $me.addClass('show')
-//      },
-//      scrollOut: function() {
-//        $me.removeClass('show')
-//      }
-//    })
-//  })
-// }
-
-// import scrollspy from 'scrollspy';
 var addSkrollr = function addSkrollr() {
   var s = _skrollr2.default.init();
 };
