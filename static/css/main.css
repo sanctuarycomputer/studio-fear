@@ -110,6 +110,18 @@ html {
   float: left;
   width: 100%;
 }
+.feed .feed-gallery:before {
+  display: block;
+  content: "";
+  padding-top: 50%;
+}
+.feed .feed-gallery > .content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
 .feed .feed-gallery .content .feed-image {
   background-repeat: no-repeat;
   background-size: contain;
@@ -128,8 +140,31 @@ html {
   visibility: hidden;
   overflow: hidden;
 }
-.feed .scene .skrollable-between {
-  opacity: 1;
+
+.object-page .object-container {
+  width: 100%;
+  height: 100%;
+}
+.object-page .object-container .object-gallery {
+  position: relative;
+  display: inline-block;
+  float: right;
+  top: 0;
+  right: 0;
+  overflow: scroll;
+}
+.object-page .object-container .object-gallery .content .object-image {
+  margin-left: 0%;
+  margin-top: 0%;
+}
+.object-page .object-container .object-text-container {
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.object-page .object-container .object-text-container .project-info {
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
