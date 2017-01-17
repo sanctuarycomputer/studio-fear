@@ -3,7 +3,7 @@
     display: inline-block;
     float:left;
     width:100%;
-    // @include aspect-ratio(4, 2);
+     @include aspect-ratio(4, 2);
     .content{
       // min-height: 200vh;
       .feed-image {
@@ -23,10 +23,7 @@
     width: 100vw;
     background-color: transparent;
     position: relative;
-   visibility: hidden;
+    visibility: hidden;
     overflow:hidden;
-    .skrollable-between{
-      opacity:1;
-    }
   }
 }

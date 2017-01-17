@@ -1,0 +1,34 @@
+{# ------------------------------------------------------- #}
+{# ONE OFF VIEW object #}
+{# This page can use any data from http:localhost:2000/cms/#/form/object/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
+{% block content %}
+<div class="object-page">
+  {% include "templates/partials/menu.html" %}
+    {% for row in cms.object.grid %}
+    <div class="object-container border-bottom col col-12">
+      <div class="object-text-container col col-6 ">
+        <p class="title">{{ row.title }}</p>
+        <p class="project-info">
+          {{ row.text|markdown }}
+        </p>
+      </div>
+      <div class="object-gallery right col col-6">
+        {% for image in row.gallery %}
+          <img class="object-image fit" src="{{ image.url}}">
+        {% endfor %}
+        <div class="gallery-bottom"></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
