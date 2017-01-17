@@ -15,20 +15,22 @@
 
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
-<div id="projects">
-    <a class="exit-button text-decoration-none" href="/">
-      <p class= "h5 exil right top-0 px2"> EXIT</p>
-    </a>
-    <div class="project-title block col-6 px2 py2">
-      <p class= "h1 millerbannerroman"> {{ item.name }}</p>
-    </div>
-    <div class="col-6 px2 top-0 right">
-      {% for image in item.project_gallery %}
-        <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />
-      {% endfor %}
-    </div>
-    <div class="col-6 h1 px2 project-text">
-      {{ item.markdown_text|markdown }}
-    </div>
+<div class="" id="projects">
+  <a class="exit-button text-decoration-none" href="/">
+    <p class= "h6 exil right top-0 pt1 px2">
+    EXIT
+    </p>
+  </a>
+  <div class="col-6 px2 absolute right-0 pt2">
+    {% for image in item.project_gallery %}
+      <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />
+    {% endfor %}
+  </div>
+  <div class="project-title col-6 px2 py2">
+    <p class= "millerbannerroman mt2"> {{ item.name }}</p>
+  </div>
+  <div class="col-5 px2 project-text">
+    {{ item.markdown_text|markdown }}
+  </div>
 </div>
 {% endblock %}
