@@ -9,6 +9,7 @@
     <div class="menu-button menu-left left" id="lbutt">
       <p>[]</p>
     </div>
+    {% if !config.hideFilter %}
     <div class="menu-links menu-right center" id="rlinks">
       {% for item in cms.filters %}
         <p class="h1 filters exil p0" data-filter=".{{ item.name  }}">{{ item.name  }}</p>
@@ -17,5 +18,6 @@
     <div class="menu-button menu-right right" id="rbutt">
       <p>[]</p>
     </div>
+    {% endif %}
   </div>
  </div>

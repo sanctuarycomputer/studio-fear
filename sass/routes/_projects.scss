@@ -10,4 +10,19 @@
       max-width: 100%;
     }
   }
+  .project-text{
+    p{
+      font-family: "Miller Ban Lt";
+      @media (max-width:48em) {
+        font-size: 1rem;
+      }
+    }
+  }
+  .project-title{
+    p{
+      @media (max-width:48em) {
+        font-size: 1rem;
+      }
+    }
+  }
 }

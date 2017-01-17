@@ -5,6 +5,18 @@ html {
   margin:0;
   padding:0;
 }
+
+$sm: (min-width: 36em);
+$md: (min-width: 52em);
+$lg: (min-width: 60em);
+$xl: (min-width: 72em);
+$xx: (min-width: 84em);
+$breakpoints: (
+  'sm': $sm,
+  'md': $md,
+  'lg': $lg,
+);
+
 @import 'mixin';
 
 @import 'components/menu';

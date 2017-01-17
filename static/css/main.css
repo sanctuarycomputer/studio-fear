@@ -107,6 +107,19 @@ html {
   display: block;
   max-width: 100%;
 }
+#projects .project-text p {
+  font-family: "Miller Ban Lt";
+}
+@media (max-width: 48em) {
+  #projects .project-text p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 48em) {
+  #projects .project-title p {
+    font-size: 1rem;
+  }
+}
 
 .feed .feed-gallery {
   display: inline-block;

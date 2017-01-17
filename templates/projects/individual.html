@@ -13,16 +13,22 @@
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
 
+{% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
 <div id="projects">
-    <a class="project-title" href="/">
-      <p class= "h1 m1"> {{ item.name }}</p>
+    <a class="exit-button text-decoration-none" href="/">
+      <p class= "h5 exil right top-0 px2"> EXIT</p>
     </a>
-    <div class="col-6 right">
+    <div class="project-title block col-6 px2 py2">
+      <p class= "h1 millerbannerroman"> {{ item.name }}</p>
+    </div>
+    <div class="col-6 px2 top-0 right">
       {% for image in item.project_gallery %}
-        <img class= "project-images m1 fit mx-auto block" src="{{ image.url }}" />
+        <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />
       {% endfor %}
     </div>
-    <p class= "col-5 m1">{{ item.markdown_text|markdown }}</p>
+    <div class="col-6 h1 px2 project-text">
+      {{ item.markdown_text|markdown }}
+    </div>
 </div>
 {% endblock %}
