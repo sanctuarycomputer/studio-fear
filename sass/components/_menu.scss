@@ -7,11 +7,13 @@
     transition-duration: 0.3s, 0.3s;
     overflow-x: hidden;
     z-index:0;
+    a{
+      color:black;
+    }
   }
   .filters:hover{
     cursor:pointer;
   }
-  
   .menu-button {
     background-color: transparent;
     cursor: pointer;
