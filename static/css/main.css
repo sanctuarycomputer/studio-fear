@@ -1,229 +1,104 @@
-html {
-  -webkit-font-smoothing: antialiased;
-}
+/*
+Error: (min-width: 52em) isn't a valid CSS value.
+        on line 28 of sass/routes/_object.scss
+        from line 10 of sass/main.scss
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-#menu .menu-links {
-  width: 100%;
-  height: 0%;
-  opacity: 0;
-  position: absolute;
-  transition-duration: 0.3s, 0.3s;
-  overflow-x: hidden;
-  z-index: 0;
-}
-#menu .menu-links a {
-  color: black;
-}
-#menu .filters:hover {
-  cursor: pointer;
-}
-#menu .menu-button {
-  background-color: transparent;
-  cursor: pointer;
-  z-index: 10;
-  transition-duration: 0.3s, 0.3s;
-  position: relative;
-}
-#menu .is-active {
-  background-color: rgba(255, 255, 255, 0.5);
-  height: 100%;
-  opacity: 1;
-  z-index: 8;
-  transition-duration: 0.3s, 0.3s;
-}
-
-.index-grid .index-grid-item {
-  position: relative;
-  width: 50%;
-  display: inline-block;
-  float: left;
-}
-.index-grid .index-grid-item:before {
-  display: block;
-  content: "";
-  padding-top: 100%;
-}
-.index-grid .index-grid-item > .content {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-}
-.index-grid .index-grid-item:nth-child(8n+1) .content .image {
-  width: 50%;
-  height: 50%;
-  margin-left: 25%;
-  margin-top: 25%;
-}
-.index-grid .index-grid-item:nth-child(8n+2) .content .image {
-  width: 80%;
-  height: 80%;
-  margin-left: 10%;
-  margin-top: 5%;
-}
-.index-grid .index-grid-item:nth-child(8n+3) .content .image {
-  width: 100%;
-  height: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
-}
-.index-grid .index-grid-item:nth-child(8n+4) .content .image {
-  width: 50%;
-  height: 50%;
-  margin-left: 25%;
-  margin-top: 25%;
-}
-.index-grid .index-grid-item:nth-child(8n+5) .content .image {
-  width: 80%;
-  height: 80%;
-  margin-left: 10%;
-  margin-top: 5%;
-}
-.index-grid .index-grid-item:nth-child(8n+6) .content .image {
-  width: 100%;
-  height: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
-}
-.index-grid .index-grid-item .grid-sizer .image,
-.index-grid .index-grid-item .content .image {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-#projects .grid .grid-sizer,
-#projects .grid .grid-item {
-  width: 50%;
-}
-#projects .grid .grid-item {
-  float: left;
-  display: block;
-  max-width: 100%;
-}
-#projects .project-text p {
-  font-size: 2.5rem;
-  font-family: "Miller Ban Lt";
-}
-@media (max-width: 48em) {
-  #projects .project-text p {
-    font-size: 1.5rem;
-  }
-}
-#projects .project-title p {
-  font-size: 2.5rem;
-}
-@media (max-width: 48em) {
-  #projects .project-title p {
-    font-size: 1.5rem;
-    width: 95%;
-  }
-}
-#projects .exit-button {
-  float: right;
-  z-index: 10;
-  cursor: pointer;
-}
-#projects .project-images {
-  z-index: 0;
-  float: right;
-}
-@media (max-width: 48em) {
-  #projects .project-images {
-    width: 95%;
-  }
-}
-
-.feed .feed-gallery {
-  display: inline-block;
-  float: left;
-  width: 100%;
-}
-.feed .feed-gallery:before {
-  display: block;
-  content: "";
-  padding-top: 50%;
-}
-.feed .feed-gallery > .content {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-}
-.feed .feed-gallery .content .feed-image {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
-  top: 0;
-}
-.feed .scene {
-  height: 10vh;
-  width: 100vw;
-  background-color: transparent;
-  position: relative;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-.object-page .object-container {
-  width: 100%;
-  height: 100%;
-}
-.object-page .object-container .object-gallery {
-  position: relative;
-  display: inline-block;
-  float: right;
-  top: 0;
-  right: 0;
-  overflow: scroll;
-}
-.object-page .object-container .object-gallery .content .object-image {
-  margin-left: 0%;
-  margin-top: 0%;
-}
-.object-page .object-container .object-text-container {
-  float: left;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.object-page .object-container .object-text-container .project-info {
-  background-color: white;
-}
-
-.millerbannerroman {
-  font-family: "Miller Ban Rom";
-  font-style: Normal;
-  font-weight: Normal;
-}
-
-.millerbannerlight {
-  font-family: "Miller Ban Lt";
-  font-style: Normal;
-  font-weight: Normal;
-}
-
-@font-face {
-  font-family: 'exil71medium';
-  src: url("/static/fonts/exil71-webfont.eot");
-  src: url("/static/fonts/exil71-webfont.eot?#iefix") format("embedded-opentype"), url("/static/fonts/exil71-webfont.woff2") format("woff2"), url("/static/fonts/exil71-webfont.woff") format("woff"), url("/static/fonts/exil71-webfont.ttf") format("truetype"), url("/static/fonts/exil71-webfont.svg#exil71medium") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-.exil {
-  font-family: "exil71medium", sans-serif;
-  text-transform: uppercase;
-}
-
-/*# sourceMappingURL=main.css.map */
+Backtrace:
+sass/routes/_object.scss:28
+sass/main.scss:10
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/script/value/map.rb:52:in `to_s'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:542:in `block in run_interp_no_strip'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:540:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:540:in `run_interp_no_strip'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:547:in `run_interp'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:512:in `visit_media'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:328:in `block (2 levels) in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:328:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:328:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:391:in `run'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: (min-width: 52em) isn't a valid CSS value.\A         on line 28 of sass/routes/_object.scss\A         from line 10 of sass/main.scss"; }

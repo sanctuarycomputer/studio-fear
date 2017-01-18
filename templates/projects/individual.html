@@ -15,12 +15,9 @@
 
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
+{% include "templates/partials/exit-button.html" %}
+
 <div class="" id="projects">
-  <a class="exit-button absolute right-0 text-decoration-none" href="/">
-    <p class= "h6 exil top-0 pt1 px2">
-    EXIT
-    </p>
-  </a>
   <div class="col-6 px2 absolute right-0 pt2">
     {% for image in item.project_gallery %}
       <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />
