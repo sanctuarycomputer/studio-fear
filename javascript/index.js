@@ -1,4 +1,3 @@
-import skrollr from 'skrollr';
 import _ from 'lodash';
 //import Waypoint from 'waypoints';
 
@@ -24,25 +23,36 @@ window.onload = function (){
     var filterValue = $( this ).attr('data-filter');
     $grid.isotope({ filter: filterValue });
   });
+  objectScroll();
+}
 
+function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
+  var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
+  $(textContainers[0]).css("visibility", "visible");
   let handler = (i, direction) => {
     let status = direction === "down" ? "hidden" : "visible";
     $(textContainers[i]).css("visibility",status);
-    //$(textContainers[i]).css("background-color","white");
   };
   _.forEach(bottoms, (element, i) => {
     new Waypoint({
       element: element,
       handler: handler.bind(this, i),
-      offset: 'bottom-in-view',
+      offset: '25%',
       group: 'gallery bottoms',
     });
   });
-
-  addSkrollr();
-}
-const addSkrollr = () => {
-  let s = skrollr.init();
+  let handlerTop = (i, direction) => {
+    let status = direction === "up" ? "hidden" : "visible";
+    $(textContainers[i]).css("visibility",status);
+  };
+  _.forEach(tops, (element, i) => {
+    new Waypoint({
+      element: element,
+      handler: handlerTop.bind(this, i),
+      offset: '25%',
+      group: 'gallery tops',
+    });
+  });
 }

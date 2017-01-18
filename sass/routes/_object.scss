@@ -8,6 +8,7 @@
       top:0;
       right:0;
       overflow: scroll;
+      z-index:0;
       .object-image {
         margin-left: 0%;
         margin-top: 0%;
@@ -17,6 +18,7 @@
       }
     }
     .object-text-container{
+      visibility: hidden;
       float:left;
       position:fixed;
       top: 0;
