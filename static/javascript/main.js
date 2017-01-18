@@ -16,17 +16,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.onload = function () {
   var _this = this;
 
-  var menuButtonR = document.getElementById('rbutt');
-  var menuLinksR = document.getElementById('rlinks');
-  menuButtonR.addEventListener('click', function () {
-    menuLinksR.classList.toggle('is-active');
-  });
   var menuButtonL = document.getElementById('lbutt');
   var menuLinksL = document.getElementById('llinks');
   menuButtonL.addEventListener('click', function () {
     menuLinksL.classList.toggle('is-active');
   });
-
+  var menuButtonR = document.getElementById('rbutt');
+  var menuLinksR = document.getElementById('rlinks');
+  if (menuButtonR) {
+    menuButtonR.addEventListener('click', function () {
+      menuLinksR.classList.toggle('is-active');
+    });
+  }
   var $grid = $('.index-grid').isotope({
     itemSelector: '.index-grid-item',
     layoutMode: 'fitRows'
