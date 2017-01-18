@@ -12,10 +12,11 @@
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
+{% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
 {% include "templates/partials/exit-button.html" %}
-<div class="feed clearfix">
-  <div class="feed-container pt2 col-12">
+<!-- <div class="feed clearfix">
+  <div class="feed-container pt2 col col-12">
     {% for row in cms.feed.grid %}
     <div class='scene' data-top="visibility: visible;" data-top-bottom="visibility: hidden;" style='z-index:{{loop.revindex}}'>
       <div class="feed-gallery">
@@ -24,8 +25,16 @@
           </div>
       </div>
     </div>
-
     {% endfor %}
   </div>
+</div> -->
+<div class="feed clearfix">
+    {% for row in cms.feed.grid %}
+    <div class="feed-container col col-12">
+      <div class="feed-image" style="background-image: url({{ row.image.url }})"></div>
+      <div class="image-bottom relative border"></div>
+    </div>
+
+    {% endfor %}
 </div>
 {% endblock %}
