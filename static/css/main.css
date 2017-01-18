@@ -1,10 +1,25 @@
-html {
-  -webkit-font-smoothing: antialiased;
+.millerbannerroman {
+  font-family: "Miller Ban Rom";
+  font-style: Normal;
+  font-weight: Normal;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.millerbannerlight {
+  font-family: "Miller Ban Lt";
+  font-style: Normal;
+  font-weight: Normal;
+}
+
+@font-face {
+  font-family: 'exil71medium';
+  src: url("/static/fonts/exil71-webfont.eot");
+  src: url("/static/fonts/exil71-webfont.eot?#iefix") format("embedded-opentype"), url("/static/fonts/exil71-webfont.woff2") format("woff2"), url("/static/fonts/exil71-webfont.woff") format("woff"), url("/static/fonts/exil71-webfont.ttf") format("truetype"), url("/static/fonts/exil71-webfont.svg#exil71medium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.exil {
+  font-family: "exil71medium", sans-serif;
+  text-transform: uppercase;
 }
 
 #menu .menu-links {
@@ -111,7 +126,7 @@ html {
   font-size: 2.5rem;
   font-family: "Miller Ban Lt";
 }
-@media (max-width: 48em) {
+@media (max-width: 52em) {
   #projects .project-text p {
     font-size: 1.5rem;
   }
@@ -119,16 +134,11 @@ html {
 #projects .project-title p {
   font-size: 2.5rem;
 }
-@media (max-width: 48em) {
+@media (max-width: 52em) {
   #projects .project-title p {
     font-size: 1.5rem;
     width: 95%;
   }
-}
-#projects .exit-button {
-  float: right;
-  z-index: 10;
-  cursor: pointer;
 }
 #projects .project-images {
   z-index: 0;
@@ -176,54 +186,63 @@ html {
   overflow: hidden;
 }
 
-.object-page .object-container {
+.object-page {
   width: 100%;
   height: 100%;
 }
-.object-page .object-container .object-gallery {
+.object-page .object-gallery {
   position: relative;
   display: inline-block;
   float: right;
   top: 0;
   right: 0;
   overflow: scroll;
+  z-index: 0;
 }
-.object-page .object-container .object-gallery .content .object-image {
+.object-page .object-gallery .object-image {
   margin-left: 0%;
   margin-top: 0%;
 }
-.object-page .object-container .object-text-container {
+@media (max-width: 52em) {
+  .object-page .object-gallery .object-image {
+    width: 95%;
+  }
+}
+.object-page .object-text-container {
+  visibility: hidden;
   float: left;
   position: fixed;
   top: 0;
   left: 0;
 }
-.object-page .object-container .object-text-container .project-info {
-  background-color: white;
-}
-
-.millerbannerroman {
-  font-family: "Miller Ban Rom";
-  font-style: Normal;
-  font-weight: Normal;
-}
-
-.millerbannerlight {
+.object-page .object-text-container .project-info p {
+  font-size: 2.5rem;
   font-family: "Miller Ban Lt";
-  font-style: Normal;
-  font-weight: Normal;
+}
+@media (max-width: 52em) {
+  .object-page .object-text-container .project-info p {
+    font-size: 1.5rem;
+  }
+}
+.object-page .object-text-container .title {
+  font-size: 2.5rem;
+  font-family: "Miller Ban Rom";
+  font-size: 2.5rem;
+}
+@media (max-width: 52em) {
+  .object-page .object-text-container .title {
+    font-size: 1.5rem;
+    width: 95%;
+  }
 }
 
-@font-face {
-  font-family: 'exil71medium';
-  src: url("/static/fonts/exil71-webfont.eot");
-  src: url("/static/fonts/exil71-webfont.eot?#iefix") format("embedded-opentype"), url("/static/fonts/exil71-webfont.woff2") format("woff2"), url("/static/fonts/exil71-webfont.woff") format("woff"), url("/static/fonts/exil71-webfont.ttf") format("truetype"), url("/static/fonts/exil71-webfont.svg#exil71medium") format("svg");
-  font-weight: normal;
-  font-style: normal;
+html {
+  -webkit-font-smoothing: antialiased;
 }
-.exil {
-  font-family: "exil71medium", sans-serif;
-  text-transform: uppercase;
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
