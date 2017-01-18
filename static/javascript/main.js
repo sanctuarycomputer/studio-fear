@@ -21,7 +21,6 @@ window.onload = function () {
   menuButtonL.addEventListener('click', function () {
     menuLinksL.classList.toggle('is-active');
   });
-
   var menuButtonR = document.getElementById('rbutt');
   var menuLinksR = document.getElementById('rlinks');
   if (menuButtonR) {
@@ -29,7 +28,6 @@ window.onload = function () {
       menuLinksR.classList.toggle('is-active');
     });
   }
-
   var $grid = $('.index-grid').isotope({
     itemSelector: '.index-grid-item',
     layoutMode: 'fitRows'
