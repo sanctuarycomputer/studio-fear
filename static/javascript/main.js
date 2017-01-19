@@ -31,9 +31,9 @@ window.onload = function () {
     var filterValue = $(this).attr('data-filter');
     $grid.isotope({ filter: filterValue });
   });
+  feedScroll();
   objectScroll();
 };
-
 function objectScroll() {
   var _this = this;
 
@@ -64,6 +64,47 @@ function objectScroll() {
       offset: '25%',
       group: 'gallery tops'
     });
+  });
+}
+function feedScroll() {
+
+  var hero = document.getElementById('feed-image');
+  var waypoints = document.getElementsByClassName('waypoint');
+  var waypointsWithValues = [];
+
+  // process the waypoints to find the bounds
+  _lodash2.default.forEach(waypoints, function (waypoint) {
+    // make an object {} with all the good info
+    var processedWaypoint = {
+      imageUrl: waypoint.dataset.image,
+      // top of image from the start of the page
+      yTop: waypoint.offsetTop,
+
+      // bottom position of waypoint
+      yBottom: waypoint.offsetHeight + waypoint.offsetTop
+    };
+
+    // add processedWaypoint object to array
+    waypointsWithValues.push(processedWaypoint);
+  });
+
+  // every time page is scrolled
+  document.addEventListener("scroll", function (event) {
+    // get the scroll position from the top of the page
+    var scrollPosition = window.pageYOffset;
+
+    // on scroll, look through the array of processed waypoints and use lodash's find
+    var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
+      // return the waypoint that is within the range of the scroll position
+      return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
+    });
+
+    // if it finds a waypoint in the scroll range
+    if (selectedWaypoint) {
+
+      // use the selectedWaypoint to set the background image
+      hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
+    }
   });
 }
 

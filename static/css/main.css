@@ -150,40 +150,21 @@
   }
 }
 
-.feed .feed-gallery {
-  display: inline-block;
-  float: left;
-  width: 100%;
-}
-.feed .feed-gallery:before {
-  display: block;
-  content: "";
-  padding-top: 50%;
-}
-.feed .feed-gallery > .content {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-}
-.feed .feed-gallery .content .feed-image {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.feed .feed-hero-container {
   width: 100%;
   height: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
-  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.feed .scene {
-  height: 10vh;
-  width: 100vw;
-  background-color: transparent;
-  position: relative;
-  visibility: hidden;
-  overflow: hidden;
+.feed .feed-hero-container .feed-hero-image {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 80%;
+  min-width: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .object-page {
