@@ -1,53 +1,20 @@
 .feed{
-  width: 100%;
-  height: 100%;
-  overflow:scroll;
-  // .feed-gallery{
-  //   display: inline-block;
-  //   float:left;
-  //   //width:0%;
-  //    @include aspect-ratio(4, 2);
-  //   .content{
-  //     .feed-image {
-  //       background-repeat:no-repeat;
-  //       background-size: contain;
-  //       background-position: center;
-  //       width: 100%;
-  //       height: 100%;
-  //       margin-left: 1rem;
-  //       margin-right: 1rem;
-  //       margin-top: 0%;
-  //       top: 0;
-  //     }
-  //   }
-  // }
-  // .scene {
-  //   height: 10vh;
-  //   width: 100vw;
-  //   background-color: transparent;
-  //   position: relative;
-  //   visibility: hidden;
-  //   overflow:hidden;
-  // }
-  .feed-container{
-      display: inline-block;
-      float:left;
-      width: 100%;
-
-      .feed-image {
-        background-repeat:no-repeat;
-        background-size: contain;
-        background-position: center;
-        max-width: 80%;
-        height: 100%;
-        position: fixed;
-      //  visibility: hidden;
-      }
-      .image-bottom{
-        height:20vh;
-        width:100%;
-
-      }
+ //@include aspect-ratio(16, 9);
+  .feed-hero-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .feed-hero-image{
+      max-width: 100%;
+      max-height: 100%;
+      min-height: 80%;
+      min-width: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
 
+  }
 }

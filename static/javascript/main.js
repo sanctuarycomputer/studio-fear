@@ -75,22 +75,47 @@ function objectScroll() {
   });
 }
 function feedScroll() {
-  var _this2 = this;
 
-  var bottoms = document.getElementsByClassName('image-bottom');
-  var images = document.getElementsByClassName('feed-image');
-  $(images[0]).css("visibility", "visible");
-  var handler = function handler(i, direction) {
-    var status = direction === "down" ? "hidden" : "visible";
-    $(images[i]).css("visibility", status);
-  };
-  _lodash2.default.forEach(bottoms, function (element, i) {
-    new Waypoint({
-      element: element,
-      handler: handler.bind(_this2, i),
-      offset: '0%',
-      group: 'image bottoms'
+  var hero = document.getElementById('feed-image');
+  var waypoints = document.getElementsByClassName('waypoint');
+  // create an empty array
+  var waypointsWithValues = [];
+
+  // process the waypoints to find the bounds
+  _lodash2.default.forEach(waypoints, function (waypoint) {
+    console.log(hero);
+
+    // make an object {} with all the good info
+    var processedWaypoint = {
+      imageUrl: waypoint.dataset.image,
+      // top of image from the start of the page
+      yTop: waypoint.offsetTop,
+
+      // bottom position of waypoint
+      yBottom: waypoint.offsetHeight + waypoint.offsetTop
+    };
+
+    // add processedWaypoint object to array
+    waypointsWithValues.push(processedWaypoint);
+  });
+
+  // every time page is scrolled
+  document.addEventListener("scroll", function (event) {
+    // get the scroll position from the top of the page
+    var scrollPosition = window.pageYOffset;
+
+    // on scroll, look through the array of processed waypoints and use lodash's find
+    var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
+      // return the waypoint that is within the range of the scroll position
+      return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
+
+    // if it finds a waypoint in the scroll range
+    if (selectedWaypoint) {
+
+      // use the selectedWaypoint to set the background image
+      hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
+    }
   });
 }
 
