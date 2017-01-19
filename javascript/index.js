@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import skrollr from 'skrollr';
 
 //import Waypoint from 'waypoints';
 
