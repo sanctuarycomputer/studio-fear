@@ -37,10 +37,6 @@ window.onload = function () {
   });
   feedScroll();
   objectScroll();
-  addSkrollr();
-};
-var addSkrollr = function addSkrollr() {
-  var s = _skrollr2.default.init();
 };
 function objectScroll() {
   var _this = this;
@@ -78,13 +74,10 @@ function feedScroll() {
 
   var hero = document.getElementById('feed-image');
   var waypoints = document.getElementsByClassName('waypoint');
-  // create an empty array
   var waypointsWithValues = [];
 
   // process the waypoints to find the bounds
   _lodash2.default.forEach(waypoints, function (waypoint) {
-    console.log(hero);
-
     // make an object {} with all the good info
     var processedWaypoint = {
       imageUrl: waypoint.dataset.image,

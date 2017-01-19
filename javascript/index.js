@@ -27,10 +27,6 @@ window.onload = function (){
   });
   feedScroll();
   objectScroll();
-  addSkrollr();
-}
-const addSkrollr = () => {
- let s = skrollr.init();
 }
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -66,13 +62,10 @@ function feedScroll() {
 
   const hero = document.getElementById('feed-image');
   const waypoints = document.getElementsByClassName('waypoint');
-  // create an empty array
   let waypointsWithValues = [];
 
   // process the waypoints to find the bounds
   _.forEach(waypoints, (waypoint) => {
-    console.log(hero)
-
     // make an object {} with all the good info
     let processedWaypoint = {
       imageUrl: waypoint.dataset.image,
