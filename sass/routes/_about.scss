@@ -1,0 +1,9 @@
+.about{
+    p{
+      font-size: 2rem;
+      font-family: "Miller Ban Lt";
+      @media (max-width:$md) {
+        font-size: 1rem;
+      }
+    }
+}

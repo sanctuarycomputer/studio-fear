@@ -113,6 +113,16 @@
   background-position: center;
 }
 
+.about p {
+  font-size: 2rem;
+  font-family: "Miller Ban Lt";
+}
+@media (max-width: 52em) {
+  .about p {
+    font-size: 1rem;
+  }
+}
+
 .feed-index .black-line-container {
   width: 100%;
   display: flex;
