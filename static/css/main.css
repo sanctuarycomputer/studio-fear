@@ -114,12 +114,12 @@
 }
 
 .about p {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: "Miller Ban Lt";
 }
 @media (max-width: 52em) {
   .about p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
