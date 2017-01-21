@@ -12,10 +12,12 @@
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
+{% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/exit-button.html" %}
+  <div class="lightbox">
+  {% include "templates/partials/feed-gallery.html" with config %}
+  {% set config = {hideFilter: true, gallery: cms.project.project_gallery} %}
+  </div>
 <div class="" id="projects">
   <div class="col-6 px2 absolute right-0 pt2">
     {% for image in item.project_gallery %}
