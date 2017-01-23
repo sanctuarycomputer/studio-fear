@@ -33,6 +33,7 @@ window.onload = function () {
   });
   feedScroll();
   objectScroll();
+  lightbox();
 };
 function objectScroll() {
   var _this = this;
@@ -105,6 +106,23 @@ function feedScroll() {
       // use the selectedWaypoint to set the background image
       hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
     }
+  });
+}
+function lightbox() {
+  var projectpics = document.getElementsByClassName('project-images');
+  console.log(projectpics);
+  var i;
+  var lightbox = document.getElementById('lightbox');
+  for (var i = 0; i < projectpics.length; i++) {
+    projectpics[i].addEventListener("click", function () {
+      console.log(lightbox);
+      lightbox.style.opacity = 1;
+      lightbox.style.zIndex = 10;
+    });
+  }
+  lightbox.addEventListener("click", function () {
+    lightbox.style.opacity = 0;
+    lightbox.style.zIndex = 0;
   });
 }
 

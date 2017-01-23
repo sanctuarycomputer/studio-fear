@@ -16,7 +16,7 @@
 {% include "templates/partials/menu.html" %}
 <div class="feed">
   <a class="exit-button right text-decoration-none h6 exil pt1 px2" href="/feedindex">INDEX</a>
-  {% set config = {hideFilter: true, gallery: cms.feed.grid, firstImage: cms.feed.grid[0].image.url } %}
+  {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image } %}
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 {% endblock %}
