@@ -26,7 +26,8 @@ window.onload = function (){
   });
   feedScroll();
   objectScroll();
- lightbox();
+//  workAnimation();
+  document.getElementById('lightbox') && lightbox();
 }
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -116,5 +117,19 @@ function lightbox(){
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
   });
-
+}
+function workAnimation(){
+    var classes = ['fall','rise'];
+    var classIndex = 0;
+    var images = document.getElementsByClassName('animation');
+    var i;
+    for (i = 0; i < images.length; i++) {
+    images[i].className += " "+ classes[classIndex];
+    //  console.log(images[i]);
+    images[i].style.backgroundColor = "red";
+    classIndex++;
+    if (classIndex > 1){
+      classIndex = 0;
+    }
+  }
 }
