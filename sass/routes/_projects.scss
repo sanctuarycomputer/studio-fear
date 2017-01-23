@@ -31,8 +31,23 @@
   .project-images{
     z-index:0;
     float:right;
+    width: 95%;
+    height: 50%;
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: center;
     @media (max-width:48em) {
       width: 95%;
     }
   }
+  .image-gallery{
+    height:100%;
+  }
+}
+#lightbox{
+ position: fixed;
+  opacity: 0;
+  top: 0;
+  width: 100%;
+  background-color:white;
 }

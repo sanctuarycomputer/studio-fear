@@ -26,6 +26,7 @@ window.onload = function (){
   });
   feedScroll();
   objectScroll();
+ lightbox();
 }
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -98,4 +99,22 @@ function feedScroll() {
       hero.style.backgroundImage = "url("+selectedWaypoint.imageUrl+")";
     }
   });
+}
+function lightbox(){
+  var projectpics = document.getElementsByClassName('project-images');
+  console.log(projectpics)
+  var i;
+  var lightbox = document.getElementById('lightbox');
+  for(var i = 0; i < projectpics.length; i++) {
+    projectpics[i].addEventListener("click", function (){
+    console.log(lightbox)
+    lightbox.style.opacity = 1;
+    lightbox.style.zIndex = 10;
+    });
+  }
+  lightbox.addEventListener("click", function (){
+    lightbox.style.opacity = 0;
+    lightbox.style.zIndex = 0;
+  });
+
 }

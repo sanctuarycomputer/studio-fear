@@ -12,14 +12,16 @@
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
+{% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/exit-button.html" %}
+<div class="feed" id="lightbox">
+  {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
+  {% include "templates/partials/feed-gallery.html" with config %}
+</div>
 <div class="" id="projects">
-  <div class="col-6 px2 absolute right-0 pt2">
-    {% for image in item.project_gallery %}
-      <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />
+  <div class="col-6 px2 image-gallery absolute right-0">
+    {% for row in item.projectgallery %}
+      <div class="project-images mt1 mx-auto block" style="background-image: url({{ row.image.url }})" /></div>
     {% endfor %}
   </div>
   <div class="project-title col-6 px2 py2">
