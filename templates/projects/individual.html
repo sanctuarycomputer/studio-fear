@@ -14,11 +14,11 @@
 {% block content %}
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/exit-button.html" %}
-  <div class="lightbox">
-  {% include "templates/partials/feed-gallery.html" with config %}
-  {% set config = {hideFilter: true, gallery: cms.project.project_gallery} %}
-  </div>
 <div class="" id="projects">
+  <div class="feed lightbox">
+    {% include "templates/partials/feed-gallery.html" with config %}
+    {% set config = {hideFilter: true, gallery: cms.projects.project_gallery, firstImage: cms.projects.project_gallery.item.url} %}
+  </div>
   <div class="col-6 px2 absolute right-0 pt2">
     {% for image in item.project_gallery %}
       <img class= "project-images mt2 fit mx-auto block" src="{{ image.url }}" />

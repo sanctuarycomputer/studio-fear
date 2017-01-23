@@ -171,6 +171,9 @@
     width: 95%;
   }
 }
+#projects .lightbox {
+  display: none;
+}
 
 .feed .feed-hero-container {
   width: 100%;
