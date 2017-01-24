@@ -33,7 +33,8 @@ window.onload = function () {
   });
   feedScroll();
   objectScroll();
-  //  workAnimation();
+  // workAnimation()
+  //  workpageAnimation();
   document.getElementById('lightbox') && lightbox();
 };
 function objectScroll() {
@@ -111,12 +112,10 @@ function feedScroll() {
 }
 function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
-  console.log(projectpics);
   var i;
   var lightbox = document.getElementById('lightbox');
   for (var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function () {
-      console.log(lightbox);
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
@@ -127,14 +126,14 @@ function lightbox() {
   });
 }
 function workAnimation() {
+  var displaychange = document.getElementsByClassName('imageDisplay');
   var classes = ['fall', 'rise'];
   var classIndex = 0;
   var images = document.getElementsByClassName('animation-belt');
   var i;
   for (i = 0; i < images.length; i++) {
     images[i].className += " " + classes[classIndex];
-    //  console.log(images[i]);
-    images[i].style.backgroundColor = "red";
+    // displaychange[i].style.display = 'block';
     classIndex++;
     if (classIndex > 1) {
       classIndex = 0;

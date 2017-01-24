@@ -52,9 +52,12 @@
   transition-duration: 0.3s, 0.3s;
 }
 
+.index-grid {
+  height: 100%;
+}
 .index-grid .index-grid-item {
+  position: relative;
   width: 50%;
-  margin: 1rem 0rem 1rem 0rem;
   display: inline-block;
   float: left;
 }
@@ -70,178 +73,134 @@
   bottom: 0;
   position: absolute;
 }
-.index-grid .index-grid-item:nth-child(8n+1) {
-  animation-name: rise;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-}
 .index-grid .index-grid-item:nth-child(8n+1) .content .image {
   width: 50%;
   height: 50%;
   margin-left: 25%;
-  margin-top: -10%;
-}
-.index-grid .index-grid-item:nth-child(8n+2) {
-  animation-name: fall;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
+  margin-top: 10%;
 }
 .index-grid .index-grid-item:nth-child(8n+2) .content .image {
   width: 80%;
   height: 80%;
   margin-left: 10%;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 .index-grid .index-grid-item:nth-child(8n+3) {
-  animation-name: rise;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 1s;
+  -webkit-animation-delay: 3s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 1s;
+  animation-delay: 3s;
 }
 .index-grid .index-grid-item:nth-child(8n+3) .content .image {
-  width: 100%;
-  height: 100%;
-  margin-left: 0%;
-  margin-top: 15%;
+  width: 90%;
+  height: 90%;
+  margin-left: 10%;
+  margin-bottom: 10%;
 }
 .index-grid .index-grid-item:nth-child(8n+4) {
-  animation-name: fall;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 1s;
+  -webkit-animation-delay: 4s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 1s;
+  animation-delay: 4s;
 }
 .index-grid .index-grid-item:nth-child(8n+4) .content .image {
   width: 50%;
   height: 50%;
   margin-left: 0%;
+  margin-top: 10%;
 }
 .index-grid .index-grid-item:nth-child(8n+5) {
-  animation-name: rise;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-delay: 3s;
+  -webkit-animation-delay: 5s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 3s;
+  animation-delay: 5s;
 }
 .index-grid .index-grid-item:nth-child(8n+5) .content .image {
   width: 80%;
   height: 80%;
   margin-left: 10%;
-  margin-top: 60%;
+  margin-bottom: 7%;
 }
 .index-grid .index-grid-item:nth-child(8n+6) {
-  -webkit-animation-delay: 3s;
+  -webkit-animation-delay: 6s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 3s;
-  animation-name: fall;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
+  animation-delay: 6s;
 }
 .index-grid .index-grid-item:nth-child(8n+6) .content .image {
   width: 40%;
   height: 40%;
   margin-left: 30%;
-  margin-top: -15%;
+  margin-top: 20%;
 }
 .index-grid .index-grid-item:nth-child(8n+7) {
-  -webkit-animation-delay: 3s;
+  -webkit-animation-delay: 8s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 3s;
-  animation-name: rise;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
+  animation-delay: 8s;
 }
 .index-grid .index-grid-item:nth-child(8n+7) .content .image {
   width: 40%;
   height: 40%;
   margin-left: 10%;
-  margin-top: 140%;
+  margin-top: 14%;
 }
 .index-grid .index-grid-item:nth-child(8n+8) {
-  -webkit-animation-delay: 3s;
+  -webkit-animation-delay: 5s;
   /* Safari 4.0 - 8.0 */
-  animation-delay: 3s;
-  animation-name: fall;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-timing-function: linear;
+  animation-delay: 5s;
 }
 .index-grid .index-grid-item:nth-child(8n+8) .content .image {
   width: 50%;
   height: 50%;
   margin-left: 10%;
-  margin-top: -50%;
+  margin-top: 3%;
 }
 .index-grid .index-grid-item .grid-sizer .image,
 .index-grid .index-grid-item .content .image {
-  position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 }
 .index-grid .fall {
   animation-name: fall;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   -webkit-animation-timing-function: linear;
 }
 @-webkit-keyframes fall {
   0% {
-    top: -30%;
+    top: -20%;
   }
   100% {
-    top: 30%;
+    top: 100%;
   }
 }
 @-webkit-keyframes fall {
   0% {
-    top: -30%;
+    top: -20%;
   }
   100% {
-    top: 30%;
+    top: 100%;
   }
 }
 .index-grid .rise {
   animation-name: rise;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   -webkit-animation-timing-function: linear;
 }
 @-webkit-keyframes rise {
   0% {
-    top: 30%;
+    top: 100%;
   }
   100% {
-    top: -30%;
+    top: -20%;
   }
 }
 @-webkit-keyframes rise {
   0% {
-    top: 30%;
+    top: 100%;
   }
   100% {
-    top: -30%;
+    top: -20%;
   }
 }
 .about p {
@@ -322,7 +281,25 @@
 .index-page {
   height: 100%;
   width: 100%;
-  position: fixed;
+}
+.index-page .left-container {
+  height: 100vh;
+}
+.index-page .right-container {
+  height: 100vh;
+}
+.index-page .content-container {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+.index-page .content-container .content .image {
+  width: 50%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .feed .feed-hero-container {

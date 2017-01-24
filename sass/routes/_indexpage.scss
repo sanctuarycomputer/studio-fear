@@ -1,5 +1,26 @@
 .index-page{
   height:100%;
   width:100%;
-  position: fixed;
+
+  .left-container{
+    height:100vh;
+  }
+  .right-container{
+    height:100vh;
+  }
+  .content-container{
+    position: relative;
+    display: inline-block;
+    height:100%;
+    width:100%;
+    .content {
+      .image {
+        width: 50%;
+        height:50%;
+        background-repeat:no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    }
+  }
 }
