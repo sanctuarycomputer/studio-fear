@@ -1,91 +1,147 @@
 .index-grid{
-  //position: relative;
+  //variables
+  $rise: "rise";
+  $fall: "fall";
+  $animationduration: 15s;
+  $startrise: 30%;
+  $endrise: -30%;
+  $startfall: -30%;
+  $endfall: 30%;
+
   .index-grid-item {
     //position: relative;
     width: 50%;
+    margin:1rem 0rem 1rem 0rem;
     display: inline-block;
     float: left;
     @include aspect-ratio(1, 1);
 
+
     // Variations
+
     &:nth-child(8n+1) {
       .content .image {
         width: 50%;
         height: 50%;
         margin-left: 25%;
-      //  margin-top: 25%;
+        margin-top: -10%;
       }
       animation-name: rise;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
     }
     &:nth-child(8n+2) {
       .content .image {
         width: 80%;
         height: 80%;
         margin-left: 10%;
-      //  margin-top: 5%;
+        margin-top: 20%;
       }
       animation-name: fall;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
     }
     &:nth-child(8n+3) {
       .content .image {
         width: 100%;
         height: 100%;
         margin-left: 0%;
-      //  margin-top: 0%;
+        margin-top: 15%;
       }
       animation-name: rise;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
-      -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
-      animation-delay: 2s;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+      animation-delay: 1s;
     }
     &:nth-child(8n+4) {
       .content .image {
         width: 50%;
         height: 50%;
-        margin-left: 25%;
-        //margin-top: 25%;
+        margin-left: 0%;
       }
       animation-name: fall;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
-      -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
-      animation-delay: 2s;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+      animation-delay: 1s;
     }
     &:nth-child(8n+5) {
       .content .image {
         width: 80%;
         height: 80%;
         margin-left: 10%;
-      //  margin-top: 5%;
+        margin-top: 60%;
+
       }
       animation-name: rise;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
-      -webkit-animation-delay: 4s; /* Safari 4.0 - 8.0 */
-      animation-delay: 4s;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-delay: 3s; /* Safari 4.0 - 8.0 */
+      animation-delay: 3s;
     }
     &:nth-child(8n+6) {
       .content .image {
-        width: 100%;
-        height: 100%;
-        margin-left: 0%;
-      //  margin-top: 0%;
+        width: 40%;
+        height: 40%;
+        margin-left: 30%;
+        margin-top: -15%;
       }
+      -webkit-animation-delay: 3s; /* Safari 4.0 - 8.0 */
+      animation-delay: 3s;
       animation-name: fall;
-      animation-duration: 20s;
+      animation-duration: $animationduration;
       animation-iteration-count: infinite;
-      -webkit-animation-delay: 4s; /* Safari 4.0 - 8.0 */
-      animation-delay: 4s;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+    }
+    &:nth-child(8n+7) {
+      .content .image {
+        width: 40%;
+        height: 40%;
+        margin-left: 10%;
+        margin-top: 140%;
+
+      }
+      -webkit-animation-delay: 3s; /* Safari 4.0 - 8.0 */
+      animation-delay: 3s;
+      animation-name: rise;
+      animation-duration: $animationduration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
+    }
+    &:nth-child(8n+8) {
+      .content .image {
+        width: 50%;
+        height: 50%;
+        margin-left: 10%;
+        margin-top: -50%;
+
+      }
+      -webkit-animation-delay: 3s; /* Safari 4.0 - 8.0 */
+      animation-delay: 3s;
+      animation-name: fall;
+      animation-duration: $animationduration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      -webkit-animation-timing-function: linear;
     }
 
     .grid-sizer,
     .content {
       .image {
+        position: absolute;
         background-repeat:no-repeat;
         background-size: contain;
         background-position: center;
@@ -94,44 +150,49 @@
   }
   .fall{
     animation-name: fall;
-    animation-duration: 5s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
   }
   @-webkit-keyframes fall {
     0%{
-     top:-100%;
+     top:$startfall;
     }
     100%{
-      top:100%;
+      top:$endfall;
     }
   }
-  @-webkit-keyframes rise {
+  @-webkit-keyframes fall {
     0%{
-     top:100%;
+     top:$startfall;
     }
     100%{
-      top:-100%;
+      top:$endfall;
     }
   }
   .rise{
     animation-name: rise;
-    animation-duration: 5s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+
   }
   @-webkit-keyframes rise {
     0%{
-     top:100%;
+     top:$startrise;
     }
     100%{
-      top:-100%;
+      top:$endrise;
     }
   }
   @-webkit-keyframes rise {
     0%{
-     top:100%;
+     top:$startrise;
     }
     100%{
-      top:-100%;
+      top:$endrise;
     }
-  }
+ }
 }

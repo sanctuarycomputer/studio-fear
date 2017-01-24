@@ -129,7 +129,7 @@ function lightbox() {
 function workAnimation() {
   var classes = ['fall', 'rise'];
   var classIndex = 0;
-  var images = document.getElementsByClassName('animation');
+  var images = document.getElementsByClassName('animation-belt');
   var i;
   for (i = 0; i < images.length; i++) {
     images[i].className += " " + classes[classIndex];
