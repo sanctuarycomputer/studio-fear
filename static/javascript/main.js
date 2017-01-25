@@ -34,8 +34,6 @@ window.onload = function () {
   feedScroll();
   objectScroll();
   workAnimation();
-
-  //  workpageAnimation();
   document.getElementById('lightbox') && lightbox();
 };
 function objectScroll() {
@@ -127,23 +125,22 @@ function lightbox() {
   });
 }
 function workAnimation() {
-  //   var displaychange = document.getElementsByClassName('imageDisplay');
-  //   var classes = ['fall','rise'];
-  //   var classIndex = 0;
-  //   var images = document.getElementsByClassName('animation-belt');
-  //   var i;
-  //   for (i = 0; i < images.length; i++) {
-  //   images[i].className += " "+ classes[classIndex];
-  //   // displaychange[i].style.display = 'block';
-  //   classIndex++;
-  //   if (classIndex > 1){
-  //     classIndex = 0;
-  //   }
-  // }
+  var leftcol = $(".left-container");
+  var imageNumber = leftcol.children().length;
+  var leftContainerHeight = imageNumber * -100;
+  leftcol.css("margin-top", leftContainerHeight + 'vh');
+  //var last = $(".right-container").children().last();
+  //console.log(last);
   $(document).scroll(function () {
-
-    $('.left-container').css('transform', 'translateY(' + $(this).scrollTop() * 2 + 'px)');
+    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
   });
+  // var waypoint = new Waypoint({
+  //   element: last,
+  //   handler: function() {
+  //     //.css('', '');
+  //   },
+  //   offset: 'bottom-in-view'
+  // })
 }
 
 },{"lodash":2}],2:[function(require,module,exports){

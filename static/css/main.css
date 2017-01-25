@@ -22,20 +22,33 @@
   text-transform: uppercase;
 }
 
-#menu .menu-links {
+#menu {
+  position: fixed;
+  z-index: 100;
   width: 100%;
-  height: 0%;
+  height: 100%;
+}
+#menu .menu-links {
+  width: 0%;
+  height: 100%;
   opacity: 0;
   position: absolute;
   transition-duration: 0.3s, 0.3s;
   overflow-x: hidden;
   z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10rem;
 }
 #menu .menu-links a {
   color: black;
 }
 #menu .filters:hover {
   cursor: pointer;
+}
+#menu .filters {
+  font-size: 7rem !important;
 }
 #menu .menu-button {
   background-color: transparent;
@@ -46,7 +59,7 @@
 }
 #menu .is-active {
   background-color: rgba(255, 255, 255, 0.5);
-  height: 100%;
+  width: 100%;
   opacity: 1;
   z-index: 8;
   transition-duration: 0.3s, 0.3s;
@@ -279,59 +292,36 @@
 }
 
 .index-page {
-  height: 100%;
+  max-height: 1000px;
   width: 100%;
-  overflow: scroll;
+}
+.index-page .menu {
+  z-index: 100;
+}
+.index-page .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10rem;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
 }
 .index-page .left-container {
   height: 100vh;
-  margin-top: -300vh;
-}
-.index-page .left-container .content-container:nth-child(8n+1) .content .image {
-  width: 60%;
-  height: 60%;
-  margin-left: 25%;
-  margin-top: 30%;
-}
-.index-page .left-container .content-container:nth-child(8n+2) .content .image {
-  width: 90%;
-  height: 90%;
-  margin-left: 5%;
-  margin-top: 20%;
-}
-.index-page .left-container .content-container:nth-child(8n+3) .content .image {
-  width: 70%;
-  height: 70%;
-  margin-left: 30%;
-  margin-top: 30%;
+  position: fixed;
 }
 .index-page .right-container {
   height: 100vh;
   margin-top: 100vh;
 }
-.index-page .right-container .content-container:nth-child(8n+1) .content .image {
-  width: 80%;
-  height: 80%;
-  margin-left: 5%;
-  margin-top: 10%;
-}
-.index-page .right-container .content-container:nth-child(8n+2) .content .image {
-  width: 50%;
-  height: 50%;
-  margin-left: 15%;
-  margin-top: 20%;
-}
-.index-page .right-container .content-container:nth-child(8n+3) .content .image {
-  width: 60%;
-  height: 60%;
-  margin-left: 25%;
-  margin-top: 0%;
-}
 .index-page .content-container {
   position: relative;
   display: inline-block;
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 100vh;
+  margin: 0;
 }
 .index-page .content-container .content .image {
   background-repeat: no-repeat;
