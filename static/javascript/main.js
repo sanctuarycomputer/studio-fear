@@ -33,7 +33,8 @@ window.onload = function () {
   });
   feedScroll();
   objectScroll();
-  // workAnimation()
+  workAnimation();
+
   //  workpageAnimation();
   document.getElementById('lightbox') && lightbox();
 };
@@ -126,19 +127,23 @@ function lightbox() {
   });
 }
 function workAnimation() {
-  var displaychange = document.getElementsByClassName('imageDisplay');
-  var classes = ['fall', 'rise'];
-  var classIndex = 0;
-  var images = document.getElementsByClassName('animation-belt');
-  var i;
-  for (i = 0; i < images.length; i++) {
-    images[i].className += " " + classes[classIndex];
-    // displaychange[i].style.display = 'block';
-    classIndex++;
-    if (classIndex > 1) {
-      classIndex = 0;
-    }
-  }
+  //   var displaychange = document.getElementsByClassName('imageDisplay');
+  //   var classes = ['fall','rise'];
+  //   var classIndex = 0;
+  //   var images = document.getElementsByClassName('animation-belt');
+  //   var i;
+  //   for (i = 0; i < images.length; i++) {
+  //   images[i].className += " "+ classes[classIndex];
+  //   // displaychange[i].style.display = 'block';
+  //   classIndex++;
+  //   if (classIndex > 1){
+  //     classIndex = 0;
+  //   }
+  // }
+  $(document).scroll(function () {
+
+    $('.left-container').css('transform', 'translateY(' + $(this).scrollTop() * 2 + 'px)');
+  });
 }
 
 },{"lodash":2}],2:[function(require,module,exports){

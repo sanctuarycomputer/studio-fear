@@ -1,22 +1,76 @@
 .index-page{
   height:100%;
   width:100%;
+  overflow: scroll;
 
+  //position: fixed;
   .left-container{
     height:100vh;
+    margin-top:-300vh;
+    .content-container{
+      &:nth-child(8n+1) {
+        .content .image {
+          width: 60%;
+          height: 60%;
+          margin-left: 25%;
+          margin-top: 30%;
+        }
+      }
+      &:nth-child(8n+2) {
+        .content .image {
+          width: 90%;
+          height: 90%;
+          margin-left: 5%;
+          margin-top: 20%;
+        }
+      }
+      &:nth-child(8n+3) {
+        .content .image {
+          width: 70%;
+          height: 70%;
+          margin-left: 30%;
+          margin-top: 30%;
+        }
+      }
+    }
   }
   .right-container{
     height:100vh;
+    margin-top:100vh;
+    .content-container{
+      &:nth-child(8n+1) {
+        .content .image {
+          width: 80%;
+          height: 80%;
+          margin-left: 5%;
+          margin-top: 10%;
+        }
+      }
+      &:nth-child(8n+2) {
+        .content .image {
+          width: 50%;
+          height: 50%;
+          margin-left: 15%;
+          margin-top: 20%;
+        }
+      }
+      &:nth-child(8n+3) {
+        .content .image {
+          width: 60%;
+          height: 60%;
+          margin-left: 25%;
+          margin-top: 0%;
+        }
+      }
+    }
   }
   .content-container{
     position: relative;
     display: inline-block;
-    height:100%;
-    width:100%;
+    width: 100%;
+    height: 100%;
     .content {
       .image {
-        width: 50%;
-        height:50%;
         background-repeat:no-repeat;
         background-size: contain;
         background-position: center;
