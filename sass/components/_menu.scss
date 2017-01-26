@@ -4,28 +4,27 @@
     cursor: pointer;
     width:100%;
     height:100%;
-    //z-index:50;
     display: flex;
     align-items: center;
     .menu-graphic{
       width:5%;
       height:5%;
-      z-index: 50;
+      pointer-events: auto;
       .menu-links{
         width:0%;
         height:100%;
         position:absolute;
         transition-duration: 0.3s, 0.3s;
         overflow-x: hidden;
-        font-size:5rem;
+        font-size:7rem;
         top:0;
+        margin:10%;
         text-align: center;
         a{
           color:black;
         }
         &.is-active{
-          background-color:rgba(255, 255, 255, 0.5);
-          width:100%;
+          width:80%;
         }
       }
       .filters:hover{

@@ -17,9 +17,8 @@
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
-{% include "templates/partials/menu.html" %}
 <div class="index-page pt1 col col-12">
-  <div class="flex col-8  title">
+  <div class="col-8  title">
     <div class="center fixed exil">{{cms.home.name}}</div>
   </div>
   <!-- <div class="index-grid pt2 index-image col-12"> -->
@@ -47,4 +46,6 @@
     {% endfor %}
   </div>
 </div>
+{% include "templates/partials/menu.html" %}
+
 {% endblock %}

@@ -33,7 +33,7 @@
 .menu .menu-button .menu-graphic, .menu .menu-graphic-container .menu-graphic {
   width: 5%;
   height: 5%;
-  z-index: 50;
+  pointer-events: auto;
 }
 .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
   width: 0%;
@@ -41,16 +41,16 @@
   position: absolute;
   transition-duration: 0.3s, 0.3s;
   overflow-x: hidden;
-  font-size: 5rem;
+  font-size: 7rem;
   top: 0;
+  margin: 10%;
   text-align: center;
 }
 .menu .menu-button .menu-graphic .menu-links a, .menu .menu-graphic-container .menu-graphic .menu-links a {
   color: black;
 }
 .menu .menu-button .menu-graphic .menu-links.is-active, .menu .menu-graphic-container .menu-graphic .menu-links.is-active {
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 100%;
+  width: 80%;
 }
 .menu .menu-button .menu-graphic .filters:hover, .menu .menu-graphic-container .menu-graphic .filters:hover {
   cursor: pointer;
@@ -294,11 +294,10 @@
   align-items: center;
   justify-content: center;
   font-size: 10rem;
-  position: absolute;
   width: 100%;
-  z-index: 30;
-  pointer-events: none;
   height: 100vh;
+  pointer-events: none;
+  background-color: transparent;
 }
 .index-page .left-container {
   height: 100vh;
@@ -309,7 +308,6 @@
   margin-top: 100vh;
 }
 .index-page .content-container {
-  position: relative;
   display: inline-block;
   width: 50vw;
   height: 100vh;
@@ -317,6 +315,7 @@
   cursor: pointer;
 }
 .index-page .content-container .content .image {
+  pointer-events: auto;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

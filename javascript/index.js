@@ -1,12 +1,11 @@
 import _ from 'lodash';
 
 //import Waypoint from 'waypoints';
-
-window.onload = function (){
+$(document).ready(function (){
   var menuButtonL= document.getElementById('lbutt');
   var menuLinksL= document.getElementById('llinks');
+
   menuButtonL.addEventListener('click', () => {
-    //console.log("hi");
     menuLinksL.classList.toggle('is-active');
   });
   var menuButtonR= document.getElementById('rbutt');
@@ -16,6 +15,14 @@ window.onload = function (){
       menuLinksR.classList.toggle('is-active');
     });
   }
+  var title = document.querySelector(".title");
+  if ($( document.getElementById('llinks') ).hasClass( "is-active" ) ){
+     title.style.display = "none";
+  }else{
+    title.style.display = "flex";
+
+  }
+ console.log(title);
   var $grid = $('.index-grid').isotope({
     itemSelector: '.index-grid-item',
     layoutMode: 'fitRows',
@@ -30,7 +37,7 @@ window.onload = function (){
   workAnimation();
   imageHover();
   document.getElementById('lightbox') && lightbox();
-}
+})
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');

@@ -1,28 +1,27 @@
 .index-page{
   max-height:1000px;
   width:100%;
+//   pointer-events: auto;
   .title{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size:10rem;
-    position: absolute;
     width:100%;
-    z-index:30;
-    pointer-events:none;
     height:100vh;
+    pointer-events: none;
+    background-color: transparent;
   }
   .left-container{
     height:100vh;
     position: fixed;
-    }
+  }
   .right-container{
     height:100vh;
     margin-top:100vh;
-    // position: absolute;
   }
   .content-container{
-    position: relative;
+  //  position: relative;
     display: inline-block;
     width: 50vw;
     height: 100vh;
@@ -30,6 +29,7 @@
     cursor:pointer;
     .content {
       .image {
+        pointer-events: auto;
         background-repeat:no-repeat;
         background-size: contain;
         background-position: center;
