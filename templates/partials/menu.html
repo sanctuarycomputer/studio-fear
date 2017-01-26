@@ -1,23 +1,28 @@
-<div id="menu">
-  <div class="desktop-menus">
-    <div class="menu-links menu-left flex-column center" id="llinks">
-      <p class="p0"><a class="text-decoration-none exil " href="/">work</a></p>
-      <p class="p0"><a class="text-decoration-none exil " href="/object">object</a></p>
-      <p class="p0"><a class="text-decoration-none exil " href="/feed">feed</a></p>
-      <p class="p0"><a class="text-decoration-none exil " href="/contact">about</a></p>
+<div class="menu">
+    <div class="menu-button justify-between px2 fixed menu-graphic-container">
+      <div class="left menu-graphic">
+        <div id="lbutt">
+          {% include "templates/partials/menu-icon.html" %}
+        </div>
+        <div class="menu-links" id="llinks">
+          <p class="p0"><a class="text-decoration-none exil " href="/">work</a></p>
+          <p class="p0"><a class="text-decoration-none exil " href="/object">object</a></p>
+          <p class="p0"><a class="text-decoration-none exil " href="/feed">feed</a></p>
+          <p class="p0"><a class="text-decoration-none exil " href="/contact">about</a></p>
+        </div>
+      </div>
+      {% if !config.hideFilter %}
+      <div class="right menu-graphic">
+        <div id="rbutt">
+          {% include "templates/partials/filter-icon.html" %}
+        </div>
+        <div class="menu-links" id="rlinks">
+          {% for item in cms.filters %}
+            <p class=" exil filters p0" data-filter=".{{ item.name  }}">{{ item.name  }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
     </div>
-    <div class="menu-button menu-left left" id="lbutt">
-      <p>[]</p>
-    </div>
-    {% if !config.hideFilter %}
-    <div class="menu-links filters menu-right flex-column center" id="rlinks">
-      {% for item in cms.filters %}
-        <p class=" exil p0" data-filter=".{{ item.name  }}">{{ item.name  }}</p>
-      {% endfor %}
-    </div>
-    <div class="menu-button menu-right right" id="rbutt">
-      <p>[]</p>
-    </div>
-    {% endif %}
-  </div>
  </div>

@@ -5,7 +5,8 @@ import _ from 'lodash';
 window.onload = function (){
   var menuButtonL= document.getElementById('lbutt');
   var menuLinksL= document.getElementById('llinks');
-    menuButtonL.addEventListener('click', () => {
+  menuButtonL.addEventListener('click', () => {
+    //console.log("hi");
     menuLinksL.classList.toggle('is-active');
   });
   var menuButtonR= document.getElementById('rbutt');
@@ -26,7 +27,8 @@ window.onload = function (){
   });
   feedScroll();
   objectScroll();
-  workAnimation()
+  workAnimation();
+  imageHover();
   document.getElementById('lightbox') && lightbox();
 }
 function objectScroll() {
@@ -126,11 +128,14 @@ function workAnimation(){
   $(document).scroll(function(){
   	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
   });
-  // var waypoint = new Waypoint({
-  //   element: last,
-  //   handler: function() {
-  //     //.css('', '');
-  //   },
-  //   offset: 'bottom-in-view'
-  // })
+}
+function imageHover(){
+  var indexImages = document.querySelectorAll('.index-grid-item');
+  var i;
+  for(var i = 0; i < indexImages.length; i++){
+    var target = indexImages[i];
+    indexImages[i].addEventListener("mouseenter", function (){
+      console.log(indexImages,i);
+    });
+  }
 }

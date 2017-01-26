@@ -14,8 +14,9 @@
 {% block content %}
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/exit-button.html" %}
+{% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
+
 <div class="feed" id="lightbox">
-  {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 <div class="" id="projects">
