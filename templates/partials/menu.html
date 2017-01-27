@@ -12,13 +12,13 @@
         </div>
       </div>
       {% if !config.hideFilter %}
-      <div class="right menu-graphic">
+      <div class="right filters menu-graphic">
         <div id="rbutt">
           {% include "templates/partials/filter-icon.html" %}
         </div>
         <div class="menu-links" id="rlinks">
           {% for item in cms.filters %}
-            <p class=" exil filters p0" data-filter=".{{ item.name  }}">{{ item.name  }}</p>
+            <p class=" exil p0" data-filter=".{{ item.name  }}">{{ item.name  }}</p>
           {% endfor %}
         </div>
       </div>

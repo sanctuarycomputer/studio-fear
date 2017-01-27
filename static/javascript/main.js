@@ -9,28 +9,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import Waypoint from 'waypoints';
 $(document).ready(function () {
-  var menuButtonL = document.getElementById('lbutt');
-  var menuLinksL = document.getElementById('llinks');
 
-  menuButtonL.addEventListener('click', function () {
-    menuLinksL.classList.toggle('is-active');
-  });
-  var menuButtonR = document.getElementById('rbutt');
-  var menuLinksR = document.getElementById('rlinks');
-  if (menuButtonR) {
-    menuButtonR.addEventListener('click', function () {
-      menuLinksR.classList.toggle('is-active');
-    });
-  }
-  var title = document.querySelector(".title");
-  if ($(document.getElementById('llinks')).hasClass("is-active")) {
-    title.style.display = "none";
-  } else {
-    title.style.display = "flex";
-  }
-  console.log(title);
-  var $grid = $('.index-grid').isotope({
-    itemSelector: '.index-grid-item',
+  var $grid = $('.i').isotope({
+    itemSelector: '.e',
     layoutMode: 'fitRows'
   });
 
@@ -41,7 +22,8 @@ $(document).ready(function () {
   feedScroll();
   objectScroll();
   workAnimation();
-  imageHover();
+  //  imageHover();
+  menu();
   document.getElementById('lightbox') && lightbox();
 });
 function objectScroll() {
@@ -135,7 +117,7 @@ function lightbox() {
 function workAnimation() {
   var leftcol = $(".left-container");
   var imageNumber = leftcol.children().length;
-  var leftContainerHeight = imageNumber * -100;
+  var leftContainerHeight = imageNumber * -150;
   leftcol.css("margin-top", leftContainerHeight + 'vh');
   //var last = $(".right-container").children().last();
   //console.log(last);
@@ -143,13 +125,39 @@ function workAnimation() {
     leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
   });
 }
-function imageHover() {
-  var indexImages = document.querySelectorAll('.index-grid-item');
-  var i;
-  for (var i = 0; i < indexImages.length; i++) {
-    var target = indexImages[i];
-    indexImages[i].addEventListener("mouseenter", function () {
-      console.log(indexImages, i);
+// function imageHover(){
+//   var indexImages = document.querySelectorAll('.index-grid-item');
+//   var i;
+//   for(var i = 0; i < indexImages.length; i++){
+//     var target = indexImages[i];
+//     target.addEventListener("mouseenter", function (){
+//     console.log(indexImages,i);
+//     });
+//   }
+// }
+function menu() {
+  var menuButtonL = document.getElementById('lbutt');
+  var menuLinksL = document.getElementById('llinks');
+  var title = document.querySelector(".title");
+
+  menuButtonL.addEventListener('click', function () {
+    menuLinksL.classList.toggle('is-active');
+    title.classList.toggle('is-active');
+  });
+  var menuButtonR = document.getElementById('rbutt');
+  var menuLinksR = document.getElementById('rlinks');
+  if (menuButtonR) {
+    menuButtonR.addEventListener('click', function () {
+      menuLinksR.classList.toggle('is-active');
+    });
+  }
+  scrollRotate();
+  function scrollRotate() {
+    $(document).scroll(function () {
+      var divideNumber = Math.PI * 50;
+      var theta = $(window).scrollTop() / divideNumber;
+      $('#loading').css({ transform: 'rotate(' + theta + 'rad)' });
+      //$('#rightgear').css({ transform: 'rotate(-' + theta + 'rad)' });
     });
   }
 }
