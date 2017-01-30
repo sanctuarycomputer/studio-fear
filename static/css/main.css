@@ -75,16 +75,28 @@
   }
 }
 
-.feed-index .black-line-container {
+.feed-index .image-data:hover {
+  color: orange;
+}
+.feed-index .image-data:hover .black-line {
+  background-color: orange;
+}
+.feed-index .image-data .black-line-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.feed-index .black-line-container .black-line {
+.feed-index .image-data .black-line-container .black-line {
   background-color: black;
   height: .2rem;
   width: 100%;
+}
+.feed-index .image-data:hover {
+  color: orange;
+}
+.feed-index .image-data:hover .black-line {
+  background-color: orange;
 }
 
 #projects .grid .grid-sizer,
