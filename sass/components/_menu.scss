@@ -13,6 +13,9 @@
       pointer-events: auto;
       #loading{
         transform-origin: 50% 50%;
+
+        .small-line{}
+
       }
       .menu-links{
         width:0%;
@@ -41,4 +44,26 @@
       font-size: !important;
     }
   }
+  svg{
+    &:hover{
+      .large-line{
+        animation-name: spin;
+        animation-duration: 1000ms;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-play-state: running;
+      }
+    }
+  }
+  @keyframes spin {
+  from {
+    transform: rotate(0deg);
+    transform:translate(-12.75 17.5);
+  }
+  to {
+    transform: rotate(30deg);
+    transform:translate(-120.75 17.5);
+
+  }
+}
 }

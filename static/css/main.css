@@ -64,7 +64,23 @@
   position: absolute;
   font-size: !important;
 }
-
+.menu svg:hover .large-line {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    transform: translate(-12.75 17.5);
+  }
+  to {
+    transform: rotate(30deg);
+    transform: translate(-120.75 17.5);
+  }
+}
 .about p {
   font-size: 2.5rem;
   font-family: "Miller Ban Lt";
@@ -75,12 +91,6 @@
   }
 }
 
-.feed-index .image-data:hover {
-  color: orange;
-}
-.feed-index .image-data:hover .black-line {
-  background-color: orange;
-}
 .feed-index .image-data .black-line-container {
   width: 100%;
   display: flex;
