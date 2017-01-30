@@ -11,12 +11,6 @@
       width:5%;
       height:5%;
       pointer-events: auto;
-      #loading{
-        transform-origin: 50% 50%;
-
-        .small-line{}
-
-      }
       .menu-links{
         width:0%;
         height:100%;
@@ -38,10 +32,22 @@
       }
     }
     .filters{
-      right:0;
       float:right;
-      position:absolute;
-      font-size: !important;
+      pointer-events: auto;
+      .menu-links{
+        right:0;
+        margin-top:5%;
+        margin-right:10%;
+        width:0%;
+        height:100%;
+        text-align: center;
+        font-size: 6em!important;
+        &.is-active{
+          width:80%;
+        }
+      }
+      #rbutt{
+      }
     }
   }
   svg{
@@ -56,14 +62,13 @@
     }
   }
   @keyframes spin {
-  from {
-    transform: rotate(0deg);
-    transform:translate(-12.75 17.5);
+    from {
+      transform: rotate(0deg);
+      //transform:translate(-12.75 17.5);
+    }
+    to {
+      transform: rotate(30deg);
+      //transform:translate(-120.75 17.5);
+    }
   }
-  to {
-    transform: rotate(30deg);
-    transform:translate(-120.75 17.5);
-
-  }
-}
 }
