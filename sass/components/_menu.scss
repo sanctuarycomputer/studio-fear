@@ -1,31 +1,69 @@
-#menu{
-  .menu-links{
-    width:100%;
-    height:0%;
-    opacity: 0;
-    position:absolute;
-    transition-duration: 0.3s, 0.3s;
-    overflow-x: hidden;
-    z-index:0;
-    a{
-      color:black;
-    }
-  }
-  .filters:hover{
-    cursor:pointer;
-  }
-  .menu-button {
+.menu{
+  .menu-button, .menu-graphic-container {
     background-color: transparent;
     cursor: pointer;
-    z-index: 10;
-    transition-duration: 0.3s, 0.3s;
-    position: relative;
-  }
-  .is-active{
-    background-color:rgba(255, 255, 255, 0.5);
+    width:100%;
     height:100%;
-    opacity: 1;
-    z-index:8;
-    transition-duration: 0.3s, 0.3s;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    .menu-graphic{
+      width:5%;
+      height:5%;
+      pointer-events: auto;
+      #loading{
+        transform-origin: 50% 50%;
+
+        .small-line{}
+
+      }
+      .menu-links{
+        width:0%;
+        height:100%;
+        position:absolute;
+        transition-duration: 0.3s, 0.3s;
+        overflow-x: hidden;
+        align-items: center;
+        font-size:8em;
+        top:0;
+        margin-top:5%;
+        margin-left:10%;
+        text-align: center;
+        a{
+          color:black;
+        }
+        &.is-active{
+          width:80%;
+        }
+      }
+    }
+    .filters{
+      right:0;
+      float:right;
+      position:absolute;
+      font-size: !important;
+    }
   }
+  svg{
+    &:hover{
+      .large-line{
+        animation-name: spin;
+        animation-duration: 1000ms;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-play-state: running;
+      }
+    }
+  }
+  @keyframes spin {
+  from {
+    transform: rotate(0deg);
+    transform:translate(-12.75 17.5);
+  }
+  to {
+    transform: rotate(30deg);
+    transform:translate(-120.75 17.5);
+
+  }
+}
 }

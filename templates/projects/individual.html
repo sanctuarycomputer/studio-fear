@@ -14,20 +14,20 @@
 {% block content %}
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/exit-button.html" %}
+{% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
 <div class="feed" id="lightbox">
-  {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 <div class="" id="projects">
-  <div class="col-6 px2 image-gallery absolute right-0">
+  <div class="col-6 py3 image-gallery absolute right-0">
     {% for row in item.projectgallery %}
       <div class="project-images mt1 mx-auto block" style="background-image: url({{ row.image.url }})" /></div>
     {% endfor %}
   </div>
-  <div class="project-title col-6 px2 py2">
+  <div class="project-title fixed col-6 px3 py2">
     <p class= "millerbannerroman mt2"> {{ item.name }}</p>
   </div>
-  <div class="col-5 px2 project-text">
+  <div class="col-5 px3 mt2 fixed project-text">
     {{ item.markdown_text|markdown }}
   </div>
 </div>

@@ -1,0 +1,62 @@
+.index-page{
+  max-height:1000px;
+  width:100%;
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:10rem;
+    width:100%;
+    height:100vh;
+    opacity:1;
+    z-index:10000;
+    pointer-events: none;
+    background-color: transparent;
+    transition-duration: 0.3s, 0.3s;
+    &.is-active{
+      opacity:0;
+    }
+  }
+  .left-container{
+    height:100vh;
+    position: fixed;
+    z-index: 0;
+  }
+  .right-container{
+    height:100vh;
+    margin-top:100vh;
+    z-index: 0;
+
+  }
+  .content-container{
+    position: relative;
+    display: inline-block;
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    cursor:pointer;
+    .content {
+      .image {
+        pointer-events: auto;
+        background-repeat:no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+          display:none;
+        }
+        &:hover{
+          background-size: 0;
+          background-color: white;
+          border: 4px solid;
+          border-color:orange;
+          p{
+            display:block;
+          }
+        }
+      }
+    }
+  }
+}

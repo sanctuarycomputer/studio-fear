@@ -8,22 +8,9 @@ var _lodash2 = _interopRequireDefault(_lodash);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import Waypoint from 'waypoints';
-
-window.onload = function () {
-  var menuButtonL = document.getElementById('lbutt');
-  var menuLinksL = document.getElementById('llinks');
-  menuButtonL.addEventListener('click', function () {
-    menuLinksL.classList.toggle('is-active');
-  });
-  var menuButtonR = document.getElementById('rbutt');
-  var menuLinksR = document.getElementById('rlinks');
-  if (menuButtonR) {
-    menuButtonR.addEventListener('click', function () {
-      menuLinksR.classList.toggle('is-active');
-    });
-  }
-  var $grid = $('.index-grid').isotope({
-    itemSelector: '.index-grid-item',
+$(document).ready(function () {
+  var $grid = $('.i').isotope({
+    itemSelector: '.e',
     layoutMode: 'fitRows'
   });
 
@@ -33,8 +20,10 @@ window.onload = function () {
   });
   feedScroll();
   objectScroll();
-  lightbox();
-};
+  workAnimation();
+  menu();
+  document.getElementById('lightbox') && lightbox();
+});
 function objectScroll() {
   var _this = this;
 
@@ -68,11 +57,9 @@ function objectScroll() {
   });
 }
 function feedScroll() {
-
   var hero = document.getElementById('feed-image');
   var waypoints = document.getElementsByClassName('waypoint');
   var waypointsWithValues = [];
-
   // process the waypoints to find the bounds
   _lodash2.default.forEach(waypoints, function (waypoint) {
     // make an object {} with all the good info
@@ -80,29 +67,23 @@ function feedScroll() {
       imageUrl: waypoint.dataset.image,
       // top of image from the start of the page
       yTop: waypoint.offsetTop,
-
       // bottom position of waypoint
       yBottom: waypoint.offsetHeight + waypoint.offsetTop
     };
-
     // add processedWaypoint object to array
     waypointsWithValues.push(processedWaypoint);
   });
-
   // every time page is scrolled
   document.addEventListener("scroll", function (event) {
     // get the scroll position from the top of the page
     var scrollPosition = window.pageYOffset;
-
     // on scroll, look through the array of processed waypoints and use lodash's find
     var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
       // return the waypoint that is within the range of the scroll position
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
-
     // if it finds a waypoint in the scroll range
     if (selectedWaypoint) {
-
       // use the selectedWaypoint to set the background image
       hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
     }
@@ -110,12 +91,10 @@ function feedScroll() {
 }
 function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
-  console.log(projectpics);
   var i;
   var lightbox = document.getElementById('lightbox');
   for (var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function () {
-      console.log(lightbox);
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
@@ -124,6 +103,42 @@ function lightbox() {
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
   });
+}
+function workAnimation() {
+  var leftcol = $(".left-container");
+  var imageNumber = leftcol.children().length;
+  var leftContainerHeight = imageNumber * -150;
+  leftcol.css("margin-top", leftContainerHeight + 'vh');
+  //var last = $(".right-container").children().last();
+  //console.log(last);
+  $(document).scroll(function () {
+    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
+  });
+}
+function menu() {
+  var menuButtonL = document.getElementById('lbutt');
+  var menuLinksL = document.getElementById('llinks');
+  var title = document.querySelector(".title");
+
+  menuButtonL.addEventListener('click', function () {
+    menuLinksL.classList.toggle('is-active');
+    title.classList.toggle('is-active');
+  });
+  var menuButtonR = document.getElementById('rbutt');
+  var menuLinksR = document.getElementById('rlinks');
+  if (menuButtonR) {
+    menuButtonR.addEventListener('click', function () {
+      menuLinksR.classList.toggle('is-active');
+    });
+  }
+  scrollRotate();
+  function scrollRotate() {
+    $(document).scroll(function () {
+      var divideNumber = Math.PI * 50;
+      var theta = $(window).scrollTop() / divideNumber;
+      $('#loading').css({ transform: 'rotate(' + theta + 'rad)' });
+    });
+  }
 }
 
 },{"lodash":2}],2:[function(require,module,exports){
