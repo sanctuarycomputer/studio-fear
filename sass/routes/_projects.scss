@@ -1,4 +1,4 @@
-#projects{
+.projects-page{
   .grid{
     .grid-sizer,
     .grid-item {
@@ -42,10 +42,13 @@
   }
   .image-gallery{
     height:100%;
+    pointer-events: none;
+
   }
 }
 #lightbox{
- position: fixed;
+  pointer-events: none;
+  position: fixed;
   opacity: 0;
   top: 0;
   width: 100%;

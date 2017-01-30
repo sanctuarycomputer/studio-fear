@@ -22,10 +22,8 @@
   text-transform: uppercase;
 }
 
-.menu {
-  z-index: 100;
-}
 .menu .menu-button, .menu .menu-graphic-container {
+  z-index: 100;
   background-color: transparent;
   cursor: pointer;
   width: 100%;
@@ -126,34 +124,34 @@
   background-color: orange;
 }
 
-#projects .grid .grid-sizer,
-#projects .grid .grid-item {
+.projects-page .grid .grid-sizer,
+.projects-page .grid .grid-item {
   width: 50%;
 }
-#projects .grid .grid-item {
+.projects-page .grid .grid-item {
   float: left;
   display: block;
   max-width: 100%;
 }
-#projects .project-text p {
+.projects-page .project-text p {
   font-size: 2.5rem;
   font-family: "Miller Ban Lt";
 }
 @media (max-width: 52em) {
-  #projects .project-text p {
+  .projects-page .project-text p {
     font-size: 1.5rem;
   }
 }
-#projects .project-title p {
+.projects-page .project-title p {
   font-size: 2.5rem;
 }
 @media (max-width: 52em) {
-  #projects .project-title p {
+  .projects-page .project-title p {
     font-size: 1.5rem;
     width: 95%;
   }
 }
-#projects .project-images {
+.projects-page .project-images {
   z-index: 0;
   float: right;
   width: 95%;
@@ -163,15 +161,17 @@
   background-position: center;
 }
 @media (max-width: 48em) {
-  #projects .project-images {
+  .projects-page .project-images {
     width: 95%;
   }
 }
-#projects .image-gallery {
+.projects-page .image-gallery {
   height: 100%;
+  pointer-events: none;
 }
 
 #lightbox {
+  pointer-events: none;
   position: fixed;
   opacity: 0;
   top: 0;
