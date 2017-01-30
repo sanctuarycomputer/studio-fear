@@ -9,7 +9,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import Waypoint from 'waypoints';
 $(document).ready(function () {
-
   var $grid = $('.i').isotope({
     itemSelector: '.e',
     layoutMode: 'fitRows'
@@ -22,7 +21,6 @@ $(document).ready(function () {
   feedScroll();
   objectScroll();
   workAnimation();
-  //  imageHover();
   menu();
   document.getElementById('lightbox') && lightbox();
 });
@@ -59,11 +57,9 @@ function objectScroll() {
   });
 }
 function feedScroll() {
-
   var hero = document.getElementById('feed-image');
   var waypoints = document.getElementsByClassName('waypoint');
   var waypointsWithValues = [];
-
   // process the waypoints to find the bounds
   _lodash2.default.forEach(waypoints, function (waypoint) {
     // make an object {} with all the good info
@@ -71,29 +67,23 @@ function feedScroll() {
       imageUrl: waypoint.dataset.image,
       // top of image from the start of the page
       yTop: waypoint.offsetTop,
-
       // bottom position of waypoint
       yBottom: waypoint.offsetHeight + waypoint.offsetTop
     };
-
     // add processedWaypoint object to array
     waypointsWithValues.push(processedWaypoint);
   });
-
   // every time page is scrolled
   document.addEventListener("scroll", function (event) {
     // get the scroll position from the top of the page
     var scrollPosition = window.pageYOffset;
-
     // on scroll, look through the array of processed waypoints and use lodash's find
     var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
       // return the waypoint that is within the range of the scroll position
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
-
     // if it finds a waypoint in the scroll range
     if (selectedWaypoint) {
-
       // use the selectedWaypoint to set the background image
       hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
     }
@@ -125,16 +115,6 @@ function workAnimation() {
     leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
   });
 }
-// function imageHover(){
-//   var indexImages = document.querySelectorAll('.index-grid-item');
-//   var i;
-//   for(var i = 0; i < indexImages.length; i++){
-//     var target = indexImages[i];
-//     target.addEventListener("mouseenter", function (){
-//     console.log(indexImages,i);
-//     });
-//   }
-// }
 function menu() {
   var menuButtonL = document.getElementById('lbutt');
   var menuLinksL = document.getElementById('llinks');
@@ -157,7 +137,6 @@ function menu() {
       var divideNumber = Math.PI * 50;
       var theta = $(window).scrollTop() / divideNumber;
       $('#loading').css({ transform: 'rotate(' + theta + 'rad)' });
-      //$('#rightgear').css({ transform: 'rotate(-' + theta + 'rad)' });
     });
   }
 }
