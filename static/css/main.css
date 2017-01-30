@@ -73,18 +73,37 @@
   width: 80%;
 }
 .menu svg:hover .large-line {
-  animation-name: spin;
+  animation-name: largeline;
   animation-duration: 1000ms;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-play-state: running;
+  animation-fill-mode: forwards;
 }
-@keyframes spin {
+.menu svg:hover .circle {
+  animation-name: circle;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+@keyframes largeline {
   from {
     transform: rotate(0deg);
+    transform: translate(-12.75 17.5);
   }
   to {
     transform: rotate(30deg);
+    transform: translate(-120.75 17.5);
+  }
+}
+@keyframes circle {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.15, 1.15);
   }
 }
 .about p {
