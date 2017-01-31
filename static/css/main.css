@@ -22,6 +22,10 @@
   text-transform: uppercase;
 }
 
+.black-and-white {
+  filter: grayscale(100%);
+}
+
 .menu .menu-button, .menu .menu-graphic-container {
   z-index: 100;
   background-color: transparent;
@@ -267,10 +271,6 @@
 }
 .index-page .content-container .content .image:hover p {
   display: block;
-}
-
-.black-and-white {
-  filter: grayscale(100%);
 }
 
 .feed .feed-gallery {
