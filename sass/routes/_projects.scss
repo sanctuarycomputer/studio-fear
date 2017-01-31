@@ -42,15 +42,13 @@
   }
   .image-gallery{
     height:100%;
-    pointer-events: none;
-
   }
 }
 #lightbox{
-  pointer-events: none;
   position: fixed;
   opacity: 0;
   top: 0;
+  z-index:-10;
   width: 100%;
   background-color:white;
 }

@@ -106,6 +106,12 @@
     transform: scale(1.15, 1.15);
   }
 }
+.exit-button {
+  z-index: 10;
+  cursor: pointer;
+  color: black;
+}
+
 .about p {
   font-size: 2.5rem;
   font-family: "Miller Ban Lt";
@@ -186,14 +192,13 @@
 }
 .projects-page .image-gallery {
   height: 100%;
-  pointer-events: none;
 }
 
 #lightbox {
-  pointer-events: none;
   position: fixed;
   opacity: 0;
   top: 0;
+  z-index: -10;
   width: 100%;
   background-color: white;
 }

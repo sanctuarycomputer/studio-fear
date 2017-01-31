@@ -9,14 +9,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import Waypoint from 'waypoints';
 $(document).ready(function () {
+  document.getElementById('lightbox') && lightbox();
 
-  feedScroll();
   objectScroll();
   workAnimation();
   menu();
   filters();
   feedIndex();
-  document.getElementById('lightbox') && lightbox();
 });
 function objectScroll() {
   var _this = this;
@@ -91,11 +90,14 @@ function lightbox() {
     projectpics[i].addEventListener("click", function () {
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
+      //  lightbox.style.height = "100px";
+      console.log("hi");
     });
   }
   lightbox.addEventListener("click", function () {
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
+    //  lightbox.style.height = 0;
   });
 }
 function workAnimation() {
