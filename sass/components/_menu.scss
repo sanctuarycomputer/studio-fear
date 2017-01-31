@@ -47,6 +47,12 @@
           width:80%;
         }
       }
+      .exit-button-filter{
+        display:none;
+        &.is-active{
+          display:block;
+        }
+      }
     }
   }
   svg{
@@ -74,11 +80,11 @@
   @keyframes largeline {
     from {
       transform: rotate(0deg);
-      transform:translate(-12.75 17.5);
+      transform: skew(0deg,0deg);
     }
     to {
-      transform: rotate(30deg);
-      transform:translate(-120.75 17.5);
+      transform: rotate(20deg);
+      transform: skew(0deg,40deg);
     }
   }
   @keyframes circle {

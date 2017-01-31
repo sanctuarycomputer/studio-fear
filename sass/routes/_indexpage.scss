@@ -26,7 +26,6 @@
     height:100vh;
     margin-top:100vh;
     z-index: 0;
-
   }
   .content-container{
     position: relative;
@@ -59,4 +58,7 @@
       }
     }
   }
+}
+.black-and-white{
+  filter: grayscale(100%);
 }

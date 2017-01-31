@@ -72,6 +72,12 @@
 .menu .menu-button .filters .menu-links.is-active, .menu .menu-graphic-container .filters .menu-links.is-active {
   width: 80%;
 }
+.menu .menu-button .filters .exit-button-filter, .menu .menu-graphic-container .filters .exit-button-filter {
+  display: none;
+}
+.menu .menu-button .filters .exit-button-filter.is-active, .menu .menu-graphic-container .filters .exit-button-filter.is-active {
+  display: block;
+}
 .menu svg:hover .large-line {
   animation-name: largeline;
   animation-duration: 1000ms;
@@ -91,11 +97,11 @@
 @keyframes largeline {
   from {
     transform: rotate(0deg);
-    transform: translate(-12.75 17.5);
+    transform: skew(0deg, 0deg);
   }
   to {
-    transform: rotate(30deg);
-    transform: translate(-120.75 17.5);
+    transform: rotate(20deg);
+    transform: skew(0deg, 40deg);
   }
 }
 @keyframes circle {
@@ -261,6 +267,10 @@
 }
 .index-page .content-container .content .image:hover p {
   display: block;
+}
+
+.black-and-white {
+  filter: grayscale(100%);
 }
 
 .feed .feed-gallery {

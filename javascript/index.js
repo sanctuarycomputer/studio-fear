@@ -8,6 +8,7 @@ $(document).ready(function (){
   menu();
   filters();
   feedIndex();
+  feedScroll();
 })
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -80,14 +81,12 @@ function lightbox(){
     projectpics[i].addEventListener("click", function (){
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
-    //  lightbox.style.height = "100px";
       console.log("hi");
     });
   }
   lightbox.addEventListener("click", function (){
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
-  //  lightbox.style.height = 0;
   });
 }
 function workAnimation(){
@@ -105,44 +104,59 @@ var title = document.querySelector(".title");
 
 function displayTitle(bool=true) {
   if (title){
-  if (bool) {
-    title.classList.add('is-active');
-  } else {
-    title.classList.remove('is-active');
-  }}
+    if (bool) {
+      title.classList.add('is-active');
+    } else {
+      title.classList.remove('is-active');
+    }
+  }
 }
-
+var menuButtonL= document.getElementById('lbutt');
+var menuLinksL= document.getElementById('llinks');
+var menuButtonR= document.getElementById('rbutt');
+var menuLinksR= document.getElementById('rlinks');
+var exitButt = document.querySelector(".exit-button-filter");
 function menu(){
-  var menuButtonL= document.getElementById('lbutt');
-  var menuLinksL= document.getElementById('llinks');
-  var menuButtonR= document.getElementById('rbutt');
-  var menuLinksR= document.getElementById('rlinks');
-
   menuButtonL.addEventListener('click', () => {
     // menuLinksL.classList.toggle('is-active');
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
+      removeBW();
     } else {
       menuLinksL.classList.add('is-active');
       displayTitle(true);
+      addBW();
     }
     menuLinksR.classList.remove('is-active');
-
   });
   if (menuButtonR){
     menuButtonR.addEventListener('click', () => {
       // menuLinksL.classList.toggle('is-active');
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
+        exitButt.classList.remove('is-active');
         displayTitle(false);
+        removeBW();
       } else {
         menuLinksR.classList.add('is-active');
+        exitButt.classList.add('is-active');
         displayTitle(true);
+        addBW();
       }
       menuLinksL.classList.remove('is-active');
-
     });
+  }
+  var bwImages = document.querySelectorAll(".bwimage");
+  function removeBW() {
+    for(var i = 0; i < bwImages.length; i++) {
+        bwImages[i].classList.remove('black-and-white');
+    }
+  }
+  function addBW() {
+    for(var i = 0; i < bwImages.length; i++) {
+        bwImages[i].classList.add('black-and-white');
+    }
   }
   scrollRotate();
   function scrollRotate(){
@@ -152,12 +166,22 @@ function menu(){
       $('svg').css({ transform: 'rotate(' + theta + 'rad)' });
     });
   }
+  // var images =document.querySelectorAll('.image');
+  // for(var i = 0; i < images.length; i++) {
+  if (exitButt){
+    exitButt.addEventListener('click', () => {
+  //     images[i].classList.remove('filter');
+      menuLinksR.classList.remove('is-active');
+      displayTitle(false);
+      exitButt.classList.remove('is-active');
+   });
+  }
 }
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
-  var images =document.querySelectorAll('.image');
   for(var i = 0; i < filterObject.length; i++) {
     filterObject[i].addEventListener('click', (e) => {
+    //  window.scrollTo(0, 0);
       var filter = e.target.dataset.filter;
       var filteredImages = document.getElementsByClassName(filter);
       for(var i = 0; i < images.length; i++) {

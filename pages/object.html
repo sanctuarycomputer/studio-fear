@@ -12,9 +12,10 @@
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
 {% block content %}
-{% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
 {% include "templates/partials/exit-button.html" %}
+{% set config = {hideFilter: true} %}
+
 <div class="object-page mt3">
     {% for row in cms.object.grid %}
     <div class=" px2 col col-12">
@@ -28,7 +29,7 @@
       </div>
       <div class="object-gallery right col pt2 col-6">
         {% for image in row.gallery %}
-          <img class="object-image my2 mx-auto block fit" src="{{ image.url}}">
+          <img class="object-image bwimage my2 mx-auto block fit" src="{{ image.url}}">
         {% endfor %}
         <div class="gallery-bottom"></div>
       </div>

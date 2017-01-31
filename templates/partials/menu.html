@@ -16,6 +16,7 @@
         <div id="rbutt">
           {% include "templates/partials/filter-icon.html" %}
         </div>
+        <div class="exit-button-filter fixed right-0 text-decoration-none h6 exil top-0 pt1 px2">EXIT</div>
         <div class="menu-links" id="rlinks">
           {% for item in cms.filters %}
             <p class="individual-filter exil p0" data-filter="{{ item.name  }}">{{ item.name  }}</p>
