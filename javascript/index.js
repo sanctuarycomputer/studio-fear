@@ -92,10 +92,8 @@ function lightbox(){
 function workAnimation(){
   var leftcol = $(".left-container");
   var imageNumber = leftcol.children().length;
-  var leftContainerHeight = imageNumber * (-150) ;
+  var leftContainerHeight = imageNumber * (-100) ;
   leftcol.css("margin-top",  `${leftContainerHeight}vh`);
-  //var last = $(".right-container").children().last();
-  //console.log(last);
   $(document).scroll(function(){
   	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
   });
@@ -118,7 +116,6 @@ var menuLinksR= document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
 function menu(){
   menuButtonL.addEventListener('click', () => {
-    // menuLinksL.classList.toggle('is-active');
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
@@ -132,7 +129,6 @@ function menu(){
   });
   if (menuButtonR){
     menuButtonR.addEventListener('click', () => {
-      // menuLinksL.classList.toggle('is-active');
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
         exitButt.classList.remove('is-active');
@@ -166,11 +162,8 @@ function menu(){
       $('svg').css({ transform: 'rotate(' + theta + 'rad)' });
     });
   }
-  // var images =document.querySelectorAll('.image');
-  // for(var i = 0; i < images.length; i++) {
   if (exitButt){
     exitButt.addEventListener('click', () => {
-  //     images[i].classList.remove('filter');
       menuLinksR.classList.remove('is-active');
       displayTitle(false);
       exitButt.classList.remove('is-active');
@@ -181,7 +174,6 @@ function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
   for(var i = 0; i < filterObject.length; i++) {
     filterObject[i].addEventListener('click', (e) => {
-    //  window.scrollTo(0, 0);
       var filter = e.target.dataset.filter;
       var filteredImages = document.getElementsByClassName(filter);
       for(var i = 0; i < images.length; i++) {

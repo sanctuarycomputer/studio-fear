@@ -30,6 +30,10 @@
         &.is-active{
           width:80%;
         }
+        @media (max-width:48em) {
+          font-size:3rem;
+          margin-left:0%;
+        }
       }
     }
     .filters{
@@ -56,6 +60,11 @@
     }
   }
   svg{
+      @media (max-width:48em) {
+        top:0;
+        margin-left:0;
+      }
+
     &:hover{
       .large-line{
         animation-name: largeline;
