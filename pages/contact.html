@@ -18,10 +18,10 @@
 <div class="about pt3 millerbannerlight">
   <div class="name-text-about col-6 inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
-    <p class="pt1">{{ cms.contact.markdown_text }}</p>
+    <p class="pt1">{{ cms.contact.info_about_jowl }}</p>
   </div>
   <div class="col-6 right">
-    {% for image in cms.contact.gallery %}
+    {% for image in cms.contact.pictures_of_jowl %}
       <img class="profile-pic fit" src="{{ image.url }}">
     {% endfor %}
     <div class="contact-info ">

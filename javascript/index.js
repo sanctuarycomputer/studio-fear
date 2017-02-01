@@ -131,12 +131,10 @@ function menu(){
     menuButtonR.addEventListener('click', () => {
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
-        exitButt.classList.remove('is-active');
         displayTitle(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
-        exitButt.classList.add('is-active');
         displayTitle(true);
         addBW();
       }
