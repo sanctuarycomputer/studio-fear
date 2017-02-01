@@ -1,0 +1,37 @@
+#screensaver {
+   position: fixed;
+   width:100%;
+   height:100vh;
+   left:0px;
+   top: 0px;
+   display: none;
+   z-index:9999;
+   background-color: black;
+   .screensaver-stuff{
+    width:350%;
+    color:red;
+    background-color: black;
+    margin-left: -300%;
+    font-size: 3rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: red;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation-name: textmove;
+    -webkit-animation-duration:4s;
+    -webkit-animation-timing-function: linear;
+    animation-name: textmove;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+   }
+  @-webkit-keyframes textmove {
+    0%   {margin-left:-120%}
+    100% {margin-left:-20%}
+  }
+  @keyframes textmove {
+    0%   {margin-left:-120%}
+    100% {margin-left:-20%}
+  }
+}

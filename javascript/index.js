@@ -9,6 +9,7 @@ $(document).ready(function (){
   filters();
   feedIndex();
   feedScroll();
+  screenSaver();
 })
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -194,5 +195,23 @@ function feedIndex(){
       feedGallery.style.display = "none";
       indexButton.style.display = "none";
     });
+  }
+}
+function screenSaver(){
+  var s_saver;
+  var idletime = 5000;
+  $('body').mousemove(function() {
+    clearTimeout(s_saver);
+    s_saver = setTimeout(function(){
+        $('#screensaver').fadeIn(900);
+    }, idletime);
+    $('#screensaver').fadeOut(100);
+  });
+  function text(){
+    var text = document.querySelector(".screensaver-stuff");
+    var loopNumber = 10;
+    for(var i = 0; i < loopNumber; i++) {
+      text.style.top = i + 20 + "px";
+    }
   }
 }
