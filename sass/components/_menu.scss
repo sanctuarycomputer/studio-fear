@@ -19,13 +19,19 @@
         transition-duration: 0.3s, 0.3s;
         overflow-x: hidden;
         align-items: center;
-        font-size:8em;
         top:0;
         margin-top:5%;
         margin-left:10%;
         text-align: center;
-        a{
-          color:black;
+        .menu-text{
+          font-size:6em;
+          color:transparent;
+          -webkit-text-stroke-width: 4px;
+          -webkit-text-stroke-color: black;
+          -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+          //
+          // mix-blend-mode: difference;
+          // opacity: .99;
         }
         &.is-active{
           width:80%;
@@ -46,7 +52,7 @@
         width:0%;
         height:100%;
         text-align: center;
-        font-size: 6em!important;
+
         &.is-active{
           width:80%;
         }
@@ -60,11 +66,6 @@
     }
   }
   svg{
-      @media (max-width:48em) {
-        top:0;
-        margin-left:0;
-      }
-
     &:hover{
       .large-line{
         animation-name: largeline;
