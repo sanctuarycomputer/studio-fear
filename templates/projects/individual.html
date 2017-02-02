@@ -20,16 +20,16 @@
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 <div class="projects-page" id="projects">
-  <div class="col-6 py1 image-gallery absolute right-0">
+  <div class="sm-col-12 md-col-6 lg-col-6 py1 image-gallery absolute">
     {% for row in item.projectgallery %}
       <div class="project-images pt1 bwimage" style="background-image: url({{ row.image.url }})" /></div>
     {% endfor %}
   </div>
   <div class="project-info">
-    <div class="project-title col-6 pt2">
+    <div class="project-title sm-col-12 md-col-6 lg-col-6  pt2">
       <p class= "millerbannerroman pt2 pb2"> {{ item.name }}</p>
     </div>
-    <div class="col-6 pt1 project-text">
+    <div class="sm-col-12 md-col-6 lg-col-6 pt1 project-text">
       {{ item.markdown_text|markdown }}
     </div>
   </div>

@@ -17,13 +17,13 @@
       -webkit-text-stroke-width: 4px;
       -webkit-text-stroke-color: black;
       font-size:10rem;
-
+      @media (max-width:48em) {
+        font-size:3rem;
+        -webkit-text-stroke-width: 2px;
+      }
     }
     &.is-active{
       opacity:0;
-    }
-    @media (max-width:48em) {
-      font-size:3rem;
     }
   }
   .left-container{

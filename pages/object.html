@@ -19,7 +19,7 @@
 <div class="object-page mt3">
     {% for row in cms.object.grid %}
     <div class=" px2 col col-12">
-      <div class="object-text-container px2 absolute right-0 pt2 col-5 ">
+      <div class="object-text-container px2 absolute right-0 pt2 sm-col-12 md-col-5 lg-col-5">
         <div class="title mt2">
           {{ row.title }}
         </div>
@@ -27,7 +27,7 @@
           {{ row.text|markdown }}
         </div>
       </div>
-      <div class="object-gallery right col pt2 col-6">
+      <div class="object-gallery right col pt2 sm-col-12 md-col-6 lg-col-6">
         {% for image in row.gallery %}
           <img class="object-image bwimage my2 mx-auto block fit" src="{{ image.url}}">
         {% endfor %}
