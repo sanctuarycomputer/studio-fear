@@ -1,0 +1,50 @@
+.menu-svg-icons{
+  &:hover{
+    #large-line{
+      animation-name: largeline;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-play-state: running;
+      animation-fill-mode: forwards;
+      transform-origin: 70% 40%;
+
+    }
+    #circle{
+      animation-name: circle;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-play-state: running;
+      animation-fill-mode: forwards;
+      transform-origin: 50% 50%;
+
+    }
+    #small-line{
+      animation-name: smallline;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-play-state: running;
+      animation-fill-mode: forwards;
+      transform-origin: 20% 40%;
+    }
+    #line{
+      animation-name: smallline;
+      animation-duration: 10s;
+      transform-origin: 20% 40%;
+    }
+  }
+
+@keyframes largeline {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(70deg);}
+}
+@keyframes circle {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.15 ,1.15);}
+}
+@keyframes smallline{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(90deg);}
+}
+}

@@ -98,30 +98,44 @@
 .menu .menu-button .filters .exit-button-filter.is-active, .menu .menu-graphic-container .filters .exit-button-filter.is-active {
   display: block;
 }
-.menu svg:hover .large-line {
+
+.menu-svg-icons:hover #large-line {
   animation-name: largeline;
-  animation-duration: 1000ms;
+  animation-duration: 3s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-play-state: running;
   animation-fill-mode: forwards;
+  transform-origin: 70% 40%;
 }
-.menu svg:hover .circle {
+.menu-svg-icons:hover #circle {
   animation-name: circle;
-  animation-duration: 1000ms;
+  animation-duration: 3s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-play-state: running;
   animation-fill-mode: forwards;
+  transform-origin: 50% 50%;
+}
+.menu-svg-icons:hover #small-line {
+  animation-name: smallline;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  transform-origin: 20% 40%;
+}
+.menu-svg-icons:hover #line {
+  animation-name: smallline;
+  animation-duration: 10s;
+  transform-origin: 20% 40%;
 }
 @keyframes largeline {
   from {
     transform: rotate(0deg);
-    transform: skew(0deg, 0deg);
   }
   to {
-    transform: rotate(20deg);
-    transform: skew(0deg, 40deg);
+    transform: rotate(70deg);
   }
 }
 @keyframes circle {
@@ -130,6 +144,14 @@
   }
   to {
     transform: scale(1.15, 1.15);
+  }
+}
+@keyframes smallline {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
   }
 }
 #screensaver {
@@ -320,7 +342,7 @@
   color: transparent;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: black;
-  font-size: 10rem;
+  font-size: 7rem;
 }
 @media (max-width: 48em) {
   .index-page .title .title-text {

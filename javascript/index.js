@@ -114,14 +114,19 @@ var menuLinksL= document.getElementById('llinks');
 var menuButtonR= document.getElementById('rbutt');
 var menuLinksR= document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
+var circleR = document.querySelector(".circleR");
+var circleL = document.querySelector(".circleL");
+console.log(circleL,circleR)
 function menu(){
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
+      circleL.classList.remove('active');
       displayTitle(false);
       removeBW();
     } else {
       menuLinksL.classList.add('is-active');
+      circleL.classList.add('active');
       displayTitle(true);
       addBW();
     }
@@ -131,10 +136,12 @@ function menu(){
     menuButtonR.addEventListener('click', () => {
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
+        circleR.classList.remove('active');
         displayTitle(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
+        circleR.classList.add('active');
         displayTitle(true);
         addBW();
       }
