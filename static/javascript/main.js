@@ -211,7 +211,7 @@ function feedIndex() {
 }
 function screenSaver() {
   var s_saver;
-  var idletime = 5000;
+  var idletime = 30000;
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
@@ -219,10 +219,10 @@ function screenSaver() {
     }, idletime);
     $('#screensaver').fadeOut(100);
   });
-  function text() {
-    var text = document.querySelector(".screensaver-stuff");
+  function textMove() {
+    var text = document.getElementsByClassName(".screensaver-stuff");
     var loopNumber = 10;
-    for (var i = 0; i < loopNumber; i++) {
+    for (var i = 0; i < text.length; i++) {
       text.style.top = i + 20 + "px";
     }
   }

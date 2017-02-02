@@ -147,10 +147,10 @@
   -webkit-text-stroke-color: red;
   -webkit-text-fill-color: transparent;
   -webkit-animation-name: textmove;
-  -webkit-animation-duration: 4s;
+  -webkit-animation-duration: 5s;
   -webkit-animation-timing-function: linear;
   animation-name: textmove;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -164,10 +164,10 @@
 }
 @keyframes textmove {
   0% {
-    margin-left: -120%;
+    margin-left: -111%;
   }
   100% {
-    margin-left: -20%;
+    margin-left: 0%;
   }
 }
 .exit-button {
