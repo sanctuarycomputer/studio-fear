@@ -116,7 +116,6 @@ var menuLinksR= document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
 var circleR = document.querySelector(".circleR");
 var circleL = document.querySelector(".circleL");
-console.log(circleL,circleR)
 function menu(){
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
@@ -180,6 +179,7 @@ function filters() {
   for(var i = 0; i < filterObject.length; i++) {
     filterObject[i].addEventListener('click', (e) => {
       var filter = e.target.dataset.filter;
+      var images = document.querySelectorAll('.image');
       var filteredImages = document.getElementsByClassName(filter);
       for(var i = 0; i < images.length; i++) {
         images[i].style.display = "none";

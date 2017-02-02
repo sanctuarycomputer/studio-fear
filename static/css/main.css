@@ -41,6 +41,27 @@
   height: 5%;
   pointer-events: auto;
 }
+@media only screen and (max-device-width: 736px) and (orientation: portrait) {
+  .menu .menu-button .menu-graphic #lbutt, .menu .menu-graphic-container .menu-graphic #lbutt {
+    position: fixed;
+    z-index: 20;
+    width: 15%;
+    top: 2%;
+    right: 42%;
+    height: 15%;
+    justify-content: center;
+  }
+}
+@media only screen and (max-device-width: 736px) and (orientation: portrait) {
+  .menu .menu-button .menu-graphic #rbutt, .menu .menu-graphic-container .menu-graphic #rbutt {
+    position: fixed;
+    width: 10%;
+    right: 45%;
+    z-index: 20;
+    bottom: 2%;
+    height: 10%;
+  }
+}
 .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
   width: 0%;
   height: 100%;
@@ -53,28 +74,39 @@
   margin-left: 10%;
   text-align: center;
 }
+@media (max-width: 36em) {
+  .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
+    height: 0%;
+    width: 100%;
+    margin-left: 0%;
+  }
+}
 .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
   font-size: 6em;
   color: transparent;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: black;
   -webkit-text-fill-color: transparent;
-  /* Will override color (regardless of order) */
+  mix-blend-mode: difference;
+  opacity: .99;
 }
-@media (max-width: 48em) {
+.menu .menu-button .menu-graphic .menu-links .menu-text:hover, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text:hover {
+  -webkit-text-fill-color: black;
+}
+@media (max-width: 36em) {
   .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
-    margin-top: 15%;
-    font-size: 2rem;
+    margin-top: 10%;
+    font-size: 3rem;
     -webkit-text-stroke-width: 2px;
   }
 }
 .menu .menu-button .menu-graphic .menu-links.is-active, .menu .menu-graphic-container .menu-graphic .menu-links.is-active {
   width: 80%;
 }
-@media (max-width: 48em) {
-  .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
-    font-size: 3rem;
-    margin-left: 0%;
+@media (max-width: 36em) {
+  .menu .menu-button .menu-graphic .menu-links.is-active, .menu .menu-graphic-container .menu-graphic .menu-links.is-active {
+    height: 100%;
+    width: 100%;
   }
 }
 .menu .menu-button .filters, .menu .menu-graphic-container .filters {
@@ -89,8 +121,38 @@
   height: 100%;
   text-align: center;
 }
+@media (max-width: 36em) {
+  .menu .menu-button .filters .menu-links, .menu .menu-graphic-container .filters .menu-links {
+    height: 0%;
+    width: 100%;
+    margin-right: 0%;
+  }
+}
+.menu .menu-button .filters .menu-links .menu-text, .menu .menu-graphic-container .filters .menu-links .menu-text {
+  font-size: 6em;
+  color: transparent;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: black;
+  -webkit-text-fill-color: transparent;
+}
+.menu .menu-button .filters .menu-links .menu-text:hover, .menu .menu-graphic-container .filters .menu-links .menu-text:hover {
+  -webkit-text-fill-color: black;
+}
+@media (max-width: 36em) {
+  .menu .menu-button .filters .menu-links .menu-text, .menu .menu-graphic-container .filters .menu-links .menu-text {
+    margin-top: 15%;
+    font-size: 2rem;
+    -webkit-text-stroke-width: 2px;
+  }
+}
 .menu .menu-button .filters .menu-links.is-active, .menu .menu-graphic-container .filters .menu-links.is-active {
   width: 80%;
+}
+@media (max-width: 36em) {
+  .menu .menu-button .filters .menu-links.is-active, .menu .menu-graphic-container .filters .menu-links.is-active {
+    height: 100%;
+    width: 100%;
+  }
 }
 .menu .menu-button .filters .exit-button-filter, .menu .menu-graphic-container .filters .exit-button-filter {
   display: none;
@@ -99,6 +161,9 @@
   display: block;
 }
 
+.menu-svg-icons .circleR {
+  transform-origin: 50% 50%;
+}
 .menu-svg-icons:hover #large-line {
   animation-name: largeline;
   animation-duration: 3s;
@@ -164,6 +229,11 @@
   z-index: 9999;
   background-color: black;
 }
+@media (max-width: 48em) {
+  #screensaver {
+    width: 200%;
+  }
+}
 #screensaver .screensaver-stuff {
   width: 350%;
   color: red;
@@ -185,10 +255,10 @@
 }
 @-webkit-keyframes textmove {
   0% {
-    margin-left: -120%;
+    margin-left: -111%;
   }
   100% {
-    margin-left: -20%;
+    margin-left: -0%;
   }
 }
 @keyframes textmove {
@@ -407,11 +477,12 @@
   height: 100%;
   right: 0;
 }
-@media (max-width: 52em) {
+@media (max-width: 36em) {
   .feed .index-button {
     display: flex;
     justify-content: center;
     padding: 0;
+    top: 15%;
   }
 }
 .feed .feed-hero-container {
@@ -431,7 +502,7 @@
   background-position: center;
   background-size: contain;
 }
-@media (max-width: 52em) {
+@media (max-width: 36em) {
   .feed .feed-hero-container .feed-hero-image {
     min-height: 100%;
     min-width: 100%;
@@ -453,14 +524,14 @@
   overflow: scroll;
   z-index: 0;
 }
+@media (max-width: 36em) {
+  .object-page .object-gallery {
+    padding-top: 25%;
+  }
+}
 .object-page .object-gallery .object-image {
   margin-left: 0%;
   margin-top: 0%;
-}
-@media (max-width: 52em) {
-  .object-page .object-gallery .object-image {
-    width: 95%;
-  }
 }
 .object-page .object-text-container {
   visibility: hidden;
@@ -473,12 +544,10 @@
 }
 @media (max-width: 36em) {
   .object-page .object-text-container {
-    width: 100%;
-    background-color: white;
     z-index: 100;
     padding: 0;
     margin: 0;
-    top: 10%;
+    bottom: 0;
   }
 }
 .object-page .object-text-container .project-info, .object-page .object-text-container .title {
@@ -488,12 +557,11 @@
 @media (max-width: 52em) {
   .object-page .object-text-container .project-info, .object-page .object-text-container .title {
     font-size: 1.5em;
-  }
-}
-@media (max-width: 52em) {
-  .object-page .object-text-container .project-info, .object-page .object-text-container .title {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
   }
 }
 
@@ -505,6 +573,7 @@ html {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=main.css.map */

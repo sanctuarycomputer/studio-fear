@@ -12,8 +12,6 @@
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
 <div class="feed feed-page">
   <div class="index-button exit-button h6 exil pt1 px2">INDEX</div>
   {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image } %}
@@ -33,4 +31,7 @@
       </div>
   </div>
 </div>
+
+{% set config = {hideFilter: true} %}
+{% include "templates/partials/menu.html" %}
 {% endblock %}
