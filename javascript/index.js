@@ -82,7 +82,6 @@ function lightbox(){
     projectpics[i].addEventListener("click", function (){
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
-      console.log("hi");
     });
   }
   lightbox.addEventListener("click", function (){
