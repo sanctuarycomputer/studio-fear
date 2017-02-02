@@ -1,5 +1,6 @@
 .menu{
   .menu-button, .menu-graphic-container {
+    z-index:100;
     background-color: transparent;
     cursor: pointer;
     width:100%;
@@ -11,59 +12,97 @@
       width:5%;
       height:5%;
       pointer-events: auto;
-      #loading{
-        transform-origin: 50% 50%;
-
-        .small-line{}
-
-      }
       .menu-links{
         width:0%;
         height:100%;
-        position:absolute;
+        position:fixed;
         transition-duration: 0.3s, 0.3s;
         overflow-x: hidden;
         align-items: center;
-        font-size:8em;
         top:0;
         margin-top:5%;
         margin-left:10%;
         text-align: center;
-        a{
-          color:black;
+        .menu-text{
+          font-size:6em;
+          color:transparent;
+          -webkit-text-stroke-width: 4px;
+          -webkit-text-stroke-color: black;
+          -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+          //
+          // mix-blend-mode: difference;
+          // opacity: .99;
         }
         &.is-active{
           width:80%;
         }
+        @media (max-width:48em) {
+          font-size:3rem;
+          margin-left:0%;
+        }
       }
     }
     .filters{
-      right:0;
       float:right;
-      position:absolute;
-      font-size: !important;
+      pointer-events: auto;
+      .menu-links{
+        right:0;
+        margin-top:5%;
+        margin-right:10%;
+        width:0%;
+        height:100%;
+        text-align: center;
+
+        &.is-active{
+          width:80%;
+        }
+      }
+      .exit-button-filter{
+        display:none;
+        &.is-active{
+          display:block;
+        }
+      }
     }
   }
   svg{
     &:hover{
       .large-line{
-        animation-name: spin;
+        animation-name: largeline;
         animation-duration: 1000ms;
         animation-iteration-count: 1;
         animation-timing-function: linear;
         animation-play-state: running;
+        animation-fill-mode: forwards;
+
+      }
+      .circle{
+        animation-name: circle;
+        animation-duration: 1000ms;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+
       }
     }
   }
-  @keyframes spin {
-  from {
-    transform: rotate(0deg);
-    transform:translate(-12.75 17.5);
+  @keyframes largeline {
+    from {
+      transform: rotate(0deg);
+      transform: skew(0deg,0deg);
+    }
+    to {
+      transform: rotate(20deg);
+      transform: skew(0deg,40deg);
+    }
   }
-  to {
-    transform: rotate(30deg);
-    transform:translate(-120.75 17.5);
-
+  @keyframes circle {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.15 ,1.15);
+    }
   }
-}
 }

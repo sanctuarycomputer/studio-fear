@@ -1,6 +1,12 @@
 .feed-index{
+  display:none;
+  top:0;
+  width: 100%;
+  position:absolute;
+  .exit-button{
+    position: fixed;
+  }
   .image-data{
-    
     .black-line-container{
       width: 100%;
       display: flex;

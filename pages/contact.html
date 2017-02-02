@@ -16,12 +16,12 @@
 {% include "templates/partials/menu.html" %}
 <a class="exit-button fixed right-0 text-decoration-none h6 exil top-0 pt1 px2" href="/">EXIT</a>
 <div class="about pt3 millerbannerlight">
-  <div class="name-text-about px3 col-5 inline-block">
+  <div class="name-text-about col-6 inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
-    <p class="pt1">{{ cms.contact.markdown_text }}</p>
+    <p class="pt1">{{ cms.contact.info_about_jowl }}</p>
   </div>
   <div class="col-6 right">
-    {% for image in cms.contact.gallery %}
+    {% for image in cms.contact.pictures_of_jowl %}
       <img class="profile-pic fit" src="{{ image.url }}">
     {% endfor %}
     <div class="contact-info ">
@@ -34,7 +34,7 @@
         </a>
       {% endfor %}
     </div>
-    <div class="features ">
+    <div class="features mb1">
       <p class="underline py1">Features:</p>
       {% for item in cms.contact.features %}
         <a class="text-decoration-none" href="{{ item.website }}" target="_blank">

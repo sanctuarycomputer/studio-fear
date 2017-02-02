@@ -2,10 +2,14 @@
 @import 'mixin';
 @import 'utilities/fonts';
 @import 'utilities/breakpoints';
+@import 'utilities/imgFilter';
+
 @import 'components/menu';
-//@import 'components/indexGrid';
+@import 'components/screensaver';
+@import 'components/exit-button';
 
 @import 'routes/about';
+@import 'routes/errorpage';
 @import 'routes/feed-index';
 @import 'routes/projects';
 @import 'routes/indexpage';
@@ -20,4 +24,5 @@ html {
 * {
   margin:0;
   padding:0;
+  -webkit-font-smoothing: antialiased;
 }

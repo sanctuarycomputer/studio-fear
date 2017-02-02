@@ -17,16 +17,18 @@
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
+{% include "templates/partials/screensaver.html" %}
+
 <div class="index-page pt1 col col-12">
   <div class="col-8 title relative">
-    <div class="center fixed exil">{{cms.home.name}}</div>
+    <div class="center title-text fixed exil">{{cms.home.name}}</div>
   </div>
   <div class="left-container absolute col col-6"  id="js-reverseScroll">
     {% for item in cms.home.left_column %}
-     <a class="index-grid-item {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" href="{{ url(item) }}" >
+     <a class="index-grid-item " href="{{ url(item) }}" >
       <div class= "content-container">
         <div class="content">
-          <div class="image absolute" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+          <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
             <p class="exil center">{{item.name}}</p>
           </div>
         </div>
@@ -36,10 +38,10 @@
   </div>
   <div class="right-container absolute right-0 col-6">
     {% for item in cms.home.right_column %}
-     <a class="index-grid-item {% for filter in project.filters %} {{ filter.name  }} {% endfor %}" href="{{ url(item) }}" >
+     <a class="index-grid-item" href="{{ url(item) }}">
       <div class= "content-container">
         <div class="content">
-          <div class="image absolute" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+          <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
             <p class="exil center">{{item.name}}</p>
           </div>
         </div>
@@ -49,5 +51,4 @@
   </div>
 </div>
 {% include "templates/partials/menu.html" %}
-
 {% endblock %}
