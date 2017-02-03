@@ -1,14 +1,49 @@
 .about{
   margin-left:3rem;
+  .name-text-about{
+    p{
+      @media (max-width:$sm) {
+        margin-left:1rem;
+        padding:0;
+        padding-bottom: 1rem;
+        &:first-child{
+          text-align: center;
+          padding-top:4rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
   p{
     font-size: 3em;
     font-family: "Miller Ban Lt";
     margin-right: 1rem;
-    @media (max-width:$md) {
+    @media (max-width:$sm) {
       font-size: 1.5em;
     }
   }
-  @media (max-width:$md) {
-    margin-left:1rem;
+  @media (max-width:$sm) {
+    margin:0;
+    padding:0;
+  }
+  .features{
+    @media (max-width:$sm) {
+      &:first-child{
+
+        padding-bottom: 1rem;
+      }
+      margin-left:1rem;
+      padding:0;
+    }
+  }
+  .contact-info{
+      @media (max-width:$sm) {
+        &:first-child{
+          padding-bottom: 1rem;
+        }
+        margin-left:1rem;
+        padding:0;
+        padding-bottom: 1rem;
+    }
   }
 }
