@@ -16,7 +16,7 @@
       color:transparent;
       -webkit-text-stroke-width: 4px;
       -webkit-text-stroke-color: black;
-      font-size:7rem;
+      font-size:5rem;
       @media (max-width:48em) {
         font-size:3rem;
         -webkit-text-stroke-width: 2px;
@@ -33,7 +33,7 @@
   }
   .right-container{
     height:100vh;
-    margin-top:0vh;
+    margin-top:200vh;
     z-index: 0;
   }
   .content-container{

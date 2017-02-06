@@ -437,7 +437,7 @@
   color: transparent;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: black;
-  font-size: 7rem;
+  font-size: 5rem;
 }
 @media (max-width: 48em) {
   .index-page .title .title-text {
@@ -455,7 +455,7 @@
 }
 .index-page .right-container {
   height: 100vh;
-  margin-top: 0vh;
+  margin-top: 200vh;
   z-index: 0;
 }
 .index-page .content-container {
