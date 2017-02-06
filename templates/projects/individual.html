@@ -12,26 +12,25 @@
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-{% include "templates/partials/exit-button.html" %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
-{% include "templates/partials/menu.html" with config %}
-
 <div class="feed" id="lightbox">
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
-<div class="projects-page" id="projects">
-  <div class="sm-col-12 md-col-6 lg-col-6 py1 image-gallery absolute">
-    {% for row in item.projectgallery %}
-      <div class="project-images pt1 bwimage" style="background-image: url({{ row.image.url }})" /></div>
-    {% endfor %}
-  </div>
-  <div class="project-info">
-    <div class="project-title sm-col-12 md-col-6 lg-col-6  pt2">
-      <p class= "millerbannerroman pt2 pb2"> {{ item.name }}</p>
+<div class="projects-page flex" id="projects">
+  <div class="project-info pt3">
+    <div class="project-title">
+      <p class= "millerbannerroman"> {{ item.name }}</p>
     </div>
-    <div class="sm-col-12 md-col-6 lg-col-6 pt1 project-text">
+    <div class="project-text">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
+  <div class="image-gallery">
+    {% for row in item.projectgallery %}
+      <div class="project-images bwimage" style="background-image: url({{ row.image.url }})" /></div>
+    {% endfor %}
+  </div>
 </div>
+{% include "templates/partials/exit-button.html" %}
+{% include "templates/partials/menu.html" with config %}
 {% endblock %}

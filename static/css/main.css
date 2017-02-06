@@ -26,6 +26,9 @@
   filter: grayscale(100%);
 }
 
+.menu {
+  z-index: 100;
+}
 .menu .menu-button, .menu .menu-graphic-container {
   background-color: transparent;
   cursor: pointer;
@@ -74,7 +77,7 @@
 }
 @media (max-width: 36em) {
   .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
-    margin-top: 10%;
+    position: fixed;
     height: 0%;
     width: 100%;
   }
@@ -334,21 +337,27 @@
   background-color: orange;
 }
 
-.projects-page .grid .grid-sizer,
-.projects-page .grid .grid-item {
-  width: 50%;
-}
-.projects-page .grid .grid-item {
-  float: left;
-  display: block;
-  max-width: 100%;
+@media (max-width: 52em) {
+  .projects-page {
+    flex-direction: column;
+    align-content: space-around;
+  }
 }
 .projects-page .project-info {
-  margin-left: 3rem;
-  pointer-events: none;
+  margin-left: 2rem;
+  width: 50%;
+  height: 100%;
+}
+@media (max-width: 52em) {
+  .projects-page .project-info {
+    width: 100%;
+    padding-left: 1rem;
+    margin: 0;
+    bottom: 0;
+  }
 }
 .projects-page .project-info p {
-  font-size: 3em;
+  font-size: 2.5em;
   font-family: "Miller Ban Lt";
 }
 @media (max-width: 52em) {
@@ -357,30 +366,40 @@
   }
 }
 @media (max-width: 52em) {
-  .projects-page .project-info {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  .projects-page .project-info .project-title {
+    padding-top: 4rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 52em) {
+  .projects-page .project-info .project-text {
+    display: none;
   }
 }
 .projects-page .image-gallery {
+  width: 50%;
   height: 100%;
   right: 0;
   margin-top: 2rem;
 }
+@media (max-width: 48em) {
+  .projects-page .image-gallery {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 .projects-page .image-gallery .project-images {
   margin-top: 1rem;
-  z-index: 0;
   width: 100%;
-  height: 50%;
+  height: 50vh;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 }
 @media (max-width: 48em) {
   .projects-page .image-gallery .project-images {
-    width: 95%;
-    height: 24%;
-    margin-left: 3px;
+    background-position: center;
+    margin: 0;
   }
 }
 
@@ -409,7 +428,7 @@
   width: 100%;
   height: 100vh;
   opacity: 1;
-  z-index: 1000;
+  z-index: 100;
   pointer-events: none;
   background-color: transparent;
   transition-duration: 0.3s, 0.3s;
