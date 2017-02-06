@@ -65,7 +65,6 @@
   height: 100%;
   transition-duration: 0.3s, 0.3s;
   overflow-x: hidden;
-  align-items: center;
   position: absolute;
   justify-content: center;
   -webkit-flex-direction: column;
@@ -74,7 +73,7 @@
 }
 @media (max-width: 36em) {
   .menu .menu-button .menu-graphic .menu-links, .menu .menu-graphic-container .menu-graphic .menu-links {
-    margin-top: 10%;
+    position: fixed;
     height: 0%;
     width: 100%;
   }
@@ -87,9 +86,8 @@
   color: transparent;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: black;
-  -webkit-text-fill-color: transparent;
-  mix-blend-mode: difference;
-  opacity: .99;
+  mix-blend-mode: hue;
+  opacity: .89;
 }
 .menu .menu-button .menu-graphic .menu-links .menu-text:hover, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text:hover {
   -webkit-text-fill-color: black;
@@ -135,9 +133,6 @@
   }
 }
 
-.menu-svg-icons .circleR {
-  transform-origin: 50% 50%;
-}
 .menu-svg-icons:hover #large-line {
   animation-name: largeline;
   animation-duration: 3s;
@@ -260,7 +255,7 @@
   }
   .about .name-text-about p:first-child {
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 6rem;
     padding-bottom: 1rem;
   }
 }
@@ -344,11 +339,10 @@
   max-width: 100%;
 }
 .projects-page .project-info {
-  margin-left: 3rem;
-  pointer-events: none;
+  width: 50%;
 }
 .projects-page .project-info p {
-  font-size: 3em;
+  font-size: 2.5em;
   font-family: "Miller Ban Lt";
 }
 @media (max-width: 52em) {
@@ -358,30 +352,26 @@
 }
 @media (max-width: 52em) {
   .projects-page .project-info {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    width: 100%;
+    position: fixed;
   }
 }
 .projects-page .image-gallery {
-  height: 100%;
-  right: 0;
-  margin-top: 2rem;
+  width: 50%;
+}
+@media (max-width: 52em) {
+  .projects-page .image-gallery {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+  }
 }
 .projects-page .image-gallery .project-images {
-  margin-top: 1rem;
-  z-index: 0;
   width: 100%;
-  height: 50%;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
-}
-@media (max-width: 48em) {
-  .projects-page .image-gallery .project-images {
-    width: 95%;
-    height: 24%;
-    margin-left: 3px;
-  }
 }
 
 #lightbox {
@@ -480,7 +470,6 @@
 .feed .index-button {
   position: fixed;
   width: 100%;
-  height: 100%;
   right: 0;
 }
 @media (max-width: 36em) {
@@ -512,6 +501,7 @@
   .feed .feed-hero-container .feed-hero-image {
     min-height: 100%;
     min-width: 100%;
+    z-index: 0;
     margin: 0;
     margin-top: 4rem;
     padding: 0;
@@ -551,7 +541,7 @@
 }
 @media (max-width: 36em) {
   .object-page .object-text-container {
-    z-index: 100;
+    z-index: 10;
     padding: 0;
     margin: 0;
     bottom: 0;

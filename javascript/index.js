@@ -80,11 +80,13 @@ function lightbox(){
   var lightbox = document.getElementById('lightbox');
   for(var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function (){
+      //lightbox.classList.add('active');
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
   }
   lightbox.addEventListener("click", function (){
+  //  lightbox.classList.remove('active');
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
   });
@@ -163,7 +165,8 @@ function menu(){
     $(document).scroll(function() {
       var divideNumber = Math.PI * 100;
       var theta = $(window).scrollTop() /  divideNumber;
-      $('svg').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#left-svg-icon').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#right-svg-icon').css({ transform: 'rotate(' + (-theta) + 'rad)' });
     });
   }
   if (exitButt){
@@ -200,6 +203,8 @@ function feedIndex(){
       feedIndex.style.display = "block";
       feedGallery.style.display = "none";
       indexButton.style.display = "none";
+      window.scrollTo(0,0);
+
     });
   }
 }
