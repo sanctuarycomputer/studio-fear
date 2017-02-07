@@ -6,28 +6,29 @@
     width:100%;
     height:100%;
     display: flex;
+    justify-content: space-between;;
     align-items: center;
     pointer-events: none;
     .menu-graphic{
-      width:5%;
-      height:5%;
+      // width:5%;
+      // height:5%;
       pointer-events: auto;
       #lbutt{
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           position: fixed;
           z-index:100;
-          width:15%;
+          // width:15%;
           top: 2%;
-          right:42%;
-          height:15%;
+          // right:42%;
+          // height:15%;
          }
        }
        #rbutt{
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
            position: fixed;
-           width:10%;
-           right:45%;
-           z-index:100;
+          //  width:10%;
+          //  right:45%;
+          //  z-index:100;
            bottom: 0%;
          }
        }

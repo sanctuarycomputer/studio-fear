@@ -18,6 +18,7 @@ $(document).ready(function () {
   feedIndex();
   feedScroll();
   screenSaver();
+  navigationAnimation();
 });
 function objectScroll() {
   var _this = this;
@@ -175,8 +176,8 @@ function menu() {
     $(document).scroll(function () {
       var divideNumber = Math.PI * 100;
       var theta = $(window).scrollTop() / divideNumber;
-      $('#left-svg-icon').css({ transform: 'rotate(' + theta + 'rad)' });
-      $('#right-svg-icon').css({ transform: 'rotate(' + -theta + 'rad)' });
+      $('#svg').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#svg2').css({ transform: 'rotate(' + -theta + 'rad)' });
     });
   }
   if (exitButt) {
@@ -234,6 +235,80 @@ function screenSaver() {
       text.style.top = i + 20 + "px";
     }
   }
+}
+function navigationAnimation() {
+  var s = Snap('#svg');
+  var crss = 50;
+  var crsf = 54;
+  var cxyss = 75;
+  var circle_1 = s.circle(cxyss, cxyss, crss);
+  var bigLine = s.line(135, 95, 77, 64);
+  var smallLine = s.line(45, 135, 65, 102);
+  var duration = 1000;
+
+  var left = s.group(circle_1, bigLine, smallLine).attr({
+    fill: "transparent",
+    stroke: "#000",
+    strokeWidth: 3
+  });
+  s.hover(function () {
+    smallLine.animate({
+      x1: 90,
+      y1: 8,
+      x2: 124,
+      y2: 2
+    }, duration);
+    circle_1.animate({
+      r: crsf
+    }, duration);
+    bigLine.animate({
+      x1: 49,
+      y1: 100,
+      x2: 109,
+      y2: 189
+    }, duration);
+  }, function () {
+    smallLine.animate({
+      x1: 45,
+      y1: 135,
+      x2: 65,
+      y2: 102
+    }, duration);
+    circle_1.animate({
+      r: crss
+    }, duration);
+    bigLine.animate({
+      x1: 135,
+      y1: 95,
+      x2: 77,
+      y2: 64
+    }, duration);
+  });
+  var n = Snap('#svg2');
+  var crns = 35;
+  var cxyns = 50;
+  var circle_2 = n.circle(cxyns, cxyns, crns);
+  var rightLine = n.line(10, 2, 120, 90);
+  var right = n.group(circle_2, rightLine).attr({
+    fill: "transparent",
+    stroke: "#000",
+    strokeWidth: 3
+  });
+  n.hover(function () {
+    rightLine.animate({
+      x1: 90,
+      y1: 80,
+      x2: 200,
+      y2: 170
+    }, duration);
+  }, function () {
+    rightLine.animate({
+      x1: 10,
+      y1: 2,
+      x2: 120,
+      y2: 90
+    }, duration);
+  });
 }
 
 },{"lodash":2}],2:[function(require,module,exports){

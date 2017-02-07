@@ -35,30 +35,23 @@
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   pointer-events: none;
 }
 .menu .menu-button .menu-graphic, .menu .menu-graphic-container .menu-graphic {
-  width: 5%;
-  height: 5%;
   pointer-events: auto;
 }
 @media only screen and (max-device-width: 736px) and (orientation: portrait) {
   .menu .menu-button .menu-graphic #lbutt, .menu .menu-graphic-container .menu-graphic #lbutt {
     position: fixed;
     z-index: 100;
-    width: 15%;
     top: 2%;
-    right: 42%;
-    height: 15%;
   }
 }
 @media only screen and (max-device-width: 736px) and (orientation: portrait) {
   .menu .menu-button .menu-graphic #rbutt, .menu .menu-graphic-container .menu-graphic #rbutt {
     position: fixed;
-    width: 10%;
-    right: 45%;
-    z-index: 100;
     bottom: 0%;
   }
 }
@@ -138,64 +131,19 @@
   }
 }
 
-.menu-svg-icons .circleR {
-  transform-origin: 50% 50%;
+#svg2 {
+  transform-origin: 15% 35%;
+  width: 100%;
 }
-.menu-svg-icons:hover #large-line {
-  animation-name: largeline;
-  animation-duration: 3s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-play-state: running;
-  animation-fill-mode: forwards;
-  transform-origin: 70% 40%;
+
+#svg {
+  transform-origin: 25% 50%;
 }
-.menu-svg-icons:hover #circle {
-  animation-name: circle;
-  animation-duration: 3s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-play-state: running;
-  animation-fill-mode: forwards;
-  transform-origin: 50% 50%;
+
+svg {
+  background-color: pink;
 }
-.menu-svg-icons:hover #small-line {
-  animation-name: smallline;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-play-state: running;
-  animation-fill-mode: forwards;
-  transform-origin: 20% 40%;
-}
-.menu-svg-icons:hover #line {
-  animation-name: smallline;
-  animation-duration: 10s;
-  transform-origin: 20% 40%;
-}
-@keyframes largeline {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(70deg);
-  }
-}
-@keyframes circle {
-  from {
-    transform: scale(1, 1);
-  }
-  to {
-    transform: scale(1.15, 1.15);
-  }
-}
-@keyframes smallline {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
-  }
-}
+
 #screensaver {
   position: fixed;
   width: 100%;
@@ -211,7 +159,14 @@
     width: 225%;
   }
 }
-#screensaver .screensaver-stuff {
+#screensaver .screensaver-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+#screensaver .screensaver-container .screensaver-stuff {
   width: 350%;
   color: red;
   background-color: black;
@@ -435,6 +390,7 @@
 }
 .index-page .title .title-text {
   color: transparent;
+  width: 50%;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: black;
   font-size: 5rem;
