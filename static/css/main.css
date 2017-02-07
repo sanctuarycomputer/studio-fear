@@ -499,7 +499,6 @@
 .feed .index-button {
   position: fixed;
   width: 100%;
-  height: 100%;
   right: 0;
 }
 @media (max-width: 36em) {
