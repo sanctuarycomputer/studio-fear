@@ -7,6 +7,9 @@
    display: none;
    z-index:9999;
    background-color: black;
+   @media (max-width:48em) {
+     width:225%;
+   }
    .screensaver-stuff{
     width:350%;
     color:red;
@@ -27,8 +30,8 @@
     animation-timing-function: linear;
    }
   @-webkit-keyframes textmove {
-    0%   {margin-left:-120%}
-    100% {margin-left:-20%}
+    0%   {margin-left:-111%}
+    100% {margin-left:-0%}
   }
   @keyframes textmove {
     0%   {margin-left:-111%}

@@ -92,7 +92,7 @@ function lightbox(){
 function workAnimation(){
   var leftcol = $(".left-container");
   var imageNumber = leftcol.children().length;
-  var leftContainerHeight = imageNumber * (-100) ;
+  var leftContainerHeight = imageNumber * (-100);
   leftcol.css("margin-top",  `${leftContainerHeight}vh`);
   $(document).scroll(function(){
   	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
@@ -114,14 +114,18 @@ var menuLinksL= document.getElementById('llinks');
 var menuButtonR= document.getElementById('rbutt');
 var menuLinksR= document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
+var circleR = document.querySelector(".circleR");
+var circleL = document.querySelector(".circleL");
 function menu(){
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
+      circleL.classList.remove('active');
       displayTitle(false);
       removeBW();
     } else {
       menuLinksL.classList.add('is-active');
+      circleL.classList.add('active');
       displayTitle(true);
       addBW();
     }
@@ -131,10 +135,12 @@ function menu(){
     menuButtonR.addEventListener('click', () => {
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
+        circleR.classList.remove('active');
         displayTitle(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
+        circleR.classList.add('active');
         displayTitle(true);
         addBW();
       }
@@ -157,7 +163,8 @@ function menu(){
     $(document).scroll(function() {
       var divideNumber = Math.PI * 100;
       var theta = $(window).scrollTop() /  divideNumber;
-      $('svg').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#left-svg-icon').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#right-svg-icon').css({ transform: 'rotate(' + (-theta) + 'rad)' });
     });
   }
   if (exitButt){
@@ -173,6 +180,7 @@ function filters() {
   for(var i = 0; i < filterObject.length; i++) {
     filterObject[i].addEventListener('click', (e) => {
       var filter = e.target.dataset.filter;
+      var images = document.querySelectorAll('.image');
       var filteredImages = document.getElementsByClassName(filter);
       for(var i = 0; i < images.length; i++) {
         images[i].style.display = "none";
@@ -193,6 +201,8 @@ function feedIndex(){
       feedIndex.style.display = "block";
       feedGallery.style.display = "none";
       indexButton.style.display = "none";
+      window.scrollTo(0,0);
+
     });
   }
 }
