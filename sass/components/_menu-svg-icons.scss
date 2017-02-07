@@ -3,18 +3,29 @@
 //}
 
 #svg2{
-  //right:0;
-  transform-origin: 15% 35%;
-  width:100%;
-
+  transform-origin: 33% 33%;
+  float:right;
+  @media (max-width:$sm) {
+    bottom:0;
+    float:none;
+    left:45%;
+    position: fixed;
+  }
 }
 #svg{
-  transform-origin: 25% 50%;
-//  float:left;
+  transform-origin: 50% 50%;
+  @media (max-width:$sm) {
+    top:0;
+    float:none;
+    left:40%;
+    position: fixed;
+  }
 }
 svg{
-   background-color: pink;
-   //height: 200px;
-
+   z-index: 50;
+   width:60%;
+   @media (max-width:$sm) {
+     width:20%;
+   }
 
 }

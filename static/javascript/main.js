@@ -220,7 +220,7 @@ function feedIndex() {
 }
 function screenSaver() {
   var s_saver;
-  var idletime = 30000;
+  var idletime = 120000;
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {

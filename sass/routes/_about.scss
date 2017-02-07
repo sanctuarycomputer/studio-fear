@@ -27,9 +27,11 @@
     padding:0;
   }
   .features{
+    p{
+      color:black;
+    }
     @media (max-width:$sm) {
       &:first-child{
-
         padding-bottom: 1rem;
       }
       margin-left:1rem;
@@ -37,6 +39,9 @@
     }
   }
   .contact-info{
+    p{
+      color:black;
+    }
       @media (max-width:$sm) {
         &:first-child{
           padding-bottom: 1rem;

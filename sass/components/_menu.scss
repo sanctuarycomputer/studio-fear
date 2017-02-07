@@ -15,21 +15,13 @@
       pointer-events: auto;
       #lbutt{
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
-          position: fixed;
           z-index:100;
-          // width:15%;
-          top: 2%;
-          // right:42%;
-          // height:15%;
          }
        }
        #rbutt{
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
-           position: fixed;
-          //  width:10%;
-          //  right:45%;
-          //  z-index:100;
-           bottom: 0%;
+          z-index:100;
+
          }
        }
       .menu-links{

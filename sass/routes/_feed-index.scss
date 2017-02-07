@@ -3,10 +3,17 @@
   top:0;
   width: 100%;
   position:absolute;
+  @media (max-width:$sm) {
+    margin-top:3rem;
+  }
   .exit-button{
     position: fixed;
+    @media (max-width:$sm) {
+      display: none;
+    }
   }
   .image-data{
+    color:black;
     .black-line-container{
       width: 100%;
       display: flex;
