@@ -90,13 +90,11 @@ function lightbox() {
   var lightbox = document.getElementById('lightbox');
   for (var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function () {
-      //lightbox.classList.add('active');
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
   }
   lightbox.addEventListener("click", function () {
-    //  lightbox.classList.remove('active');
     lightbox.style.opacity = 0;
     lightbox.style.zIndex = 0;
   });
