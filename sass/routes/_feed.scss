@@ -1,11 +1,13 @@
 .feed{
   .feed-gallery{
     pointer-events: none;
+    z-index: -1;
+    position: relative;
   }
   .index-button{
     position: fixed;
-    width: 100%;
     right:0;
+    float: right;
     @media (max-width:$sm) {
       display: flex;
       justify-content: center;

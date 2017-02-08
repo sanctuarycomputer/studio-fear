@@ -1,26 +1,26 @@
 <div class="menu">
-    <div class="menu-button justify-between fixed menu-graphic-container">
-      <div class="left menu-graphic">
+    <div class="menu-button fixed menu-graphic-container">
+      <div class="menu-graphic">
+        <div class="menu-links" id="llinks">
+          <a class="text-decoration-none menu-text exil" href="/"><div class="menu-text">work</div></a>
+          <a class="text-decoration-none menu-text exil" href="/object"><div class="menu-text">object</div></a>
+          <a class="text-decoration-none menu-text exil" href="/feed"><div class="menu-text">feed</div></a>
+          <a class="text-decoration-none menu-text exil" href="/contact"><div class="menu-text">about</div></a>
+        </div>
         <div id="lbutt">
           {% include "templates/partials/menu-icon.html" %}
-        </div>
-        <div class="menu-links" id="llinks">
-          <a class="text-decoration-none exil " href="/"><div class="menu-text p0">work</div></a>
-          <a class="text-decoration-none exil " href="/object"><div class="menu-text p0">object</div></a>
-          <a class="text-decoration-none exil " href="/feed"><div class="menu-text p0">feed</div></a>
-          <a class="text-decoration-none exil " href="/contact"><div class="menu-text p0">about</div></a>
         </div>
       </div>
       {% if !config.hideFilter %}
       <div class="filters menu-graphic">
+        <!-- <div class="exit-button-filter fixed right-0 text-decoration-none h6 exil top-0 pt1 px2">EXIT</div> -->
+        <div class="menu-links menu-text" id="rlinks">
+          {% for item in cms.filters %}
+            <div class="individual-filter menu-text exil" data-filter="{{ item.name }}">{{ item.name }}</div>
+          {% endfor %}
+        </div>
         <div id="rbutt">
           {% include "templates/partials/filter-icon.html" %}
-        </div>
-        <div class="exit-button-filter fixed right-0 text-decoration-none h6 exil top-0 pt1 px2">EXIT</div>
-        <div class="menu-links" id="rlinks">
-          {% for item in cms.filters %}
-            <div class="menu-text individual-filter exil p0" data-filter="{{ item.name  }}">{{ item.name  }}</div>
-          {% endfor %}
         </div>
       </div>
       {% endif %}

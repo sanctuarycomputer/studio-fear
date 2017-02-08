@@ -13,6 +13,7 @@
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
 {% set config = {hideFilter: true} %}
+{% include "templates/partials/menu.html" %}
 <div class="feed feed-page">
   <div class="index-button exit-button h6 exil pt1 px2">INDEX</div>
   {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image } %}
@@ -34,5 +35,4 @@
       </div>
   </div>
 </div>
-{% include "templates/partials/menu.html" %}
 {% endblock %}

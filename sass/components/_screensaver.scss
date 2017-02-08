@@ -7,27 +7,34 @@
    display: none;
    z-index:9999;
    background-color: black;
-   @media (max-width:48em) {
+   @media (max-width:$sm) {
      width:225%;
    }
-   .screensaver-stuff{
-    width:350%;
-    color:red;
-    background-color: black;
-    margin-left: -300%;
-    font-size: 3rem;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: red;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation-name: textmove;
-    -webkit-animation-duration:5s;
-    -webkit-animation-timing-function: linear;
-    animation-name: textmove;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+   .screensaver-container{
+     display:flex;
+     justify-content: center;
+     flex-direction: column;
+     width:100%;
+     height:100vh;
+     .screensaver-stuff{
+      width:350%;
+      color:red;
+      background-color: black;
+      margin-left: -300%;
+      font-size: 3rem;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: red;
+      -webkit-text-fill-color: transparent;
+      -webkit-animation-name: textmove;
+      -webkit-animation-duration:5s;
+      -webkit-animation-timing-function: linear;
+      animation-name: textmove;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+     }
    }
   @-webkit-keyframes textmove {
     0%   {margin-left:-111%}

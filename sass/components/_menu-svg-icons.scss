@@ -1,54 +1,35 @@
-.menu-svg-icons{
-  .circleR{
-    transform-origin: 50% 50%;
+// .menu-svg-icons{
+//   padding:1rem;
+//}
 
+#svg2{
+  transform-origin: 33% 33%;
+  float:right;
+  @media (max-width:$sm) {
+    bottom:0;
+    float:none;
+    left:45%;
+    position: fixed;
   }
-  &:hover{
-    #large-line{
-      animation-name: largeline;
-      animation-duration: 3s;
-      animation-iteration-count: 1;
-      animation-timing-function: linear;
-      animation-play-state: running;
-      animation-fill-mode: forwards;
-      transform-origin: 70% 40%;
-
-    }
-    #circle{
-      animation-name: circle;
-      animation-duration: 3s;
-      animation-iteration-count: 1;
-      animation-timing-function: linear;
-      animation-play-state: running;
-      animation-fill-mode: forwards;
-      transform-origin: 50% 50%;
-
-    }
-    #small-line{
-      animation-name: smallline;
-      animation-duration: 10s;
-      animation-timing-function: linear;
-      animation-play-state: running;
-      animation-fill-mode: forwards;
-      transform-origin: 20% 40%;
-    }
-    #line{
-      animation-name: smallline;
-      animation-duration: 10s;
-      transform-origin: 20% 40%;
-    }
+}
+#svg{
+  transform-origin: 50% 50%;
+  @media (max-width:$sm) {
+    top:0;
+    float:none;
+    left:40%;
+    position: fixed;
   }
+}
+svg{
+   z-index: 100;
+   width:30%;
+   margin-top: 10%;
+   @media (max-width:$md) {
+     width:25%;
+   }
+   @media (max-width:$sm) {
+     width:20%;
+   }
 
-@keyframes largeline {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(70deg);}
-}
-@keyframes circle {
-  from {transform: scale(1, 1);}
-  to {transform: scale(1.15 ,1.15);}
-}
-@keyframes smallline{
-  from {transform: rotate(0deg);}
-  to {transform: rotate(90deg);}
-}
 }
