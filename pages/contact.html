@@ -12,14 +12,15 @@
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
-
+{% set config = {hideFilter: true} %}
+{% include "templates/partials/menu.html" %}
 <a class="exit-button fixed right-0 text-decoration-none xs-hide h6 exil top-0 pt1 px2" href="/">EXIT</a>
 <div class="about pt3 millerbannerlight">
   <div class="name-text-about lg-col-6 md-col-6 sm-col-12 inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl }}</p>
   </div>
-  <div class="lg-col-6 md-col-6 sm-col-12 right">
+  <div class="lg-col-6 md-col-6 sm-col-12 profile-pic-gallery right">
     {% for image in cms.contact.pictures_of_jowl %}
       <img class="profile-pic bwimage fit" src="{{ image.url }}">
     {% endfor %}
@@ -43,6 +44,4 @@
     </div>
   </div>
 </div>
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
 {% endblock %}

@@ -8,7 +8,7 @@
     top:0;
     right:0;
     overflow: scroll;
-    z-index:0;
+    z-index:-1;
     @media (max-width:$sm) {
       padding-top:25%;
     }

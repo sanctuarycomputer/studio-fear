@@ -17,13 +17,18 @@
     transition-duration: 0.3s, 0.3s;
     .title-text{
       color:transparent;
-      width:100%;
+      width:80%;
       -webkit-text-stroke-width: 4px;
       -webkit-text-stroke-color: black;
-      font-size:5rem;
-      @media (max-width:$sm) {
-        font-size:3rem;
+      font-size:100px;
+      @media (max-width:$md) {
+        font-size:65px;
+        width:80%;
         -webkit-text-stroke-width: 2px;
+      }
+      @media (max-width:$sm) {
+        font-size:40px;
+
       }
     }
     &.is-active{

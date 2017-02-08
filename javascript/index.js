@@ -147,7 +147,7 @@ function menu(){
       }
       menuLinksL.classList.remove('is-active');
     });
-  }
+  } 
   var bwImages = document.querySelectorAll(".bwimage");
   function removeBW() {
     for(var i = 0; i < bwImages.length; i++) {

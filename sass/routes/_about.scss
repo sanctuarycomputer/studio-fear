@@ -1,5 +1,9 @@
 .about{
   margin-left:3rem;
+  .profile-pic-gallery{
+    z-index: -1;
+    position: relative;
+  }
   .name-text-about{
     p{
       @media (max-width:$sm) {
