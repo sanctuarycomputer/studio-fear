@@ -156,10 +156,6 @@
   }
 }
 
-.active {
-  background-color: black;
-}
-
 svg {
   z-index: 100;
   width: 30%;

@@ -133,12 +133,10 @@ function menu() {
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
-      circleL.classList.remove('active');
       displayTitle(false);
       removeBW();
     } else {
       menuLinksL.classList.add('is-active');
-      circleL.classList.add('active');
       displayTitle(true);
       addBW();
     }
@@ -148,12 +146,10 @@ function menu() {
     menuButtonR.addEventListener('click', function () {
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
-        circleR.classList.remove('active');
         displayTitle(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
-        circleR.classList.add('active');
         displayTitle(true);
         addBW();
       }
@@ -285,6 +281,16 @@ function navigationAnimation() {
       y2: 64
     }, duration);
   });
+  s.click(function () {
+    circle_1.attr({
+      fill: "red"
+    });
+  });
+  s.unclick(function () {
+    circle_1.attr({
+      fill: "transparent"
+    });
+  }, console.log("hi"));
   var n = Snap('#svg2');
   var crns = 35;
   var cxyns = 50;
@@ -310,6 +316,16 @@ function navigationAnimation() {
       x2: 120,
       y2: 90
     }, duration);
+  });
+  n.click(function () {
+    circle_2.attr({
+      fill: "red"
+    });
+  });
+  n.unclick(function () {
+    circle_2.attr({
+      fill: "transparent"
+    });
   });
 }
 

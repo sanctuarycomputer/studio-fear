@@ -1,7 +1,3 @@
-// .menu-svg-icons{
-//   padding:1rem;
-//}
-
 #svg2{
   transform-origin: 33% 33%;
   float:right;
@@ -21,18 +17,14 @@
     position: fixed;
   }
 }
-  .active{
-    background-color: black;
-  }
-
 svg{
-   z-index: 100;
-   width:30%;
-   margin-top: 10%;
-   @media (max-width:$md) {
-     width:25%;
-   }
-   @media (max-width:$sm) {
-     width:20%;
-   }
+ z-index: 100;
+ width:30%;
+ margin-top: 10%;
+ @media (max-width:$md) {
+   width:25%;
+ }
+ @media (max-width:$sm) {
+   width:20%;
+ }
 }
