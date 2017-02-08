@@ -21,6 +21,10 @@
     position: fixed;
   }
 }
+  .active{
+    background-color: black;
+  }
+
 svg{
    z-index: 100;
    width:30%;
@@ -31,5 +35,4 @@ svg{
    @media (max-width:$sm) {
      width:20%;
    }
-
 }

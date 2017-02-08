@@ -147,7 +147,7 @@ function menu(){
       }
       menuLinksL.classList.remove('is-active');
     });
-  } 
+  }
   var bwImages = document.querySelectorAll(".bwimage");
   function removeBW() {
     for(var i = 0; i < bwImages.length; i++) {
@@ -237,10 +237,10 @@ function navigationAnimation(){
 
   var left = s.group(circle_1, bigLine, smallLine).attr({
       fill: "transparent",
-      stroke: "#000",
+      stroke: "red",
       strokeWidth: 3
   });
-  s.hover(
+  s.mouseover(
     function (){
       smallLine.animate({
         x1: 90,
@@ -258,6 +258,8 @@ function navigationAnimation(){
         y2: 189,
       }, duration);
     },
+  );
+  s.mouseout(
     function (){
       smallLine.animate({
         x1: 45,
@@ -274,7 +276,7 @@ function navigationAnimation(){
         x2: 77,
         y2: 64,
       }, duration);
-    }
+    },
   );
   var n = Snap('#svg2');
   var crns = 35;
@@ -283,10 +285,10 @@ function navigationAnimation(){
   var rightLine = n.line(10,2,120,90);
   var right = n.group(circle_2, rightLine).attr({
       fill: "transparent",
-      stroke: "#000",
+      stroke: "red",
       strokeWidth: 3
   });
-  n.hover(
+  n.mouseover(
     function (){
     rightLine.animate({
         x1: 90,
@@ -295,6 +297,8 @@ function navigationAnimation(){
         y2: 170,
       }, duration);
     },
+  );
+  n.mouseout(
      function (){
     rightLine.animate({
         x1: 10,
@@ -302,6 +306,6 @@ function navigationAnimation(){
         x2: 120,
         y2: 90,
       }, duration);
-    }
+    },
   );
 }

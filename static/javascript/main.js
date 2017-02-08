@@ -248,10 +248,10 @@ function navigationAnimation() {
 
   var left = s.group(circle_1, bigLine, smallLine).attr({
     fill: "transparent",
-    stroke: "#000",
+    stroke: "red",
     strokeWidth: 3
   });
-  s.hover(function () {
+  s.mouseover(function () {
     smallLine.animate({
       x1: 90,
       y1: 8,
@@ -267,7 +267,8 @@ function navigationAnimation() {
       x2: 109,
       y2: 189
     }, duration);
-  }, function () {
+  });
+  s.mouseout(function () {
     smallLine.animate({
       x1: 45,
       y1: 135,
@@ -291,17 +292,18 @@ function navigationAnimation() {
   var rightLine = n.line(10, 2, 120, 90);
   var right = n.group(circle_2, rightLine).attr({
     fill: "transparent",
-    stroke: "#000",
+    stroke: "red",
     strokeWidth: 3
   });
-  n.hover(function () {
+  n.mouseover(function () {
     rightLine.animate({
       x1: 90,
       y1: 80,
       x2: 200,
       y2: 170
     }, duration);
-  }, function () {
+  });
+  n.mouseout(function () {
     rightLine.animate({
       x1: 10,
       y1: 2,
