@@ -14,8 +14,8 @@
 {% block content %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
 {% include "templates/partials/exit-button.html" %}
-{% include "templates/partials/menu.html" with config %}
 <div class="feed" id="lightbox">
+  {% include "templates/partials/exit-button.html" %}
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 <div class="projects-page flex" id="projects">
@@ -33,4 +33,5 @@
     {% endfor %}
   </div>
 </div>
+{% include "templates/partials/menu.html" with config %}
 {% endblock %}
