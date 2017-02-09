@@ -1,5 +1,5 @@
 #svg2{
-  transform-origin: 33% 33%;
+  transform-origin: 25% 25%;
   float:right;
   @media (max-width:$sm) {
     bottom:0;
@@ -10,19 +10,21 @@
 }
 #svg{
   transform-origin: 50% 50%;
+  margin-left: 5%;
   @media (max-width:$sm) {
     top:0;
     float:none;
+    margin-left: 0%;
     left:40%;
     position: fixed;
   }
 }
 svg{
  z-index: 100;
- width:30%;
+ width:40%;
  margin-top: 10%;
  @media (max-width:$md) {
-   width:25%;
+   width:30%;
  }
  @media (max-width:$sm) {
    width:20%;

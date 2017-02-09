@@ -13,11 +13,11 @@ $(document).ready(function () {
 
   objectScroll();
   workAnimation();
-  menu();
   filters();
   feedIndex();
   feedScroll();
   screenSaver();
+  menu();
 });
 function objectScroll() {
   var _this = this;
@@ -85,6 +85,7 @@ function feedScroll() {
   });
 }
 function lightbox() {
+
   var projectpics = document.getElementsByClassName('project-images');
   var i;
   var lightbox = document.getElementById('lightbox');
@@ -134,11 +135,13 @@ function menu() {
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
       orangeleft(false);
+      orangeright(false);
       removeBW();
     } else {
       menuLinksL.classList.add('is-active');
       displayTitle(true);
       orangeleft(true);
+      orangeright(false);
       addBW();
     }
     menuLinksR.classList.remove('is-active');
@@ -149,11 +152,13 @@ function menu() {
         menuLinksR.classList.remove('is-active');
         displayTitle(false);
         orangeright(false);
+        orangeleft(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
         displayTitle(true);
         orangeright(true);
+        orangeleft(false);
         addBW();
       }
       menuLinksL.classList.remove('is-active');
@@ -190,36 +195,36 @@ function menu() {
   // function navigationAnimation(){
   var s = Snap('#svg');
   var crss = 50;
-  var crsf = 54;
+  var crsf = 58;
   var cxyss = 75;
   var circle_1 = s.circle(cxyss, cxyss, crss);
   var bigLine = s.line(135, 95, 77, 64);
   var smallLine = s.line(45, 135, 65, 102);
-  var duration = 1000;
+  var duration = 200;
 
   var left = s.group(circle_1, bigLine, smallLine).attr({
     fill: "transparent",
     stroke: "orange",
     strokeWidth: 3
   });
-  s.mouseover(function () {
+  s.mouseover(function mouseOverLeft() {
     smallLine.animate({
-      x1: 90,
-      y1: 8,
-      x2: 124,
-      y2: 2
+      x1: 0,
+      y1: 120,
+      x2: 33,
+      y2: 131
     }, duration);
     circle_1.animate({
       r: crsf
     }, duration);
     bigLine.animate({
-      x1: 49,
-      y1: 100,
-      x2: 109,
-      y2: 189
+      x1: 129,
+      y1: 0,
+      x2: 120,
+      y2: 80
     }, duration);
   });
-  s.mouseout(function () {
+  s.mouseout(function mouseOutLeft() {
     smallLine.animate({
       x1: 45,
       y1: 135,
