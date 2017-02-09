@@ -8,12 +8,12 @@
     justify-content: space-between;;
     align-items: center;
     pointer-events: none;
+    mix-blend-mode: difference;
     .menu-graphic{
       pointer-events: auto;
       #lbutt{
         position: relative;
         z-index:100;
-
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
@@ -58,14 +58,10 @@
           font-size:60px;
           text-align: center;
           color:transparent;
-          -webkit-text-stroke-width: 4px;
-          -webkit-text-stroke-color: black;
-          -webkit-text-fill-color: transparent;
-          mix-blend-mode: difference;
-          opacity: .99;
-          //width:20%;
+          -webkit-text-stroke-width: 2px;
+          -webkit-text-stroke-color: orange;
           &:hover{
-            -webkit-text-fill-color: black;
+            -webkit-text-fill-color: orange;
           }
           @media (max-width:$sm) {
             font-size:25px;

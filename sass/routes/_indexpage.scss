@@ -14,12 +14,14 @@
     z-index:100;
     pointer-events: none;
     background-color: transparent;
+    mix-blend-mode: difference;
     transition-duration: 0.3s, 0.3s;
     .title-text{
-      color:transparent;
+    //  color:pink;
       width:80%;
+      color: transparent;
       -webkit-text-stroke-width: 4px;
-      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-color: orange;
       font-size:100px;
       @media (max-width:$md) {
         font-size:65px;
@@ -28,7 +30,6 @@
       }
       @media (max-width:$sm) {
         font-size:40px;
-
       }
     }
     &.is-active{

@@ -35,7 +35,7 @@
   .image-gallery{
     width:50%;
     height:100%;
-    z-index: 0;
+    z-index: -1;
     right:0;
     margin-top: 2rem;
     @media (max-width:48em) {
