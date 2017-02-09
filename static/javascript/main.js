@@ -18,7 +18,6 @@ $(document).ready(function () {
   feedIndex();
   feedScroll();
   screenSaver();
-  navigationAnimation();
 });
 function objectScroll() {
   var _this = this;
@@ -134,10 +133,12 @@ function menu() {
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
+      orangeleft(false);
       removeBW();
     } else {
       menuLinksL.classList.add('is-active');
       displayTitle(true);
+      orangeleft(true);
       addBW();
     }
     menuLinksR.classList.remove('is-active');
@@ -147,10 +148,12 @@ function menu() {
       if (menuLinksR.classList.contains('is-active')) {
         menuLinksR.classList.remove('is-active');
         displayTitle(false);
+        orangeright(false);
         removeBW();
       } else {
         menuLinksR.classList.add('is-active');
         displayTitle(true);
+        orangeright(true);
         addBW();
       }
       menuLinksL.classList.remove('is-active');
@@ -182,6 +185,108 @@ function menu() {
       displayTitle(false);
       exitButt.classList.remove('is-active');
     });
+  }
+  // navigationAnimation();
+  // function navigationAnimation(){
+  var s = Snap('#svg');
+  var crss = 50;
+  var crsf = 54;
+  var cxyss = 75;
+  var circle_1 = s.circle(cxyss, cxyss, crss);
+  var bigLine = s.line(135, 95, 77, 64);
+  var smallLine = s.line(45, 135, 65, 102);
+  var duration = 1000;
+
+  var left = s.group(circle_1, bigLine, smallLine).attr({
+    fill: "transparent",
+    stroke: "orange",
+    strokeWidth: 3
+  });
+  s.mouseover(function () {
+    smallLine.animate({
+      x1: 90,
+      y1: 8,
+      x2: 124,
+      y2: 2
+    }, duration);
+    circle_1.animate({
+      r: crsf
+    }, duration);
+    bigLine.animate({
+      x1: 49,
+      y1: 100,
+      x2: 109,
+      y2: 189
+    }, duration);
+  });
+  s.mouseout(function () {
+    smallLine.animate({
+      x1: 45,
+      y1: 135,
+      x2: 65,
+      y2: 102
+    }, duration);
+    circle_1.animate({
+      r: crss
+    }, duration);
+    bigLine.animate({
+      x1: 135,
+      y1: 95,
+      x2: 77,
+      y2: 64
+    }, duration);
+  });
+  function orangeleft() {
+    var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    if (bool) {
+      circle_1.attr({
+        fill: "orange"
+      }, duration);
+    } else {
+      circle_1.attr({
+        fill: "transparent"
+      }, duration);
+    }
+  }
+  var n = Snap('#svg2');
+  var crns = 35;
+  var cxyns = 50;
+  var circle_2 = n.circle(cxyns, cxyns, crns);
+  var rightLine = n.line(10, 2, 120, 90);
+  var right = n.group(circle_2, rightLine).attr({
+    fill: "transparent",
+    stroke: "orange",
+    strokeWidth: 3
+  });
+  n.mouseover(function () {
+    rightLine.animate({
+      x1: 90,
+      y1: 80,
+      x2: 200,
+      y2: 170
+    }, duration);
+  });
+  n.mouseout(function () {
+    rightLine.animate({
+      x1: 10,
+      y1: 2,
+      x2: 120,
+      y2: 90
+    }, duration);
+  });
+  function orangeright() {
+    var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    if (bool) {
+      circle_2.attr({
+        fill: "orange"
+      }, duration);
+    } else {
+      circle_2.attr({
+        fill: "transparent"
+      }, duration);
+    }
   }
 }
 function filters() {
@@ -231,102 +336,6 @@ function screenSaver() {
       text.style.top = i + 20 + "px";
     }
   }
-}
-function navigationAnimation() {
-  var s = Snap('#svg');
-  var crss = 50;
-  var crsf = 54;
-  var cxyss = 75;
-  var circle_1 = s.circle(cxyss, cxyss, crss);
-  var bigLine = s.line(135, 95, 77, 64);
-  var smallLine = s.line(45, 135, 65, 102);
-  var duration = 1000;
-
-  var left = s.group(circle_1, bigLine, smallLine).attr({
-    fill: "transparent",
-    stroke: "red",
-    strokeWidth: 3
-  });
-  s.mouseover(function () {
-    smallLine.animate({
-      x1: 90,
-      y1: 8,
-      x2: 124,
-      y2: 2
-    }, duration);
-    circle_1.animate({
-      r: crsf
-    }, duration);
-    bigLine.animate({
-      x1: 49,
-      y1: 100,
-      x2: 109,
-      y2: 189
-    }, duration);
-  });
-  s.mouseout(function () {
-    smallLine.animate({
-      x1: 45,
-      y1: 135,
-      x2: 65,
-      y2: 102
-    }, duration);
-    circle_1.animate({
-      r: crss
-    }, duration);
-    bigLine.animate({
-      x1: 135,
-      y1: 95,
-      x2: 77,
-      y2: 64
-    }, duration);
-  });
-  s.click(function () {
-    circle_1.attr({
-      fill: "red"
-    });
-  });
-  s.unclick(function () {
-    circle_1.attr({
-      fill: "transparent"
-    });
-  }, console.log("hi"));
-  var n = Snap('#svg2');
-  var crns = 35;
-  var cxyns = 50;
-  var circle_2 = n.circle(cxyns, cxyns, crns);
-  var rightLine = n.line(10, 2, 120, 90);
-  var right = n.group(circle_2, rightLine).attr({
-    fill: "transparent",
-    stroke: "red",
-    strokeWidth: 3
-  });
-  n.mouseover(function () {
-    rightLine.animate({
-      x1: 90,
-      y1: 80,
-      x2: 200,
-      y2: 170
-    }, duration);
-  });
-  n.mouseout(function () {
-    rightLine.animate({
-      x1: 10,
-      y1: 2,
-      x2: 120,
-      y2: 90
-    }, duration);
-  });
-  n.click(function () {
-    circle_2.attr({
-      fill: "red"
-    });
-  });
-  n.unclick(function () {
-    circle_2.attr({
-      fill: "transparent"
-    });
-  });
 }
 
 },{"lodash":2}],2:[function(require,module,exports){

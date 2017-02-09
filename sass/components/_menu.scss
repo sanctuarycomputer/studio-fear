@@ -14,7 +14,6 @@
       #lbutt{
         position: relative;
         z-index:100;
-
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
@@ -60,9 +59,9 @@
           text-align: center;
           color:transparent;
           -webkit-text-stroke-width: 2px;
-          -webkit-text-stroke-color: red;
+          -webkit-text-stroke-color: orange;
           &:hover{
-            -webkit-text-fill-color: red;
+            -webkit-text-fill-color: orange;
           }
           @media (max-width:$sm) {
             font-size:25px;
