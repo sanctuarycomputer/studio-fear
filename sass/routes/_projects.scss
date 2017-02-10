@@ -5,6 +5,8 @@
   }
   .project-info{
     margin-left:2rem;
+    position: fixed;
+    overflow: scroll;
     width:50%;
     height:100%;
     @media (max-width:$md) {
@@ -34,6 +36,8 @@
   }
   .image-gallery{
     width:50%;
+    position: fixed;
+    overflow: scroll;
     height:100%;
     z-index: 0;
     right:0;

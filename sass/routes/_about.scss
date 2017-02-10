@@ -1,58 +1,52 @@
 .about{
   margin-left:3rem;
+  font-size: 3em;
+  font-family: "Miller Ban Lt";
+  margin-right: 1rem;
+  @media (max-width:$sm) {
+    font-size: 1.5em;
+    padding:0;
+    flex-direction: column-reverse;
+    margin:0;
+  }
   .profile-pic-gallery{
     z-index: -1;
-    position: relative;
+    pointer-events: auto;
+    width:40%;
+    height: 100%;
+    right:0;
+    position: fixed;
+    overflow: scroll;
+    padding-bottom: 2rem;
+    color:black;
+    @media (max-width:$sm) {
+      width:100%;
+      position: relative;
+      padding-bottom: 1rem;
+      p{
+        margin-left:1rem;
+
+      }
+    }
+    .profile-pic{
+      @media (max-width:$sm) {
+      margin-left:0;
+      }
+    }
   }
   .name-text-about{
-    p{
-      @media (max-width:$sm) {
-        margin-left:1rem;
-        padding:0;
-        padding-bottom: 1rem;
-        &:first-child{
-          text-align: center;
-          padding-top:4rem;
-          padding-bottom: 1rem;
-        }
-      }
-    }
-  }
-  p{
-    font-size: 3em;
-    font-family: "Miller Ban Lt";
-    margin-right: 1rem;
+    width:50%;
+    height: 100%;
+    float:left;
+    position: fixed;
+    overflow: scroll;
+    z-index: -1;
     @media (max-width:$sm) {
-      font-size: 1.5em;
-    }
-  }
-  @media (max-width:$sm) {
-    margin:0;
-    padding:0;
-  }
-  .features{
-    p{
-      color:black;
-    }
-    @media (max-width:$sm) {
-      &:first-child{
-        padding-bottom: 1rem;
-      }
-      margin-left:1rem;
+      width: 100%;
       padding:0;
-    }
-  }
-  .contact-info{
-    p{
-      color:black;
-    }
-      @media (max-width:$sm) {
-        &:first-child{
-          padding-bottom: 1rem;
-        }
-        margin-left:1rem;
-        padding:0;
-        padding-bottom: 1rem;
+      padding-bottom: 1rem;
+      margin-left:1rem;
+      position: relative;
     }
   }
 }

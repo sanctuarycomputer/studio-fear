@@ -13,8 +13,6 @@
     mix-blend-mode: difference;
     .menu-graphic{
       pointer-events: auto;
-      mix-blend-mode: difference;
-
       #lbutt{
         position: relative;
         z-index:100;
@@ -34,11 +32,12 @@
         width:0%;
         top:0;
         height:100%;
-        transition-duration: 0.3s, 0.3s;
+        transition-duration: 0.1s, 0.1s;
         overflow-x: hidden;
         align-items: center;
+        align-content: space-around;
         position: absolute;
-        justify-content: space-around;;
+        justify-content: center;
         -webkit-flex-direction: column;
         flex-direction: column;
         display: flex;
@@ -58,8 +57,7 @@
           }
         }
         .menu-text{
-          -webkit-text-stroke-width: 1px;
-          font-size:60px;
+          font-size:150px;
           text-align: center;
           color:transparent;
           -webkit-text-stroke-width: 2px;
@@ -68,7 +66,7 @@
             -webkit-text-fill-color: orange;
           }
           @media (max-width:$sm) {
-            font-size:25px;
+            font-size:45px;
             -webkit-text-stroke-width: 1px;
           }
         }

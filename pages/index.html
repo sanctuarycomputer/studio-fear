@@ -1,17 +1,13 @@
-{# ------------------------------------------------------- #}
-
 {# YOUR HOMEPAGE #}
+{% extends "templates/partials/base.html" %}
 
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-
-{# ------------------------------------------------------- #}
-
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{%
+  set share_card = {
+    title: getSetting('site_name'),
+    preview_text: getSetting('site_description'),
+    image: cms.layout.share_card_image.url
+  }
+%}
 {% extends "templates/partials/base.html" %}
 
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
@@ -19,7 +15,7 @@
 {% block content %}
 {% include "templates/partials/screensaver.html" %}
 <div class="index-page pt1 col col-12">
-  <div class="col-8 title absolute">
+  <div class="title absolute">
     <div class="center title-text fixed exil">{{cms.home.name}}</div>
   </div>
   <div class="left-container absolute col col-6"  id="js-reverseScroll">

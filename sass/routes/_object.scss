@@ -25,14 +25,13 @@
     left:0;
     margin-left:3rem;
     z-index:-1;
-
     pointer-events: none;
     @media (max-width:$sm) {
       z-index:-1;
       padding:0;
       margin:0;
       bottom:0;
-      position: fixed;
+    //  position: fixed;
     }
     .project-info, .title{
       font-size: 3em;
