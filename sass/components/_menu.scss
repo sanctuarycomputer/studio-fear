@@ -13,6 +13,8 @@
     mix-blend-mode: difference;
     .menu-graphic{
       pointer-events: auto;
+      mix-blend-mode: difference;
+
       #lbutt{
         position: relative;
         z-index:100;

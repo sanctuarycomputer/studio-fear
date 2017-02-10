@@ -8,7 +8,7 @@
     top:0;
     right:0;
     overflow: scroll;
-    z-index:-1;
+    z-index:-2;
     @media (max-width:$sm) {
       padding-top:25%;
     }
@@ -24,12 +24,15 @@
     top: 0;
     left:0;
     margin-left:3rem;
+    z-index:-1;
+
     pointer-events: none;
     @media (max-width:$sm) {
-      z-index:100;
+      z-index:-1;
       padding:0;
       margin:0;
       bottom:0;
+      position: fixed;
     }
     .project-info, .title{
       font-size: 3em;

@@ -7,10 +7,13 @@
   .index-button{
     position: fixed;
     right:0;
+
+    display: flex;
     float: right;
     @media (max-width:$sm) {
-      display: flex;
       justify-content: center;
+      width:100%;
+      height:100%;
       padding:0;
       top:15%;
     }
