@@ -6,13 +6,12 @@
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
 <div class="about pt3 flex millerbannerlight">
-  <div class="joeldown name-text-about  inline-block">
+  <div class="joeldown name-text-about xs-hide inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
   <div class="profile-pic-gallery">
-    <p class="pb2">{{ cms.contact.name }}</p>
-
+    <p class="pb2 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     {% for image in cms.contact.pictures_of_jowl %}
       <img class="profile-pic bwimage fit" src="{{ image.url }}"/>
     {% endfor %}
