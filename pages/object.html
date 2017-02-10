@@ -11,12 +11,18 @@
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
+{% set config = {hideFilter: true, gallery: cms.object.grid.gallery, hero: cms.object.grid[0].gallery[0].url} %}
+
+<div class="feed" id="lightbox">
+  {% include "templates/partials/exit-button.html" %}
+  {% include "templates/partials/feed-gallery.html" with config %}
+</div>
+
+
 {% block content %}
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
-<div class="xs-hide">
-  {% include "templates/partials/exit-button.html" %}
-</div>
+
 <div class="object-page mt3">
     {% for row in cms.object.grid %}
     <div class="col col-12">

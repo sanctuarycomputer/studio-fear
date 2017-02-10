@@ -6,13 +6,17 @@
     float:none;
     left:45%;
     position: fixed;
+    margin-bottom: 0;
   }
 }
 #svg{
   transform-origin: 50% 50%;
   margin-left: 5%;
+  mix-blend-mode: difference;
+
   @media (max-width:$sm) {
     top:0;
+    margin-top: 0;
     float:none;
     margin-left: 0%;
     left:40%;

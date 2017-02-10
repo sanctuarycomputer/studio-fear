@@ -41,6 +41,7 @@
 }
 .menu .menu-button .menu-graphic, .menu .menu-graphic-container .menu-graphic {
   pointer-events: auto;
+  mix-blend-mode: difference;
 }
 .menu .menu-button .menu-graphic #lbutt, .menu .menu-graphic-container .menu-graphic #lbutt {
   position: relative;
@@ -143,16 +144,19 @@
     float: none;
     left: 45%;
     position: fixed;
+    margin-bottom: 0;
   }
 }
 
 #svg {
   transform-origin: 50% 50%;
   margin-left: 5%;
+  mix-blend-mode: difference;
 }
 @media (max-width: 36em) {
   #svg {
     top: 0;
+    margin-top: 0;
     float: none;
     margin-left: 0%;
     left: 40%;
@@ -237,6 +241,18 @@ svg {
   z-index: 10;
   cursor: pointer;
   color: black;
+}
+
+.joeldown strong {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+  top: 0;
+}
+
+.profile-pic:hover {
+  -webkit-filter: hue-rotate(180deg);
 }
 
 .about {
@@ -524,12 +540,14 @@ svg {
 .feed .index-button {
   position: fixed;
   right: 0;
+  display: flex;
   float: right;
 }
 @media (max-width: 36em) {
   .feed .index-button {
-    display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
     padding: 0;
     top: 15%;
   }
@@ -572,7 +590,7 @@ svg {
   top: 0;
   right: 0;
   overflow: scroll;
-  z-index: -1;
+  z-index: -2;
 }
 @media (max-width: 36em) {
   .object-page .object-gallery {
@@ -590,14 +608,16 @@ svg {
   top: 0;
   left: 0;
   margin-left: 3rem;
+  z-index: -1;
   pointer-events: none;
 }
 @media (max-width: 36em) {
   .object-page .object-text-container {
-    z-index: 100;
+    z-index: -1;
     padding: 0;
     margin: 0;
     bottom: 0;
+    position: fixed;
   }
 }
 .object-page .object-text-container .project-info, .object-page .object-text-container .title {
