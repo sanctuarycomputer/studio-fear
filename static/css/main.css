@@ -239,6 +239,10 @@ svg {
   color: black;
 }
 
+.joeldown em {
+  color: wheat;
+}
+
 .about {
   margin-left: 3rem;
 }
