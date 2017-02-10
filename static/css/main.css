@@ -94,7 +94,7 @@
   }
 }
 .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
-  font-size: 150px;
+  font-size: 130px;
   text-align: center;
   color: transparent;
   -webkit-text-stroke-width: 2px;
@@ -102,6 +102,17 @@
 }
 .menu .menu-button .menu-graphic .menu-links .menu-text:hover, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text:hover {
   -webkit-text-fill-color: orange;
+}
+@media (max-width: 60em) {
+  .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
+    font-size: 80px;
+  }
+}
+@media (max-width: 52em) {
+  .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
+    font-size: 65px;
+    -webkit-text-stroke-width: 2px;
+  }
 }
 @media (max-width: 36em) {
   .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
@@ -441,11 +452,11 @@ svg {
   color: transparent;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: orange;
-  font-size: 150px;
+  font-size: 130px;
 }
 @media (max-width: 60em) {
   .index-page .title .title-text {
-    font-size: 105px;
+    font-size: 80px;
   }
 }
 @media (max-width: 52em) {
@@ -516,6 +527,7 @@ svg {
 .feed .index-button {
   position: fixed;
   right: 0;
+  z-index: 0;
   display: flex;
   float: right;
 }
@@ -523,7 +535,6 @@ svg {
   .feed .index-button {
     justify-content: center;
     width: 100%;
-    height: 100%;
     padding: 0;
     top: 15%;
   }

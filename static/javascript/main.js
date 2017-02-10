@@ -143,6 +143,9 @@ function menu() {
       orangeleft(true);
       orangeright(false);
       addBW();
+      for (var i = 0; i < bwImages.length; i++) {
+        bwImages[i].classList.add('black-and-white');
+      }
     }
     menuLinksR.classList.remove('is-active');
   });
@@ -171,9 +174,10 @@ function menu() {
     }
   }
   function addBW() {
+    console.log(bwImages);
+
     for (var i = 0; i < bwImages.length; i++) {
       bwImages[i].classList.add('black-and-white');
-      //  bwImages[i].style.filter = "grayscale(100%)";
     }
   }
   scrollRotate();
@@ -192,8 +196,6 @@ function menu() {
       exitButt.classList.remove('is-active');
     });
   }
-  // navigationAnimation();
-  // function navigationAnimation(){
   var s = Snap('#svg');
   var crss = 50;
   var crsf = 58;

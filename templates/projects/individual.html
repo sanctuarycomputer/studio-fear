@@ -28,11 +28,11 @@
     </div>
   </div>
   <div class="image-gallery">
-    <p class= "center millerbannerroman pt4 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    <p class= "center millerbannerroman pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
       <div class="project-images bwimage" style="background-image: url({{ row.image.url }})" /></div>
     {% endfor %}
-    <div class="project-text sm-hide md-hide lg-hide pb2">
+    <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}
     </div>
   </div>

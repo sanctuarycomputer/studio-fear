@@ -23,7 +23,7 @@
         {% for row in cms.feed.grid %}
         <a class="text-decoration-none" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
           <div class="block image-data pt1 flex col-12 justify-between ">
-            <div class="inline-block exil">{{ row.image_title }}</div>
+            <div class="inline-block exil image-title">{{ row.image_title }}</div>
             <div class="px2 black-line-container">
               <div class="black-line"></div>
             </div>

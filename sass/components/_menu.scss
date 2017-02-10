@@ -57,13 +57,20 @@
           }
         }
         .menu-text{
-          font-size:150px;
+          font-size:130px;
           text-align: center;
           color:transparent;
           -webkit-text-stroke-width: 2px;
           -webkit-text-stroke-color: orange;
           &:hover{
             -webkit-text-fill-color: orange;
+          }
+          @media (max-width:$lg) {
+            font-size:80px;
+          }
+          @media (max-width:$md) {
+            font-size:65px;
+            -webkit-text-stroke-width: 2px;
           }
           @media (max-width:$sm) {
             font-size:45px;

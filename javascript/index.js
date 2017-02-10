@@ -133,6 +133,9 @@ function menu(){
       orangeleft(true);
       orangeright(false);
       addBW();
+      for(var i = 0; i < bwImages.length; i++) {
+        bwImages[i].classList.add('black-and-white');
+      }
     }
     menuLinksR.classList.remove('is-active');
   });
@@ -157,16 +160,14 @@ function menu(){
   var bwImages = document.querySelectorAll(".bwimage");
   function removeBW() {
     for(var i = 0; i < bwImages.length; i++) {
-        bwImages[i].classList.remove('black-and-white');
-
-
+      bwImages[i].classList.remove('black-and-white');
     }
   }
   function addBW() {
-    for(var i = 0; i < bwImages.length; i++) {
-        bwImages[i].classList.add('black-and-white');
-      //  bwImages[i].style.filter = "grayscale(100%)";
+    console.log(bwImages)
 
+    for(var i = 0; i < bwImages.length; i++) {
+      bwImages[i].classList.add('black-and-white');
     }
   }
   scrollRotate();
@@ -185,8 +186,6 @@ function menu(){
       exitButt.classList.remove('is-active');
    });
   }
-  // navigationAnimation();
-  // function navigationAnimation(){
     var s = Snap('#svg');
     var crss = 50;
     var crsf = 58;
