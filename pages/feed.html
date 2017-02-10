@@ -8,7 +8,6 @@
     hero_url: cms.layout.share_card_image.url
   }
 %}
-{% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}

@@ -173,6 +173,7 @@ function menu() {
   function addBW() {
     for (var i = 0; i < bwImages.length; i++) {
       bwImages[i].classList.add('black-and-white');
+      //  bwImages[i].style.filter = "grayscale(100%)";
     }
   }
   scrollRotate();

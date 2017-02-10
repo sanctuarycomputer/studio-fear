@@ -252,63 +252,59 @@ svg {
 
 .about {
   margin-left: 3rem;
-}
-.about .profile-pic-gallery {
-  z-index: -1;
-  position: relative;
-  pointer-events: auto;
-}
-@media (max-width: 36em) {
-  .about .name-text-about p {
-    margin-left: 1rem;
-    padding: 0;
-    padding-bottom: 1rem;
-  }
-  .about .name-text-about p:first-child {
-    text-align: center;
-    padding-top: 4rem;
-    padding-bottom: 1rem;
-  }
-}
-.about p {
   font-size: 3em;
   font-family: "Miller Ban Lt";
   margin-right: 1rem;
 }
 @media (max-width: 36em) {
-  .about p {
-    font-size: 1.5em;
-  }
-}
-@media (max-width: 36em) {
   .about {
+    font-size: 1.5em;
+    padding: 0;
+    flex-direction: column-reverse;
     margin: 0;
-    padding: 0;
   }
 }
-.about .features p {
+.about .profile-pic-gallery {
+  z-index: -1;
+  pointer-events: auto;
+  width: 40%;
+  height: 100%;
+  right: 0;
+  position: fixed;
+  overflow: scroll;
+  padding-bottom: 2rem;
   color: black;
 }
 @media (max-width: 36em) {
-  .about .features {
-    margin-left: 1rem;
-    padding: 0;
-  }
-  .about .features:first-child {
+  .about .profile-pic-gallery {
+    width: 100%;
+    position: relative;
     padding-bottom: 1rem;
   }
-}
-.about .contact-info p {
-  color: black;
+  .about .profile-pic-gallery p {
+    margin-left: 1rem;
+  }
 }
 @media (max-width: 36em) {
-  .about .contact-info {
-    margin-left: 1rem;
+  .about .profile-pic-gallery .profile-pic {
+    margin-left: 0;
+  }
+}
+.about .name-text-about {
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: fixed;
+  overflow: scroll;
+  z-index: -1;
+}
+@media (max-width: 36em) {
+  .about .name-text-about {
+    width: 100%;
     padding: 0;
     padding-bottom: 1rem;
-  }
-  .about .contact-info:first-child {
-    padding-bottom: 1rem;
+    margin-left: 1rem;
+    position: relative;
   }
 }
 
@@ -464,7 +460,7 @@ svg {
   pointer-events: none;
   background-color: transparent;
   mix-blend-mode: difference;
-  transition-duration: 0s, 0s;
+  transition-duration: 0.1s, 0.1s;
 }
 .index-page .title .title-text {
   color: transparent;
@@ -622,7 +618,6 @@ svg {
     padding: 0;
     margin: 0;
     bottom: 0;
-    position: fixed;
   }
 }
 .object-page .object-text-container .project-info, .object-page .object-text-container .title {
