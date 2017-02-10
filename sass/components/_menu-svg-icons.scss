@@ -1,19 +1,23 @@
 #svg2{
   transform-origin: 25% 25%;
   float:right;
+  right:0;
+  width:50%;
+  margin-right: -20%;
   @media (max-width:$sm) {
     bottom:0;
     float:none;
     left:45%;
     position: fixed;
-    margin-bottom: 0;
+    margin-bottom: -10%;
+    width:30%;
   }
 }
 #svg{
   transform-origin: 50% 50%;
-  margin-left: 5%;
+  margin-left: 0%;
   mix-blend-mode: difference;
-
+  width:30%;
   @media (max-width:$sm) {
     top:0;
     margin-top: 0;
@@ -21,16 +25,10 @@
     margin-left: 0%;
     left:40%;
     position: fixed;
+    width:20%;
   }
 }
 svg{
  z-index: 100;
- width:40%;
  margin-top: 10%;
- @media (max-width:$md) {
-   width:30%;
- }
- @media (max-width:$sm) {
-   width:20%;
- }
 }

@@ -193,7 +193,7 @@ function menu(){
     var duration = 200;
 
     var left = s.group(circle_1, bigLine, smallLine).attr({
-        fill: "transparent",
+        fill: "white",
         stroke: "orange",
         strokeWidth: 3
     });
@@ -242,7 +242,7 @@ function menu(){
           }, duration);
         } else {
           circle_1.attr({
-            fill: "transparent",
+            fill: "white",
           }, duration);
         }
     }
@@ -252,7 +252,7 @@ function menu(){
     var circle_2 = n.circle(cxyns,cxyns, crns);
     var rightLine = n.line(10,2,120,90);
     var right = n.group(circle_2, rightLine).attr({
-        fill: "transparent",
+        fill: "white",
         stroke: "orange",
         strokeWidth: 3
     });
@@ -284,7 +284,7 @@ function menu(){
 
         } else {
           circle_2.attr({
-            fill: "transparent",
+            fill: "white",
           }, duration);
         }
     }

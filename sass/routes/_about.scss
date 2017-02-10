@@ -3,6 +3,8 @@
   .profile-pic-gallery{
     z-index: -1;
     position: relative;
+    pointer-events: auto;
+
   }
   .name-text-about{
     p{

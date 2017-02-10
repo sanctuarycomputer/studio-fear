@@ -27,6 +27,16 @@
     <meta name="description" content="{% block description %}{{ site_description|default('Built with Webhook.') }}{% endblock %}">
     <meta name="viewport" content="width=device-width">
 
+    <meta content="{{ site_url }}{{ share_card.image }}" property="og:image">
+    <meta content="{{ share_card.title }}" property="og:title">
+    <meta content="{{ share_card.preview_text|striptags }}" property="og:description">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@studio-fear">
+    <meta name="twitter:title" content="{{ share_card.title }}">
+    <meta name="twitter:description" content="{{ share_card.preview_text|striptags }}">
+    <meta name="twitter:image" content="{{ site_url }}{{ share_card.hero_url }}">
+
     <link rel="shortcut icon" href="/static/images/favicon.png">
     <link rel="apple-touch-icon" href="/static/images/touch-icon.png">
     <link href="//cloud.typenetwork.com/projects/888/fontface.css/" rel="stylesheet" type="text/css">

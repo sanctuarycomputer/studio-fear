@@ -1,13 +1,13 @@
-{# ------------------------------------------------------- #}
-{# ONE OFF VIEW feed #}
-{# This page can use any data from http:localhost:2000/cms/#/form/feed/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{# YOUR HOMEPAGE #}
+{% extends "templates/partials/base.html" %}
+
+{%
+  set share_card = {
+    title: getSetting('site_name'),
+    preview_text: getSetting('site_description'),
+    hero_url: cms.layout.share_card_image.url
+  }
+%}
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
@@ -22,7 +22,7 @@
     <a class="exit-button fixed right-0 text-decoration-none h6 exil top-0 pt1 px2" href="/feed">EXIT</a>
       <div class="px3 pt3">
         {% for row in cms.feed.grid %}
-        <a class="text-decoration-none" href="/feed#waypoint-{{loop.index}}" id=''>
+        <a class="text-decoration-none" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
           <div class="block image-data pt1 flex col-12 justify-between ">
             <div class="inline-block exil">{{ row.image_title }}</div>
             <div class="px2 black-line-container">
