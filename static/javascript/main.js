@@ -127,8 +127,6 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-// var circleR = document.querySelector(".circleR");
-// var circleL = document.querySelector(".circleL");
 function menu() {
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
@@ -144,7 +142,6 @@ function menu() {
       displayTitle(true);
       orangeleft(true);
       addBW();
-
       if (menuButtonR) {
         orangeright(false);
       }
