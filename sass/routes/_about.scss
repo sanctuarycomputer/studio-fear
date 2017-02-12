@@ -33,6 +33,11 @@
       margin-left:0;
       }
     }
+    .mobile-info{
+      @media (min-width:$sm) {
+        display:none;
+      }
+    }
   }
   .name-text-about{
     width:50%;

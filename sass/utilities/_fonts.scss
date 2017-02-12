@@ -22,8 +22,11 @@
 
 }
 $exil: "exil71medium", sans-serif;
-
+$orange: #FF5B00;
 .exil{
   font-family: $exil;
   text-transform: uppercase;
+}
+.orange{
+  color:$orange;
 }

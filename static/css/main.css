@@ -22,6 +22,10 @@
   text-transform: uppercase;
 }
 
+.orange {
+  color: #FF5B00;
+}
+
 .black-and-white {
   filter: grayscale(100%);
 }
@@ -98,10 +102,10 @@
   text-align: center;
   color: transparent;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: orange;
+  -webkit-text-stroke-color: #FF5B00;
 }
 .menu .menu-button .menu-graphic .menu-links .menu-text:hover, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text:hover {
-  -webkit-text-fill-color: orange;
+  -webkit-text-fill-color: #FF5B00;
 }
 @media (max-width: 60em) {
   .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
@@ -209,7 +213,7 @@ svg {
 }
 #screensaver .screensaver-container .screensaver-stuff {
   width: 350%;
-  color: red;
+  color: #FF5B00;
   background-color: black;
   margin-left: -300%;
   font-size: 3rem;
@@ -300,6 +304,11 @@ svg {
 @media (max-width: 36em) {
   .about .profile-pic-gallery .profile-pic {
     margin-left: 0;
+  }
+}
+@media (min-width: 36em) {
+  .about .profile-pic-gallery .mobile-info {
+    display: none;
   }
 }
 .about .name-text-about {
@@ -451,7 +460,7 @@ svg {
 .index-page .title .title-text {
   color: transparent;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: orange;
+  -webkit-text-stroke-color: #FF5B00;
   font-size: 120px;
 }
 @media (max-width: 60em) {
@@ -512,11 +521,11 @@ svg {
   background-size: 0;
   background-color: white;
   border: 2px solid;
-  border-color: orange;
+  border-color: #FF5B00;
 }
 .index-page .content-container .content .image:hover p {
   display: block;
-  color: orange;
+  color: #FF5B00;
 }
 
 .feed .feed-gallery {

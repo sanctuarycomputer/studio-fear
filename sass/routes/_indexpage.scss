@@ -20,7 +20,7 @@
     .title-text{
       color: transparent;
       -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: orange;
+      -webkit-text-stroke-color: $orange;
       font-size:120px;
       @media (max-width:$lg) {
         font-size:80px;
@@ -73,10 +73,10 @@
           background-size: 0;
           background-color: white;
           border: 2px solid;
-          border-color:orange;
+          border-color:$orange;
           p{
             display:block;
-            color: orange;
+            color: $orange;
           }
         }
       }

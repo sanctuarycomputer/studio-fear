@@ -127,6 +127,7 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
+var orange = "#FF5B00";
 function menu() {
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
@@ -164,7 +165,7 @@ function menu() {
 
         if (bool) {
           circle_2.attr({
-            fill: "orange"
+            fill: orange
           }, duration);
         } else {
           circle_2.attr({
@@ -196,7 +197,7 @@ function menu() {
       rightLine = n.line(10, 2, 120, 90);
       right = n.group(circle_2, rightLine).attr({
         fill: "white",
-        stroke: "orange",
+        stroke: orange,
         strokeWidth: 3
       });
 
@@ -259,7 +260,7 @@ function menu() {
 
   var left = s.group(circle_1, bigLine, smallLine).attr({
     fill: "white",
-    stroke: "orange",
+    stroke: orange,
     strokeWidth: 3
   });
   s.mouseover(function mouseOverLeft() {
@@ -301,7 +302,7 @@ function menu() {
 
     if (bool) {
       circle_1.attr({
-        fill: "orange"
+        fill: orange
       }, duration);
     } else {
       circle_1.attr({

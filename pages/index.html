@@ -1,6 +1,4 @@
 {# YOUR HOMEPAGE #}
-{% extends "templates/partials/base.html" %}
-
 {%
   set share_card = {
     title: getSetting('site_name'),
@@ -9,7 +7,6 @@
   }
 %}
 {% extends "templates/partials/base.html" %}
-
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
