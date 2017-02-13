@@ -41,7 +41,7 @@
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  mix-blend-mode: difference;
+  mix-blend-mode: color-dodge;
 }
 .menu .menu-button .menu-graphic, .menu .menu-graphic-container .menu-graphic {
   pointer-events: auto;
@@ -102,10 +102,10 @@
   text-align: center;
   color: transparent;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #FF5B00;
+  -webkit-text-stroke-color: #121212;
 }
 .menu .menu-button .menu-graphic .menu-links .menu-text:hover, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text:hover {
-  -webkit-text-fill-color: #FF5B00;
+  -webkit-text-fill-color: #121212;
 }
 @media (max-width: 60em) {
   .menu .menu-button .menu-graphic .menu-links .menu-text, .menu .menu-graphic-container .menu-graphic .menu-links .menu-text {
@@ -190,6 +190,7 @@ svg {
 }
 
 #screensaver {
+  display: none;
   position: fixed;
   width: 100%;
   height: 110%;

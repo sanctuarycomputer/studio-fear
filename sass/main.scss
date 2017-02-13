@@ -1,5 +1,6 @@
 
 @import 'mixin';
+@import 'global/colors';
 @import 'utilities/fonts';
 @import 'utilities/breakpoints';
 @import 'utilities/imgFilter';
@@ -18,8 +19,6 @@
 @import 'routes/indexpage';
 @import 'routes/feed';
 @import 'routes/object';
-
-
 
 html {
   -webkit-font-smoothing: antialiased;

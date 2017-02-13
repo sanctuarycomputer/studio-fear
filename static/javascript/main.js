@@ -5,6 +5,10 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _menu = require('./modules/menu');
+
+var _menu2 = _interopRequireDefault(_menu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import Waypoint from 'waypoints';
@@ -17,7 +21,7 @@ $(document).ready(function () {
   feedIndex();
   feedScroll();
   screenSaver();
-  menu();
+  (0, _menu2.default)();
 });
 function objectScroll() {
   var _this = this;
@@ -109,208 +113,7 @@ function workAnimation() {
     leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
   });
 }
-var title = document.querySelector(".title");
 
-function displayTitle() {
-  var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-  if (title) {
-    if (bool) {
-      title.classList.add('is-active');
-    } else {
-      title.classList.remove('is-active');
-    }
-  }
-}
-var menuButtonL = document.getElementById('lbutt');
-var menuLinksL = document.getElementById('llinks');
-var menuButtonR = document.getElementById('rbutt');
-var menuLinksR = document.getElementById('rlinks');
-var exitButt = document.querySelector(".exit-button-filter");
-var orange = "#FF5B00";
-function menu() {
-  menuButtonL.addEventListener('click', function () {
-    if (menuLinksL.classList.contains('is-active')) {
-      menuLinksL.classList.remove('is-active');
-      displayTitle(false);
-      orangeleft(false);
-      removeBW();
-      if (menuButtonR) {
-        orangeright(false);
-      }
-    } else {
-      menuLinksL.classList.add('is-active');
-      displayTitle(true);
-      orangeleft(true);
-      addBW();
-      if (menuButtonR) {
-        orangeright(false);
-      }
-    }
-    if (menuButtonR) {
-      menuLinksR.classList.remove('is-active');
-    }
-  });
-  if (menuButtonR) {
-    var n;
-    var crns;
-    var cxyns;
-    var circle_2;
-    var rightLine;
-    var right;
-
-    (function () {
-      var orangeright = function orangeright() {
-        var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-        if (bool) {
-          circle_2.attr({
-            fill: orange
-          }, duration);
-        } else {
-          circle_2.attr({
-            fill: "white"
-          }, duration);
-        }
-      };
-
-      menuButtonR.addEventListener('click', function () {
-        if (menuLinksR.classList.contains('is-active')) {
-          menuLinksR.classList.remove('is-active');
-          displayTitle(false);
-          orangeright(false);
-          orangeleft(false);
-          removeBW();
-        } else {
-          menuLinksR.classList.add('is-active');
-          displayTitle(true);
-          orangeright(true);
-          orangeleft(false);
-          addBW();
-        }
-        menuLinksL.classList.remove('is-active');
-      });
-      n = Snap('#svg2');
-      crns = 35;
-      cxyns = 50;
-      circle_2 = n.circle(cxyns, cxyns, crns);
-      rightLine = n.line(10, 2, 120, 90);
-      right = n.group(circle_2, rightLine).attr({
-        fill: "white",
-        stroke: orange,
-        strokeWidth: 3
-      });
-
-      n.mouseover(function () {
-        rightLine.animate({
-          x1: 90,
-          y1: 80,
-          x2: 200,
-          y2: 170
-        }, duration);
-      });
-      n.mouseout(function () {
-        rightLine.animate({
-          x1: 10,
-          y1: 2,
-          x2: 120,
-          y2: 90
-        }, duration);
-      });
-    })();
-  }
-  var bwImages = document.querySelectorAll(".bwimage");
-  function removeBW() {
-    for (var i = 0; i < bwImages.length; i++) {
-      bwImages[i].classList.remove('black-and-white');
-      console.log("hi");
-    }
-  }
-  function addBW() {
-    console.log(bwImages);
-
-    for (var i = 0; i < bwImages.length; i++) {
-      bwImages[i].classList.add('black-and-white');
-    }
-  }
-  scrollRotate();
-  function scrollRotate() {
-    $(document).scroll(function () {
-      var divideNumber = Math.PI * 100;
-      var theta = $(window).scrollTop() / divideNumber;
-      $('#svg').css({ transform: 'rotate(' + theta + 'rad)' });
-      $('#svg2').css({ transform: 'rotate(' + -theta + 'rad)' });
-    });
-  }
-  if (exitButt) {
-    exitButt.addEventListener('click', function () {
-      menuLinksR.classList.remove('is-active');
-      displayTitle(false);
-      exitButt.classList.remove('is-active');
-    });
-  }
-  var s = Snap('#svg');
-  var crss = 50;
-  var crsf = 58;
-  var cxyss = 75;
-  var circle_1 = s.circle(cxyss, cxyss, crss);
-  var bigLine = s.line(135, 95, 77, 64);
-  var smallLine = s.line(45, 135, 65, 102);
-  var duration = 200;
-
-  var left = s.group(circle_1, bigLine, smallLine).attr({
-    fill: "white",
-    stroke: orange,
-    strokeWidth: 3
-  });
-  s.mouseover(function mouseOverLeft() {
-    smallLine.animate({
-      x1: 0,
-      y1: 120,
-      x2: 33,
-      y2: 131
-    }, duration);
-    circle_1.animate({
-      r: crsf
-    }, duration);
-    bigLine.animate({
-      x1: 129,
-      y1: 0,
-      x2: 120,
-      y2: 80
-    }, duration);
-  });
-  s.mouseout(function mouseOutLeft() {
-    smallLine.animate({
-      x1: 45,
-      y1: 135,
-      x2: 65,
-      y2: 102
-    }, duration);
-    circle_1.animate({
-      r: crss
-    }, duration);
-    bigLine.animate({
-      x1: 135,
-      y1: 95,
-      x2: 77,
-      y2: 64
-    }, duration);
-  });
-  function orangeleft() {
-    var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-    if (bool) {
-      circle_1.attr({
-        fill: orange
-      }, duration);
-    } else {
-      circle_1.attr({
-        fill: "white"
-      }, duration);
-    }
-  }
-}
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
   for (var i = 0; i < filterObject.length; i++) {
@@ -360,7 +163,174 @@ function screenSaver() {
   }
 }
 
-},{"lodash":2}],2:[function(require,module,exports){
+},{"./modules/menu":2,"lodash":4}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _utils = require('./utils');
+
+var menuButtonL = document.getElementById('lbutt');
+var menuLinksL = document.getElementById('llinks');
+var menuButtonR = document.getElementById('rbutt');
+var menuLinksR = document.getElementById('rlinks');
+var exitButt = document.querySelector(".exit-button-filter");
+var bwImages = document.querySelectorAll(".bwimage");
+var FILL = "#121212";
+var duration = 200;
+
+/* Left Menu Snap Setup */
+var s = Snap('#svg');
+var crss = 50;
+var crsf = 58;
+var cxyss = 75;
+var circle_1 = s.circle(cxyss, cxyss, crss);
+var bigLine = s.line(135, 95, 77, 64);
+var smallLine = s.line(45, 135, 65, 102);
+var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+s.mouseover(function () {
+  smallLine.animate({ x1: 0, y1: 120, x2: 33, y2: 131 }, duration);
+  circle_1.animate({ r: crsf }, duration);
+  bigLine.animate({ x1: 129, y1: 0, x2: 120, y2: 80 }, duration);
+});
+
+s.mouseout(function () {
+  smallLine.animate({ x1: 45, y1: 135, x2: 65, y2: 102 }, duration);
+  circle_1.animate({ r: crss }, duration);
+  bigLine.animate({ x1: 135, y1: 95, x2: 77, y2: 64 }, duration);
+});
+
+/* Right Menu Snap Setup */
+var n, crns, cxyns, circle_2, rightLine, right;
+if (menuButtonR) {
+  n = Snap('#svg2');
+  crns = 35;
+  cxyns = 50;
+  circle_2 = n.circle(cxyns, cxyns, crns);
+  rightLine = n.line(10, 2, 120, 90);
+  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+  n.mouseover(function () {
+    rightLine.animate({ x1: 90, y1: 80, x2: 200, y2: 170 }, duration);
+  });
+  n.mouseout(function () {
+    rightLine.animate({ x1: 10, y1: 2, x2: 120, y2: 90 }, duration);
+  });
+}
+
+/* Utilities */
+function removeBW() {
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.remove('black-and-white');
+  }
+}
+
+function addBW() {
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.add('black-and-white');
+  }
+}
+
+function scrollRotate() {
+  $(document).scroll(function () {
+    var divideNumber = Math.PI * 100;
+    var theta = $(window).scrollTop() / divideNumber;
+    $('#svg').css({ transform: 'rotate(' + theta + 'rad)' });
+    $('#svg2').css({ transform: 'rotate(' + -theta + 'rad)' });
+  });
+}
+
+function toggleObjectFill() {
+  var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var obj = arguments[1];
+
+  if (bool) {
+    obj.attr({ fill: FILL }, duration);
+  } else {
+    obj.attr({ fill: "white" }, duration);
+  }
+}
+
+exports.default = function () {
+  /* Setup MenuButtonL */
+  menuButtonL.addEventListener('click', function () {
+    if (menuLinksL.classList.contains('is-active')) {
+      menuLinksL.classList.remove('is-active');
+      (0, _utils.displayTitle)(false);
+      toggleObjectFill(false, circle_1);
+      removeBW();
+      if (menuButtonR) {
+        toggleObjectFill(false, circle_2);
+      }
+    } else {
+      menuLinksL.classList.add('is-active');
+      (0, _utils.displayTitle)(true);
+      toggleObjectFill(true, circle_1);
+      addBW();
+      if (menuButtonR) {
+        toggleObjectFill(false, circle_2);
+      }
+    }
+    if (menuButtonR) {
+      menuLinksR.classList.remove('is-active');
+    }
+  });
+
+  /* MenuButtonR Isn't always present, setup here */
+  if (menuButtonR) {
+    menuButtonR.addEventListener('click', function () {
+      if (menuLinksR.classList.contains('is-active')) {
+        menuLinksR.classList.remove('is-active');
+        (0, _utils.displayTitle)(false);
+        toggleObjectFill(false, circle_1);
+        toggleObjectFill(false, circle_2);
+        removeBW();
+      } else {
+        menuLinksR.classList.add('is-active');
+        (0, _utils.displayTitle)(true);
+        toggleObjectFill(false, circle_1);
+        toggleObjectFill(true, circle_2);
+        addBW();
+      }
+      menuLinksL.classList.remove('is-active');
+    });
+  }
+
+  scrollRotate();
+
+  /* If the exit button is on this page, set it up here too */
+  if (exitButt) {
+    exitButt.addEventListener('click', function () {
+      menuLinksR.classList.remove('is-active');
+      (0, _utils.displayTitle)(false);
+      exitButt.classList.remove('is-active');
+    });
+  }
+};
+
+},{"./utils":3}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.displayTitle = displayTitle;
+var title = document.querySelector(".title");
+
+function displayTitle() {
+  var bool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+  if (title) {
+    if (bool) {
+      title.classList.add('is-active');
+    } else {
+      title.classList.remove('is-active');
+    }
+  }
+}
+
+},{}],4:[function(require,module,exports){
 (function (global){
 /**
  * @license
