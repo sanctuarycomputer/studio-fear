@@ -1,18 +1,31 @@
 import _ from 'lodash';
 import menu from './modules/menu';
-//import Waypoint from 'waypoints';
+import work from './modules/work';
+import { pageScroll } from './modules/utils';
+
+window.onload = function() {
+  setTimeout(() => scrollTo(0,0), 100);
+}
+
+
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
+  menu();
+
+  const isHomepage = location.pathname === "/";
+  if (isHomepage) {
+    $('.title').removeClass('is-active');
+    pageScroll();
+    work();
+  }
 
   objectScroll();
-  workAnimation();
   filters();
   feedIndex();
   feedScroll();
   screenSaver();
-  menu();
+});
 
-})
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
@@ -43,6 +56,7 @@ function objectScroll() {
     });
   });
 }
+
 function feedScroll() {
   const hero = document.getElementById('feed-image');
   const waypoints = document.getElementsByClassName('waypoint');
@@ -93,15 +107,7 @@ function lightbox(){
 
   });
 }
-function workAnimation(){
-  var leftcol = $(".left-container");
-  var imageNumber = leftcol.children().length;
-  var leftContainerHeight = imageNumber * (-100);
-  leftcol.css("margin-top",  `${leftContainerHeight}vh`);
-  $(document).scroll(function(){
-  	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
-  });
-}
+
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
@@ -119,6 +125,7 @@ function filters() {
     });
   }
 }
+
 function feedIndex(){
   var feedPage = document.querySelector('.feed-page');
   if (feedPage){
@@ -130,7 +137,6 @@ function feedIndex(){
       feedGallery.style.display = "none";
       indexButton.style.display = "none";
       window.scrollTo(0,0);
-
     });
   }
 }
