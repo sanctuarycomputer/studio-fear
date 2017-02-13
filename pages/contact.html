@@ -12,12 +12,12 @@
 {% block content %}
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
-<div class="about pt3 flex millerbannerlight">
-  <div class="joeldown name-text-about xs-hide inline-block">
+<div class="about flex millerbannerlight">
+  <div class="joeldown name-text-about xs-hide  pt3 inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
-  <div class="profile-pic-gallery">
+  <div class="profile-pic-gallery pt3">
     <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     <a href="{{ cms.contact.link_out }}" target="_blank">
       {% for image in cms.contact.pictures_of_jowl %}
