@@ -1,4 +1,10 @@
-
+{%
+  set share_card = {
+    title: getSetting('site_name'),
+    preview_text: {{ cms.contact.info_about_jowl|markdown }},
+    hero_url: cms.contact.pictures_of_jowl.image.url
+  }
+%}
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
@@ -11,10 +17,15 @@
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
   <div class="profile-pic-gallery">
-    <p class="pb2 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
-    {% for image in cms.contact.pictures_of_jowl %}
-      <img class="profile-pic bwimage fit" src="{{ image.url }}"/>
-    {% endfor %}
+    <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
+    <a href="{{ cms.contact.link_out }}" target="_blank">
+      {% for image in cms.contact.pictures_of_jowl %}
+        <img class="profile-pic bwimage fit" src="{{ image.url }}"/>
+      {% endfor %}
+    </a>
+    <div class= "mobile-info">
+      <p class="pt1 sm-hide md-hide lg-hide">{{ cms.contact.info_about_jowl|markdown }}</p>
+    </div>
     <div class="contact-info ">
       <p class="underline py1">Contact:</p>
       <p>{{ cms.contact.email }}</p>
@@ -35,4 +46,5 @@
     </div>
   </div>
 </div>
+{% include "templates/partials/screensaver.html" %}
 {% endblock %}

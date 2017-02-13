@@ -117,24 +117,29 @@ var menuLinksL= document.getElementById('llinks');
 var menuButtonR= document.getElementById('rbutt');
 var menuLinksR= document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var circleR = document.querySelector(".circleR");
-var circleL = document.querySelector(".circleL");
+var orange = "#FF5B00";
 function menu(){
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
       orangeleft(false);
-      orangeright(false);
       removeBW();
+      if (menuButtonR){
+        orangeright(false);
+      }
     } else {
       menuLinksL.classList.add('is-active');
       displayTitle(true);
       orangeleft(true);
-      orangeright(false);
       addBW();
+      if (menuButtonR){
+        orangeright(false);
+      }
     }
-    menuLinksR.classList.remove('is-active');
+    if (menuButtonR){
+      menuLinksR.classList.remove('is-active');
+    }
   });
   if (menuButtonR){
     menuButtonR.addEventListener('click', () => {
@@ -153,20 +158,61 @@ function menu(){
       }
       menuLinksL.classList.remove('is-active');
     });
+    var n = Snap('#svg2');
+    var crns = 35;
+    var cxyns = 50;
+    var circle_2 = n.circle(cxyns,cxyns, crns);
+    var rightLine = n.line(10,2,120,90);
+    var right = n.group(circle_2, rightLine).attr({
+        fill: "white",
+        stroke: orange,
+        strokeWidth: 3
+    });
+    n.mouseover(
+      function (){
+      rightLine.animate({
+          x1: 90,
+          y1: 80,
+          x2: 200,
+          y2: 170,
+        }, duration);
+      },
+    );
+    n.mouseout(
+       function (){
+      rightLine.animate({
+          x1: 10,
+          y1: 2,
+          x2: 120,
+          y2: 90,
+        }, duration);
+      },
+    );
+    function orangeright(bool=true) {
+        if (bool) {
+          circle_2.attr({
+            fill: orange,
+          }, duration);
+
+        } else {
+          circle_2.attr({
+            fill: "white",
+          }, duration);
+        }
+      }
   }
   var bwImages = document.querySelectorAll(".bwimage");
   function removeBW() {
     for(var i = 0; i < bwImages.length; i++) {
-        bwImages[i].classList.remove('black-and-white');
-
-
+      bwImages[i].classList.remove('black-and-white');
+      console.log("hi")
     }
   }
   function addBW() {
-    for(var i = 0; i < bwImages.length; i++) {
-        bwImages[i].classList.add('black-and-white');
-      //  bwImages[i].style.filter = "grayscale(100%)";
+    console.log(bwImages)
 
+    for(var i = 0; i < bwImages.length; i++) {
+      bwImages[i].classList.add('black-and-white');
     }
   }
   scrollRotate();
@@ -185,8 +231,6 @@ function menu(){
       exitButt.classList.remove('is-active');
    });
   }
-  // navigationAnimation();
-  // function navigationAnimation(){
     var s = Snap('#svg');
     var crss = 50;
     var crsf = 58;
@@ -198,7 +242,7 @@ function menu(){
 
     var left = s.group(circle_1, bigLine, smallLine).attr({
         fill: "white",
-        stroke: "orange",
+        stroke: orange,
         strokeWidth: 3
     });
     s.mouseover(
@@ -242,52 +286,10 @@ function menu(){
     function orangeleft(bool=true) {
         if (bool) {
           circle_1.attr({
-            fill: "orange",
+            fill: orange,
           }, duration);
         } else {
           circle_1.attr({
-            fill: "white",
-          }, duration);
-        }
-    }
-    var n = Snap('#svg2');
-    var crns = 35;
-    var cxyns = 50;
-    var circle_2 = n.circle(cxyns,cxyns, crns);
-    var rightLine = n.line(10,2,120,90);
-    var right = n.group(circle_2, rightLine).attr({
-        fill: "white",
-        stroke: "orange",
-        strokeWidth: 3
-    });
-    n.mouseover(
-      function (){
-      rightLine.animate({
-          x1: 90,
-          y1: 80,
-          x2: 200,
-          y2: 170,
-        }, duration);
-      },
-    );
-    n.mouseout(
-       function (){
-      rightLine.animate({
-          x1: 10,
-          y1: 2,
-          x2: 120,
-          y2: 90,
-        }, duration);
-      },
-    );
-    function orangeright(bool=true) {
-        if (bool) {
-          circle_2.attr({
-            fill: "orange",
-          }, duration);
-
-        } else {
-          circle_2.attr({
             fill: "white",
           }, duration);
         }

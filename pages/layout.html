@@ -34,5 +34,19 @@
         {# http://www.webhook.com/docs/widget-template-reference/#image #}
         <img src="{{ cms.layout.share_card_image|imageSize(200, 200) }}" />
       </li>
+      <li>
+        <strong>Preview URL: </strong>
+        {{ cms.layout.preview_url }}
+      </li>
+      <li>
+        <strong>Slug: </strong>
+        {{ cms.layout.slug }}
+      </li>
+      <li>
+        <strong>Favicon Image: </strong>
+        {# You can pull out a lot more information from the image property. Info here: #}
+        {# http://www.webhook.com/docs/widget-template-reference/#image #}
+        <img src="{{ cms.layout.favicon_image|imageSize(200, 200) }}" />
+      </li>
   </ul>
 {% endblock %}
