@@ -1,13 +1,12 @@
 {# ------------------------------------------------------- #}
 {# ONE OFF VIEW object #}
-{# This page can use any data from http:localhost:2000/cms/#/form/object/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{%
+  set share_card = {
+    title: getSetting('site_name'),
+    preview_text: getSetting('site_description'),
+    image: cms.object.grid[0].gallery[0].url
+  }
+%}
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
@@ -43,4 +42,5 @@
     </div>
   {% endfor %}
 </div>
+{% include "templates/partials/screensaver.html" %}
 {% endblock %}

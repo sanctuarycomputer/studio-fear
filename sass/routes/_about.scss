@@ -25,12 +25,17 @@
       padding-bottom: 1rem;
       p{
         margin-left:1rem;
-
+        margin-right:1rem;
       }
     }
     .profile-pic{
       @media (max-width:$sm) {
       margin-left:0;
+      }
+    }
+    .mobile-info{
+      @media (min-width:$sm) {
+        display:none;
       }
     }
   }
@@ -41,12 +46,5 @@
     position: fixed;
     overflow: scroll;
     z-index: -1;
-    @media (max-width:$sm) {
-      width: 100%;
-      padding:0;
-      padding-bottom: 1rem;
-      margin-left:1rem;
-      position: relative;
-    }
   }
 }

@@ -1,13 +1,6 @@
 {# YOUR HOMEPAGE #}
 {% extends "templates/partials/base.html" %}
 
-{%
-  set share_card = {
-    title: getSetting('site_name'),
-    preview_text: getSetting('site_description'),
-    hero_url: cms.layout.share_card_image.url
-  }
-%}
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
@@ -23,7 +16,7 @@
         {% for row in cms.feed.grid %}
         <a class="text-decoration-none" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
           <div class="block image-data pt1 flex col-12 justify-between ">
-            <div class="inline-block exil">{{ row.image_title }}</div>
+            <div class="inline-block exil image-title">{{ row.image_title }}</div>
             <div class="px2 black-line-container">
               <div class="black-line"></div>
             </div>
@@ -34,4 +27,5 @@
       </div>
   </div>
 </div>
+{% include "templates/partials/screensaver.html" %}
 {% endblock %}

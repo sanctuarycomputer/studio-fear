@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import menu from './modules/menu';
-
+//import Waypoint from 'waypoints';
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
 
@@ -10,10 +10,9 @@ $(document).ready(function (){
   feedIndex();
   feedScroll();
   screenSaver();
-
   menu();
-});
 
+})
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');

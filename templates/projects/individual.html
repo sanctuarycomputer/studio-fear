@@ -1,13 +1,13 @@
 {# ------------------------------------------------------- #}
 {# INDIVIDUAL VIEW FOR EACH projects #}
-{# This page can use any data from http:localhost:2000/cms/#/form/projects/ #}
-{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
-{# http://paularmstrong.github.io/swig/docs/tags/ #}
-{# Learn about calling data into Webhook pages here: #}
-{# http://www.webhook.com/docs/template-rules-and-filters/ #}
-{# ------------------------------------------------------- #}
-{# Confused what extends and blocks do? Watch a primer: #}
-{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{%
+  set share_card = {
+    title: getSetting('site_name'),
+    preview_text: "{{ cms.project.markdown_text|safe }}",
+    image: "{{ cms.object.grid[0].gallery[0].url }}"
+  }
+%}
+
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
@@ -15,11 +15,11 @@
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
 {% include "templates/partials/exit-button.html" %}
 <div class="feed" id="lightbox">
-  {% include "templates/partials/exit-button.html" %}
+  {% include "templates/partials/exit-button.html" with config %}
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 <div class="projects-page flex" id="projects">
-  <div class="project-info pt3">
+  <div class="project-info xs-hide pt3">
     <div class="project-title">
       <p class= "millerbannerroman"> {{ item.name }}</p>
     </div>
@@ -28,10 +28,15 @@
     </div>
   </div>
   <div class="image-gallery">
+    <p class= "center millerbannerroman pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
       <div class="project-images bwimage" style="background-image: url({{ row.image.url }})" /></div>
     {% endfor %}
+    <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
+      {{ item.markdown_text|markdown }}
+    </div>
   </div>
 </div>
 {% include "templates/partials/menu.html" with config %}
+{% include "templates/partials/screensaver.html" %}
 {% endblock %}
