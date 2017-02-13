@@ -3,10 +3,11 @@
 {%
   set share_card = {
     title: getSetting('site_name'),
-    preview_text: {{ cms.project.markdown_text|safe }},
-    image: cms.object.grid[0].gallery[0].url
+    preview_text: "{{ cms.project.markdown_text|safe }}",
+    image: "{{ cms.object.grid[0].gallery[0].url }}"
   }
 %}
+
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
