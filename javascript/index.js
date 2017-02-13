@@ -23,7 +23,7 @@ $(document).ready(function (){
   filters();
   feedIndex();
   feedScroll();
-  screenSaver();
+//  screenSaver();
 });
 
 function objectScroll() {

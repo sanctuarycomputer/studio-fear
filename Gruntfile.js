@@ -52,9 +52,30 @@ module.exports = function(grunt) {
           tasks: ['browserify', 'build']
         }
      }
+     postcss: {
+       options: {
+         map: true, // inline sourcemaps
+
+         // or
+         map: {
+             inline: false, // save all sourcemaps as separate files...
+             annotation: 'dist/css/maps/' // ...to the specified directory
+         },
+
+         processors: [
+           require('pixrem')(), // add fallbacks for rem units
+           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+           require('cssnano')() // minify the result
+         ]
+       },
+       dist: {
+         src: 'css/*.css'
+       }
+     }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-postcss');
 
   // NEVER REMOVE THESE LINES, OR ELSE YOUR PROJECT MAY NOT WORK
   require('./options/generatorOptions.js')(grunt);

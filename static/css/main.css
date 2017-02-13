@@ -199,10 +199,6 @@ svg {
   z-index: 9999;
   top: -20px;
   background-color: black;
-  align-content: space-around;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
 }
 @media (max-width: 36em) {
   #screensaver {
