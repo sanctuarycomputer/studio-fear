@@ -3,17 +3,13 @@ import menu from './modules/menu';
 import work from './modules/work';
 import { pageScroll } from './modules/utils';
 
-window.onload = function() {
-  setTimeout(() => scrollTo(0,0), 100);
-}
-
-
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
   menu();
 
   const isHomepage = location.pathname === "/";
   if (isHomepage) {
+    setTimeout(() => scrollTo(0,0), 100);
     $('.title').removeClass('is-active');
     pageScroll();
     work();

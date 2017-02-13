@@ -45,23 +45,16 @@ module.exports = function(grunt) {
      watch: {
         sass : {
           files: ['sass/**/*.scss'],
-          tasks: ['sass', 'build']
+          tasks: ['sass', 'build', 'postcss']
         },
         scripts: {
           files: ['./javascript/**/*.js'],
           tasks: ['browserify', 'build']
         }
-     }
+     },
      postcss: {
        options: {
-         map: true, // inline sourcemaps
-
-         // or
-         map: {
-             inline: false, // save all sourcemaps as separate files...
-             annotation: 'dist/css/maps/' // ...to the specified directory
-         },
-
+        // map: true, // inline sourcemaps
          processors: [
            require('pixrem')(), // add fallbacks for rem units
            require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
@@ -69,7 +62,8 @@ module.exports = function(grunt) {
          ]
        },
        dist: {
-         src: 'css/*.css'
+         src: 'static/css/main.css',
+         dest: 'static/css/main.css'
        }
      }
   });

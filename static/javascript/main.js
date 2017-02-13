@@ -17,18 +17,15 @@ var _utils = require('./modules/utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.onload = function () {
-  setTimeout(function () {
-    return scrollTo(0, 0);
-  }, 100);
-};
-
 $(document).ready(function () {
   document.getElementById('lightbox') && lightbox();
   (0, _menu2.default)();
 
   var isHomepage = location.pathname === "/";
   if (isHomepage) {
+    setTimeout(function () {
+      return scrollTo(0, 0);
+    }, 100);
     $('.title').removeClass('is-active');
     (0, _utils.pageScroll)();
     (0, _work2.default)();
@@ -38,7 +35,7 @@ $(document).ready(function () {
   filters();
   feedIndex();
   feedScroll();
-  screenSaver();
+  //  screenSaver();
 });
 
 function objectScroll() {
