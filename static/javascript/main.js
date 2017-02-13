@@ -142,7 +142,7 @@ function feedIndex() {
   var feedPage = document.querySelector('.feed-page');
   if (feedPage) {
     var indexButton = document.querySelector('.index-button');
-    var feedGallery = document.querySelector('.feed-hero-container');
+    var feedGallery = document.querySelector('.feed-gallery');
     var feedIndex = document.querySelector('.feed-index');
     indexButton.addEventListener('click', function () {
       feedIndex.style.display = "block";
