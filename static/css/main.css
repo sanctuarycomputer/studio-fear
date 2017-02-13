@@ -192,50 +192,56 @@ svg {
 #screensaver {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 110%;
   left: 0px;
   top: 0px;
   z-index: 9999;
+  top: -20px;
   background-color: black;
+  align-content: space-around;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 @media (max-width: 36em) {
   #screensaver {
     width: 200%;
   }
 }
-#screensaver .screensaver-container {
+#screensaver .screensaver-stuff {
   display: flex;
-  width: 100%;
-  height: 100%;
   align-content: space-around;
-  position: absolute;
   justify-content: center;
   flex-direction: column;
-}
-#screensaver .screensaver-container .screensaver-stuff {
-  width: 250%;
+  width: 430%;
   color: #FF5B00;
-  background-color: black;
-  font-size: 150px;
+  font-size: 200px;
+  line-height: 10rem;
   -webkit-animation-name: textmove;
-  -webkit-animation-duration: 10s;
+  -webkit-animation-duration: 30s;
   -webkit-animation-timing-function: linear;
   animation-name: textmove;
-  animation-duration: 10s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-@media (max-width: 36em) {
-  #screensaver .screensaver-container .screensaver-stuff {
-    font-size: 60px;
-  }
+#screensaver .screensaver-container-two {
+  transform: translateX(-530%);
 }
 @-webkit-keyframes textmove {
   0% {
-    transform: translate(-125%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translate(50%);
+    transform: translateX(100%);
+  }
+}
+@keyframes textmove {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 .exit-button {
