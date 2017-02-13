@@ -10,7 +10,8 @@
     justify-content: space-between;;
     align-items: center;
     pointer-events: none;
-    mix-blend-mode: difference;
+    mix-blend-mode: color-dodge;
+
     .menu-graphic{
       pointer-events: auto;
       #lbutt{
@@ -60,10 +61,10 @@
           font-size:150px;
           text-align: center;
           color:transparent;
-          -webkit-text-stroke-width: 2px;
-          -webkit-text-stroke-color: orange;
+          -webkit-text-stroke-width: 4px;
+          -webkit-text-stroke-color: $black;
           &:hover{
-            -webkit-text-fill-color: orange;
+            -webkit-text-fill-color: $black;
           }
           @media (max-width:$sm) {
             font-size:45px;
