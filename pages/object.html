@@ -4,7 +4,7 @@
   set share_card = {
     title: getSetting('site_name'),
     preview_text: getSetting('site_description'),
-    image: cms.layout.share_card_image.url
+    image: cms.object.grid[0].gallery[0].url
   }
 %}
 {% extends "templates/partials/base.html" %}

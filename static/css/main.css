@@ -513,18 +513,22 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-duration: 0.1s, 0.1s;
+  border: 2px solid;
+  border-color: transparent;
+  background-color: transparent;
 }
 .index-page .content-container .content .image p {
-  display: none;
+  opacity: 0;
+  transition-duration: 0.1s, 0.1s;
 }
 .index-page .content-container .content .image:hover {
   background-size: 0;
   background-color: white;
-  border: 2px solid;
   border-color: #FF5B00;
 }
 .index-page .content-container .content .image:hover p {
-  display: block;
+  opacity: 1;
   color: #FF5B00;
 }
 
