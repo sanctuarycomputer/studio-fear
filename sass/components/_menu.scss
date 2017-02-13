@@ -17,6 +17,7 @@
       #lbutt{
         position: relative;
         z-index:100;
+        width:100px;
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
@@ -24,7 +25,7 @@
        #rbutt{
          position: relative;
          z-index:100;
-
+         width:150px;
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
