@@ -7,7 +7,6 @@ window.onload = function() {
   setTimeout(() => scrollTo(0,0), 100);
 }
 
-
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
   menu();

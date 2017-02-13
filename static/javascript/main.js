@@ -188,7 +188,6 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var bwImages = document.querySelectorAll(".bwimage");
 var FILL = "#121212";
 var duration = 200;
 
@@ -232,12 +231,14 @@ if (menuButtonR) {
 
 /* Utilities */
 function removeBW() {
+  var bwImages = document.querySelectorAll(".bwimage");
   for (var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.remove('black-and-white');
   }
 }
 
 function addBW() {
+  var bwImages = document.querySelectorAll(".bwimage");
   for (var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.add('black-and-white');
   }
@@ -344,7 +345,7 @@ function displayTitle() {
 
 function pageScroll() {
   window.scrollBy(0, 1);
-  setTimeout(pageScroll, 30);
+  setTimeout(pageScroll, 15);
 }
 
 },{}],4:[function(require,module,exports){

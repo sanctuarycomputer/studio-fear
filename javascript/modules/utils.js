@@ -12,5 +12,5 @@ export function displayTitle(bool=true) {
 
 export function pageScroll() {
   window.scrollBy(0,1);
-  setTimeout(pageScroll, 30);
+  setTimeout(pageScroll, 15);
 }

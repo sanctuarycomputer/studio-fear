@@ -5,7 +5,6 @@ const menuLinksL  = document.getElementById('llinks');
 const menuButtonR = document.getElementById('rbutt');
 const menuLinksR  = document.getElementById('rlinks');
 const exitButt    = document.querySelector(".exit-button-filter");
-const bwImages    = document.querySelectorAll(".bwimage");
 const FILL        = "#121212";
 const duration    = 200;
 
@@ -49,12 +48,14 @@ if (menuButtonR) {
 
 /* Utilities */
 function removeBW() {
+  let bwImages = document.querySelectorAll(".bwimage");
   for(var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.remove('black-and-white');
   }
 }
 
 function addBW() {
+  let bwImages = document.querySelectorAll(".bwimage");
   for(var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.add('black-and-white');
   }

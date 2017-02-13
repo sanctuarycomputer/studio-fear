@@ -1,8 +1,8 @@
 {%
   set share_card = {
     title: getSetting('site_name'),
-    preview_text: {{ cms.contact.info_about_jowl|markdown }},
-    hero_url: cms.contact.pictures_of_jowl.image.url
+    preview_text: "{{ cms.contact.info_about_jowl|markdown }}",
+    hero_url: "{{ cms.contact.pictures_of_jowl.image.url }}"
   }
 %}
 {% extends "templates/partials/base.html" %}
