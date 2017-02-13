@@ -9,20 +9,38 @@ var _menu = require('./modules/menu');
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _work = require('./modules/work');
+
+var _work2 = _interopRequireDefault(_work);
+
+var _utils = require('./modules/utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import Waypoint from 'waypoints';
+window.onload = function () {
+  setTimeout(function () {
+    return scrollTo(0, 0);
+  }, 100);
+};
+
 $(document).ready(function () {
   document.getElementById('lightbox') && lightbox();
+  (0, _menu2.default)();
+
+  var isHomepage = location.pathname === "/";
+  if (isHomepage) {
+    $('.title').removeClass('is-active');
+    (0, _utils.pageScroll)();
+    (0, _work2.default)();
+  }
 
   objectScroll();
-  workAnimation();
   filters();
   feedIndex();
   feedScroll();
   screenSaver();
-  (0, _menu2.default)();
 });
+
 function objectScroll() {
   var _this = this;
 
@@ -55,6 +73,7 @@ function objectScroll() {
     });
   });
 }
+
 function feedScroll() {
   var hero = document.getElementById('feed-image');
   var waypoints = document.getElementsByClassName('waypoint');
@@ -104,15 +123,6 @@ function lightbox() {
     lightbox.style.zIndex = 0;
   });
 }
-function workAnimation() {
-  var leftcol = $(".left-container");
-  var imageNumber = leftcol.children().length;
-  var leftContainerHeight = imageNumber * -100;
-  leftcol.css("margin-top", leftContainerHeight + 'vh');
-  $(document).scroll(function () {
-    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
-  });
-}
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
@@ -130,6 +140,7 @@ function filters() {
     });
   }
 }
+
 function feedIndex() {
   var feedPage = document.querySelector('.feed-page');
   if (feedPage) {
@@ -163,7 +174,7 @@ function screenSaver() {
   }
 }
 
-},{"./modules/menu":2,"lodash":4}],2:[function(require,module,exports){
+},{"./modules/menu":2,"./modules/utils":3,"./modules/work":4,"lodash":5}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -316,6 +327,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.displayTitle = displayTitle;
+exports.pageScroll = pageScroll;
 var title = document.querySelector(".title");
 
 function displayTitle() {
@@ -330,7 +342,57 @@ function displayTitle() {
   }
 }
 
+function pageScroll() {
+  window.scrollBy(0, 1);
+  setTimeout(pageScroll, 30);
+}
+
 },{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  var rightcol = $(".right-container");
+  var leftcol = $(".left-container");
+
+  leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
+  $(document).scroll(function () {
+    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
+  });
+
+  var initialRightChildren = rightcol.children();
+  var initialLeftChildren = leftcol.children();
+
+  function paginate() {
+    var newRightChildren = initialRightChildren.clone();
+    $(newRightChildren).appendTo(rightcol);
+
+    new Waypoint({
+      element: newRightChildren[0],
+      handler: function handler() {
+        this.destroy();
+        paginate();
+      }
+    });
+
+    var newLeftChildren = initialLeftChildren.clone();
+    $(newLeftChildren).appendTo(leftcol);
+    leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
+  }
+
+  new Waypoint({
+    element: initialRightChildren[0],
+    handler: function handler() {
+      this.destroy();
+      paginate();
+    }
+  });
+};
+
+},{}],5:[function(require,module,exports){
 (function (global){
 /**
  * @license
