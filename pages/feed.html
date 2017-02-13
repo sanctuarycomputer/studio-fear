@@ -1,13 +1,6 @@
 {# YOUR HOMEPAGE #}
 {% extends "templates/partials/base.html" %}
 
-{%
-  set share_card = {
-    title: getSetting('site_name'),
-    preview_text: getSetting('site_description'),
-    hero_url: cms.feed.grid[0]image.url}
-  }
-%}
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
