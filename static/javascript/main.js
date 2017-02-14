@@ -35,7 +35,7 @@ $(document).ready(function () {
   filters();
   feedIndex();
   feedScroll();
-  objectLightbox();
+  //  objectLightbox();
   //  screenSaver();
 });
 
@@ -46,27 +46,36 @@ function objectScroll() {
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
   $(textContainers[0]).css("visibility", "visible");
-  var handler = function handler(i, direction) {
-    var status = direction === "down" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility", status);
-  };
-  _lodash2.default.forEach(bottoms, function (element, i) {
-    new Waypoint({
-      element: element,
-      handler: handler.bind(_this, i),
-      offset: '25%',
-      group: 'gallery bottoms'
-    });
-  });
+  // let handler = (i, direction) => {
+  //   let status = direction === "down" ? "hidden" : "visible";
+  //   console.log(`${i} ${status}`)
+  //   $(textContainers[i]).css("visibility",status);
+  // };
+  // _.forEach(bottoms, (element, i) => {
+  //   new Waypoint({
+  //     element: element,
+  //     handler: handler.bind(this, i),
+  //     offset: '25%',
+  //     group: 'gallery bottoms',
+  //   });
+  // });
   var handlerTop = function handlerTop(i, direction) {
-    var status = direction === "up" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility", status);
+    $(textContainers).css("visibility", "hidden");
+    if (direction === "down") {
+      $(textContainers[i]).css("visibility", "visible");
+    } else {
+      if (i === 0) {
+        $(textContainers[i]).css("visibility", "visible");
+      } else {
+        $(textContainers[i - 1]).css("visibility", "visible");
+        $(textContainers[i]).css("visibility", "hidden");
+      }
+    }
   };
   _lodash2.default.forEach(tops, function (element, i) {
     new Waypoint({
       element: element,
       handler: handlerTop.bind(_this, i),
-      offset: '25%',
       group: 'gallery tops'
     });
   });
@@ -110,24 +119,29 @@ function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
   var i;
   var lightbox = document.getElementById('lightbox');
+  var lightboxExit = document.getElementById('exit');
   for (var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function () {
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
   }
-  lightbox.addEventListener("click", function () {
+  lightboxExit.addEventListener("click", function () {
     lightbox.style.opacity = 0;
-    lightbox.style.zIndex = 0;
+    lightbox.style.zIndex = -10;
   });
 }
 // function objectLightbox() {
+//
 //   var objimage = document.getElementsByClassName("object-image");
+//   var objgall = document.querySelector(".object-gallery");
 //   for(var i = 0; i < objimage.length; i++) {
+//     console.log(objgall)
 //
 //     objimage[i].addEventListener("click", function (){
-//       //objimage.style.width = "300%";
-//       console.log(objimage[i])
+//       objimage[i].classList.add('active');
+//       // objgall.style.backgroundImage
+//       //console.log(objimage[i])
 //
 //     });
 //   }
@@ -150,6 +164,7 @@ function filters() {
 }
 
 function feedIndex() {
+
   var feedPage = document.querySelector('.feed-page');
   if (feedPage) {
     var indexButton = document.querySelector('.index-button');
