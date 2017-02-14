@@ -35,6 +35,7 @@ $(document).ready(function () {
   filters();
   feedIndex();
   feedScroll();
+  objectLightbox();
   //  screenSaver();
 });
 
@@ -120,7 +121,17 @@ function lightbox() {
     lightbox.style.zIndex = 0;
   });
 }
-
+// function objectLightbox() {
+//   var objimage = document.getElementsByClassName("object-image");
+//   for(var i = 0; i < objimage.length; i++) {
+//
+//     objimage[i].addEventListener("click", function (){
+//       //objimage.style.width = "300%";
+//       console.log(objimage[i])
+//
+//     });
+//   }
+// }
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
   for (var i = 0; i < filterObject.length; i++) {
