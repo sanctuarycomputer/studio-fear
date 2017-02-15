@@ -147,19 +147,11 @@ function feedIndex(){
 }
 function screenSaver(){
   var s_saver;
-  var idletime = 120000;
   $('body').mousemove(function() {
-    clearTimeout(s_saver);
-    s_saver = setTimeout(function(){
-      $('#screensaver').fadeIn(900);
-    }, idletime);
-    $('#screensaver').fadeOut(100);
+      clearTimeout(s_saver);
+      s_saver = setTimeout(function(){
+          $('#screensaver').fadeIn(1000);
+      }, 120000);
+      $('#screensaver').fadeOut(500);
   });
-  function textMove(){
-    var text = document.getElementsByClassName(".screensaver-stuff");
-    var loopNumber = 10;
-    for(var i = 0; i < text.length; i++) {
-      text.style.top = i + 20 + "px";
-    }
-  }
 }
