@@ -12,12 +12,15 @@
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
 {% block content %}
 {% set objectgallery = merge(cms.object.grid) %}
+{% set objectgallerypics = merge(cms.object.grid[0].gallery[0]) %}
 
-{% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image } %}
+{% set config = {hideFilter: true, gallery: cms.object.grid[0].gallery, hero: cms.object.grid[0].gallery[0].url} %}
+
 {% include "templates/partials/menu.html" with config %}
 <div class="object-page mt3">
-{{ objectgallery  }}
-    {% for row in cms.object.grid %}
+{{ cms.object.grid[0].gallery }}<br>
+{{ cms.object.grid[0].gallery[0].url }}
+  {% for row in cms.object.grid %}
     <div class="col col-12">
       <div class="object-text-container px2 absolute right-0 pt2 sm-col-6 md-col-5 lg-col-5">
         <div class="title mt2">
@@ -37,7 +40,7 @@
   {% endfor %}
 </div>
 <div class="feed" id="lightbox">
-  <div id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
+  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 {% include "templates/partials/screensaver.html" %}

@@ -46,19 +46,6 @@ function objectScroll() {
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
   $(textContainers[0]).css("visibility", "visible");
-  // let handler = (i, direction) => {
-  //   let status = direction === "down" ? "hidden" : "visible";
-  //   console.log(`${i} ${status}`)
-  //   $(textContainers[i]).css("visibility",status);
-  // };
-  // _.forEach(bottoms, (element, i) => {
-  //   new Waypoint({
-  //     element: element,
-  //     handler: handler.bind(this, i),
-  //     offset: '25%',
-  //     group: 'gallery bottoms',
-  //   });
-  // });
   var handlerTop = function handlerTop(i, direction) {
     $(textContainers).css("visibility", "hidden");
     if (direction === "down") {
@@ -80,6 +67,18 @@ function objectScroll() {
     });
   });
 }
+
+// image_preload_array = [];
+//         $('div.carousel-image').each(function(){
+//             var url = $(this).data('image-url');
+//             image_preload_array.push(function(callback) {
+//                 var $img = $('<img/>')
+//                 $img.load(function() {
+//                     callback(null);
+//                 })[0].src = url;
+//             });
+//         });
+//         async.waterfall(image_preload_array);
 
 function feedScroll() {
   var hero = document.getElementById('feed-image');
@@ -105,6 +104,7 @@ function feedScroll() {
     // on scroll, look through the array of processed waypoints and use lodash's find
     var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
       // return the waypoint that is within the range of the scroll position
+      console.log('fuick');
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
     // if it finds a waypoint in the scroll range

@@ -10,7 +10,6 @@
 {% block content %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
 {% include "templates/partials/exit-button.html" %}
-
 <div class="projects-page flex" id="projects">
   <div class="project-info xs-hide pt3">
     <div class="project-title">
@@ -32,7 +31,7 @@
 </div>
 <a href="/">{% include "templates/partials/exit-button.html" %}</a>
 <div class="feed" id="lightbox">
-  <div id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
+  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" %}</div>
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 {% include "templates/partials/menu.html" with config %}
