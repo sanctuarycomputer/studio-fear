@@ -7,7 +7,6 @@
 
   .title{
     display: flex;
-
     display: -webkit-flex; /* NEW */
     align-items: center;
     justify-content:center;
@@ -23,8 +22,6 @@
     position:absolute;
     @media (max-width:$sm) {
       mix-blend-mode: normal;
-      width:0;
-      top:40%;
     }
     &.is-active{
       opacity:0;

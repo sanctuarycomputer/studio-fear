@@ -19,11 +19,14 @@
 <div class="object-page mt3">
   {% for row in cms.object.grid %}
     <div class="col col-12">
-      <div class="object-text-container px2 absolute right-0 pt2 sm-col-6 md-col-5 lg-col-5">
-        <div class="title mt2">
+      <div class="object-text-container px2 absolute right-0 pt2">
+        <div class="title xs-hide mb2 mt2">
           {{ row.title }}
         </div>
         <div class="project-info ">
+          <div class="mb1 sm-hide md-hide lg-hide">
+            {{ row.title }}
+          </div>
           {{ row.text|markdown }}
         </div>
       </div>

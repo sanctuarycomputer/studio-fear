@@ -87,7 +87,6 @@ function feedScroll() {
   });
 }
 function lightbox(){
-
   var projectpics = document.getElementsByClassName('project-images');
   var i;
   var lightbox = document.getElementById('lightbox');
@@ -125,6 +124,7 @@ function feedIndex(){
 
   var feedPage = document.querySelector('.feed-page');
   if (feedPage){
+    var feedlinks = document.querySelector('.feed-links');
     var indexButton = document.querySelector('.index-button');
     var feedGallery = document.querySelector('.feed-gallery');
     var feedIndex = document.querySelector('.feed-index');
@@ -132,6 +132,15 @@ function feedIndex(){
       feedIndex.style.display = "block";
       feedGallery.style.display = "none";
       indexButton.style.display = "none";
+      window.scrollTo(0,0);
+    });
+    feedlinks.addEventListener('click', () => {
+      console.log("hi")
+      feedIndex.style.display = "none";
+      feedIndex.style.zIndex = "-100";
+      feedGallery.style.zIndex = "100";
+      feedGallery.style.display = "block";
+      indexButton.style.display = "block";
       window.scrollTo(0,0);
     });
   }

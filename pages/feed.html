@@ -17,9 +17,9 @@
   <div class= "feed-gallery">{% include "templates/partials/feed-gallery.html" with config %}</div>
   <div class="feed-index">
     <a class="exit-button fixed right-0 text-decoration-none h6 exil top-0 pt1 px2" href="/feed">EXIT</a>
-      <div class="px3 pt3">
+      <div class="px2 pt3">
         {% for row in cms.feed.grid %}
-        <a class="text-decoration-none" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
+        <a class="text-decoration-none feed-links" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
           <div class="block image-data pt1 flex col-12 justify-between ">
             <div class="inline-block exil image-title">{{ row.image_title }}</div>
             <div class="px2 black-line-container">
