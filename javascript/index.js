@@ -20,7 +20,7 @@ $(document).ready(function (){
   feedIndex();
   feedScroll();
   preloadImages();
-//  screenSaver();
+  screenSaver();
 });
 
 
