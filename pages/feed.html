@@ -11,11 +11,9 @@
 {# This sets our page <title>. It will append this feed's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
+{% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 <div class="feed feed-page">
   <div class="index-button exit-button h6 exil pt1 px2">INDEX</div>
-  {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
   <div class= "feed-gallery">{% include "templates/partials/feed-gallery.html" with config %}</div>
   <div class="feed-index">
     <a class="exit-button fixed right-0 text-decoration-none h6 exil top-0 pt1 px2" href="/feed">EXIT</a>
@@ -34,5 +32,6 @@
       </div>
   </div>
 </div>
+{% include "templates/partials/menu.html" with config%}
 {% include "templates/partials/screensaver.html" %}
 {% endblock %}

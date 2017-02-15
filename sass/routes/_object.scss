@@ -14,7 +14,6 @@
     right:0;
     width:50%;
     overflow: scroll;
-    z-index:0;
     @media (max-width:$sm) {
       padding-top:25%;
       width:100%;
@@ -23,7 +22,6 @@
     .object-image {
       margin-left: 0%;
       margin-top: 0%;
-      z-index:-1;
     }
   }
   .object-text-container{
