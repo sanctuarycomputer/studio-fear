@@ -151,7 +151,10 @@ function screenSaver(){
       clearTimeout(s_saver);
       s_saver = setTimeout(function(){
           $('#screensaver').css('opacity', '1');
+          $('#screensaver').css('z-index', '100');
       }, 120000);
       $('#screensaver').css('opacity', '0');
+      $('#screensaver').css('z-index', '-100');
+
   });
 }
