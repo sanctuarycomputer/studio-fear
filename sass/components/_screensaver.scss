@@ -9,6 +9,7 @@
    top:-20px;
    background-color: black;
    align-content: space-around;
+   opacity:0;
    display:flex;
    justify-content: center;
    flex-direction: row;
@@ -22,7 +23,7 @@
     flex-direction: column;
     width:430%;
     color:$orange;
-    font-size: 200px;
+    font-size: 100px;
     line-height: 10rem;
     -webkit-animation-name: textmove;
     -webkit-animation-duration:30s;

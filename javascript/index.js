@@ -150,8 +150,8 @@ function screenSaver(){
   $('body').mousemove(function() {
       clearTimeout(s_saver);
       s_saver = setTimeout(function(){
-          $('#screensaver').fadeIn(1000);
+          $('#screensaver').css('opacity', '1');
       }, 120000);
-      $('#screensaver').fadeOut(500);
+      $('#screensaver').css('opacity', '0');
   });
 }
