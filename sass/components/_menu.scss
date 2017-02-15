@@ -12,7 +12,10 @@
     align-items: center;
     pointer-events: none;
     mix-blend-mode: color-dodge;
+    @media (max-width:$sm) {
+      mix-blend-mode: normal;
 
+    }
     .menu-graphic{
       pointer-events: auto;
       #lbutt{
