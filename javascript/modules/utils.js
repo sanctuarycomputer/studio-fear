@@ -14,3 +14,13 @@ export function pageScroll() {
   window.scrollBy(0,1);
   setTimeout(pageScroll, 30);
 }
+
+export function preloadImages() {
+  $('img').each((i, image) => {
+    let imageLoader = new Image();
+    imageLoader.onload = function() {
+      $(image).addClass('loaded');
+    }
+    imageLoader.src = image.src;
+  });
+}

@@ -35,7 +35,7 @@ $(document).ready(function () {
   filters();
   feedIndex();
   feedScroll();
-  //  objectLightbox();
+  (0, _utils.preloadImages)();
   //  screenSaver();
 });
 
@@ -67,18 +67,6 @@ function objectScroll() {
     });
   });
 }
-
-// image_preload_array = [];
-//         $('div.carousel-image').each(function(){
-//             var url = $(this).data('image-url');
-//             image_preload_array.push(function(callback) {
-//                 var $img = $('<img/>')
-//                 $img.load(function() {
-//                     callback(null);
-//                 })[0].src = url;
-//             });
-//         });
-//         async.waterfall(image_preload_array);
 
 function feedScroll() {
   var hero = document.getElementById('feed-image');
@@ -131,21 +119,7 @@ function lightbox() {
     lightbox.style.zIndex = -10;
   });
 }
-// function objectLightbox() {
-//
-//   var objimage = document.getElementsByClassName("object-image");
-//   var objgall = document.querySelector(".object-gallery");
-//   for(var i = 0; i < objimage.length; i++) {
-//     console.log(objgall)
-//
-//     objimage[i].addEventListener("click", function (){
-//       objimage[i].classList.add('active');
-//       // objgall.style.backgroundImage
-//       //console.log(objimage[i])
-//
-//     });
-//   }
-// }
+
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
   for (var i = 0; i < filterObject.length; i++) {
@@ -351,6 +325,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.displayTitle = displayTitle;
 exports.pageScroll = pageScroll;
+exports.preloadImages = preloadImages;
 var title = document.querySelector(".title");
 
 function displayTitle() {
@@ -368,6 +343,16 @@ function displayTitle() {
 function pageScroll() {
   window.scrollBy(0, 1);
   setTimeout(pageScroll, 30);
+}
+
+function preloadImages() {
+  $('img').each(function (i, image) {
+    var imageLoader = new Image();
+    imageLoader.onload = function () {
+      $(image).addClass('loaded');
+    };
+    imageLoader.src = image.src;
+  });
 }
 
 },{}],4:[function(require,module,exports){

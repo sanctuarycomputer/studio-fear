@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import menu from './modules/menu';
 import work from './modules/work';
-import { pageScroll } from './modules/utils';
+import { pageScroll, preloadImages } from './modules/utils';
 
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
@@ -19,9 +19,10 @@ $(document).ready(function (){
   filters();
   feedIndex();
   feedScroll();
-//  objectLightbox();
+  preloadImages();
 //  screenSaver();
 });
+
 
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -50,17 +51,6 @@ function objectScroll() {
   });
 }
 
-// image_preload_array = [];
-//         $('div.carousel-image').each(function(){
-//             var url = $(this).data('image-url');
-//             image_preload_array.push(function(callback) {
-//                 var $img = $('<img/>')
-//                 $img.load(function() {
-//                     callback(null);
-//                 })[0].src = url;
-//             });
-//         });
-//         async.waterfall(image_preload_array);
 
 function feedScroll() {
   const hero = document.getElementById('feed-image');
@@ -113,21 +103,7 @@ function lightbox(){
     lightbox.style.zIndex = -10;
   });
 }
-// function objectLightbox() {
-//
-//   var objimage = document.getElementsByClassName("object-image");
-//   var objgall = document.querySelector(".object-gallery");
-//   for(var i = 0; i < objimage.length; i++) {
-//     console.log(objgall)
-//
-//     objimage[i].addEventListener("click", function (){
-//       objimage[i].classList.add('active');
-//       // objgall.style.backgroundImage
-//       //console.log(objimage[i])
-//
-//     });
-//   }
-// }
+
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
   for(var i = 0; i < filterObject.length; i++) {
