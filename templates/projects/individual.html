@@ -1,23 +1,15 @@
-{# ------------------------------------------------------- #}
-{# INDIVIDUAL VIEW FOR EACH projects #}
 {%
   set share_card = {
     title: getSetting('site_name'),
-    preview_text: "{{ cms.project.markdown_text|safe }}",
-    image: "{{ cms.object.grid[0].gallery[0].url }}"
+    preview_text: item.markdown_text|safe|truncate(200),
+    image: item.main_image.url
   }
 %}
-
 {% extends "templates/partials/base.html" %}
-{# This sets our page <title>. It will append this projects's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
 {% include "templates/partials/exit-button.html" %}
-<div class="feed" id="lightbox">
-  {% include "templates/partials/exit-button.html" with config %}
-  {% include "templates/partials/feed-gallery.html" with config %}
-</div>
 <div class="projects-page flex" id="projects">
   <div class="project-info xs-hide pt3">
     <div class="project-title">
@@ -30,12 +22,17 @@
   <div class="image-gallery">
     <p class= "center millerbannerroman pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
-      <div class="project-images bwimage" style="background-image: url({{ row.image.url }})" /></div>
+      <img class="project-images bwimage" src="{{ row.image.url }}" />
     {% endfor %}
     <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
+</div>
+<a href="/">{% include "templates/partials/exit-button.html" %}</a>
+<div class="feed" id="lightbox">
+  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" %}</div>
+  {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/screensaver.html" %}

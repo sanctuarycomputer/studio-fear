@@ -6,6 +6,7 @@
 @import 'utilities/imgFilter';
 
 @import 'components/menu';
+@import 'components/lightbox';
 @import 'components/menu-svg-icons';
 @import 'components/screensaver';
 @import 'components/exit-button';
@@ -28,4 +29,12 @@ html {
   padding:0;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+img {
+  opacity: 0;
+  transition: 1s opacity ease-in-out;
+  &.loaded {
+    opacity: 1;
+  }
 }

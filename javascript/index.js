@@ -1,12 +1,7 @@
 import _ from 'lodash';
 import menu from './modules/menu';
 import work from './modules/work';
-import { pageScroll } from './modules/utils';
-
-window.onload = function() {
-  setTimeout(() => scrollTo(0,0), 100);
-}
-
+import { pageScroll, preloadImages } from './modules/utils';
 
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
@@ -14,6 +9,7 @@ $(document).ready(function (){
 
   const isHomepage = location.pathname === "/";
   if (isHomepage) {
+    setTimeout(() => scrollTo(0,0), 100);
     $('.title').removeClass('is-active');
     pageScroll();
     work();
@@ -23,39 +19,38 @@ $(document).ready(function (){
   filters();
   feedIndex();
   feedScroll();
+  preloadImages();
   screenSaver();
 });
+
 
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
   $(textContainers[0]).css("visibility", "visible");
-  let handler = (i, direction) => {
-    let status = direction === "down" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility",status);
-  };
-  _.forEach(bottoms, (element, i) => {
-    new Waypoint({
-      element: element,
-      handler: handler.bind(this, i),
-      offset: '25%',
-      group: 'gallery bottoms',
-    });
-  });
   let handlerTop = (i, direction) => {
-    let status = direction === "up" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility",status);
+    $(textContainers).css("visibility", "hidden");
+    if (direction === "down") {
+      $(textContainers[i]).css("visibility", "visible");
+    } else {
+      if (i === 0) {
+        $(textContainers[i]).css("visibility", "visible");
+      } else {
+        $(textContainers[i-1]).css("visibility", "visible");
+        $(textContainers[i]).css("visibility", "hidden");
+      }
+    }
   };
   _.forEach(tops, (element, i) => {
     new Waypoint({
       element: element,
       handler: handlerTop.bind(this, i),
-      offset: '25%',
       group: 'gallery tops',
     });
   });
 }
+
 
 function feedScroll() {
   const hero = document.getElementById('feed-image');
@@ -81,6 +76,7 @@ function feedScroll() {
     // on scroll, look through the array of processed waypoints and use lodash's find
     let selectedWaypoint = _.find(waypointsWithValues, (waypoint) => {
       // return the waypoint that is within the range of the scroll position
+      console.log('fuick')
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
     // if it finds a waypoint in the scroll range
@@ -91,23 +87,21 @@ function feedScroll() {
   });
 }
 function lightbox(){
-
   var projectpics = document.getElementsByClassName('project-images');
   var i;
   var lightbox = document.getElementById('lightbox');
+  var lightboxExit = document.getElementById('exit');
   for(var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function (){
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
   }
-  lightbox.addEventListener("click", function (){
+  lightboxExit.addEventListener("click", function (){
     lightbox.style.opacity = 0;
-    lightbox.style.zIndex = 0;
-
+    lightbox.style.zIndex = -10;
   });
 }
-
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
@@ -127,10 +121,12 @@ function filters() {
 }
 
 function feedIndex(){
+
   var feedPage = document.querySelector('.feed-page');
   if (feedPage){
+    var feedlinks = document.querySelector('.feed-links');
     var indexButton = document.querySelector('.index-button');
-    var feedGallery = document.querySelector('.feed-hero-container');
+    var feedGallery = document.querySelector('.feed-gallery');
     var feedIndex = document.querySelector('.feed-index');
     indexButton.addEventListener('click', () => {
       feedIndex.style.display = "block";
@@ -138,23 +134,27 @@ function feedIndex(){
       indexButton.style.display = "none";
       window.scrollTo(0,0);
     });
+    feedlinks.addEventListener('click', () => {
+      console.log("hi")
+      feedIndex.style.display = "none";
+      feedIndex.style.zIndex = "-100";
+      feedGallery.style.zIndex = "100";
+      feedGallery.style.display = "block";
+      indexButton.style.display = "block";
+      window.scrollTo(0,0);
+    });
   }
 }
 function screenSaver(){
   var s_saver;
-  var idletime = 120000;
   $('body').mousemove(function() {
-    clearTimeout(s_saver);
-    s_saver = setTimeout(function(){
-      $('#screensaver').fadeIn(900);
-    }, idletime);
-    $('#screensaver').fadeOut(100);
+      clearTimeout(s_saver);
+      s_saver = setTimeout(function(){
+          $('#screensaver').css('opacity', '1');
+          $('#screensaver').css('z-index', '100');
+      }, 120000);
+      $('#screensaver').css('opacity', '0');
+      $('#screensaver').css('z-index', '-100');
+
   });
-  function textMove(){
-    var text = document.getElementsByClassName(".screensaver-stuff");
-    var loopNumber = 10;
-    for(var i = 0; i < text.length; i++) {
-      text.style.top = i + 20 + "px";
-    }
-  }
 }

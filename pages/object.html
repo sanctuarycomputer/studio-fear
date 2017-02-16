@@ -4,43 +4,46 @@
   set share_card = {
     title: getSetting('site_name'),
     preview_text: getSetting('site_description'),
-    image: cms.object.grid[0].gallery[0].url
+    image: cms.layout.share_card_image.url
   }
 %}
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
-{% set config = {hideFilter: true, gallery: cms.object.grid.gallery, hero: cms.object.grid[0].gallery[0].url} %}
-
-<div class="feed" id="lightbox">
-  {% include "templates/partials/exit-button.html" %}
-  {% include "templates/partials/feed-gallery.html" with config %}
-</div>
-
-
 {% block content %}
-{% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
+{% set objectgallery = merge(cms.object.grid[0].gallery, cms.object.grid[1].gallery, cms.object.grid[2].gallery) %}
+{% set objectgallerypics = merge(objectgallery.gallery[0]) %}
+
+{% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
 <div class="object-page mt3">
-    {% for row in cms.object.grid %}
+  {% for row in cms.object.grid %}
     <div class="col col-12">
-      <div class="object-text-container px2 absolute right-0 pt2 sm-col-6 md-col-5 lg-col-5">
-        <div class="title mt2">
+      <div class="object-text-container px2 absolute right-0 pt2">
+        <div class="title xs-hide mb2 mt2">
           {{ row.title }}
         </div>
         <div class="project-info ">
+          <div class="mb1 sm-hide md-hide lg-hide">
+            {{ row.title }}
+          </div>
           {{ row.text|markdown }}
         </div>
       </div>
-      <div class="object-gallery bwimage right col pt2 sm-col-6 md-col-6 lg-col-6">
+      <div class="object-gallery bwimage right pt2">
         {% for image in row.gallery %}
-          <img class="object-image my2 mx-auto block fit" src="{{ image.url}}">
+          <img class="object-image project-images my2 mx-auto block fit" src="{{ image.url}}">
         {% endfor %}
         <div class="gallery-bottom"></div>
       </div>
     </div>
   {% endfor %}
 </div>
+<div class="feed" id="lightbox">
+  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
+  {% include "templates/partials/feed-gallery.html" with config %}
+</div>
+
 {% include "templates/partials/screensaver.html" %}
+{% include "templates/partials/menu.html" with config %}
 {% endblock %}

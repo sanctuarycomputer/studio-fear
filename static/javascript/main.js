@@ -17,18 +17,15 @@ var _utils = require('./modules/utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.onload = function () {
-  setTimeout(function () {
-    return scrollTo(0, 0);
-  }, 100);
-};
-
 $(document).ready(function () {
   document.getElementById('lightbox') && lightbox();
   (0, _menu2.default)();
 
   var isHomepage = location.pathname === "/";
   if (isHomepage) {
+    setTimeout(function () {
+      return scrollTo(0, 0);
+    }, 100);
     $('.title').removeClass('is-active');
     (0, _utils.pageScroll)();
     (0, _work2.default)();
@@ -38,6 +35,7 @@ $(document).ready(function () {
   filters();
   feedIndex();
   feedScroll();
+  (0, _utils.preloadImages)();
   screenSaver();
 });
 
@@ -48,27 +46,23 @@ function objectScroll() {
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
   $(textContainers[0]).css("visibility", "visible");
-  var handler = function handler(i, direction) {
-    var status = direction === "down" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility", status);
-  };
-  _lodash2.default.forEach(bottoms, function (element, i) {
-    new Waypoint({
-      element: element,
-      handler: handler.bind(_this, i),
-      offset: '25%',
-      group: 'gallery bottoms'
-    });
-  });
   var handlerTop = function handlerTop(i, direction) {
-    var status = direction === "up" ? "hidden" : "visible";
-    $(textContainers[i]).css("visibility", status);
+    $(textContainers).css("visibility", "hidden");
+    if (direction === "down") {
+      $(textContainers[i]).css("visibility", "visible");
+    } else {
+      if (i === 0) {
+        $(textContainers[i]).css("visibility", "visible");
+      } else {
+        $(textContainers[i - 1]).css("visibility", "visible");
+        $(textContainers[i]).css("visibility", "hidden");
+      }
+    }
   };
   _lodash2.default.forEach(tops, function (element, i) {
     new Waypoint({
       element: element,
       handler: handlerTop.bind(_this, i),
-      offset: '25%',
       group: 'gallery tops'
     });
   });
@@ -98,6 +92,7 @@ function feedScroll() {
     // on scroll, look through the array of processed waypoints and use lodash's find
     var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
       // return the waypoint that is within the range of the scroll position
+      console.log('fuick');
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
     // if it finds a waypoint in the scroll range
@@ -108,19 +103,19 @@ function feedScroll() {
   });
 }
 function lightbox() {
-
   var projectpics = document.getElementsByClassName('project-images');
   var i;
   var lightbox = document.getElementById('lightbox');
+  var lightboxExit = document.getElementById('exit');
   for (var i = 0; i < projectpics.length; i++) {
     projectpics[i].addEventListener("click", function () {
       lightbox.style.opacity = 1;
       lightbox.style.zIndex = 10;
     });
   }
-  lightbox.addEventListener("click", function () {
+  lightboxExit.addEventListener("click", function () {
     lightbox.style.opacity = 0;
-    lightbox.style.zIndex = 0;
+    lightbox.style.zIndex = -10;
   });
 }
 
@@ -142,10 +137,12 @@ function filters() {
 }
 
 function feedIndex() {
+
   var feedPage = document.querySelector('.feed-page');
   if (feedPage) {
+    var feedlinks = document.querySelector('.feed-links');
     var indexButton = document.querySelector('.index-button');
-    var feedGallery = document.querySelector('.feed-hero-container');
+    var feedGallery = document.querySelector('.feed-gallery');
     var feedIndex = document.querySelector('.feed-index');
     indexButton.addEventListener('click', function () {
       feedIndex.style.display = "block";
@@ -153,25 +150,28 @@ function feedIndex() {
       indexButton.style.display = "none";
       window.scrollTo(0, 0);
     });
+    feedlinks.addEventListener('click', function () {
+      console.log("hi");
+      feedIndex.style.display = "none";
+      feedIndex.style.zIndex = "-100";
+      feedGallery.style.zIndex = "100";
+      feedGallery.style.display = "block";
+      indexButton.style.display = "block";
+      window.scrollTo(0, 0);
+    });
   }
 }
 function screenSaver() {
   var s_saver;
-  var idletime = 120000;
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      $('#screensaver').fadeIn(900);
-    }, idletime);
-    $('#screensaver').fadeOut(100);
+      $('#screensaver').css('opacity', '1');
+      $('#screensaver').css('z-index', '100');
+    }, 120000);
+    $('#screensaver').css('opacity', '0');
+    $('#screensaver').css('z-index', '-100');
   });
-  function textMove() {
-    var text = document.getElementsByClassName(".screensaver-stuff");
-    var loopNumber = 10;
-    for (var i = 0; i < text.length; i++) {
-      text.style.top = i + 20 + "px";
-    }
-  }
 }
 
 },{"./modules/menu":2,"./modules/utils":3,"./modules/work":4,"lodash":5}],2:[function(require,module,exports){
@@ -328,6 +328,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.displayTitle = displayTitle;
 exports.pageScroll = pageScroll;
+exports.preloadImages = preloadImages;
 var title = document.querySelector(".title");
 
 function displayTitle() {
@@ -345,6 +346,16 @@ function displayTitle() {
 function pageScroll() {
   window.scrollBy(0, 1);
   setTimeout(pageScroll, 30);
+}
+
+function preloadImages() {
+  $('img').each(function (i, image) {
+    var imageLoader = new Image();
+    imageLoader.onload = function () {
+      $(image).addClass('loaded');
+    };
+    imageLoader.src = image.src;
+  });
 }
 
 },{}],4:[function(require,module,exports){
