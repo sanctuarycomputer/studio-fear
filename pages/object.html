@@ -7,6 +7,9 @@
     image: cms.layout.share_card_image.url
   }
 %}
+
+{% block body_attributes %}data-page="object"{% endblock %}
+
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
@@ -14,9 +17,10 @@
 {% set objectgallery = merge(cms.object.grid[0].gallery, cms.object.grid[1].gallery, cms.object.grid[2].gallery) %}
 {% set objectgallerypics = merge(objectgallery.gallery[0]) %}
 
+
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
-<div class="object-page mt3">
+<div class="object-page mt3 fade-when-menu-active">
   {% for row in cms.object.grid %}
     <div class="col col-12">
       <div class="object-text-container px2 absolute right-0 pt2">

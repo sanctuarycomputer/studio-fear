@@ -13,9 +13,17 @@ var _work = require('./modules/work');
 
 var _work2 = _interopRequireDefault(_work);
 
+var _feed = require('./modules/feed');
+
 var _utils = require('./modules/utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.onload = function () {
+  setTimeout(function () {
+    return scrollTo(0, 0);
+  }, 100);
+};
 
 $(document).ready(function () {
   document.getElementById('lightbox') && lightbox();
@@ -27,16 +35,20 @@ $(document).ready(function () {
       return scrollTo(0, 0);
     }, 100);
     $('.title').removeClass('is-active');
-    (0, _utils.pageScroll)();
+    //pageScroll();
     (0, _work2.default)();
   }
 
   objectScroll();
   filters();
   feedIndex();
-  feedScroll();
+  (0, _feed.feedScroll)();
   (0, _utils.preloadImages)();
   screenSaver();
+
+  /* Setup Left Nav Links */
+  var currentPage = $('body').attr('data-page');
+  $('#llinks a .menu-text:contains("' + currentPage + '")').addClass('active');
 });
 
 function objectScroll() {
@@ -68,40 +80,6 @@ function objectScroll() {
   });
 }
 
-function feedScroll() {
-  var hero = document.getElementById('feed-image');
-  var waypoints = document.getElementsByClassName('waypoint');
-  var waypointsWithValues = [];
-  // process the waypoints to find the bounds
-  _lodash2.default.forEach(waypoints, function (waypoint) {
-    // make an object {} with all the good info
-    var processedWaypoint = {
-      imageUrl: waypoint.dataset.image,
-      // top of image from the start of the page
-      yTop: waypoint.offsetTop,
-      // bottom position of waypoint
-      yBottom: waypoint.offsetHeight + waypoint.offsetTop
-    };
-    // add processedWaypoint object to array
-    waypointsWithValues.push(processedWaypoint);
-  });
-  // every time page is scrolled
-  document.addEventListener("scroll", function (event) {
-    // get the scroll position from the top of the page
-    var scrollPosition = window.pageYOffset;
-    // on scroll, look through the array of processed waypoints and use lodash's find
-    var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
-      // return the waypoint that is within the range of the scroll position
-      console.log('fuick');
-      return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
-    });
-    // if it finds a waypoint in the scroll range
-    if (selectedWaypoint) {
-      // use the selectedWaypoint to set the background image
-      hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
-    }
-  });
-}
 function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
   var i;
@@ -151,7 +129,6 @@ function feedIndex() {
       window.scrollTo(0, 0);
     });
     feedlinks.addEventListener('click', function () {
-      console.log("hi");
       feedIndex.style.display = "none";
       feedIndex.style.zIndex = "-100";
       feedGallery.style.zIndex = "100";
@@ -174,7 +151,55 @@ function screenSaver() {
   });
 }
 
-},{"./modules/menu":2,"./modules/utils":3,"./modules/work":4,"lodash":5}],2:[function(require,module,exports){
+},{"./modules/feed":2,"./modules/menu":3,"./modules/utils":4,"./modules/work":5,"lodash":6}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.feedScroll = feedScroll;
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function feedScroll() {
+  var hero = document.getElementById('feed-image');
+  var waypoints = document.getElementsByClassName('waypoint');
+  var waypointsWithValues = [];
+  // process the waypoints to find the bounds
+  _lodash2.default.forEach(waypoints, function (waypoint) {
+    // make an object {} with all the good info
+    var processedWaypoint = {
+      imageUrl: waypoint.dataset.image,
+      // top of image from the start of the page
+      yTop: waypoint.offsetTop,
+      // bottom position of waypoint
+      yBottom: waypoint.offsetHeight + waypoint.offsetTop
+    };
+    // add processedWaypoint object to array
+    waypointsWithValues.push(processedWaypoint);
+  });
+  // every time page is scrolled
+  document.addEventListener("scroll", function (event) {
+    // get the scroll position from the top of the page
+    var scrollPosition = window.pageYOffset;
+    // on scroll, look through the array of processed waypoints and use lodash's find
+    var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
+      // return the waypoint that is within the range of the scroll position
+      return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
+    });
+    // if it finds a waypoint in the scroll range
+    if (selectedWaypoint) {
+      // use the selectedWaypoint to set the background image
+      hero.style.backgroundImage = "url(" + selectedWaypoint.imageUrl + ")";
+    }
+  });
+}
+
+},{"lodash":6}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -188,7 +213,6 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var bwImages = document.querySelectorAll(".bwimage");
 var FILL = "#121212";
 var duration = 200;
 
@@ -232,12 +256,14 @@ if (menuButtonR) {
 
 /* Utilities */
 function removeBW() {
+  var bwImages = document.querySelectorAll(".bwimage");
   for (var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.remove('black-and-white');
   }
 }
 
 function addBW() {
+  var bwImages = document.querySelectorAll(".bwimage");
   for (var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.add('black-and-white');
   }
@@ -267,6 +293,7 @@ exports.default = function () {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
+      $('.fade-when-menu-active').removeClass('menu-active');
       menuLinksL.classList.remove('is-active');
       (0, _utils.displayTitle)(false);
       toggleObjectFill(false, circle_1);
@@ -275,6 +302,7 @@ exports.default = function () {
         toggleObjectFill(false, circle_2);
       }
     } else {
+      $('.fade-when-menu-active').addClass('menu-active');
       menuLinksL.classList.add('is-active');
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
@@ -320,7 +348,7 @@ exports.default = function () {
   }
 };
 
-},{"./utils":3}],3:[function(require,module,exports){
+},{"./utils":4}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -345,7 +373,7 @@ function displayTitle() {
 
 function pageScroll() {
   window.scrollBy(0, 1);
-  setTimeout(pageScroll, 30);
+  setTimeout(pageScroll, 15);
 }
 
 function preloadImages() {
@@ -358,7 +386,7 @@ function preloadImages() {
   });
 }
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -403,7 +431,7 @@ exports.default = function () {
   });
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (global){
 /**
  * @license

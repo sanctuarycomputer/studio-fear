@@ -22,24 +22,29 @@
         position: relative;
         z-index:100;
         width:100px;
-       @media only screen and (max-device-width: 736px) and (orientation: portrait) {
-          z-index:100;
-         }
-       }
-       #rbutt{
-         position: relative;
-         z-index:100;
-         width:150px;
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
-         }
-       }
+        }
+      }
+      #rbutt{
+        position: relative;
+        z-index:100;
+        width:150px;
+        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
+          z-index:100;
+        }
+      }
       .menu-links{
-        width:0%;
+        pointer-events: none;
+        width:100%;
+        transform: translateX(-20%);
+        &#rlinks {
+          transform: translateX(20%);
+        }
         top:0;
         line-height: 15vh;
         height:100%;
-        transition-duration: 0.1s, 0.1s;
+        transition: 450ms ease-in-out;
         overflow-x: hidden;
         align-items: center;
         align-content: space-around;
@@ -47,6 +52,7 @@
         justify-content: center;
         -webkit-flex-direction: column;
         flex-direction: column;
+        opacity: 0;
         display: flex;
         z-index:2;
         @media (max-width:$sm) {
@@ -55,7 +61,13 @@
           width:100%;
         }
         &.is-active{
-          width:100%;
+          pointer-events: auto;
+          transform: translateX(0%);
+          transition: 450ms 450ms ease-in-out;
+          &#rlinks {
+            transform: translateX(0%);
+          }
+          opacity: 1;
           @media (max-width:$sm) {
             padding-top: 15%;
             padding-bottom: 15%;
@@ -69,6 +81,9 @@
           color:transparent;
           -webkit-text-stroke-width: 2px;
           -webkit-text-stroke-color: $black;
+          &.active {
+            -webkit-text-fill-color: $black;
+          }
           &:hover{
             -webkit-text-fill-color: $black;
           }

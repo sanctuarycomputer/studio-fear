@@ -16,8 +16,8 @@
     z-index:100;
     pointer-events: none;
     background-color: transparent;
-    mix-blend-mode: difference;
-    transition: .3s .3s opacity ease-in-out;
+    mix-blend-mode: color-dodge;
+    transition: 450ms 450ms opacity ease-in-out;
     opacity:1;
     position:absolute;
     @media (max-width:$sm) {
@@ -25,7 +25,7 @@
     }
     &.is-active{
       opacity:0;
-      transition: .3s opacity ease-in-out;
+      transition: 450ms opacity ease-in-out;
     }
     .title-text{
       max-width:1600px;
@@ -82,7 +82,7 @@
         background-color: transparent;
         p{
           opacity:0;
-          transition-duration: 0.1s, 0.1s;
+          transition-duration: 0.250s, 0.250s;
         }
         &:hover{
           background-size: 0;

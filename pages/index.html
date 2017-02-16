@@ -7,15 +7,19 @@
   }
 %}
 
+{% block body_attributes %}data-page="work"{% endblock %}
+
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
 {% include "templates/partials/screensaver.html" %}
+
 <div class="index-page pt1 col col-12">
   <div class="title absolute is-active">
     <div class="center title-text fixed exil">{{cms.home.name}}</div>
   </div>
+
   <div class="desktop xs-hide">
     <div class="left-container absolute col col-6"  id="js-reverseScroll">
       {% for item in cms.home.left_column %}
@@ -30,6 +34,7 @@
        </a>
       {% endfor %}
     </div>
+
     <div class="right-container absolute right-0 col-6">
       {% for item in cms.home.right_column %}
        <a class="index-grid-item" href="{{ url(item) }}">
@@ -44,6 +49,8 @@
       {% endfor %}
     </div>
   </div>
+
+  <!-- Small Only -->
   <div class="mobile sm-hide right-container md-hide lg-hide">
     {% for item in cms.home.left_column %}
      <a class="index-grid-item " href="{{ url(item) }}" >

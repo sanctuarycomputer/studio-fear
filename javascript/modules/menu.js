@@ -5,7 +5,6 @@ const menuLinksL  = document.getElementById('llinks');
 const menuButtonR = document.getElementById('rbutt');
 const menuLinksR  = document.getElementById('rlinks');
 const exitButt    = document.querySelector(".exit-button-filter");
-const bwImages    = document.querySelectorAll(".bwimage");
 const FILL        = "#121212";
 const duration    = 200;
 
@@ -49,12 +48,14 @@ if (menuButtonR) {
 
 /* Utilities */
 function removeBW() {
+  let bwImages = document.querySelectorAll(".bwimage");
   for(var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.remove('black-and-white');
   }
 }
 
 function addBW() {
+  let bwImages = document.querySelectorAll(".bwimage");
   for(var i = 0; i < bwImages.length; i++) {
     bwImages[i].classList.add('black-and-white');
   }
@@ -81,6 +82,7 @@ export default () => {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
+      $('.fade-when-menu-active').removeClass('menu-active');
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
       toggleObjectFill(false, circle_1)
@@ -89,6 +91,7 @@ export default () => {
         toggleObjectFill(false, circle_2)
       }
     } else {
+      $('.fade-when-menu-active').addClass('menu-active');
       menuLinksL.classList.add('is-active');
       displayTitle(true);
       toggleObjectFill(true, circle_1)

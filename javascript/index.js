@@ -1,7 +1,12 @@
 import _ from 'lodash';
 import menu from './modules/menu';
 import work from './modules/work';
+import { feedScroll } from './modules/feed';
 import { pageScroll, preloadImages } from './modules/utils';
+
+window.onload = function() {
+  setTimeout(() => scrollTo(0,0), 100);
+}
 
 $(document).ready(function (){
   document.getElementById('lightbox') && lightbox();
@@ -11,7 +16,7 @@ $(document).ready(function (){
   if (isHomepage) {
     setTimeout(() => scrollTo(0,0), 100);
     $('.title').removeClass('is-active');
-    pageScroll();
+    //pageScroll();
     work();
   }
 
@@ -21,8 +26,11 @@ $(document).ready(function (){
   feedScroll();
   preloadImages();
   screenSaver();
-});
 
+  /* Setup Left Nav Links */
+  let currentPage = $('body').attr('data-page');
+  $(`#llinks a .menu-text:contains("${currentPage}")`).addClass('active');
+});
 
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -51,41 +59,6 @@ function objectScroll() {
   });
 }
 
-
-function feedScroll() {
-  const hero = document.getElementById('feed-image');
-  const waypoints = document.getElementsByClassName('waypoint');
-  let waypointsWithValues = [];
-  // process the waypoints to find the bounds
-  _.forEach(waypoints, (waypoint) => {
-    // make an object {} with all the good info
-    let processedWaypoint = {
-      imageUrl: waypoint.dataset.image,
-      // top of image from the start of the page
-      yTop: waypoint.offsetTop,
-      // bottom position of waypoint
-      yBottom: waypoint.offsetHeight + waypoint.offsetTop,
-    };
-    // add processedWaypoint object to array
-    waypointsWithValues.push(processedWaypoint);
-  });
-  // every time page is scrolled
-  document.addEventListener("scroll", function(event) {
-    // get the scroll position from the top of the page
-    var scrollPosition = window.pageYOffset;
-    // on scroll, look through the array of processed waypoints and use lodash's find
-    let selectedWaypoint = _.find(waypointsWithValues, (waypoint) => {
-      // return the waypoint that is within the range of the scroll position
-      console.log('fuick')
-      return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
-    });
-    // if it finds a waypoint in the scroll range
-    if (selectedWaypoint) {
-      // use the selectedWaypoint to set the background image
-      hero.style.backgroundImage = "url("+selectedWaypoint.imageUrl+")";
-    }
-  });
-}
 function lightbox(){
   var projectpics = document.getElementsByClassName('project-images');
   var i;
@@ -135,7 +108,6 @@ function feedIndex(){
       window.scrollTo(0,0);
     });
     feedlinks.addEventListener('click', () => {
-      console.log("hi")
       feedIndex.style.display = "none";
       feedIndex.style.zIndex = "-100";
       feedGallery.style.zIndex = "100";
@@ -148,13 +120,12 @@ function feedIndex(){
 function screenSaver(){
   var s_saver;
   $('body').mousemove(function() {
-      clearTimeout(s_saver);
-      s_saver = setTimeout(function(){
-          $('#screensaver').css('opacity', '1');
-          $('#screensaver').css('z-index', '100');
-      }, 120000);
-      $('#screensaver').css('opacity', '0');
-      $('#screensaver').css('z-index', '-100');
-
+    clearTimeout(s_saver);
+    s_saver = setTimeout(function(){
+      $('#screensaver').css('opacity', '1');
+      $('#screensaver').css('z-index', '100');
+    }, 120000);
+    $('#screensaver').css('opacity', '0');
+    $('#screensaver').css('z-index', '-100');
   });
 }
