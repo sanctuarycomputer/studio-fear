@@ -82,6 +82,7 @@ export default () => {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
+      $('.fade-when-menu-active').removeClass('menu-active');
       menuLinksL.classList.remove('is-active');
       displayTitle(false);
       toggleObjectFill(false, circle_1)
@@ -90,6 +91,7 @@ export default () => {
         toggleObjectFill(false, circle_2)
       }
     } else {
+      $('.fade-when-menu-active').addClass('menu-active');
       menuLinksL.classList.add('is-active');
       displayTitle(true);
       toggleObjectFill(true, circle_1)

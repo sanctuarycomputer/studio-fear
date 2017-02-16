@@ -1,4 +1,5 @@
 .menu{
+  z-index:1000;
   .menu-button, .menu-graphic-container {
     background-color: transparent;
     cursor: pointer;
@@ -11,24 +12,28 @@
     align-items: center;
     pointer-events: none;
     mix-blend-mode: color-dodge;
+    @media (max-width:$sm) {
+      mix-blend-mode: normal;
 
+    }
     .menu-graphic{
       pointer-events: auto;
       #lbutt{
         position: relative;
         z-index:100;
+        width:100px;
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
-         }
-       }
-       #rbutt{
-         position: relative;
-         z-index:100;
-
+        }
+      }
+      #rbutt{
+        position: relative;
+        z-index:100;
+        width:150px;
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
-         }
-       }
+        }
+      }
       .menu-links{
         pointer-events: none;
         width:100%;
@@ -37,6 +42,7 @@
           transform: translateX(20%);
         }
         top:0;
+        line-height: 15vh;
         height:100%;
         transition: 450ms ease-in-out;
         overflow-x: hidden;
@@ -75,6 +81,9 @@
           color:transparent;
           -webkit-text-stroke-width: 2px;
           -webkit-text-stroke-color: $black;
+          &.active {
+            -webkit-text-fill-color: $black;
+          }
           &:hover{
             -webkit-text-fill-color: $black;
           }

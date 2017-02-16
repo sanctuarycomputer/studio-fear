@@ -45,16 +45,31 @@ module.exports = function(grunt) {
      watch: {
         sass : {
           files: ['sass/**/*.scss'],
-          tasks: ['sass', 'build']
+          tasks: ['sass', 'build', 'postcss']
         },
         scripts: {
           files: ['./javascript/**/*.js'],
           tasks: ['browserify', 'build']
         }
+     },
+     postcss: {
+       options: {
+        // map: true, // inline sourcemaps
+         processors: [
+           require('pixrem')(), // add fallbacks for rem units
+           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+           require('cssnano')() // minify the result
+         ]
+       },
+       dist: {
+         src: 'static/css/main.css',
+         dest: 'static/css/main.css'
+       }
      }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-postcss');
 
   // NEVER REMOVE THESE LINES, OR ELSE YOUR PROJECT MAY NOT WORK
   require('./options/generatorOptions.js')(grunt);
