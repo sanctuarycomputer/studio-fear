@@ -6,12 +6,15 @@
   }
 
   .title{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    display: -webkit-flex; /* NEW */
     align-items: center;
     justify-content:center;
     align-content: space-around;
-    width:100%;
+    width:100vw;
     height:100%;
     z-index:100;
     pointer-events: none;
@@ -19,7 +22,6 @@
     mix-blend-mode: difference;
     transition: .3s .3s opacity ease-in-out;
     opacity:1;
-    position:absolute;
     @media (max-width:$sm) {
       mix-blend-mode: normal;
     }
@@ -28,23 +30,30 @@
       transition: .3s opacity ease-in-out;
     }
     .title-text{
-      max-width:1600px;
       left:0;
-      width:100%;
-      color: transparent;
-      -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: $black;
-      font-size:120px;
-      @media (max-width:$lg) {
-        font-size:80px;
-      }
-      @media (max-width:$md) {
-        font-size:65px;
-        -webkit-text-stroke-width: 2px;
-      }
       @media (max-width:$sm) {
-        font-size:45px;
-        max-width:100%;
+        width:100%;
+      }
+      @media (min-width:$xx) {
+        width:75%;
+      }
+      p{
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: $black;
+        font-size:120px;
+        //width:50%;
+        @media (max-width:$lg) {
+          font-size:80px;
+        }
+        @media (max-width:$md) {
+          font-size:65px;
+          -webkit-text-stroke-width: 2px;
+        }
+        @media (max-width:$sm) {
+          font-size:45px;
+          max-width:100%;
+        }
       }
     }
   }
@@ -68,6 +77,11 @@
       width: 100vw;
     }
     .content {
+      .black-and-white{
+        filter: grayscale(100%);
+        z-index: -100;
+      }
+
       .image {
         pointer-events: auto;
         background-repeat:no-repeat;
@@ -80,6 +94,7 @@
         border: 2px solid;
         border-color:transparent;
         background-color: transparent;
+
         p{
           opacity:0;
           transition-duration: 0.1s, 0.1s;

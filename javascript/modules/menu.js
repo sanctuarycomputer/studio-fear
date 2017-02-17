@@ -5,7 +5,7 @@ const menuLinksL  = document.getElementById('llinks');
 const menuButtonR = document.getElementById('rbutt');
 const menuLinksR  = document.getElementById('rlinks');
 const exitButt    = document.querySelector(".exit-button-filter");
-const bwImages    = document.querySelectorAll(".bwimage");
+const bwImages    = document.querySelectorAll(".image");
 const FILL        = "#121212";
 const duration    = 200;
 

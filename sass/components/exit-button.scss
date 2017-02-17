@@ -3,4 +3,12 @@
   cursor:pointer;
   color:black;
   position: fixed;
+  right:0;
+  z-index: 0;
+  display: flex;
+  float: right;
+  @media (max-width:$sm) {
+    text-align: right;
+    padding:0;
+  }
 }

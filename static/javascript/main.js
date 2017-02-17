@@ -92,7 +92,6 @@ function feedScroll() {
     // on scroll, look through the array of processed waypoints and use lodash's find
     var selectedWaypoint = _lodash2.default.find(waypointsWithValues, function (waypoint) {
       // return the waypoint that is within the range of the scroll position
-      console.log('fuick');
       return scrollPosition >= waypoint.yTop && scrollPosition < waypoint.yBottom;
     });
     // if it finds a waypoint in the scroll range
@@ -167,10 +166,12 @@ function screenSaver() {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
       $('#screensaver').css('opacity', '1');
+      $('#screensaver').css('display', 'flex');
       $('#screensaver').css('z-index', '100');
     }, 120000);
     $('#screensaver').css('opacity', '0');
     $('#screensaver').css('z-index', '-100');
+    $('#screensaver').css('display', 'none');
   });
 }
 
@@ -188,7 +189,7 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var bwImages = document.querySelectorAll(".bwimage");
+var bwImages = document.querySelectorAll(".image");
 var FILL = "#121212";
 var duration = 200;
 

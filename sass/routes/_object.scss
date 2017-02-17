@@ -37,7 +37,7 @@
     width:45%;
     pointer-events: none;
     @media (max-width:$sm) {
-      z-index:1;
+      z-index:0;
       padding:0;
       margin:0;
       bottom:0;
