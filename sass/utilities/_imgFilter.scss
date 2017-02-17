@@ -1,3 +1,7 @@
 .black-and-white{
   filter: grayscale(100%);
+  z-index: -100;
+  img {
+    opacity: 0.2;
+  }
 }

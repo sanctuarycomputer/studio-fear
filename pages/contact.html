@@ -1,22 +1,25 @@
 {%
   set share_card = {
     title: getSetting('site_name'),
-    preview_text: "{{ cms.project.markdown_text|safe }}",
-    image: "{{ cms.object.grid[0].gallery[0].url }}"
+    preview_text: getSetting('site_description'),
+    image: cms.layout.share_card_image.url
   }
 %}
+
+{% block body_attributes %}data-page="about"{% endblock %}
+
 {% extends "templates/partials/base.html" %}
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
 {% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" %}
-<div class="about pt3 flex millerbannerlight">
-  <div class="joeldown name-text-about xs-hide inline-block">
+<div class="about flex millerbannerlight fade-when-menu-active">
+  <div class="joeldown name-text-about xs-hide  pt3 inline-block">
     <p class="pb2">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
-  <div class="profile-pic-gallery">
+  <div class="profile-pic-gallery pt3">
     <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     <a href="{{ cms.contact.link_out }}" target="_blank">
       {% for image in cms.contact.pictures_of_jowl %}
