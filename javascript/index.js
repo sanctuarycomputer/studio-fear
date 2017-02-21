@@ -3,6 +3,9 @@ import menu from './modules/menu';
 import work from './modules/work';
 import { feedScroll } from './modules/feed';
 import { pageScroll, preloadImages } from './modules/utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Feed from './views/feed/Feed';
 
 window.onload = function() {
   setTimeout(() => scrollTo(0,0), 100);
@@ -22,15 +25,22 @@ $(document).ready(function (){
 
   objectScroll();
   filters();
-  feedIndex();
   feedScroll();
   preloadImages();
   screenSaver();
+  reactFeedInitialize();
 
   /* Setup Left Nav Links */
   let currentPage = $('body').attr('data-page');
   $(`#llinks a .menu-text:contains("${currentPage}")`).addClass('active');
 });
+
+const reactFeedInitialize = () => {
+  const feedElement = document.getElementById('react-feed');
+  if (feedElement) {
+    ReactDOM.render(<Feed images={JSON.parse(feedElement.dataset.images)} />, feedElement);
+  }
+};
 
 function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
@@ -93,30 +103,6 @@ function filters() {
   }
 }
 
-function feedIndex(){
-
-  var feedPage = document.querySelector('.feed-page');
-  if (feedPage){
-    var feedlinks = document.querySelector('.feed-links');
-    var indexButton = document.querySelector('.index-button');
-    var feedGallery = document.querySelector('.feed-gallery');
-    var feedIndex = document.querySelector('.feed-index');
-    indexButton.addEventListener('click', () => {
-      feedIndex.style.display = "block";
-      feedGallery.style.display = "none";
-      indexButton.style.display = "none";
-      window.scrollTo(0,0);
-    });
-    feedlinks.addEventListener('click', () => {
-      feedIndex.style.display = "none";
-      feedIndex.style.zIndex = "-100";
-      feedGallery.style.zIndex = "100";
-      feedGallery.style.display = "block";
-      indexButton.style.display = "block";
-      window.scrollTo(0,0);
-    });
-  }
-}
 function screenSaver(){
   var s_saver;
   $('body').mousemove(function() {

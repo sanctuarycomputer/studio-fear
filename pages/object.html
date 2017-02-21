@@ -36,7 +36,7 @@
       </div>
       <div class="object-gallery bwimage right pt2">
         {% for image in row.gallery %}
-          <img class="object-image project-images my2 mx-auto block fit" src="{{ image.url}}">
+          <img class="object-image project-images my2 mx-auto block fit" src="{{ image | imageSize(800, 'auto')}}">
         {% endfor %}
         <div class="gallery-bottom"></div>
       </div>
