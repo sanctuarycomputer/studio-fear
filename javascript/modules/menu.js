@@ -39,9 +39,11 @@ if (menuButtonR) {
   rightLine = n.line(10,2,120,90);
   right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
   n.mouseover(() => {
-    rightLine.animate({ x1: 90, y1: 80, x2: 200, y2: 170 }, duration);
+    circle_2.animate({ r: 38 }, duration);
+    rightLine.animate({ x1: 90, y1: 65, x2: 200, y2: 155}, duration);
   });
   n.mouseout(() => {
+    circle_2.animate({ r: crns }, duration);
     rightLine.animate({ x1: 10, y1: 2, x2: 120, y2: 90 }, duration);
   });
 }

@@ -1,11 +1,13 @@
+$roman: "Miller Ban Rom", serif;
+
 .millerbannerroman{
-   font-family: "Miller Ban Rom";
+   font-family: $roman;
    font-style: Normal;
    font-weight: Normal;
 }
-
+$light: "Miller Ban Lt", serif;
 .millerbannerlight{
-   font-family: "Miller Ban Lt";
+   font-family: $light;
    font-style: Normal;
    font-weight: Normal;
 }

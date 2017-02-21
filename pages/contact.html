@@ -14,8 +14,8 @@
 {% block content %}
 {% set config = {hideFilter: true} %}
 <div class="about flex millerbannerlight fade-when-menu-active">
-  <div class="joeldown name-text-about xs-hide  pt3 inline-block">
-    <p class="pb2">{{ cms.contact.name }}</p>
+  <div class="joeldown name-text-about xs-hide pt3 inline-block">
+    <p class="pb2 millerbannerroman">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
   <div class="profile-pic-gallery pt3">
@@ -29,9 +29,10 @@
       <p class="pt1 sm-hide md-hide lg-hide">{{ cms.contact.info_about_jowl|markdown }}</p>
     </div>
     <div class="contact-info ">
-      <p class="underline py1">Contact:</p>
+      <p class="millerbannerroman py1">Contact:</p>
       <p>{{ cms.contact.email }}</p>
       <p>{{ cms.contact.phone_number }}</p>
+      <p>{{ cms.contact.phone_number_2 }}</p>
       {% for item in cms.contact.social_media %}
         <a class="text-decoration-none" href="{{ item.link }}" target="_blank">
          <p>{{ item.social_network }}</p>
@@ -39,7 +40,7 @@
       {% endfor %}
     </div>
     <div class="features mb1">
-      <p class="underline py1">Features:</p>
+      <p class="millerbannerroman py1">Features:</p>
       {% for item in cms.contact.features %}
         <a class="text-decoration-none" href="{{ item.website }}" target="_blank">
           <p>{{ item.name_of_publication }}</p>
