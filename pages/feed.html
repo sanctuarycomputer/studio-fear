@@ -14,7 +14,7 @@
 {% block content %}
 
 <div id='react-feed' data-images='{{cms.feed.grid | json}}'></div>
-
+{% set config = {hideFilter: true} %}
 {% include "templates/partials/menu.html" with config%}
 {% include "templates/partials/screensaver.html" %}
 {% endblock %}
