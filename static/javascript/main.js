@@ -35,7 +35,7 @@ $(document).ready(function () {
       return scrollTo(0, 0);
     }, 100);
     $('.title').removeClass('is-active');
-    //pageScroll();
+    // pageScroll();
     (0, _work2.default)();
   }
 
@@ -143,11 +143,13 @@ function screenSaver() {
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      $('#screensaver').css('opacity', '1');
-      $('#screensaver').css('z-index', '100');
+      // $('#screensaver').css('opacity', '1');
+      $('#screensaver').css('z-index', '500');
+      $('#screensaver').css('display', 'flex');
     }, 120000);
-    $('#screensaver').css('opacity', '0');
-    $('#screensaver').css('z-index', '-100');
+    // $('#screensaver').css('opacity', '0');
+    $('#screensaver').css('z-index', '-500');
+    $('#screensaver').css('display', 'none');
   });
 }
 
