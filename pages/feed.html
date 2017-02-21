@@ -12,30 +12,8 @@
 
 {% block title %}{% parent %} - {{ cms.feed.name }}{% endblock %}
 {% block content %}
-{% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
-
-<div class="feed feed-page fade-when-menu-active">
-  <div class="index-button exit-button h6 exil pt1 px2">INDEX</div>
-  <div class= "feed-gallery">{% include "templates/partials/feed-gallery.html" with config %}</div>
-
-  <div class="feed-index">
-    <a class="exit-button fixed right-0 text-decoration-none h6 exil top-0 pt1 px2" href="/feed">EXIT</a>
-    <div class="px2 pt3">
-      {% for row in cms.feed.grid %}
-        <a class="text-decoration-none feed-links" href="/feed#waypoint-{{loop.index}}" id='waypoint-{{loop.index}}'>
-          <div class="block image-data pt1 flex col-12 justify-between ">
-            <div class="inline-block exil image-title">{{ row.image_title }}</div>
-            <div class="px2 black-line-container">
-              <div class="black-line"></div>
-            </div>
-            <div class="inline-block exil">{{ row.image_date }}</div>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-  </div>
-</div>
+<div id='react-feed' data-images='{{cms.feed.grid | json}}'></div>
 
 {% include "templates/partials/menu.html" with config%}
 {% include "templates/partials/screensaver.html" %}
