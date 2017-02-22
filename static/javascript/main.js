@@ -140,12 +140,12 @@ function screenSaver() {
     s_saver = setTimeout(function () {
       $('#screensaver').css('z-index', '500');
       $('#screensaver').css('display', 'block');
+      $('.marquee').marquee({
+        duplicated: true
+      });
     }, 120000);
     $('#screensaver').css('z-index', '-500');
     $('#screensaver').css('display', 'none');
-  });
-  $('.marquee').marquee({
-    duplicated: true
   });
 }
 
