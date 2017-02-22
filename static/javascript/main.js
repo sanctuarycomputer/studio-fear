@@ -138,11 +138,9 @@ function screenSaver() {
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      // $('#screensaver').css('opacity', '1');
       $('#screensaver').css('z-index', '500');
       $('#screensaver').css('display', 'flex');
     }, 120000);
-    // $('#screensaver').css('opacity', '0');
     $('#screensaver').css('z-index', '-500');
     $('#screensaver').css('display', 'none');
   });
@@ -221,7 +219,7 @@ var cxyss = 75;
 var circle_1 = s.circle(cxyss, cxyss, crss);
 var bigLine = s.line(135, 95, 77, 64);
 var smallLine = s.line(45, 135, 65, 102);
-var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
 s.mouseover(function () {
   smallLine.animate({ x1: 0, y1: 120, x2: 33, y2: 131 }, duration);
   circle_1.animate({ r: crsf }, duration);
@@ -242,7 +240,7 @@ if (menuButtonR) {
   cxyns = 50;
   circle_2 = n.circle(cxyns, cxyns, crns);
   rightLine = n.line(10, 2, 120, 90);
-  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
   n.mouseover(function () {
     circle_2.animate({ r: 38 }, duration);
     rightLine.animate({ x1: 90, y1: 65, x2: 200, y2: 155 }, duration);
@@ -8762,15 +8760,8 @@ module.exports = warning;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],36:[function(require,module,exports){
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
 'use strict';
 /* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -8791,7 +8782,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		var test1 = new String('abc');  // eslint-disable-line
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -8820,7 +8811,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (err) {
+	} catch (e) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -8840,8 +8831,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];

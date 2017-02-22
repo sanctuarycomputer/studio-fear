@@ -16,7 +16,7 @@ var cxyss = 75;
 var circle_1 = s.circle(cxyss , cxyss , crss);
 var bigLine = s.line(135,95,77,64);
 var smallLine = s.line(45, 135, 65, 102);
-var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
 s.mouseover(() => {
   smallLine.animate({ x1: 0, y1: 120, x2: 33, y2: 131 }, duration);
   circle_1.animate({ r: crsf }, duration);
@@ -37,7 +37,7 @@ if (menuButtonR) {
   cxyns = 50;
   circle_2 = n.circle(cxyns,cxyns, crns);
   rightLine = n.line(10,2,120,90);
-  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
   n.mouseover(() => {
     circle_2.animate({ r: 38 }, duration);
     rightLine.animate({ x1: 90, y1: 65, x2: 200, y2: 155}, duration);
