@@ -34,9 +34,10 @@
       .menu-links{
         width:0%;
         top:0;
+
         line-height: 15vh;
         height:100%;
-        transition: 250ms 250ms ease-in-out;
+        transition: $duration;
         overflow-x: hidden;
         align-items: center;
         align-content: space-around;
@@ -54,7 +55,7 @@
         &.is-active{
           width:100%;
           @media (max-width:$sm) {
-            transition: 250ms 250ms ease-in-out;
+            transition: $duration;
             padding-top: 15%;
             padding-bottom: 15%;
             height:100%;
@@ -65,8 +66,8 @@
           font-size:120px;
           text-align: center;
           color:$black;
-
           &:hover{
+            font-family: $exil;
             -webkit-text-fill-color: $black;
           }
           @media (max-width:$lg) {

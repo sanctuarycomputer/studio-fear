@@ -11,12 +11,12 @@
     z-index:100;
     pointer-events: none;
     background-color: transparent;
-    transition: 250ms 250ms opacity ease-in-out;
+    transition: $duration;
     opacity:1;
     position:absolute;
     &.is-active{
       opacity:0;
-      transition: 250ms opacity ease-in-out;
+      transition: $duration;
     }
     .title-text{
       display: flex;
@@ -79,11 +79,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition-duration: 0.250s, 0.250s ease-in-out;
+        transition-duration: $duration;
         background-color: transparent;
         p{
           opacity:0;
-          transition-duration: 0.250s, 0.250s ease-in-out;
+          transition-duration: $duration;
         }
         &:hover{
           background-size: 0;

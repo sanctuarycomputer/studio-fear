@@ -208,7 +208,7 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var FILL = "#121212";
+var FILL = "#282828";
 var duration = 200;
 
 /* Left Menu Snap Setup */

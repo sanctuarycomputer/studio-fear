@@ -13,11 +13,14 @@
     height:100%;
     p{
       font-size: 2.5em;
+      color:$black;
     }
     .project-title{
       font-weight: Lighter;
       border-bottom: 1px dotted #000032;
       margin-bottom:1rem;
+      color:$black;
+
     }
   }
   .image-gallery{
