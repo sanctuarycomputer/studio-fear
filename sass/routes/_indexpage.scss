@@ -75,6 +75,8 @@
         pointer-events: auto;
         background-repeat:no-repeat;
         background-size: contain;
+        background-color: $orange;
+
         background-position: center;
         display: flex;
         align-items: center;
@@ -83,7 +85,6 @@
         background-color: transparent;
         p{
           opacity:0;
-          transition-duration: $duration;
         }
         &:hover{
           background-size: 0;

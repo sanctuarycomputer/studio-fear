@@ -4,7 +4,7 @@
    height:110%;
    left:0px;
    top: 0px;
-   transition: .3s .3s opacity ease-in-out;
+   transition: $duration;
    z-index:-9999;
    top:-20px;
    background-color: black;
@@ -15,32 +15,10 @@
    @media (max-width:$sm) {
      width:200%;
    }
-   .screensaver-stuff{
-    display:flex;
-    align-content: space-around;
-    justify-content: center;
-    flex-direction: column;
-    width:430%;
+   .marquee {
+    overflow: hidden;
     color:$orange;
     font-size: 100px;
     line-height: 10rem;
-    -webkit-animation-name: textmove;
-    -webkit-animation-duration:30s;
-    -webkit-animation-timing-function: linear;
-    animation-name: textmove;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  .screensaver-container-two{
-   transform: (translateX(-530%));
- }
-  @-webkit-keyframes textmove {
-    0%   {transform: (translateX(0%))}
-    100% {transform: (translateX(100%))}
-  }
-  @keyframes textmove {
-    0%   {transform: (translateX(0%))}
-    100% {transform: (translateX(100%))}
   }
 }

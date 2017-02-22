@@ -109,11 +109,14 @@ function screenSaver(){
     clearTimeout(s_saver);
     s_saver = setTimeout(function(){
       $('#screensaver').css('z-index', '500');
-      $('#screensaver').css('display', 'flex');
+      $('#screensaver').css('display', 'block');
 
     }, 120000);
     $('#screensaver').css('z-index', '-500');
     $('#screensaver').css('display', 'none');
 
+  });
+  $('.marquee').marquee({
+    duplicated: true
   });
 }
