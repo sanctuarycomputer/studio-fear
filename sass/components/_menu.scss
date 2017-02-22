@@ -34,7 +34,7 @@
       .menu-links{
         width:0%;
         top:0;
-
+        font-family: $exiloutline;
         line-height: 15vh;
         height:100%;
         transition: $duration;
@@ -67,6 +67,10 @@
           text-align: center;
           color:$black;
           &:hover{
+            font-family: $exil;
+            -webkit-text-fill-color: $black;
+          }
+          &.active{
             font-family: $exil;
             -webkit-text-fill-color: $black;
           }

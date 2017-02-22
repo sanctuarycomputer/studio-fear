@@ -1,6 +1,6 @@
 .black-and-white{
   z-index: -100;
-  filter: blur(20px) grayscale(100%);
+  filter: blur(15px) grayscale(100%);
   opacity: 0.25;
-  transition: 250ms 250ms ease-in-out;
+  transition: $duration;
 }
