@@ -20,7 +20,7 @@
 
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
-<div class="object-page mt3 fade-when-menu-active">
+<div class="object-page bwimage mt3 fade-when-menu-active">
   {% for row in cms.object.grid %}
     <div class="col col-12">
       <div class="object-text-container px2 absolute right-0 pt2">
@@ -34,7 +34,7 @@
           {{ row.text|markdown }}
         </div>
       </div>
-      <div class="object-gallery bwimage right pt2">
+      <div class="object-gallery  right pt2">
         {% for image in row.gallery %}
           <img class="object-image project-images my2 mx-auto block fit" src="{{ image | imageSize(800, 'auto')}}">
         {% endfor %}
@@ -43,8 +43,8 @@
     </div>
   {% endfor %}
 </div>
-<div class="feed" id="lightbox">
-  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
+<div class="feed bwimage" id="lightbox">
+  <div class="index-button " id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
   {% include "templates/partials/feed-gallery.html" with config %}
 </div>
 

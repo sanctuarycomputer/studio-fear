@@ -14,6 +14,7 @@
   }
   .image-data{
     color:$black;
+    font-size: .75em;
     .black-line-container{
       width: 100%;
       display: flex;
@@ -21,7 +22,7 @@
       justify-content: center;
       .black-line{
         background-color: $black;
-        height:.2rem;
+        height:.1rem;
         width:100%;
       }
     }

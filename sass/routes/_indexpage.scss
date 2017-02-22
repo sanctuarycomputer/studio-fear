@@ -11,16 +11,12 @@
     z-index:100;
     pointer-events: none;
     background-color: transparent;
-    mix-blend-mode: color-dodge;
     transition: 250ms 250ms opacity ease-in-out;
     opacity:1;
     position:absolute;
-    @media (max-width:$sm) {
-      mix-blend-mode: normal;
-    }
     &.is-active{
       opacity:0;
-      transition: 450ms opacity ease-in-out;
+      transition: 250ms opacity ease-in-out;
     }
     .title-text{
       display: flex;
@@ -33,13 +29,21 @@
       color: transparent;
       font-size:120px;
       p{
-        max-width:1600px;
+        max-width:1200px;
+        text-align: center;
+        width:75%;
+      }
+      @media (max-width:$xl) {
+        font-size:100px;
+        width:100%;
       }
       @media (max-width:$lg) {
         font-size:80px;
+        width:100%;
       }
       @media (max-width:$md) {
         font-size:65px;
+        width:100%;
       }
       @media (max-width:$sm) {
         font-size:45px;

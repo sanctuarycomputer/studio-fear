@@ -9,10 +9,10 @@
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
-<div class="projects-page flex" id="projects">
+<div class="projects-page bwimage flex" id="projects">
   <div class="project-info xs-hide pt3">
-    <div class="millerbannerroman project-title">
-      <p class= ""> {{ item.name }}</p>
+    <div class="millerbannerroman">
+      <p class= "project-title"> {{ item.name }}</p>
     </div>
     <div class="project-text millerbannerlight ">
       {{ item.markdown_text|markdown }}
@@ -21,7 +21,7 @@
   <div class="image-gallery">
     <p class= "center pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
-      <img class="project-images bwimage" src="{{ row.image.url }}" />
+      <img class="project-images " src="{{ row.image.url }}" />
     {% endfor %}
     <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}

@@ -6,12 +6,18 @@
   }
   .project-info{
     padding-left:2rem;
+    padding-right:2rem;
     position: fixed;
     overflow: scroll;
     width:50%;
     height:100%;
     p{
       font-size: 2.5em;
+    }
+    .project-title{
+      font-weight: Lighter;
+      border-bottom: 1px dotted #000032;
+      margin-bottom:1rem;
     }
   }
   .image-gallery{

@@ -13,7 +13,7 @@
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
 {% set config = {hideFilter: true} %}
-<div class="about flex millerbannerlight fade-when-menu-active">
+<div class="about bwimage flex millerbannerlight fade-when-menu-active">
   <div class="joeldown name-text-about xs-hide pt3 inline-block">
     <p class="pb2 millerbannerroman">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
@@ -22,7 +22,7 @@
     <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     <a href="{{ cms.contact.link_out }}" target="_blank">
       {% for image in cms.contact.pictures_of_jowl %}
-        <img class="profile-pic bwimage fit" src="{{ image.url }}"/>
+        <img class="profile-pic fit" src="{{ image.url }}"/>
       {% endfor %}
     </a>
     <div class= "mobile-info">

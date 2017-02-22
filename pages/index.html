@@ -12,7 +12,7 @@
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
 {% include "templates/partials/screensaver.html" %}
-<div class="index-page pt1 col col-12">
+<div class="index-page pt1 bwimage col col-12">
   <div class="title mx-auto col-12 is-active">
     <div class="center title-text fixed mx-auto exiloutline"><p class="mx-auto">{{cms.home.name}}</p></div>
   </div>
@@ -22,7 +22,7 @@
        <a class="index-grid-item " href="{{ url(item) }}" >
         <div class= "content-container">
           <div class="content">
-            <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+            <div class="image absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
               <p class="exil center">{{item.name}}</p>
             </div>
           </div>
@@ -35,7 +35,7 @@
        <a class="index-grid-item" href="{{ url(item) }}">
         <div class= "content-container">
           <div class="content">
-            <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+            <div class="image absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
               <p class="exil center">{{item.name}}</p>
             </div>
           </div>
@@ -49,7 +49,7 @@
      <a class="index-grid-item " href="{{ url(item) }}" >
       <div class= "content-container">
         <div class="content">
-          <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+          <div class="image absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
             <p class="exil center">{{item.name}}</p>
           </div>
         </div>
@@ -60,7 +60,7 @@
      <a class="index-grid-item" href="{{ url(item) }}">
       <div class= "content-container">
         <div class="content">
-          <div class="image bwimage absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+          <div class="image absolute {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="background-image: url({{ item.main_image.url }}); width:{{ item.width_and_height }}%; height:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
             <p class="exil center">{{item.name}}</p>
           </div>
         </div>
