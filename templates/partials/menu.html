@@ -1,11 +1,11 @@
 <div class="menu">
     <div class="menu-button fixed menu-graphic-container">
       <div class="menu-graphic">
-        <div class="menu-links" id="llinks">
-          <a class="text-decoration-none menu-text exil" href="/"><div class="menu-text">work</div></a>
-          <a class="text-decoration-none menu-text exil" href="/object"><div class="menu-text">object</div></a>
-          <a class="text-decoration-none menu-text exil" href="/feed"><div class="menu-text">feed</div></a>
-          <a class="text-decoration-none menu-text exil" href="/contact"><div class="menu-text">about</div></a>
+        <div class="menu-links exiloutline" id="llinks">
+          <a class="text-decoration-none " href="/"><div class="menu-text">work</div></a>
+          <a class="text-decoration-none " href="/object"><div class="menu-text">object</div></a>
+          <a class="text-decoration-none " href="/feed"><div class="menu-text">feed</div></a>
+          <a class="text-decoration-none " href="/contact"><div class="menu-text">about</div></a>
         </div>
         <div id="lbutt">
           {% include "templates/partials/menu-icon.html" %}
@@ -14,9 +14,9 @@
       {% if !config.hideFilter %}
       <div class="filters menu-graphic">
         <!-- <div class="exit-button-filter fixed right-0 text-decoration-none h6 exil top-0 pt1 px2">EXIT</div> -->
-        <div class="menu-links menu-text" id="rlinks">
+        <div class="menu-links exiloutline" id="rlinks">
           {% for item in cms.filters %}
-            <div class="individual-filter menu-text exil" data-filter="{{ item.name }}">{{ item.name }}</div>
+            <div class="individual-filter menu-text" data-filter="{{ item.name }}">{{ item.name }}</div>
           {% endfor %}
         </div>
         <div id="rbutt">

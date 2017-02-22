@@ -12,13 +12,22 @@ $light: "Miller Ban Lt", serif;
    font-weight: Normal;
 }
 @font-face {
+    font-family: 'exil71outline';
+    src: url('/static/fonts/exil71-outline-webfont.woff2') format('woff2'),
+         url('/static/fonts/exil71-outline-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+$exiloutline: "exil71outline", sans-serif;
+.exiloutline{
+  font-family: $exiloutline;
+  text-transform: uppercase;
+}
+@font-face {
     font-family: 'exil71medium';
-    src: url('/static/fonts/exil71-webfont.eot');
-    src: url('/static/fonts/exil71-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/static/fonts/exil71-webfont.woff2') format('woff2'),
-         url('/static/fonts/exil71-webfont.woff') format('woff'),
-         url('/static/fonts/exil71-webfont.ttf') format('truetype'),
-         url('/static/fonts/exil71-webfont.svg#exil71medium') format('svg');
+    src: url('/static/fonts/exil71-webfont.woff2') format('woff2'),
+         url('/static/fonts/exil71-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

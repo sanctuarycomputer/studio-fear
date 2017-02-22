@@ -12,7 +12,7 @@
     pointer-events: none;
     background-color: transparent;
     mix-blend-mode: color-dodge;
-    transition: 450ms 450ms opacity ease-in-out;
+    transition: 250ms 250ms opacity ease-in-out;
     opacity:1;
     position:absolute;
     @media (max-width:$sm) {
@@ -31,8 +31,6 @@
       left:0;
       width:100%;
       color: transparent;
-      -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: $black;
       font-size:120px;
       p{
         max-width:1600px;
@@ -42,7 +40,6 @@
       }
       @media (max-width:$md) {
         font-size:65px;
-        -webkit-text-stroke-width: 2px;
       }
       @media (max-width:$sm) {
         font-size:45px;
@@ -78,17 +75,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition-duration: 0.1s, 0.1s;
-        border: 2px solid;
-        border-color:transparent;
+        transition-duration: 0.250s, 0.250s ease-in-out;
         background-color: transparent;
         p{
           opacity:0;
-          transition-duration: 0.250s, 0.250s;
+          transition-duration: 0.250s, 0.250s ease-in-out;
         }
         &:hover{
           background-size: 0;
-          background-color: white;
+          background-image: none;
+          border: 1px solid;
           border-color:$orange;
           p{
             opacity: 1;
