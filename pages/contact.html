@@ -23,7 +23,7 @@
     <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     <a href="{{ cms.contact.link_out }}" target="_blank">
       {% for image in cms.contact.pictures_of_jowl %}
-        <img class="profile-pic fit" src="{{ image.url }}"/>
+        <img class="profile-pic fit" src="{{ image|imageSize(700, 'auto')  }}"/>
       {% endfor %}
     </a>
     <div class= "mobile-info">

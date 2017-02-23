@@ -21,7 +21,7 @@
   <div class="image-gallery">
     <p class= "project-title center pt2 mb2 mt4 millerbannerroman sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
-      <img class="project-images" src="{{ row.image.url }}" />
+      <img class="project-images" src="{{ row.image|imageSize(700, 'auto') }}" />
     {% endfor %}
     <div class="project-text pt2 millerbannerlight joeldown sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}
