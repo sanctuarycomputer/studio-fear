@@ -59,7 +59,7 @@
           }
         }
         .menu-text{
-          font-size:120px;
+          font-size:105px;
           text-align: center;
           color:$black;
           &:hover{
@@ -70,17 +70,23 @@
             font-family: $exil;
             -webkit-text-fill-color: $black;
           }
+          @media (max-width:$xl) {
+            font-size:90px;
+            width:100%;
+          }
           @media (max-width:$lg) {
-            font-size:80px;
+            font-size:75px;
+            width:100%;
           }
           @media (max-width:$md) {
-            font-size:65px;
+            font-size:55px;
+            width:100%;
           }
           @media (max-width:$sm) {
             font-size:45px;
           }
           @media (max-width:$xs) {
-            font-size:35px;
+            font-size:30px;
           }
         }
       }
