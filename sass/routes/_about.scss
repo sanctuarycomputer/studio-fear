@@ -1,5 +1,4 @@
 .about{
-  margin-left:3rem;
   font-size: 2.5em;
   font-family: "Miller Ban Lt";
   height:100%;
@@ -7,11 +6,8 @@
   color:$black;
   @media (max-width:$sm) {
     font-size: 1.5em;
-    position: fixed;
     z-index: -1;
-    padding:0;
-    flex-direction: column-reverse;
-    margin:0;
+      width: 100vw;
   }
   .profile-pic-gallery{
     z-index: -1;
@@ -47,6 +43,7 @@
     }
   }
   .name-text-about{
+    margin-left: 3rem;
     width:48%;
     height: 100%;
     float:left;

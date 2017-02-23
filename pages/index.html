@@ -11,8 +11,7 @@
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
-{% include "templates/partials/screensaver.html" %}
-<div class="index-page pt1 bwimage col col-12">
+<div class="index-page pt1 bwimage">
   <div class="title mx-auto col-12 is-active">
     <div class="center title-text fixed mx-auto exiloutline"><p class="mx-auto">{{cms.home.name}}</p></div>
   </div>
@@ -70,4 +69,6 @@
   </div>
 </div>
 {% include "templates/partials/menu.html" %}
+{% include "templates/partials/screensaver.html" %}
+
 {% endblock %}

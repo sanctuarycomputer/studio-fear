@@ -1,9 +1,11 @@
+$xs: (24em);
 $sm: (36em);
 $md: (52em);
 $lg: (60em);
 $xl: (72em);
 $xx: (84em);
 $breakpoints: (
+  'xs': $xs,
   'sm': $sm,
   'md': $md,
   'lg': $lg,

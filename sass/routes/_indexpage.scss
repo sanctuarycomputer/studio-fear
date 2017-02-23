@@ -2,6 +2,7 @@
   max-height:1000px;
   width:100%;
   background-color: transparent;
+  overflow-x: hidden;
   p{
     color:$black;
   }
@@ -13,6 +14,7 @@
     background-color: transparent;
     transition: $duration;
     opacity:1;
+    line-height: 15vh;
     position:absolute;
     &.is-active{
       opacity:0;
@@ -31,7 +33,6 @@
       p{
         max-width:1200px;
         text-align: center;
-        width:75%;
       }
       @media (max-width:$xl) {
         font-size:100px;
@@ -47,7 +48,9 @@
       }
       @media (max-width:$sm) {
         font-size:45px;
-        max-width:100%;
+      }
+      @media (max-width:$xs) {
+        font-size:35px;
       }
     }
   }
@@ -76,7 +79,6 @@
         background-repeat:no-repeat;
         background-size: contain;
         background-color: $orange;
-
         background-position: center;
         display: flex;
         align-items: center;
@@ -85,6 +87,8 @@
         background-color: transparent;
         p{
           opacity:0;
+          padding-left: .5rem;
+          padding-right: .5rem;
         }
         &:hover{
           background-size: 0;
