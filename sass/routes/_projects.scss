@@ -15,13 +15,12 @@
       font-size: 2.5em;
       color:$black;
     }
-    .project-title{
-      font-weight: Lighter;
-      border-bottom: 1px dotted #000032;
-      margin-bottom:1rem;
-      color:$black;
-
-    }
+  }
+  .project-title{
+    font-weight: Lighter;
+    border-bottom: 1px dotted #000032;
+    margin-bottom:1rem;
+    color:$black;
   }
   .image-gallery{
     width:50%;
@@ -43,7 +42,7 @@
       margin-top: .25rem;
       cursor:pointer;
       width: 100%;
-      height: 50vh;
+      // height: 50vh;
       background-repeat:no-repeat;
       background-size: contain;
       background-position: right top;

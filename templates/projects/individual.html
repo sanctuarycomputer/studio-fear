@@ -14,16 +14,16 @@
     <div class="millerbannerroman">
       <p class= "project-title"> {{ item.name }}</p>
     </div>
-    <div class="project-text millerbannerlight ">
+    <div class="project-text joeldown millerbannerlight ">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
   <div class="image-gallery">
-    <p class= "center pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    <p class= "project-title center pt2 mb2 mt4 millerbannerroman sm-hide md-hide lg-hide"> {{ item.name }}</p>
     {% for row in item.projectgallery %}
-      <img class="project-images " src="{{ row.image.url }}" />
+      <img class="project-images" src="{{ row.image.url }}" />
     {% endfor %}
-    <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
+    <div class="project-text pt2 millerbannerlight joeldown sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}
     </div>
   </div>

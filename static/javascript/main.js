@@ -777,7 +777,7 @@ var Index = function (_Component) {
         { className: 'feed-index' },
         _react2.default.createElement(
           'div',
-          { className: 'px2 mt3' },
+          { className: 'px2 flex data-container' },
           this.renderLinks(this.props.images)
         )
       );
