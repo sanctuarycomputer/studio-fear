@@ -88,8 +88,11 @@ function lightbox(){
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
+
   for(var i = 0; i < filterObject.length; i++) {
+
     filterObject[i].addEventListener('click', (e) => {
+      e.target.classList.add('active');
       var filter = e.target.dataset.filter;
       var images = document.querySelectorAll('.image');
       var filteredImages = document.getElementsByClassName(filter);
@@ -113,7 +116,7 @@ function screenSaver(){
       $('.marquee').marquee({
         duplicated: true
       });
-    }, 120000);
+    }, 1200000);
     $('#screensaver').css('z-index', '-500');
     $('#screensaver').css('display', 'none');
 

@@ -46,7 +46,7 @@
      <a href="{{ url(item) }}" >
        <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
          <div class="text-container">
-           <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+           <p class="exil mx-auto center absolute" style="width:100%">{{item.name}}</p>
          </div>
          <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>
@@ -56,7 +56,7 @@
      <a  href="{{ url(item) }}">
        <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
          <div class="text-container">
-           <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+           <p class="exil mx-auto center absolute" style="width:100%">{{item.name}}</p>
          </div>
          <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>

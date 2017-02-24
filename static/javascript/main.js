@@ -118,8 +118,11 @@ function lightbox() {
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
+
   for (var i = 0; i < filterObject.length; i++) {
+
     filterObject[i].addEventListener('click', function (e) {
+      e.target.classList.add('active');
       var filter = e.target.dataset.filter;
       var images = document.querySelectorAll('.image');
       var filteredImages = document.getElementsByClassName(filter);
@@ -143,7 +146,7 @@ function screenSaver() {
       $('.marquee').marquee({
         duplicated: true
       });
-    }, 120000);
+    }, 1200000);
     $('#screensaver').css('z-index', '-500');
     $('#screensaver').css('display', 'none');
   });
@@ -288,22 +291,34 @@ function toggleObjectFill() {
     obj.attr({ fill: "white" }, duration);
   }
 }
+function activeLeft() {
+  menuLinksL.classList.add('is-active');
+}
+function notActiveLeft() {
+  menuLinksL.classList.remove('is-active');
+}
+function activeRight() {
+  menuLinksR.classList.add('is-active');
+}
+function notActiveRight() {
+  menuLinksR.classList.remove('is-active');
+}
 
 exports.default = function () {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
       $('.fade-when-menu-active').removeClass('menu-active');
-      menuLinksL.classList.remove('is-active');
+      setTimeout(notActiveLeft, 0);
       (0, _utils.displayTitle)(false);
       toggleObjectFill(false, circle_1);
-      removeBW();
+      setTimeout(removeBW, 500);
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      menuLinksL.classList.add('is-active');
+      setTimeout(activeLeft, 250);
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
       addBW();
@@ -320,13 +335,13 @@ exports.default = function () {
   if (menuButtonR) {
     menuButtonR.addEventListener('click', function () {
       if (menuLinksR.classList.contains('is-active')) {
-        menuLinksR.classList.remove('is-active');
+        setTimeout(notActiveRight, 0);
         (0, _utils.displayTitle)(false);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(false, circle_2);
-        removeBW();
+        setTimeout(removeBW, 500);
       } else {
-        menuLinksR.classList.add('is-active');
+        setTimeout(activeRight, 250);
         (0, _utils.displayTitle)(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);

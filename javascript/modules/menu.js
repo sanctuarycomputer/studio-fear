@@ -79,22 +79,34 @@ function toggleObjectFill(bool=true, obj) {
     obj.attr({ fill: "white" }, duration);
   }
 }
+function activeLeft(){
+  menuLinksL.classList.add('is-active');
+}
+function notActiveLeft(){
+  menuLinksL.classList.remove('is-active');
+}
+function activeRight(){
+  menuLinksR.classList.add('is-active');
+}
+function notActiveRight(){
+  menuLinksR.classList.remove('is-active');
+}
 
 export default () => {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', () => {
     if (menuLinksL.classList.contains('is-active')) {
       $('.fade-when-menu-active').removeClass('menu-active');
-      menuLinksL.classList.remove('is-active');
+      setTimeout(notActiveLeft, 0);
       displayTitle(false);
       toggleObjectFill(false, circle_1)
-      removeBW();
+      setTimeout(removeBW, 500);
       if (menuButtonR){
         toggleObjectFill(false, circle_2)
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      menuLinksL.classList.add('is-active');
+      setTimeout(activeLeft, 250);
       displayTitle(true);
       toggleObjectFill(true, circle_1)
       addBW();
@@ -111,13 +123,13 @@ export default () => {
   if (menuButtonR){
     menuButtonR.addEventListener('click', () => {
       if (menuLinksR.classList.contains('is-active')) {
-        menuLinksR.classList.remove('is-active');
+        setTimeout(notActiveRight, 0);
         displayTitle(false);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(false, circle_2);
-        removeBW();
+        setTimeout(removeBW, 500);
       } else {
-        menuLinksR.classList.add('is-active');
+        setTimeout(activeRight, 250);
         displayTitle(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);

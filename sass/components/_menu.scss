@@ -18,7 +18,7 @@
       #lbutt{
         position: relative;
         z-index:100;
-        width:100px;
+        width:75px;
        @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
@@ -26,7 +26,7 @@
        #rbutt{
          position: relative;
          z-index:100;
-         width:150px;
+         width:125px;
         @media only screen and (max-device-width: 736px) and (orientation: portrait) {
           z-index:100;
          }
@@ -35,12 +35,12 @@
         width:0%;
         top:0;
         font-family: $exiloutline;
-        line-height: 15vh;
         height:100%;
+        opacity:0;
         transition: $duration;
         overflow-x: hidden;
         align-items: center;
-        align-content: space-around;
+        align-content: space-between;
         position: absolute;
         justify-content: center;
         -webkit-flex-direction: column;
@@ -54,6 +54,7 @@
         }
         &.is-active{
           width:100%;
+          opacity:1;
           @media (max-width:$sm) {
             height:100%;
           }
@@ -83,7 +84,8 @@
             width:100%;
           }
           @media (max-width:$sm) {
-            font-size:45px;
+            font-size:35px;
+            line-height: 15vh;
           }
           @media (max-width:$xs) {
             font-size:30px;

@@ -2,9 +2,11 @@
   max-height:1000px;
   width:100%;
   background-color: transparent;
-  overflow-x: hidden;
   p{
     color:$black;
+  }
+  @media (max-width:$sm) {
+    overflow-x: hidden;
   }
   .title{
     width:100%;
@@ -14,7 +16,6 @@
     background-color: transparent;
     transition: $duration;
     opacity:1;
-    line-height: 15vh;
     position:absolute;
     &.is-active{
       opacity:0;
@@ -47,7 +48,8 @@
         width:100%;
       }
       @media (max-width:$sm) {
-        font-size:45px;
+        font-size:35px;
+        line-height: 15vh;
       }
       @media (max-width:$xs) {
         font-size:30px;
@@ -100,6 +102,9 @@
       align-content: space-around;
       p{
         opacity:0;
+        @media (max-width:$sm) {
+          width:100%;
+        }
       }
     }
     &:hover{

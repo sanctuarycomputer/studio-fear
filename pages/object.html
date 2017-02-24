@@ -18,15 +18,15 @@
 
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
-<div class="object-page bwimage mt3 fade-when-menu-active">
+<div class="object-page bwimage mt3 joeldown fade-when-menu-active">
   {% for row in cms.object.grid %}
     <div class="col col-12">
-      <div class="object-text-container px2 absolute right-0 pt2">
+      <div class="object-text-container  absolute right-0 pt2">
         <div class="title millerbannerroman xs-hide mb2 mt2">
           {{ row.title }}
         </div>
         <div class="project-info millerbannerlight">
-          <div class="mb1 sm-hide md-hide lg-hide joeldown">
+          <div class="mb1 sm-hide md-hide lg-hide ">
             {{ row.title }}
           </div>
           <div class="markdowndiv">
