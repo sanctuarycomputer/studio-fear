@@ -335,7 +335,6 @@ exports.default = function () {
       menuLinksL.classList.remove('is-active');
     });
   }
-
   scrollRotate();
 
   /* If the exit button is on this page, set it up here too */
