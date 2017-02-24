@@ -57,49 +57,61 @@
   .left-container{
     position: fixed;
     z-index: 0;
+    width: 50vw;
+    @media (max-width:$sm) {
+      display:none;
+    }
   }
   .right-container{
-    height:100vh;
-    margin-top:110vh;
+    margin-top:100vh;
     z-index: 0;
-  }
-  .content-container{
-    position: relative;
-    display: inline-block;
     width: 50vw;
-    height: 75vh;
-    margin: 0;
-    cursor:pointer;
+    overflow-x: hidden;
     @media (max-width:$sm) {
       width: 100vw;
+      overflow-x: visible;
+
     }
-    .content {
-      .image {
-        pointer-events: auto;
-        background-repeat:no-repeat;
-        background-size: contain;
-        background-color: $orange;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition-duration: $duration;
-        background-color: transparent;
-        p{
-          opacity:0;
-          padding-left: .5rem;
-          padding-right: .5rem;
-        }
-        &:hover{
-          background-size: 0;
-          background-image: none;
-          border: 1px solid;
-          border-color:$orange;
-          p{
-            opacity: 1;
-            color: $orange;
-          }
-        }
+  }
+  .content-container{
+    margin: 0;
+    cursor:pointer;
+    display: flex;
+    display: -webkit-flex; /* NEW */
+    align-items: center;
+    align-content: space-around;
+    height:100%;
+    left:0;
+    width:100%;
+    transition-duration: $duration;
+    background-color: transparent;
+    @media (max-width:$sm) {
+      position: relative;
+    }
+    img{
+      position: relative;
+      left:0;
+      height: 100%;
+    }
+    p{
+      opacity:0;
+      width:100%;
+      @media (max-width:$sm) {
+        position: absolute;
+        width:100%;
+      }
+    }
+    &:hover{
+      background-size: 0;
+      background-image: none;
+      border: 1px solid;
+      border-color:$orange;
+      img{
+        opacity: 0;
+      }
+      p{
+        opacity: 1;
+        color: $orange;
       }
     }
   }

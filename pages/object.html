@@ -14,8 +14,6 @@
 {# This sets our page <title>. It will append this object's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.object.name }}{% endblock %}
 {% block content %}
-{% set objectgallery = merge(cms.object.grid[0].gallery, cms.object.grid[1].gallery, cms.object.grid[2].gallery) %}
-{% set objectgallerypics = merge(objectgallery.gallery[0]) %}
 
 
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
@@ -28,10 +26,12 @@
           {{ row.title }}
         </div>
         <div class="project-info millerbannerlight">
-          <div class="mb1 sm-hide md-hide lg-hide">
+          <div class="mb1 sm-hide md-hide lg-hide joeldown">
             {{ row.title }}
           </div>
-          {{ row.text|markdown }}
+          <div class="markdowndiv">
+            {{ row.text|markdown }}
+          </div>
         </div>
       </div>
       <div class="object-gallery  right pt2">
@@ -43,10 +43,7 @@
     </div>
   {% endfor %}
 </div>
-<div class="feed bwimage" id="lightbox">
-  <div class="index-button " id="exit">{% include "templates/partials/exit-button.html" with config %}</div>
-  {% include "templates/partials/feed-gallery.html" with config %}
-</div>
+
 
 {% include "templates/partials/screensaver.html" %}
 {% include "templates/partials/menu.html" with config %}
