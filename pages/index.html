@@ -20,7 +20,9 @@
       {% for item in cms.home.left_column %}
        <a href="{{ url(item) }}" >
         <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+          <div class="text-container">
             <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+          </div>
           <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
         </div>
        </a>
@@ -30,7 +32,9 @@
       {% for item in cms.home.right_column %}
       <a href="{{ url(item) }}" >
        <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
+         <div class="text-container">
            <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+         </div>
          <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>
       </a>
@@ -41,7 +45,9 @@
     {% for item in cms.home.left_column %}
      <a href="{{ url(item) }}" >
        <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
-           <p class="exil mx-auto center absolute">{{item.name}}</p>
+         <div class="text-container">
+           <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+         </div>
          <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>
      </a>
@@ -49,7 +55,9 @@
     {% for item in cms.home.right_column %}
      <a  href="{{ url(item) }}">
        <div class= "content-container" style="width:{{ item.width_and_height }}%; margin-top:{{ item.margintop }}%; margin-left:{{ item.marginleft }}%">
-           <p class="exil mx-auto center absolute">{{item.name}}</p>
+         <div class="text-container">
+           <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
+         </div>
          <img class="image {% for filter in item.filters %} {{ filter.name  }} {% endfor %}" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>
      </a>
