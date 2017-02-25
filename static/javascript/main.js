@@ -124,7 +124,7 @@ function filters() {
     filterObject[i].addEventListener('click', function (e) {
       e.target.classList.add('active');
       var filter = e.target.dataset.filter;
-      var images = document.querySelectorAll('.image');
+      var images = document.querySelectorAll('.content-container');
       var filteredImages = document.getElementsByClassName(filter);
       for (var i = 0; i < images.length; i++) {
         images[i].style.display = "none";
@@ -215,7 +215,7 @@ var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
 var FILL = "#282828";
-var duration = 200;
+var duration = 100;
 
 /* Left Menu Snap Setup */
 var s = Snap('#svg');

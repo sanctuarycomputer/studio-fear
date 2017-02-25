@@ -7,9 +7,8 @@
 
   }
   .project-info{
-    padding-left:2rem;
-    padding-right:2rem;
-    position: fixed;
+    padding-left:3rem;
+    padding-right:3rem;
     overflow: scroll;
     width:50%;
     height:200%;
@@ -22,6 +21,8 @@
     font-weight: Lighter;
     border-bottom: 1px dotted #000032;
     margin-bottom:1rem;
+    line-height: .8em;
+    width:100%;
     color:$black;
   }
   .image-gallery{

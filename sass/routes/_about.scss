@@ -36,14 +36,13 @@
     }
     .mobile-info{
       pointer-events: auto;
-
       @media (min-width:$sm) {
         display:none;
       }
     }
   }
   .name-text-about{
-    margin-left: 2rem;
+    margin-left: 3rem;
     width:48%;
     height: 100%;
     float:left;

@@ -6,7 +6,7 @@ const menuButtonR = document.getElementById('rbutt');
 const menuLinksR  = document.getElementById('rlinks');
 const exitButt    = document.querySelector(".exit-button-filter");
 const FILL        = "#282828";
-const duration    = 200;
+const duration    = 100;
 
 /* Left Menu Snap Setup */
 var s = Snap('#svg');

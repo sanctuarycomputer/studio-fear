@@ -94,7 +94,7 @@ function filters() {
     filterObject[i].addEventListener('click', (e) => {
       e.target.classList.add('active');
       var filter = e.target.dataset.filter;
-      var images = document.querySelectorAll('.image');
+      var images = document.querySelectorAll('.content-container');
       var filteredImages = document.getElementsByClassName(filter);
       for(var i = 0; i < images.length; i++) {
         images[i].style.display = "none";

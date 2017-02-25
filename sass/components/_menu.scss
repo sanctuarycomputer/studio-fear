@@ -33,6 +33,7 @@
        }
       .menu-links{
         width:0%;
+        display:none;
         top:0;
         font-family: $exiloutline;
         height:100%;
@@ -45,7 +46,6 @@
         justify-content: center;
         -webkit-flex-direction: column;
         flex-direction: column;
-        display: flex;
         z-index:2;
         @media (max-width:$sm) {
           position: fixed;
@@ -54,6 +54,7 @@
         }
         &.is-active{
           width:100%;
+          display: flex;
           opacity:1;
           @media (max-width:$sm) {
             height:100%;
