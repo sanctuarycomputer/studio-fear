@@ -6,8 +6,7 @@
     width: 100vw;
   }
   .project-info{
-    padding-left:3rem;
-    padding-right:3rem;
+    padding:2.5rem;
     overflow: scroll;
     width:50%;
     height:200%;
@@ -15,14 +14,13 @@
       font-size: 2.5em;
       color:$black;
     }
-  }
-  .project-title{
-    font-weight: Lighter;
-    border-bottom: 1px dotted #000032;
-    margin-bottom:1rem;
-    line-height: .8em;
-    width:100%;
-    color:$black;
+    .project-title{
+      font-style: normal;
+      margin-bottom:1rem;
+      border-bottom: 1px dotted #000032;
+      display: inline-block;
+      line-height: 0.85;
+    }
   }
   .image-gallery{
     width:50%;
@@ -32,14 +30,10 @@
     right:0;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
-
     @media (max-width:$sm) {
       width:100%;
       margin-top: 0;
       font-size: 1.5em;
-      p{
-
-      }
     }
     .project-images{
       margin-top: .25rem;
@@ -48,6 +42,23 @@
       @media (max-width:$sm) {
         margin:0;
         padding: 0;
+      }
+    }
+    p{
+      margin-left:1rem;
+      margin-right:1rem;
+    }
+    .title-container-mobile{
+      width:100%;
+      display: flex;
+      display: -webkit-flex;
+      justify-content: center;
+      .project-title{
+        font-style: normal;
+        border-bottom: 1px dotted #000032;
+        display: inline-block;
+        text-align: center;
+        line-height: 0.85;
       }
     }
   }

@@ -4,6 +4,8 @@
     font-style: normal;
     font-size: 12px;
     font-weight: 400;
+    vertical-align:super;
+
     @media (max-width:$sm) {
       font-family: Helvetica, Arial, sans-serif;
       font-style: normal;
@@ -13,10 +15,14 @@
   }
   em{
     font-style: normal;
-    font-weight: Lighter;
-    border-bottom: 1px solid #000032;
-    margin-bottom:1rem;
+    // font-weight: Lighter;
+    // border-bottom: 1px solid #000032;
+    // margin-bottom:1rem;
     line-height: .8em;
+    border-bottom: 1px dotted #000032;
+    display: inline-block;
+    line-height: 0.85;
+
   }
   del{
     font-style: normal;

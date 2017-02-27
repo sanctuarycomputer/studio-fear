@@ -10,16 +10,18 @@
 {% block content %}
 {% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url, projects: true} %}
 <div class="projects-page bwimage flex pt1" id="projects">
-  <div class="project-info xs-hide pt3">
+  <div class="project-info xs-hide">
     <div class="millerbannerlight">
-      <p class= "project-title pt1"> {{ item.name }}</p>
+      <p class= "project-title joeldown pt1"> {{ item.name }}</p>
     </div>
     <div class="project-text joeldown millerbannerlight ">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
   <div class="image-gallery">
-    <p class= "project-title center pt2 mb2 mt4 millerbannerlight sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    <div class="title-container-mobile">
+      <p class= "project-title center mb3 mt4 millerbannerlight sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    </div>
     {% for row in item.projectgallery %}
       <img class="project-images" src="{{ row.image.url }}" />
     {% endfor %}
