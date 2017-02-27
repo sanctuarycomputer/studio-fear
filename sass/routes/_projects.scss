@@ -4,7 +4,6 @@
     align-content: space-around;
     padding-top: 1rem;
     width: 100vw;
-
   }
   .project-info{
     padding-left:3rem;
@@ -31,14 +30,15 @@
     overflow: scroll;
     height:100%;
     right:0;
-    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
     @media (max-width:$sm) {
       width:100%;
       margin-top: 0;
       font-size: 1.5em;
       p{
-        margin-left: 1rem;
-        margin-right: 1rem;
+
       }
     }
     .project-images{
