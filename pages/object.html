@@ -18,7 +18,7 @@
 
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
-<div class="object-page bwimage mt3 joeldown fade-when-menu-active">
+<div class="object-page bwimage mt3 joeldown">
   {% for row in cms.object.grid %}
     <div class="col col-12">
       <div class="object-text-container  absolute right-0 pt2">
@@ -44,7 +44,6 @@
   {% endfor %}
 </div>
 
-
-{% include "templates/partials/screensaver.html" %}
 {% include "templates/partials/menu.html" with config %}
+{% include "templates/partials/screensaver.html" %}
 {% endblock %}

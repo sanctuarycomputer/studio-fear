@@ -16,6 +16,7 @@
     right:0;
     width:50%;
     overflow: scroll;
+    transition: $duration;
     @media (max-width:$sm) {
       padding-top:25%;
       width:100%;
@@ -27,6 +28,7 @@
     }
   }
   .object-text-container{
+    transition: $duration;
     visibility: hidden;
     float:left;
     color:$black;
