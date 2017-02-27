@@ -88,21 +88,32 @@ function lightbox(){
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
-
-  for(var i = 0; i < filterObject.length; i++) {
-
-    filterObject[i].addEventListener('click', (e) => {
-      e.target.classList.add('active');
-      var filter = e.target.dataset.filter;
-      var images = document.querySelectorAll('.content-container');
-      var filteredImages = document.getElementsByClassName(filter);
-      for(var i = 0; i < images.length; i++) {
-        images[i].style.display = "none";
-      }
-      for(var i = 0; i < filteredImages.length; i++) {
-        filteredImages[i].style.display = "flex";
-      }
-    });
+  linkFunctions();
+  function linkFunctions(){
+    for(var i = 0; i < filterObject.length; i++) {
+      filterObject[i].addEventListener('click', (e) => {
+        linkState(e);
+        var filter = e.target.dataset.filter;
+        var images = document.querySelectorAll('.content-container');
+        var filteredImages = document.getElementsByClassName(filter);
+        for(var i = 0; i < images.length; i++) {
+          images[i].style.display = "none";
+        }
+        for(var i = 0; i < filteredImages.length; i++) {
+          filteredImages[i].style.display = "flex";
+        }
+      });
+    }
+  }
+  function linkState(e){
+    for(var i = 0; i < filterObject.length; i++) {
+      if (filterObject[i].classList.contains('active')){
+        filterObject[i].classList.remove('active');
+     }
+      else{
+        e.target.classList.add('active');
+     }
+   }
   }
 }
 
