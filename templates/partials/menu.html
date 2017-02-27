@@ -2,7 +2,7 @@
     <div class="menu-button fixed menu-graphic-container">
       <div class="menu-graphic">
         <div class="menu-links exiloutline" id="llinks">
-          <a class="text-decoration-none " href="/"><div class="menu-text {% if url('/')  === url('item') and !config.projects %} active {% endif %}">work</div></a>
+          <a class="text-decoration-none " href="/"><div class="menu-text {% if config.projects %} active {% endif %}">work</div></a>
           <a class="text-decoration-none " href="/object"><div class="menu-text {% if getCurrentUrl() === url(item) and !config.projects %} active {% endif %}">object</div></a>
           <a class="text-decoration-none " href="/feed"><div class="menu-text {% if getCurrentUrl() === url(item) and !config.projects %} active {% endif %}">feed</div></a>
           <a class="text-decoration-none " href="/contact"><div class="menu-text {% if getCurrentUrl() === url(item) and !config.projects %} active {% endif %}">about</div></a>

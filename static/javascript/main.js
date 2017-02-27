@@ -318,7 +318,7 @@ exports.default = function () {
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      setTimeout(activeLeft, 250);
+      setTimeout(activeLeft, 500);
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
       addBW();
@@ -341,7 +341,7 @@ exports.default = function () {
         toggleObjectFill(false, circle_2);
         setTimeout(removeBW, 500);
       } else {
-        setTimeout(activeRight, 250);
+        setTimeout(activeRight, 500);
         (0, _utils.displayTitle)(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);

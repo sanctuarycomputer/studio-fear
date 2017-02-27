@@ -8,6 +8,8 @@
 %}
 
 {% extends "templates/partials/base.html" %}
+{% set config = {projects: true} %}
+
 {# This sets our page <title>. It will append "- Homepage" to the site title defined in base. #}
 {% block title %}{% parent %} - Homepage{% endblock %}
 {% block content %}
@@ -35,7 +37,7 @@
          <div class="text-container">
            <p class="exil mx-auto center absolute" style="width:{{ item.width_and_height }}%">{{item.name}}</p>
          </div>
-         <img class="image " style="width:100%" src="{{ item.main_image.url }}"/>
+         <img class="image" style="width:100%" src="{{ item.main_image.url }}"/>
        </div>
       </a>
       {% endfor %}
