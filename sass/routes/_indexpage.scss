@@ -1,7 +1,8 @@
 .index-page{
-  max-height:1000px;
+  //max-height:1000px;
   width:100%;
   background-color: transparent;
+  position:relative;
   p{
     color:$black;
   }
@@ -73,6 +74,9 @@
       width: 100vw;
       overflow: visible;
     }
+  }
+  a  {
+    display: block;
   }
   .content-container{
     margin: 0;

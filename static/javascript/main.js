@@ -142,6 +142,7 @@ function filters() {
       } else {
         e.target.classList.add('active');
       }
+      e.target.classList.add('active');
     }
   }
 }
@@ -419,15 +420,15 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
   var rightcol = $(".right-container");
-  var leftcol = $(".left-container");
+  // let leftcol  = $(".left-container");
 
-  leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
-  $(document).scroll(function () {
-    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
-  });
+  // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
+  // $(document).scroll(function() {
+  // 	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
+  // });
 
   var initialRightChildren = rightcol.children();
-  var initialLeftChildren = leftcol.children();
+  // const initialLeftChildren = leftcol.children();
 
   function paginate() {
     var newRightChildren = initialRightChildren.clone();
@@ -436,14 +437,16 @@ exports.default = function () {
     new Waypoint({
       element: newRightChildren[0],
       handler: function handler() {
+        console.log('im new handler');
+
         this.destroy();
         paginate();
       }
     });
 
-    var newLeftChildren = initialLeftChildren.clone();
-    $(newLeftChildren).appendTo(leftcol);
-    leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
+    // let newLeftChildren = initialLeftChildren.clone();
+    // $(newLeftChildren).appendTo(leftcol);
+    // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
   }
 
   new Waypoint({

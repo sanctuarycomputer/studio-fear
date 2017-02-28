@@ -15,18 +15,21 @@
   }
   em{
     font-style: normal;
-    // font-weight: Lighter;
-    // border-bottom: 1px solid #000032;
-    // margin-bottom:1rem;
     line-height: .8em;
     border-bottom: 1px dotted #000032;
     display: inline-block;
     line-height: 0.85;
-
   }
   del{
     font-style: normal;
     weight: Lighter;
-    text-decoration:line-through;
+    text-decoration:none;
+    // color:pink;
+    border-top: 1px solid red;
+    content: "";
+    top:50%;
+    p{
+      color:$black !important;
+    }
   }
 }

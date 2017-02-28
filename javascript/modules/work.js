@@ -1,14 +1,14 @@
 export default () => {
   let rightcol = $(".right-container");
-  let leftcol  = $(".left-container");
+  // let leftcol  = $(".left-container");
 
-  leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
-  $(document).scroll(function() {
-  	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
-  });
+  // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
+  // $(document).scroll(function() {
+  // 	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
+  // });
 
   const initialRightChildren = rightcol.children();
-  const initialLeftChildren = leftcol.children();
+  // const initialLeftChildren = leftcol.children();
 
   function paginate() {
     let newRightChildren = initialRightChildren.clone();
@@ -17,14 +17,16 @@ export default () => {
     new Waypoint({
       element: newRightChildren[0],
       handler: function() {
+        console.log('im new handler')
+
         this.destroy();
         paginate();
       }
     });
 
-    let newLeftChildren = initialLeftChildren.clone();
-    $(newLeftChildren).appendTo(leftcol);
-    leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
+    // let newLeftChildren = initialLeftChildren.clone();
+    // $(newLeftChildren).appendTo(leftcol);
+    // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
   }
 
   new Waypoint({

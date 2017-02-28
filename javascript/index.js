@@ -109,11 +109,12 @@ function filters() {
     for(var i = 0; i < filterObject.length; i++) {
       if (filterObject[i].classList.contains('active')){
         filterObject[i].classList.remove('active');
-     }
+      }
       else{
         e.target.classList.add('active');
-     }
-   }
+      }
+      e.target.classList.add('active');
+    }
   }
 }
 

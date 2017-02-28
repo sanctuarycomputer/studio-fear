@@ -12,10 +12,11 @@
   .profile-pic-gallery{
     z-index: -1;
     pointer-events: auto;
-    width:48%;
+    width:50%;
     height: 100%;
     right:0;
     position: fixed;
+    right:0;
     overflow: scroll;
     padding-bottom: 2rem;
     color:$black;
@@ -30,6 +31,8 @@
       }
     }
     .profile-pic{
+      cursor:pointer;
+      width: 100%;
       @media (max-width:$sm) {
       margin-left:0;
       }
@@ -43,11 +46,18 @@
   }
   .name-text-about{
     margin-left: 2.5rem;
-    width:48%;
+    padding-right: 4rem;
+    width:50%;
     height: 100%;
     float:left;
     position: fixed;
     overflow: scroll;
     z-index: -1;
+  }
+  .about-title{
+    font-style: normal;
+    border-bottom: 1px dotted #000032;
+    display: inline-block;
+    line-height: 0.85;
   }
 }
