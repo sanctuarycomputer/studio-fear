@@ -109,7 +109,7 @@ export default () => {
       setTimeout(activeLeft, 500);
       displayTitle(true);
       toggleObjectFill(true, circle_1)
-      addBW();
+      setTimeout(addBW,250);
       if (menuButtonR){
         toggleObjectFill(false, circle_2)
       }
@@ -133,7 +133,7 @@ export default () => {
         displayTitle(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);
-        addBW();
+        setTimeout(addBW,250);
       }
       menuLinksL.classList.remove('is-active');
     });

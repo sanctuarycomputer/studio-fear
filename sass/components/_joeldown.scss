@@ -21,15 +21,15 @@
     line-height: 0.85;
   }
   del{
-    font-style: normal;
-    weight: Lighter;
-    text-decoration:none;
-    // color:pink;
-    border-top: 1px solid red;
-    content: "";
-    top:50%;
-    p{
-      color:$black !important;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    span {
+      position: absolute;
+      width: 100%;
+      border-top: 1px solid $orange;
+      left: 0;
+      top: 55%;
     }
   }
 }

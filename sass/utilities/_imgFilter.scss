@@ -1,11 +1,9 @@
-
 .bwimage{
-  transition: $duration;
   filter: blur(0px) grayscale(0%);
   opacity: 1;
-  z-index: 0;
   &.black-and-white{
     z-index: -100;
+    transition: $duration;
     filter: blur(5px) grayscale(100%);
     opacity: 0.25;
   }

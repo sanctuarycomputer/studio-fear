@@ -92,44 +92,51 @@ function filters() {
   function linkFunctions(){
     for(var i = 0; i < filterObject.length; i++) {
       filterObject[i].addEventListener('click', (e) => {
-        linkState(e);
+        let clickedItemIsCurrentlyActive = e.target.classList.contains('active');
+        linkState(e.target, clickedItemIsCurrentlyActive);
+
+        let currentlyActiveFilters = $(e.target).parent().children('.active').map((i, e) => e.dataset.filter);
         var filter = e.target.dataset.filter;
         var images = document.querySelectorAll('.content-container');
-        var filteredImages = document.getElementsByClassName(filter);
-        for(var i = 0; i < images.length; i++) {
-          images[i].style.display = "none";
-        }
-        for(var i = 0; i < filteredImages.length; i++) {
-          filteredImages[i].style.display = "flex";
+        for (let i = 0; i < images.length; i++) {
+          let image = images[i];
+          if (currentlyActiveFilters.length === 0) {
+            image.style.display = "flex";
+          } else {
+            let imageConsideredActive = _.some(currentlyActiveFilters, c => image.classList.contains(c));
+            if (imageConsideredActive){
+              image.style.display = "flex";
+            } else {
+              image.style.display = "none";
+            }
+          }
         }
       });
     }
   }
-  function linkState(e){
+  function linkState(clicked, forceOff=false){
     for(var i = 0; i < filterObject.length; i++) {
-      if (filterObject[i].classList.contains('active')){
-        filterObject[i].classList.remove('active');
-      }
-      else{
-        e.target.classList.add('active');
-      }
-      e.target.classList.add('active');
+      filterObject[i].classList.remove('active');
+    }
+    if (!forceOff) {
+      clicked.classList.add('active');
     }
   }
 }
 
 function screenSaver(){
   var s_saver;
+  let timeUntilScreensaverPlays = 100;
   $('body').mousemove(function() {
     clearTimeout(s_saver);
     s_saver = setTimeout(function(){
-      $('#screensaver').css('z-index', '500');
       $('#screensaver').css('display', 'block');
       $('.marquee').marquee({
-        duplicated: true
+        duplicated: true,
+        duration: 5000,
+        delayBeforeStart: 0
       });
-    }, 1200000);
-    $('#screensaver').css('z-index', '-500');
+    }, 12000000);
     $('#screensaver').css('display', 'none');
 
   });

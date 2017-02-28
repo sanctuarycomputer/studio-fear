@@ -122,43 +122,62 @@ function filters() {
   function linkFunctions() {
     for (var i = 0; i < filterObject.length; i++) {
       filterObject[i].addEventListener('click', function (e) {
-        linkState(e);
+        var clickedItemIsCurrentlyActive = e.target.classList.contains('active');
+        linkState(e.target, clickedItemIsCurrentlyActive);
+
+        var currentlyActiveFilters = $(e.target).parent().children('.active').map(function (i, e) {
+          return e.dataset.filter;
+        });
         var filter = e.target.dataset.filter;
         var images = document.querySelectorAll('.content-container');
-        var filteredImages = document.getElementsByClassName(filter);
-        for (var i = 0; i < images.length; i++) {
-          images[i].style.display = "none";
-        }
-        for (var i = 0; i < filteredImages.length; i++) {
-          filteredImages[i].style.display = "flex";
+
+        var _loop = function _loop(_i) {
+          var image = images[_i];
+          if (currentlyActiveFilters.length === 0) {
+            image.style.display = "flex";
+          } else {
+            var imageConsideredActive = _lodash2.default.some(currentlyActiveFilters, function (c) {
+              return image.classList.contains(c);
+            });
+            if (imageConsideredActive) {
+              image.style.display = "flex";
+            } else {
+              image.style.display = "none";
+            }
+          }
+        };
+
+        for (var _i = 0; _i < images.length; _i++) {
+          _loop(_i);
         }
       });
     }
   }
-  function linkState(e) {
+  function linkState(clicked) {
+    var forceOff = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
     for (var i = 0; i < filterObject.length; i++) {
-      if (filterObject[i].classList.contains('active')) {
-        filterObject[i].classList.remove('active');
-      } else {
-        e.target.classList.add('active');
-      }
-      e.target.classList.add('active');
+      filterObject[i].classList.remove('active');
+    }
+    if (!forceOff) {
+      clicked.classList.add('active');
     }
   }
 }
 
 function screenSaver() {
   var s_saver;
+  var timeUntilScreensaverPlays = 100;
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      $('#screensaver').css('z-index', '500');
       $('#screensaver').css('display', 'block');
       $('.marquee').marquee({
-        duplicated: true
+        duplicated: true,
+        duration: 5000,
+        delayBeforeStart: 0
       });
-    }, 1200000);
-    $('#screensaver').css('z-index', '-500');
+    }, 12000000);
     $('#screensaver').css('display', 'none');
   });
 }
@@ -332,7 +351,7 @@ exports.default = function () {
       setTimeout(activeLeft, 500);
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
-      addBW();
+      setTimeout(addBW, 250);
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
@@ -356,7 +375,7 @@ exports.default = function () {
         (0, _utils.displayTitle)(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);
-        addBW();
+        setTimeout(addBW, 250);
       }
       menuLinksL.classList.remove('is-active');
     });
@@ -419,16 +438,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-  var rightcol = $(".right-container");
-  // let leftcol  = $(".left-container");
+  var rightcol = $(".big .right-container");
+  var leftcol = $(".big .left-container");
 
-  // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
-  // $(document).scroll(function() {
-  // 	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
-  // });
+  leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
+  $(document).scroll(function () {
+    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
+  });
 
   var initialRightChildren = rightcol.children();
-  // const initialLeftChildren = leftcol.children();
+  var initialLeftChildren = leftcol.children();
 
   function paginate() {
     var newRightChildren = initialRightChildren.clone();
@@ -444,9 +463,9 @@ exports.default = function () {
       }
     });
 
-    // let newLeftChildren = initialLeftChildren.clone();
-    // $(newLeftChildren).appendTo(leftcol);
-    // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
+    var newLeftChildren = initialLeftChildren.clone();
+    $(newLeftChildren).appendTo(leftcol);
+    leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
   }
 
   new Waypoint({
