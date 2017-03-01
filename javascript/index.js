@@ -131,7 +131,7 @@ function screenSaver(){
     clearTimeout(s_saver);
     s_saver = setTimeout(function(){
       displayMq();
-    }, 120000);
+    }, 60000);
     destroyMq();
   });
 
