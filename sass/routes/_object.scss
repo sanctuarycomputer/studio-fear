@@ -14,7 +14,6 @@
     float:right;
     top:0;
     right:0;
-    width:50%;
     overflow: scroll;
     transition: $duration;
     @media (max-width:$sm) {
@@ -31,14 +30,10 @@
     }
   }
   .object-text-container{
-    transition: $duration;
-    float:left;
     color:$black;
-    position:fixed;
     top: 0;
     left:0;
     margin-left:2.5rem;
-    width:50%;
     pointer-events: none;
     @media (max-width:$sm) {
       z-index:1;
@@ -50,6 +45,7 @@
     }
     .project-info, .title{
       font-size: 2.5em;
+      position: relative;
       @media (max-width:$sm) {
         font-size: 1.5em;
         padding:1rem;

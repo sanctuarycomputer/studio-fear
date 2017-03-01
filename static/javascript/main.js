@@ -79,24 +79,16 @@ var objectScroll = function objectScroll() {
   var text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
   var handlerTop = function handlerTop(i, data, direction) {
-    console.log(data.title);
-    // $(textContainers).css("visibility", "hidden");
+    // title.innerHTML = data.title;
+    // text.innerHTML = data.text;
+    // titleMobile.innerHTML = data.text;
     if (direction === "down") {
-      // $(textContainers[i]).css("visibility", "visible");
       title.innerHTML = data.title;
       text.innerHTML = data.text;
       titleMobile.innerHTML = data.text;
-    } else {
-      // if (i === 0) {
-      //   $(textContainers[i]).css("visibility", "visible");
-      // } else {
-      //   $(textContainers[i-1]).css("visibility", "visible");
-      //   $(textContainers[i]).css("visibility", "hidden");
-      // }
     }
   };
   _lodash2.default.forEach(tops, function (element, i) {
-    //console.log(element)
     new Waypoint({
       element: element,
       handler: handlerTop.bind(undefined, i, element.dataset),
@@ -172,19 +164,27 @@ function filters() {
 }
 
 function screenSaver() {
-  var s_saver;
-  var timeUntilScreensaverPlays = 100;
+  var s_saver = void 0;
+  var $mq = $('.marquee');
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      $('#screensaver').css('display', 'block');
-      $('.marquee').marquee({
-        duplicated: true,
-        delayBeforeStart: 0
-      });
-    }, 12000000);
-    $('#screensaver').css('display', 'none');
+      displayMq();
+    }, 1200000);
+    destroyMq();
   });
+
+  function destroyMq() {
+    $mq.marquee('destroy');
+    $('#screensaver').css('display', 'none');
+  }
+  function displayMq() {
+    $('#screensaver').css('display', 'block');
+    $('.marquee').marquee({
+      duplicated: true,
+      delayBeforeStart: 0
+    });
+  }
 }
 
 },{"./modules/feed":2,"./modules/menu":3,"./modules/utils":4,"./modules/work":5,"./views/feed/Feed":6,"lodash":35,"react":189,"react-dom":38}],2:[function(require,module,exports){
@@ -461,8 +461,6 @@ exports.default = function () {
     new Waypoint({
       element: newRightChildren[0],
       handler: function handler() {
-        console.log('im new handler');
-
         this.destroy();
         paginate();
       }

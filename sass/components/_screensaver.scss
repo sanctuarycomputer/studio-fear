@@ -4,6 +4,7 @@
  transition: $duration;
  height:150%;
  top:-50px;
+ background-color: black;
  display:none;
  @media (max-width:$sm) {
    width:200%;
@@ -11,9 +12,10 @@
  .marquee {
   overflow: hidden;
   position:relative;
+  width:100%;
   background-color: black;
   color:$orange;
-  font-size: 100px;
-  line-height: 7rem;
+  font-size: 150px;
+  line-height: 9rem;
   }
 }

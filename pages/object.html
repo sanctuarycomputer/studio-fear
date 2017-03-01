@@ -19,8 +19,9 @@
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
 <div class="object-page bwimage mt3 joeldown">
-    <div class="col col-12">
-      <div class="object-text-container  absolute right-0 pt2">
+  <div class='col col-12'>
+    <div class='col col-6 fixed'>
+      <div class="object-text-container relative pt2">
         <div class="title millerbannerlight xs-hide mb2 mt2" id="static-title">
           {{ cms.object.grid[0].title }}
         </div>
@@ -33,18 +34,20 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class='col-6 right'>
       {% for row in cms.object.grid %}
-      <div class="col col-12">
-      <div class="object-gallery right pt2" data-text='{{row.text|markdown}}'  data-title='{{row.title}}'>
-        {% for image in row.gallery %}
-          <img class="object-image project-images my2 mx-auto block fit" src="{{ image | imageSize(800, 'auto')}}">
-        {% endfor %}
-        <div class="gallery-bottom" ></div>
+      <div class="col-12">
+        <div class="object-gallery pt2" data-text='{{row.text|markdown}}'  data-title='{{row.title}}'>
+          {% for image in row.gallery %}
+            <img class="object-image project-images my2 mx-auto block fit" src="{{ image | imageSize(800, 'auto')}}">
+          {% endfor %}
+          <div class="gallery-bottom" ></div>
+        </div>
       </div>
-    </div>
       {% endfor %}
-
     </div>
+  </div>
 </div>
 
 {% include "templates/partials/menu.html" with config %}

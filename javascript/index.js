@@ -51,25 +51,16 @@ const objectScroll = () => {
   let text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
   let handlerTop = (i, data, direction) => {
-    console.log(data.title)
-    // $(textContainers).css("visibility", "hidden");
+    // title.innerHTML = data.title;
+    // text.innerHTML = data.text;
+    // titleMobile.innerHTML = data.text;
     if (direction === "down") {
-      // $(textContainers[i]).css("visibility", "visible");
       title.innerHTML = data.title;
       text.innerHTML = data.text;
       titleMobile.innerHTML = data.text;
-
-    } else {
-      // if (i === 0) {
-      //   $(textContainers[i]).css("visibility", "visible");
-      // } else {
-      //   $(textContainers[i-1]).css("visibility", "visible");
-      //   $(textContainers[i]).css("visibility", "hidden");
-      // }
     }
   };
   _.forEach(tops, (element, i) => {
-    //console.log(element)
     new Waypoint({
       element: element,
       handler: handlerTop.bind(this, i, element.dataset),
@@ -134,19 +125,25 @@ function filters() {
 }
 
 function screenSaver(){
-  var s_saver;
-  let timeUntilScreensaverPlays = 100;
+  let s_saver;
+  let $mq = $('.marquee');
   $('body').mousemove(function() {
     clearTimeout(s_saver);
     s_saver = setTimeout(function(){
-      $('#screensaver').css('display', 'block');
-      $('.marquee').marquee({
-        duplicated: true,
-        delayBeforeStart: 0
-      });
-    }, 12000000);
-    $('#screensaver').css('display', 'none');
-
+      displayMq();
+    }, 120000);
+    destroyMq();
   });
 
+  function destroyMq() {
+    $mq.marquee('destroy');
+    $('#screensaver').css('display', 'none');
+  }
+  function displayMq() {
+    $('#screensaver').css('display', 'block');
+    $('.marquee').marquee({
+      duplicated: true,
+      delayBeforeStart: 0
+    });
+  }
 }

@@ -17,8 +17,6 @@ export default () => {
     new Waypoint({
       element: newRightChildren[0],
       handler: function() {
-        console.log('im new handler')
-
         this.destroy();
         paginate();
       }
