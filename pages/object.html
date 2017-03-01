@@ -19,29 +19,32 @@
 {% set config = {hideFilter: true, gallery: cms.feed.grid, hero: cms.feed.grid[0].image.url } %}
 
 <div class="object-page bwimage mt3 joeldown">
-  {% for row in cms.object.grid %}
     <div class="col col-12">
       <div class="object-text-container  absolute right-0 pt2">
-        <div class="title millerbannerlight xs-hide mb2 mt2">
-          {{ row.title }}
+        <div class="title millerbannerlight xs-hide mb2 mt2" id="static-title">
+          {{ cms.object.grid[0].title }}
         </div>
         <div class="project-info millerbannerlight">
-          <div class="mb1 sm-hide md-hide lg-hide ">
-            {{ row.title }}
+          <div class="mb1 sm-hide md-hide lg-hide" id="static-title-mobile">
+            {{ cms.object.grid[0].title }}
           </div>
-          <div class="markdowndiv">
-            {{ row.text|markdown }}
+          <div class="markdowndiv" id="static-text">
+            {{ cms.object.grid[0].text|markdown }}
           </div>
         </div>
       </div>
-      <div class="object-gallery  right pt2">
+      {% for row in cms.object.grid %}
+      <div class="col col-12">
+      <div class="object-gallery right pt2" data-text='{{row.text|markdown}}'  data-title='{{row.title}}'>
         {% for image in row.gallery %}
           <img class="object-image project-images my2 mx-auto block fit" src="{{ image | imageSize(800, 'auto')}}">
         {% endfor %}
-        <div class="gallery-bottom"></div>
+        <div class="gallery-bottom" ></div>
       </div>
     </div>
-  {% endfor %}
+      {% endfor %}
+
+    </div>
 </div>
 
 {% include "templates/partials/menu.html" with config %}

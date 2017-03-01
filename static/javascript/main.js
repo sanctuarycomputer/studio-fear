@@ -70,34 +70,40 @@ var reactFeedInitialize = function reactFeedInitialize() {
   }
 };
 
-function objectScroll() {
-  var _this = this;
-
+var objectScroll = function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
+  var title = document.getElementById('static-title');
+  var titleMobile = document.getElementById('static-title-mobile');
+  var text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
-  var handlerTop = function handlerTop(i, direction) {
-    $(textContainers).css("visibility", "hidden");
+  var handlerTop = function handlerTop(i, data, direction) {
+    console.log(data.title);
+    // $(textContainers).css("visibility", "hidden");
     if (direction === "down") {
-      $(textContainers[i]).css("visibility", "visible");
+      // $(textContainers[i]).css("visibility", "visible");
+      title.innerHTML = data.title;
+      text.innerHTML = data.text;
+      titleMobile.innerHTML = data.text;
     } else {
-      if (i === 0) {
-        $(textContainers[i]).css("visibility", "visible");
-      } else {
-        $(textContainers[i - 1]).css("visibility", "visible");
-        $(textContainers[i]).css("visibility", "hidden");
-      }
+      // if (i === 0) {
+      //   $(textContainers[i]).css("visibility", "visible");
+      // } else {
+      //   $(textContainers[i-1]).css("visibility", "visible");
+      //   $(textContainers[i]).css("visibility", "hidden");
+      // }
     }
   };
   _lodash2.default.forEach(tops, function (element, i) {
+    //console.log(element)
     new Waypoint({
       element: element,
-      handler: handlerTop.bind(_this, i),
+      handler: handlerTop.bind(undefined, i, element.dataset),
       group: 'gallery tops'
     });
   });
-}
+};
 
 function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
@@ -174,7 +180,6 @@ function screenSaver() {
       $('#screensaver').css('display', 'block');
       $('.marquee').marquee({
         duplicated: true,
-        duration: 5000,
         delayBeforeStart: 0
       });
     }, 12000000);

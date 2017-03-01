@@ -27,9 +27,14 @@
     span {
       position: absolute;
       width: 100%;
-      border-top: 1px solid $orange;
+      border-top: 1px solid $black;
       left: 0;
       top: 55%;
+    }
+    &:hover{
+      span {
+        border-top: 0px solid transparent;
+      }
     }
   }
 }

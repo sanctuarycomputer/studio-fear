@@ -42,28 +42,37 @@ const reactFeedInitialize = () => {
   }
 };
 
-function objectScroll() {
+const objectScroll = () => {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
+  let title = document.getElementById('static-title');
+  let titleMobile = document.getElementById('static-title-mobile');
+  let text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
-  let handlerTop = (i, direction) => {
-    $(textContainers).css("visibility", "hidden");
+  let handlerTop = (i, data, direction) => {
+    console.log(data.title)
+    // $(textContainers).css("visibility", "hidden");
     if (direction === "down") {
-      $(textContainers[i]).css("visibility", "visible");
+      // $(textContainers[i]).css("visibility", "visible");
+      title.innerHTML = data.title;
+      text.innerHTML = data.text;
+      titleMobile.innerHTML = data.text;
+
     } else {
-      if (i === 0) {
-        $(textContainers[i]).css("visibility", "visible");
-      } else {
-        $(textContainers[i-1]).css("visibility", "visible");
-        $(textContainers[i]).css("visibility", "hidden");
-      }
+      // if (i === 0) {
+      //   $(textContainers[i]).css("visibility", "visible");
+      // } else {
+      //   $(textContainers[i-1]).css("visibility", "visible");
+      //   $(textContainers[i]).css("visibility", "hidden");
+      // }
     }
   };
   _.forEach(tops, (element, i) => {
+    //console.log(element)
     new Waypoint({
       element: element,
-      handler: handlerTop.bind(this, i),
+      handler: handlerTop.bind(this, i, element.dataset),
       group: 'gallery tops',
     });
   });
@@ -133,7 +142,6 @@ function screenSaver(){
       $('#screensaver').css('display', 'block');
       $('.marquee').marquee({
         duplicated: true,
-        duration: 5000,
         delayBeforeStart: 0
       });
     }, 12000000);
