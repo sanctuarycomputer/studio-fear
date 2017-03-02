@@ -317,7 +317,19 @@ function addBW() {
     bwImages[i].classList.add('black-and-white');
   }
 }
+function removeOpacity() {
+  var bwImages = document.querySelectorAll(".bwimage");
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.remove('opacity');
+  }
+}
 
+function addOpacity() {
+  var bwImages = document.querySelectorAll(".bwimage");
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.add('opacity');
+  }
+}
 function scrollRotate() {
   $(document).scroll(function () {
     var divideNumber = Math.PI * 100;
@@ -358,16 +370,18 @@ exports.default = function () {
       setTimeout(notActiveLeft, 0);
       (0, _utils.displayTitle)(false);
       toggleObjectFill(false, circle_1);
-      setTimeout(removeBW, 500);
+      setTimeout(removeBW, 400);
+      removeOpacity();
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      setTimeout(activeLeft, 500);
+      setTimeout(activeLeft, 300);
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
-      setTimeout(addBW, 0);
+      addBW();
+      addOpacity();
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
@@ -385,13 +399,15 @@ exports.default = function () {
         (0, _utils.displayTitle)(false);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(false, circle_2);
-        setTimeout(removeBW, 500);
+        setTimeout(removeBW, 400);
+        removeOpacity();
       } else {
         setTimeout(activeRight, 500);
         (0, _utils.displayTitle)(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);
-        setTimeout(addBW, 0);
+        addBW();
+        setTimeout(addOpacity, 600);
       }
       menuLinksL.classList.remove('is-active');
     });
