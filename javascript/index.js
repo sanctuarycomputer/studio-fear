@@ -12,7 +12,7 @@ window.onload = function() {
 }
 
 $(document).ready(function (){
-  document.getElementById('lightbox') && lightbox();
+  document.getElementById('projects') && lightbox();
   menu();
 
   const isHomepage = location.pathname === "/";
@@ -27,7 +27,7 @@ $(document).ready(function (){
   filters();
   feedScroll();
   preloadImages();
-  screenSaver();
+  //screenSaver();
   reactFeedInitialize();
 
   /* Setup Left Nav Links */
@@ -69,21 +69,34 @@ const objectScroll = () => {
   });
 }
 
+function handleExit() {
+  const feedElement = document.getElementById('react-project');
+  document.getElementById('projects').style.display = 'flex';
+  ReactDOM.unmountComponentAtNode(feedElement);
+}
+
 function lightbox(){
   var projectpics = document.getElementsByClassName('project-images');
   var i;
-  var lightbox = document.getElementById('lightbox');
-  var lightboxExit = document.getElementById('exit');
+  let hero = document.querySelector('.feed-hero-image')
   for(var i = 0; i < projectpics.length; i++) {
-    projectpics[i].addEventListener("click", function (){
-      lightbox.style.opacity = 1;
-      lightbox.style.zIndex = 10;
+    projectpics[i].addEventListener("click", function (e){
+      const feedElement = document.getElementById('react-project');
+      const image = JSON.parse(e.target.dataset.image);
+
+      if (feedElement) {
+        document.getElementById('projects').style.display = 'none';
+        ReactDOM.render(
+          <Feed
+            images={JSON.parse(feedElement.dataset.images)}
+            index={false}
+            defaultImage={image}
+            onExit={handleExit}
+          />,
+        feedElement);
+      }
     });
   }
-  lightboxExit.addEventListener("click", function (){
-    lightbox.style.opacity = 0;
-    lightbox.style.zIndex = -10;
-  });
 }
 
 function filters() {
