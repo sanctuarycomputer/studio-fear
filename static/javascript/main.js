@@ -44,11 +44,10 @@ $(document).ready(function () {
   var isHomepage = location.pathname === "/";
   if (isHomepage) {
     setTimeout(function () {
-      return scrollTo(0, 0);
-    }, 100);
-    $('.title').removeClass('is-active');
-    // pageScroll();
-    (0, _work2.default)();
+      scrollTo(0, 0);
+      $('body').css({ overflow: 'hidden' });
+      $('.index-page').waitForImages(_work2.default);
+    }, 10);
   }
 
   objectScroll();
@@ -470,13 +469,28 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-  var rightcol = $(".big .right-container");
-  var leftcol = $(".big .left-container");
+  var rightcol = $(".double-columns.big .right-container");
+  var leftcol = $(".double-columns.big .left-container");
 
   leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
-  $(document).scroll(function () {
-    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
-  });
+
+  $('.title').removeClass('is-active');
+
+  var scroll = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame ||
+  // IE Fallback, you can even fallback to onscroll
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+  function loop() {
+    leftcol.css('transform', 'translateY(' + $(document).scrollTop() * 1 + 'px) translateZ(0)');
+    scroll(loop);
+  }
+  loop();
+
+  rightcol.removeClass('is-loading');
+  leftcol.removeClass('is-loading');
+  $('body').css({ overflow: 'auto' });
 
   var initialRightChildren = rightcol.children();
   var initialLeftChildren = leftcol.children();
@@ -8872,8 +8886,15 @@ module.exports = warning;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],36:[function(require,module,exports){
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
 'use strict';
 /* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -8894,7 +8915,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -8923,7 +8944,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (e) {
+	} catch (err) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -8943,8 +8964,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];
