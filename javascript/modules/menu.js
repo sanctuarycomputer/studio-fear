@@ -36,15 +36,15 @@ if (menuButtonR) {
   crns = 35;
   cxyns = 50;
   circle_2 = n.circle(cxyns,cxyns, crns);
-  rightLine = n.line(10,2,120,90);
+  rightLine = n.line(15,7,120,90);
   right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
   n.mouseover(() => {
     circle_2.animate({ r: 38 }, duration);
-    rightLine.animate({ x1: 90, y1: 65, x2: 200, y2: 155}, duration);
+    rightLine.animate({ x1: 95, y1: 70, x2: 200, y2: 155}, duration);
   });
   n.mouseout(() => {
     circle_2.animate({ r: crns }, duration);
-    rightLine.animate({ x1: 10, y1: 2, x2: 120, y2: 90 }, duration);
+    rightLine.animate({ x1: 15, y1: 7, x2: 120, y2: 90 }, duration);
   });
 }
 
@@ -62,7 +62,19 @@ function addBW() {
     bwImages[i].classList.add('black-and-white');
   }
 }
+function removeOpacity() {
+  let bwImages = document.querySelectorAll(".bwimage");
+  for(var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.remove('opacity');
+  }
+}
 
+function addOpacity() {
+  let bwImages = document.querySelectorAll(".bwimage");
+  for(var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.add('opacity');
+  }
+}
 function scrollRotate() {
   $(document).scroll(function() {
     var divideNumber = Math.PI * 100;
@@ -100,16 +112,18 @@ export default () => {
       setTimeout(notActiveLeft, 0);
       displayTitle(false);
       toggleObjectFill(false, circle_1)
-      setTimeout(removeBW, 500);
+      setTimeout(removeBW,400);
+      removeOpacity();
       if (menuButtonR){
         toggleObjectFill(false, circle_2)
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      setTimeout(activeLeft, 500);
+      setTimeout(activeLeft, 300);
       displayTitle(true);
       toggleObjectFill(true, circle_1)
       addBW();
+      addOpacity();
       if (menuButtonR){
         toggleObjectFill(false, circle_2)
       }
@@ -127,13 +141,17 @@ export default () => {
         displayTitle(false);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(false, circle_2);
-        setTimeout(removeBW, 500);
+        setTimeout(removeBW,400);
+        removeOpacity();
+
       } else {
         setTimeout(activeRight, 500);
         displayTitle(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);
         addBW();
+        setTimeout(addOpacity, 600);
+
       }
       menuLinksL.classList.remove('is-active');
     });

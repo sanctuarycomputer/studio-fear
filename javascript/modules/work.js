@@ -1,6 +1,6 @@
 export default () => {
-  let rightcol = $(".double-columns .right-container");
-  let leftcol  = $(".double-columns .left-container");
+  let rightcol = $(".double-columns.big .right-container");
+  let leftcol  = $(".double-columns.big .left-container");
 
   leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
   $(document).scroll(function() {
