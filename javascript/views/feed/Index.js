@@ -17,7 +17,7 @@ export default class Index extends Component {
   render() {
     return (
       <div className='feed-index'>
-        <div className='px2 mt3'>
+        <div className='px2 flex data-container'>
           {this.renderLinks(this.props.images)}
         </div>
       </div>

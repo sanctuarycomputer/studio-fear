@@ -8,33 +8,35 @@
 {% extends "templates/partials/base.html" %}
 {% block title %}{% parent %} - {{ item.name }}{% endblock %}
 {% block content %}
-{% set config = {hideFilter: true, gallery: item.projectgallery, hero: item.projectgallery[0].image.url} %}
-{% include "templates/partials/exit-button.html" %}
-<div class="projects-page flex" id="projects">
-  <div class="project-info xs-hide pt3">
-    <div class="project-title">
-      <p class= "millerbannerroman"> {{ item.name }}</p>
+{% set config = {hideFilter: true, gallery: item.projectgallery ,hero: item.projectgallery, projects: true} %}
+<div class="projects-page bwimage flex pt1" id="projects">
+<a class="xs-hide" href="/">{% include "templates/partials/exit-button.html" %}</a>
+  <div class="project-info xs-hide">
+    <div class="millerbannerlight">
+      <p class= "project-title joeldown pt1"> {{ item.name }}</p>
     </div>
-    <div class="project-text">
+    <div class="project-text joeldown millerbannerlight ">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
   <div class="image-gallery">
-    <p class= "center millerbannerroman pt2 mb2 mt4 sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    <div class="title-container-mobile">
+      <p class= "project-title center mb3 mt4 millerbannerlight sm-hide md-hide lg-hide"> {{ item.name }}</p>
+    </div>
     {% for row in item.projectgallery %}
-      <img class="project-images bwimage" src="{{ row.image.url }}" />
+      <img class="project-images" src="{{ row.image.url }}" data-image='{{row  | json}}'/>
     {% endfor %}
-    <div class="project-text pt2 sm-hide md-hide lg-hide pb2">
+    <div class="project-text pt2 millerbannerlight joeldown sm-hide md-hide lg-hide pb2">
       {{ item.markdown_text|markdown }}
     </div>
   </div>
 </div>
-
-<a href="/">{% include "templates/partials/exit-button.html" %}</a>
+<div id='react-project' data-images='{{ item.projectgallery | json }}'></div>
+<!-- <a class="xs-hide" href="/">{% include "templates/partials/exit-button.html" %}</a>
 <div class="feed" id="lightbox">
   <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" %}</div>
   {% include "templates/partials/feed-gallery.html" with config %}
-</div>
+</div> -->
 
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/screensaver.html" %}

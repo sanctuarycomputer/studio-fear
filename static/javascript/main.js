@@ -38,7 +38,7 @@ window.onload = function () {
 };
 
 $(document).ready(function () {
-  document.getElementById('lightbox') && lightbox();
+  document.getElementById('projects') && lightbox();
   (0, _menu2.default)();
 
   var isHomepage = location.pathname === "/";
@@ -47,7 +47,7 @@ $(document).ready(function () {
       return scrollTo(0, 0);
     }, 100);
     $('.title').removeClass('is-active');
-    //pageScroll();
+    // pageScroll();
     (0, _work2.default)();
   }
 
@@ -55,7 +55,7 @@ $(document).ready(function () {
   filters();
   (0, _feed.feedScroll)();
   (0, _utils.preloadImages)();
-  screenSaver();
+  //screenSaver();
   reactFeedInitialize();
 
   /* Setup Left Nav Links */
@@ -70,80 +70,132 @@ var reactFeedInitialize = function reactFeedInitialize() {
   }
 };
 
-function objectScroll() {
-  var _this = this;
-
+var objectScroll = function objectScroll() {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
+  var title = document.getElementById('static-title');
+  var titleMobile = document.getElementById('static-title-mobile');
+  var text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
-  var handlerTop = function handlerTop(i, direction) {
-    $(textContainers).css("visibility", "hidden");
+  var handlerTop = function handlerTop(i, data, direction) {
+    // title.innerHTML = data.title;
+    // text.innerHTML = data.text;
+    // titleMobile.innerHTML = data.text;
     if (direction === "down") {
-      $(textContainers[i]).css("visibility", "visible");
-    } else {
-      if (i === 0) {
-        $(textContainers[i]).css("visibility", "visible");
-      } else {
-        $(textContainers[i - 1]).css("visibility", "visible");
-        $(textContainers[i]).css("visibility", "hidden");
-      }
+      title.innerHTML = data.title;
+      text.innerHTML = data.text;
+      titleMobile.innerHTML = data.text;
     }
   };
   _lodash2.default.forEach(tops, function (element, i) {
     new Waypoint({
       element: element,
-      handler: handlerTop.bind(_this, i),
+      handler: handlerTop.bind(undefined, i, element.dataset),
       group: 'gallery tops'
     });
   });
+};
+
+function handleExit() {
+  var feedElement = document.getElementById('react-project');
+  document.getElementById('projects').style.display = 'flex';
+  _reactDom2.default.unmountComponentAtNode(feedElement);
 }
 
 function lightbox() {
   var projectpics = document.getElementsByClassName('project-images');
   var i;
-  var lightbox = document.getElementById('lightbox');
-  var lightboxExit = document.getElementById('exit');
+  var hero = document.querySelector('.feed-hero-image');
   for (var i = 0; i < projectpics.length; i++) {
-    projectpics[i].addEventListener("click", function () {
-      lightbox.style.opacity = 1;
-      lightbox.style.zIndex = 10;
+    projectpics[i].addEventListener("click", function (e) {
+      var feedElement = document.getElementById('react-project');
+      var image = JSON.parse(e.target.dataset.image);
+
+      if (feedElement) {
+        document.getElementById('projects').style.display = 'none';
+        _reactDom2.default.render(_react2.default.createElement(_Feed2.default, {
+          images: JSON.parse(feedElement.dataset.images),
+          index: false,
+          defaultImage: image,
+          onExit: handleExit
+        }), feedElement);
+      }
     });
   }
-  lightboxExit.addEventListener("click", function () {
-    lightbox.style.opacity = 0;
-    lightbox.style.zIndex = -10;
-  });
 }
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
-  for (var i = 0; i < filterObject.length; i++) {
-    filterObject[i].addEventListener('click', function (e) {
-      var filter = e.target.dataset.filter;
-      var images = document.querySelectorAll('.image');
-      var filteredImages = document.getElementsByClassName(filter);
-      for (var i = 0; i < images.length; i++) {
-        images[i].style.display = "none";
-      }
-      for (var i = 0; i < filteredImages.length; i++) {
-        filteredImages[i].style.display = "flex";
-      }
-    });
+  linkFunctions();
+  function linkFunctions() {
+    for (var i = 0; i < filterObject.length; i++) {
+      filterObject[i].addEventListener('click', function (e) {
+        var clickedItemIsCurrentlyActive = e.target.classList.contains('active');
+        linkState(e.target, clickedItemIsCurrentlyActive);
+
+        var currentlyActiveFilters = $(e.target).parent().children('.active').map(function (i, e) {
+          return e.dataset.filter;
+        });
+        var filter = e.target.dataset.filter;
+        var images = document.querySelectorAll('.content-container');
+
+        var _loop = function _loop(_i) {
+          var image = images[_i];
+          if (currentlyActiveFilters.length === 0) {
+            image.style.display = "flex";
+          } else {
+            var imageConsideredActive = _lodash2.default.some(currentlyActiveFilters, function (c) {
+              return image.classList.contains(c);
+            });
+            if (imageConsideredActive) {
+              image.style.display = "flex";
+            } else {
+              image.style.display = "none";
+            }
+          }
+        };
+
+        for (var _i = 0; _i < images.length; _i++) {
+          _loop(_i);
+        }
+      });
+    }
+  }
+  function linkState(clicked) {
+    var forceOff = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    for (var i = 0; i < filterObject.length; i++) {
+      filterObject[i].classList.remove('active');
+    }
+    if (!forceOff) {
+      clicked.classList.add('active');
+    }
   }
 }
 
 function screenSaver() {
-  var s_saver;
+  var s_saver = void 0;
+  var $mq = $('.marquee');
   $('body').mousemove(function () {
     clearTimeout(s_saver);
     s_saver = setTimeout(function () {
-      $('#screensaver').css('opacity', '1');
-      $('#screensaver').css('z-index', '100');
-    }, 120000);
-    $('#screensaver').css('opacity', '0');
-    $('#screensaver').css('z-index', '-100');
+      displayMq();
+    }, 60000);
+    destroyMq();
   });
+
+  function destroyMq() {
+    $mq.marquee('destroy');
+    $('#screensaver').css('display', 'none');
+  }
+  function displayMq() {
+    $('#screensaver').css('display', 'block');
+    $('.marquee').marquee({
+      duplicated: true,
+      delayBeforeStart: 0
+    });
+  }
 }
 
 },{"./modules/feed":2,"./modules/menu":3,"./modules/utils":4,"./modules/work":5,"./views/feed/Feed":6,"lodash":35,"react":189,"react-dom":38}],2:[function(require,module,exports){
@@ -208,8 +260,8 @@ var menuLinksL = document.getElementById('llinks');
 var menuButtonR = document.getElementById('rbutt');
 var menuLinksR = document.getElementById('rlinks');
 var exitButt = document.querySelector(".exit-button-filter");
-var FILL = "#121212";
-var duration = 200;
+var FILL = "#282828";
+var duration = 100;
 
 /* Left Menu Snap Setup */
 var s = Snap('#svg');
@@ -219,7 +271,7 @@ var cxyss = 75;
 var circle_1 = s.circle(cxyss, cxyss, crss);
 var bigLine = s.line(135, 95, 77, 64);
 var smallLine = s.line(45, 135, 65, 102);
-var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+var left = s.group(circle_1, bigLine, smallLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
 s.mouseover(function () {
   smallLine.animate({ x1: 0, y1: 120, x2: 33, y2: 131 }, duration);
   circle_1.animate({ r: crsf }, duration);
@@ -239,13 +291,15 @@ if (menuButtonR) {
   crns = 35;
   cxyns = 50;
   circle_2 = n.circle(cxyns, cxyns, crns);
-  rightLine = n.line(10, 2, 120, 90);
-  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 3 });
+  rightLine = n.line(15, 7, 120, 90);
+  right = n.group(circle_2, rightLine).attr({ fill: "white", stroke: FILL, strokeWidth: 2 });
   n.mouseover(function () {
-    rightLine.animate({ x1: 90, y1: 80, x2: 200, y2: 170 }, duration);
+    circle_2.animate({ r: 38 }, duration);
+    rightLine.animate({ x1: 95, y1: 70, x2: 200, y2: 155 }, duration);
   });
   n.mouseout(function () {
-    rightLine.animate({ x1: 10, y1: 2, x2: 120, y2: 90 }, duration);
+    circle_2.animate({ r: crns }, duration);
+    rightLine.animate({ x1: 15, y1: 7, x2: 120, y2: 90 }, duration);
   });
 }
 
@@ -263,7 +317,19 @@ function addBW() {
     bwImages[i].classList.add('black-and-white');
   }
 }
+function removeOpacity() {
+  var bwImages = document.querySelectorAll(".bwimage");
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.remove('opacity');
+  }
+}
 
+function addOpacity() {
+  var bwImages = document.querySelectorAll(".bwimage");
+  for (var i = 0; i < bwImages.length; i++) {
+    bwImages[i].classList.add('opacity');
+  }
+}
 function scrollRotate() {
   $(document).scroll(function () {
     var divideNumber = Math.PI * 100;
@@ -283,25 +349,39 @@ function toggleObjectFill() {
     obj.attr({ fill: "white" }, duration);
   }
 }
+function activeLeft() {
+  menuLinksL.classList.add('is-active');
+}
+function notActiveLeft() {
+  menuLinksL.classList.remove('is-active');
+}
+function activeRight() {
+  menuLinksR.classList.add('is-active');
+}
+function notActiveRight() {
+  menuLinksR.classList.remove('is-active');
+}
 
 exports.default = function () {
   /* Setup MenuButtonL */
   menuButtonL.addEventListener('click', function () {
     if (menuLinksL.classList.contains('is-active')) {
       $('.fade-when-menu-active').removeClass('menu-active');
-      menuLinksL.classList.remove('is-active');
+      setTimeout(notActiveLeft, 0);
       (0, _utils.displayTitle)(false);
       toggleObjectFill(false, circle_1);
-      removeBW();
+      setTimeout(removeBW, 400);
+      removeOpacity();
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
     } else {
       $('.fade-when-menu-active').addClass('menu-active');
-      menuLinksL.classList.add('is-active');
+      setTimeout(activeLeft, 300);
       (0, _utils.displayTitle)(true);
       toggleObjectFill(true, circle_1);
       addBW();
+      addOpacity();
       if (menuButtonR) {
         toggleObjectFill(false, circle_2);
       }
@@ -315,22 +395,23 @@ exports.default = function () {
   if (menuButtonR) {
     menuButtonR.addEventListener('click', function () {
       if (menuLinksR.classList.contains('is-active')) {
-        menuLinksR.classList.remove('is-active');
+        setTimeout(notActiveRight, 0);
         (0, _utils.displayTitle)(false);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(false, circle_2);
-        removeBW();
+        setTimeout(removeBW, 400);
+        removeOpacity();
       } else {
-        menuLinksR.classList.add('is-active');
+        setTimeout(activeRight, 500);
         (0, _utils.displayTitle)(true);
         toggleObjectFill(false, circle_1);
         toggleObjectFill(true, circle_2);
         addBW();
+        setTimeout(addOpacity, 600);
       }
       menuLinksL.classList.remove('is-active');
     });
   }
-
   scrollRotate();
 
   /* If the exit button is on this page, set it up here too */
@@ -389,8 +470,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-  var rightcol = $(".right-container");
-  var leftcol = $(".left-container");
+  var rightcol = $(".big .right-container");
+  var leftcol = $(".big .left-container");
 
   leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
   $(document).scroll(function () {
@@ -465,13 +546,14 @@ var Feed = function (_Component) {
 
     _this.state = {
       // seed image
-      activeImage: props.images[0],
+      activeImage: props.defaultImage ? props.defaultImage : props.images[0],
       indexVisible: false
     };
 
     _this.handleExit = _this.handleExit.bind(_this);
     _this.handleShowIndex = _this.handleShowIndex.bind(_this);
     _this.handleChangeImage = _this.handleChangeImage.bind(_this);
+    _this.handleCallback = _this.handleCallback.bind(_this);
     return _this;
   }
 
@@ -491,26 +573,51 @@ var Feed = function (_Component) {
       this.setState({ activeImage: image, indexVisible: false });
     }
   }, {
+    key: 'handleCallback',
+    value: function handleCallback(useIndex, indexIsActive) {
+      if (useIndex) {
+        indexIsActive ? this.handleExit() : this.handleShowIndex();
+      } else {
+        this.props.onExit();
+      }
+    }
+  }, {
+    key: '_renderCopy',
+    value: function _renderCopy(useIndex, indexIsActive) {
+      var copy = 'EXIT';
+      if (useIndex) {
+        copy = indexIsActive ? 'IMAGES' : 'INDEX';
+      }
+      return copy;
+    }
+  }, {
+    key: '_renderButton',
+    value: function _renderButton(useIndex, indexIsActive) {
+      return _react2.default.createElement(
+        'div',
+        {
+          className: 'index-button exit-button h6 exil pt1 px2',
+          style: { zIndex: 99 },
+          onClick: this.handleCallback.bind(this, useIndex, indexIsActive)
+        },
+        this._renderCopy(useIndex, indexIsActive)
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _state = this.state,
           activeImage = _state.activeImage,
           indexVisible = _state.indexVisible;
-      var images = this.props.images;
-
+      var _props = this.props,
+          defaultImage = _props.defaultImage,
+          images = _props.images,
+          index = _props.index;
 
       return _react2.default.createElement(
         'div',
         { className: 'feed feed-page fade-when-menu-active' },
-        _react2.default.createElement(
-          'div',
-          {
-            className: 'index-button exit-button h6 exil pt1 px2',
-            style: { zIndex: 99 },
-            onClick: indexVisible ? this.handleExit : this.handleShowIndex
-          },
-          indexVisible ? 'IMAGES' : 'INDEX'
-        ),
+        this._renderButton(index, indexVisible),
         indexVisible ? _react2.default.createElement(_Index2.default, { images: images, handleChangeImage: this.handleChangeImage }) : _react2.default.createElement(_Gallery2.default, { images: images, hero: activeImage, handleChangeImage: this.handleChangeImage })
       );
     }
@@ -518,6 +625,14 @@ var Feed = function (_Component) {
 
   return Feed;
 }(_react.Component);
+
+Feed.defaultProps = {
+  defaultImage: null,
+  index: true,
+  onExit: function onExit() {
+    console.log('hey there');
+  }
+};
 
 exports.default = Feed;
 
@@ -578,7 +693,6 @@ var Gallery = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         { className: 'feed-gallery' },
@@ -772,7 +886,7 @@ var Index = function (_Component) {
         { className: 'feed-index' },
         _react2.default.createElement(
           'div',
-          { className: 'px2 mt3' },
+          { className: 'px2 flex data-container' },
           this.renderLinks(this.props.images)
         )
       );
@@ -8758,15 +8872,8 @@ module.exports = warning;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],36:[function(require,module,exports){
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
 'use strict';
 /* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -8787,7 +8894,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		var test1 = new String('abc');  // eslint-disable-line
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -8816,7 +8923,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (err) {
+	} catch (e) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -8836,8 +8943,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];

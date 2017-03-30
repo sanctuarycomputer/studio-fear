@@ -14,8 +14,8 @@
     float:right;
     top:0;
     right:0;
-    width:50%;
     overflow: scroll;
+    transition: $duration;
     @media (max-width:$sm) {
       padding-top:25%;
       width:100%;
@@ -24,17 +24,16 @@
     .object-image {
       margin-left: 0%;
       margin-top: 0%;
+      float:right;
+      width:100%;
+
     }
   }
   .object-text-container{
-    visibility: hidden;
-    float:left;
-    position:fixed;
+    color:$black;
     top: 0;
     left:0;
-    margin-left:2rem;
-    z-index:-1;
-    width:45%;
+    margin-left:2.5rem;
     pointer-events: none;
     @media (max-width:$sm) {
       z-index:1;
@@ -46,14 +45,19 @@
     }
     .project-info, .title{
       font-size: 2.5em;
-      font-family: "Miller Ban Lt";
+      position: relative;
       @media (max-width:$sm) {
         font-size: 1.5em;
         padding:1rem;
         position:absolute;
         bottom:0;
-        background-color:white;
       }
+    }
+    .title{
+      font-style: normal;
+      border-bottom: 1px dotted #000032;
+      display: inline-block;
+      line-height: 0.85;
     }
   }
 }

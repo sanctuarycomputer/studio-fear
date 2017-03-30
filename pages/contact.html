@@ -12,35 +12,36 @@
 {# This sets our page <title>. It will append this contact's name to the site title defined in base.html #}
 {% block title %}{% parent %} - {{ cms.contact.name }}{% endblock %}
 {% block content %}
+
 {% set config = {hideFilter: true} %}
-{% include "templates/partials/menu.html" %}
-<div class="about flex millerbannerlight fade-when-menu-active">
-  <div class="joeldown name-text-about xs-hide  pt3 inline-block">
-    <p class="pb2">{{ cms.contact.name }}</p>
+<div class="about bwimage flex millerbannerlight">
+  <div class="joeldown name-text-about xs-hide pt3 inline-block" >
+    <p class="mb2 millerbannerlight about-title">{{ cms.contact.name }}</p>
     <p class="pt1">{{ cms.contact.info_about_jowl|markdown }}</p>
   </div>
   <div class="profile-pic-gallery pt3">
     <p class="pb2 mobile-info center pt4 sm-hide md-hide lg-hide">{{ cms.contact.name }}</p>
     <a href="{{ cms.contact.link_out }}" target="_blank">
       {% for image in cms.contact.pictures_of_jowl %}
-        <img class="profile-pic bwimage fit" src="{{ image.url }}"/>
+        <img class="profile-pic fit" src="{{ image|imageSize(700, 'auto') }}"/>
       {% endfor %}
     </a>
     <div class= "mobile-info">
       <p class="pt1 sm-hide md-hide lg-hide">{{ cms.contact.info_about_jowl|markdown }}</p>
     </div>
     <div class="contact-info ">
-      <p class="underline py1">Contact:</p>
+      <p class="millerbannerlight about-title my1">Contact:</p>
       <p>{{ cms.contact.email }}</p>
       <p>{{ cms.contact.phone_number }}</p>
+      <p>{{ cms.contact.phone_number_2 }}</p>
       {% for item in cms.contact.social_media %}
         <a class="text-decoration-none" href="{{ item.link }}" target="_blank">
          <p>{{ item.social_network }}</p>
         </a>
       {% endfor %}
     </div>
-    <div class="features mb1">
-      <p class="underline py1">Features:</p>
+    <div class="features pt1 mb1">
+      <p class="millerbannerlight about-title my1">Features:</p>
       {% for item in cms.contact.features %}
         <a class="text-decoration-none" href="{{ item.website }}" target="_blank">
           <p>{{ item.name_of_publication }}</p>
@@ -49,5 +50,6 @@
     </div>
   </div>
 </div>
+{% include "templates/partials/menu.html" %}
 {% include "templates/partials/screensaver.html" %}
 {% endblock %}

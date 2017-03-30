@@ -1,6 +1,10 @@
 
 @import 'mixin';
 @import 'global/colors';
+@import 'global/texthover';
+@import 'global/transitionduration';
+@import 'global/links';
+
 @import 'utilities/fonts';
 @import 'utilities/breakpoints';
 @import 'utilities/imgFilter';
@@ -33,14 +37,14 @@ html {
 
 img {
   opacity: 0;
-  transition: 1s opacity ease-in-out;
+  transition: .5s opacity ease-in-out;
   &.loaded {
     opacity: 1;
   }
 }
 
 .fade-when-menu-active {
-  transition: 350ms opacity ease-in-out;
+  transition: $durationopacity;
   opacity: 1;
   &.menu-active {
     opacity: 0.7;

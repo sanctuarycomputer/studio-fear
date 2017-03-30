@@ -12,14 +12,14 @@ window.onload = function() {
 }
 
 $(document).ready(function (){
-  document.getElementById('lightbox') && lightbox();
+  document.getElementById('projects') && lightbox();
   menu();
 
   const isHomepage = location.pathname === "/";
   if (isHomepage) {
     setTimeout(() => scrollTo(0,0), 100);
     $('.title').removeClass('is-active');
-    //pageScroll();
+    // pageScroll();
     work();
   }
 
@@ -27,7 +27,7 @@ $(document).ready(function (){
   filters();
   feedScroll();
   preloadImages();
-  screenSaver();
+  //screenSaver();
   reactFeedInitialize();
 
   /* Setup Left Nav Links */
@@ -42,76 +42,121 @@ const reactFeedInitialize = () => {
   }
 };
 
-function objectScroll() {
+const objectScroll = () => {
   var bottoms = document.getElementsByClassName('gallery-bottom');
   var tops = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
+  let title = document.getElementById('static-title');
+  let titleMobile = document.getElementById('static-title-mobile');
+  let text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
-  let handlerTop = (i, direction) => {
-    $(textContainers).css("visibility", "hidden");
+  let handlerTop = (i, data, direction) => {
+    // title.innerHTML = data.title;
+    // text.innerHTML = data.text;
+    // titleMobile.innerHTML = data.text;
     if (direction === "down") {
-      $(textContainers[i]).css("visibility", "visible");
-    } else {
-      if (i === 0) {
-        $(textContainers[i]).css("visibility", "visible");
-      } else {
-        $(textContainers[i-1]).css("visibility", "visible");
-        $(textContainers[i]).css("visibility", "hidden");
-      }
+      title.innerHTML = data.title;
+      text.innerHTML = data.text;
+      titleMobile.innerHTML = data.text;
     }
   };
   _.forEach(tops, (element, i) => {
     new Waypoint({
       element: element,
-      handler: handlerTop.bind(this, i),
+      handler: handlerTop.bind(this, i, element.dataset),
       group: 'gallery tops',
     });
   });
 }
 
+function handleExit() {
+  const feedElement = document.getElementById('react-project');
+  document.getElementById('projects').style.display = 'flex';
+  ReactDOM.unmountComponentAtNode(feedElement);
+}
+
 function lightbox(){
   var projectpics = document.getElementsByClassName('project-images');
   var i;
-  var lightbox = document.getElementById('lightbox');
-  var lightboxExit = document.getElementById('exit');
+  let hero = document.querySelector('.feed-hero-image')
   for(var i = 0; i < projectpics.length; i++) {
-    projectpics[i].addEventListener("click", function (){
-      lightbox.style.opacity = 1;
-      lightbox.style.zIndex = 10;
+    projectpics[i].addEventListener("click", function (e){
+      const feedElement = document.getElementById('react-project');
+      const image = JSON.parse(e.target.dataset.image);
+
+      if (feedElement) {
+        document.getElementById('projects').style.display = 'none';
+        ReactDOM.render(
+          <Feed
+            images={JSON.parse(feedElement.dataset.images)}
+            index={false}
+            defaultImage={image}
+            onExit={handleExit}
+          />,
+        feedElement);
+      }
     });
   }
-  lightboxExit.addEventListener("click", function (){
-    lightbox.style.opacity = 0;
-    lightbox.style.zIndex = -10;
-  });
 }
 
 function filters() {
   var filterObject = document.getElementsByClassName('individual-filter');
-  for(var i = 0; i < filterObject.length; i++) {
-    filterObject[i].addEventListener('click', (e) => {
-      var filter = e.target.dataset.filter;
-      var images = document.querySelectorAll('.image');
-      var filteredImages = document.getElementsByClassName(filter);
-      for(var i = 0; i < images.length; i++) {
-        images[i].style.display = "none";
-      }
-      for(var i = 0; i < filteredImages.length; i++) {
-        filteredImages[i].style.display = "flex";
-      }
-    });
+  linkFunctions();
+  function linkFunctions(){
+    for(var i = 0; i < filterObject.length; i++) {
+      filterObject[i].addEventListener('click', (e) => {
+        let clickedItemIsCurrentlyActive = e.target.classList.contains('active');
+        linkState(e.target, clickedItemIsCurrentlyActive);
+
+        let currentlyActiveFilters = $(e.target).parent().children('.active').map((i, e) => e.dataset.filter);
+        var filter = e.target.dataset.filter;
+        var images = document.querySelectorAll('.content-container');
+        for (let i = 0; i < images.length; i++) {
+          let image = images[i];
+          if (currentlyActiveFilters.length === 0) {
+            image.style.display = "flex";
+          } else {
+            let imageConsideredActive = _.some(currentlyActiveFilters, c => image.classList.contains(c));
+            if (imageConsideredActive){
+              image.style.display = "flex";
+            } else {
+              image.style.display = "none";
+            }
+          }
+        }
+      });
+    }
+  }
+  function linkState(clicked, forceOff=false){
+    for(var i = 0; i < filterObject.length; i++) {
+      filterObject[i].classList.remove('active');
+    }
+    if (!forceOff) {
+      clicked.classList.add('active');
+    }
   }
 }
 
 function screenSaver(){
-  var s_saver;
+  let s_saver;
+  let $mq = $('.marquee');
   $('body').mousemove(function() {
     clearTimeout(s_saver);
     s_saver = setTimeout(function(){
-      $('#screensaver').css('opacity', '1');
-      $('#screensaver').css('z-index', '100');
-    }, 120000);
-    $('#screensaver').css('opacity', '0');
-    $('#screensaver').css('z-index', '-100');
+      displayMq();
+    }, 60000);
+    destroyMq();
   });
+
+  function destroyMq() {
+    $mq.marquee('destroy');
+    $('#screensaver').css('display', 'none');
+  }
+  function displayMq() {
+    $('#screensaver').css('display', 'block');
+    $('.marquee').marquee({
+      duplicated: true,
+      delayBeforeStart: 0
+    });
+  }
 }

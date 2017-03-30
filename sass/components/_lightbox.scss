@@ -10,8 +10,10 @@
   @media (max-width:$md) {
     background-color:white;
   }
-  .exit{
+  #exit{
     position: fixed;
+    display:block !important;
+    top:0;
   }
     .feed-hero-container{
       background-color: white;

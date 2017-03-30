@@ -16,7 +16,6 @@ export default class Gallery extends Component {
   }
 
   render() {
-
     return (
       <div className='feed-gallery'>
         <GalleryImage {...this.props.hero}/>
