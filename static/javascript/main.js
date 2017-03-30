@@ -419,16 +419,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-  var rightcol = $(".right-container");
-  // let leftcol  = $(".left-container");
+  var rightcol = $(".double-columns .right-container");
+  var leftcol = $(".double-columns .left-container");
 
-  // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
-  // $(document).scroll(function() {
-  // 	leftcol.css('transform', 'translateY('+ $(this).scrollTop() * 1 +'px)');
-  // });
+  leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
+  $(document).scroll(function () {
+    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
+  });
 
   var initialRightChildren = rightcol.children();
-  // const initialLeftChildren = leftcol.children();
+  var initialLeftChildren = leftcol.children();
 
   function paginate() {
     var newRightChildren = initialRightChildren.clone();
@@ -437,16 +437,14 @@ exports.default = function () {
     new Waypoint({
       element: newRightChildren[0],
       handler: function handler() {
-        console.log('im new handler');
-
         this.destroy();
         paginate();
       }
     });
 
-    // let newLeftChildren = initialLeftChildren.clone();
-    // $(newLeftChildren).appendTo(leftcol);
-    // leftcol.css("margin-top",  `-${leftcol.height() + $(window).height()*0.1}px`);
+    var newLeftChildren = initialLeftChildren.clone();
+    $(newLeftChildren).appendTo(leftcol);
+    leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
   }
 
   new Waypoint({
@@ -8790,8 +8788,15 @@ module.exports = warning;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],36:[function(require,module,exports){
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
 'use strict';
 /* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -8812,7 +8817,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -8841,7 +8846,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (e) {
+	} catch (err) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -8861,8 +8866,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];
