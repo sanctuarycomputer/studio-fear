@@ -62,6 +62,7 @@
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-postcss": "^0.8.0",
+    "jquery.waitforimages": "^2.2.0",
     "pixrem": "^3.0.2"
   }
 }

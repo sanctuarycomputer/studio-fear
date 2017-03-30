@@ -57,21 +57,31 @@
     }
   }
   .left-container{
+    transform: translateZ(0);
     position: fixed;
     z-index: 0;
     width: 50vw;
+    opacity: 1;
     @media (max-width:$sm) {
       display:none;
     }
+    &.loading {
+      opacity: 0;
+    }
   }
   .right-container{
+    transform: translateZ(0);
     margin-top:100vh;
     z-index: 0;
     width: 50vw;
     overflow: hidden;
+    opacity: 1;
     @media (max-width:$sm) {
       width: 100vw;
       overflow: visible;
+    }
+    &.loading {
+      opacity: 0;
     }
   }
   a  {

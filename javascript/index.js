@@ -17,10 +17,11 @@ $(document).ready(function (){
 
   const isHomepage = location.pathname === "/";
   if (isHomepage) {
-    setTimeout(() => scrollTo(0,0), 100);
-    $('.title').removeClass('is-active');
-    // pageScroll();
-    work();
+    setTimeout(() => {
+      scrollTo(0,0);
+      $('body').css({ overflow: 'hidden' });
+      $('.index-page').waitForImages(work);
+    }, 10);
   }
 
   objectScroll();

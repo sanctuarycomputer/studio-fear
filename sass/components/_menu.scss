@@ -37,7 +37,7 @@
         font-family: $exiloutline;
         height:100%;
         opacity:0;
-        transition: $duration;
+        transition: $menu-duration;
         overflow-x: hidden;
         align-items: center;
         align-content: space-between;
@@ -53,6 +53,7 @@
           width:100%;
         }
         &.is-active{
+          transition: $menu-duration;
           width:100%;
           opacity:1;
           @media (max-width:$sm) {

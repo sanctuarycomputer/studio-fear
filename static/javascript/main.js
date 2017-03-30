@@ -44,11 +44,10 @@ $(document).ready(function () {
   var isHomepage = location.pathname === "/";
   if (isHomepage) {
     setTimeout(function () {
-      return scrollTo(0, 0);
-    }, 100);
-    $('.title').removeClass('is-active');
-    // pageScroll();
-    (0, _work2.default)();
+      scrollTo(0, 0);
+      $('body').css({ overflow: 'hidden' });
+      $('.index-page').waitForImages(_work2.default);
+    }, 10);
   }
 
   objectScroll();
@@ -474,9 +473,24 @@ exports.default = function () {
   var leftcol = $(".double-columns.big .left-container");
 
   leftcol.css("margin-top", "-" + (leftcol.height() + $(window).height() * 0.1) + "px");
-  $(document).scroll(function () {
-    leftcol.css('transform', 'translateY(' + $(this).scrollTop() * 1 + 'px)');
-  });
+
+  $('.title').removeClass('is-active');
+
+  var scroll = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame ||
+  // IE Fallback, you can even fallback to onscroll
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+  function loop() {
+    leftcol.css('transform', 'translateY(' + $(document).scrollTop() * 1 + 'px) translateZ(0)');
+    scroll(loop);
+  }
+  loop();
+
+  rightcol.removeClass('is-loading');
+  leftcol.removeClass('is-loading');
+  $('body').css({ overflow: 'auto' });
 
   var initialRightChildren = rightcol.children();
   var initialLeftChildren = leftcol.children();
