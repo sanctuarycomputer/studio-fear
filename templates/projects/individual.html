@@ -23,6 +23,38 @@
     <div class="title-container-mobile">
       <p class= "project-title center mb3 mt4 millerbannerlight sm-hide md-hide lg-hide"> {{ item.name }}</p>
     </div>
+
+    {% if item.video_1_url %}
+      <div class='video-iframe mb1'>
+        <iframe src="{{item.video_1_url}}"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen>
+        </iframe>
+      </div>
+    {% endif %}
+    {% if item.video_2_url %}
+      <div class='video-iframe mb1'>
+        <iframe src="{{item.video_2_url}}"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen>
+        </iframe>
+      </div>
+    {% endif %}
+    {% if item.video_3_url %}
+      <div class='video-iframe mb1'>
+        <iframe src="{{item.video_3_url}}"
+                frameborder="0"
+                webkitallowfullscreen
+                mozallowfullscreen
+                allowfullscreen>
+        </iframe>
+      </div>
+    {% endif %}
+
     {% for row in item.projectgallery %}
       <img class="project-images" src="{{ row.image.url }}" data-image='{{row  | json}}'/>
     {% endfor %}
@@ -31,12 +63,8 @@
     </div>
   </div>
 </div>
+
 <div id='react-project' data-images='{{ item.projectgallery | json }}'></div>
-<!-- <a class="xs-hide" href="/">{% include "templates/partials/exit-button.html" %}</a>
-<div class="feed" id="lightbox">
-  <div class="index-button" id="exit">{% include "templates/partials/exit-button.html" %}</div>
-  {% include "templates/partials/feed-gallery.html" with config %}
-</div> -->
 
 {% include "templates/partials/menu.html" with config %}
 {% include "templates/partials/screensaver.html" %}

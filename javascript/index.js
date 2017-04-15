@@ -43,22 +43,17 @@ const reactFeedInitialize = () => {
 };
 
 const objectScroll = () => {
-  var bottoms = document.getElementsByClassName('gallery-bottom');
-  var tops = document.getElementsByClassName('object-gallery');
+  var bottoms        = document.getElementsByClassName('gallery-bottom');
+  var tops           = document.getElementsByClassName('object-gallery');
   var textContainers = document.getElementsByClassName('object-text-container');
-  let title = document.getElementById('static-title');
-  let titleMobile = document.getElementById('static-title-mobile');
-  let text = document.getElementById('static-text');
+  let title          = document.getElementById('static-title');
+  let titleMobile    = document.getElementById('static-title-mobile');
+  let text           = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
   let handlerTop = (i, data, direction) => {
-    // title.innerHTML = data.title;
-    // text.innerHTML = data.text;
-    // titleMobile.innerHTML = data.text;
-    if (direction === "down") {
-      title.innerHTML = data.title;
-      text.innerHTML = data.text;
-      titleMobile.innerHTML = data.text;
-    }
+    title.innerHTML = data.title;
+    text.innerHTML = data.text;
+    titleMobile.innerHTML = data.text;
   };
   _.forEach(tops, (element, i) => {
     new Waypoint({

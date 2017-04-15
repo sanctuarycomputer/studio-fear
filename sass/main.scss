@@ -16,6 +16,7 @@
 @import 'components/exit-button';
 @import 'components/joeldown';
 @import 'components/profile-pic';
+@import 'components/video-iframe';
 
 @import 'routes/about';
 @import 'routes/errorpage';
@@ -49,4 +50,8 @@ img {
   &.menu-active {
     opacity: 0.7;
   }
+}
+
+.pointer {
+  cursor: pointer;
 }

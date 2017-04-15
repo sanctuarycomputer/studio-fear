@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import Index from './Index';
 import Gallery from './Gallery';
 
+function cleanArray(actual) {
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i]) {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
+
 class Feed extends Component {
 
   constructor(props) {
@@ -60,12 +70,13 @@ class Feed extends Component {
   render() {
     const { activeImage, indexVisible } = this.state;
     const { defaultImage, images, index } = this.props;
+    let cleanedImages = cleanArray(images);
     return (
       <div className='feed feed-page fade-when-menu-active'>
         {this._renderButton(index, indexVisible)}
         {indexVisible ?
-          <Index images={images} handleChangeImage={this.handleChangeImage}/> :
-          <Gallery images={images} hero={activeImage} handleChangeImage={this.handleChangeImage}/>
+          <Index images={cleanedImages} handleChangeImage={this.handleChangeImage}/> :
+          <Gallery images={cleanedImages} hero={activeImage} handleChangeImage={this.handleChangeImage}/>
         }
       </div>
     );

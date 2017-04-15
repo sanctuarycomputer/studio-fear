@@ -79,14 +79,9 @@ var objectScroll = function objectScroll() {
   var text = document.getElementById('static-text');
   $(textContainers[0]).css("visibility", "visible");
   var handlerTop = function handlerTop(i, data, direction) {
-    // title.innerHTML = data.title;
-    // text.innerHTML = data.text;
-    // titleMobile.innerHTML = data.text;
-    if (direction === "down") {
-      title.innerHTML = data.title;
-      text.innerHTML = data.text;
-      titleMobile.innerHTML = data.text;
-    }
+    title.innerHTML = data.title;
+    text.innerHTML = data.text;
+    titleMobile.innerHTML = data.text;
   };
   _lodash2.default.forEach(tops, function (element, i) {
     new Waypoint({
@@ -536,6 +531,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function cleanArray(actual) {
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i]) {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
+
 var Feed = function (_Component) {
   _inherits(Feed, _Component);
 
@@ -614,11 +619,12 @@ var Feed = function (_Component) {
           images = _props.images,
           index = _props.index;
 
+      var cleanedImages = cleanArray(images);
       return _react2.default.createElement(
         'div',
         { className: 'feed feed-page fade-when-menu-active' },
         this._renderButton(index, indexVisible),
-        indexVisible ? _react2.default.createElement(_Index2.default, { images: images, handleChangeImage: this.handleChangeImage }) : _react2.default.createElement(_Gallery2.default, { images: images, hero: activeImage, handleChangeImage: this.handleChangeImage })
+        indexVisible ? _react2.default.createElement(_Index2.default, { images: cleanedImages, handleChangeImage: this.handleChangeImage }) : _react2.default.createElement(_Gallery2.default, { images: cleanedImages, hero: activeImage, handleChangeImage: this.handleChangeImage })
       );
     }
   }]);
@@ -942,13 +948,13 @@ var IndexLink = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         "a",
-        { className: "text-decoration-none feed-links", onClick: this.handleClick },
+        { className: "pointer text-decoration-none feed-links", onClick: this.handleClick },
         _react2.default.createElement(
           "div",
-          { className: "block image-data pt1 flex col-12 justify-between " },
+          { className: "block image-data pt1 flex col-12 justify-between" },
           _react2.default.createElement(
             "div",
-            { className: "inline-block exil image-title" },
+            { className: "nowrap inline-block exil image-title" },
             this.props.image.image_title
           ),
           _react2.default.createElement(
